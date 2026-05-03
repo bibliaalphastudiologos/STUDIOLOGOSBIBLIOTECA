@@ -52,6 +52,26 @@ export enum OperationType {
   WRITE = 'write',
 }
 
+export interface BookFilters {
+  search: string;
+  category: 'Todos' | 'Teologia' | 'Filosofia' | 'Psicanálise';
+  sortBy: 'relevance' | 'title' | 'author' | 'year' | 'downloads';
+  author: string;
+  language: string;
+  yearFrom: number | null;
+  yearTo: number | null;
+  onlyFree: boolean;
+}
+
+export interface ReadingStats {
+  totalBooksRead: number;
+  totalReadingTime: number;
+  currentStreak: number;
+  longestStreak: number;
+  favoriteCategory: string;
+  lastReadDate: any;
+}
+
 export interface FirestoreErrorInfo {
   error: string;
   operationType: OperationType;

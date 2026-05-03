@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, User, LogIn, Crown, BookOpen, ChevronRight } from 'lucide-react';
+import { Menu, X, User, LogIn, Crown, BookOpen, ChevronRight, AlertCircle } from 'lucide-react';
 import { useAuth } from '../lib/AuthContext';
 import { signInWithGoogle, auth } from '../lib/firebase';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'motion/react';
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const { user, profile, isAdmin } = useAuth();
 
   React.useEffect(() => {
@@ -34,6 +36,20 @@ export const Header: React.FC = () => {
         const el = document.getElementById(id);
         el?.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setLoginError(null);
+    setIsLoggingIn(true);
+    try {
+      await signInWithGoogle();
+      setIsOpen(false);
+    } catch (error: any) {
+      console.error('Login error:', error);
+      setLoginError(error.message || 'Erro ao fazer login. Tente novamente.');
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
@@ -81,8 +97,8 @@ export const Header: React.FC = () => {
                  <div className="relative group">
                    <button className="flex items-center space-x-3 group">
                      <div className="w-10 h-10 rounded-full bg-navy/5 border border-navy/10 flex items-center justify-center hover:border-gold transition-colors shadow-inner overflow-hidden">
-                       {profile?.avatar ? (
-                         <img src={profile.avatar} alt="" className="w-full h-full object-cover" />
+                       {profile?.photoURL ? (
+                         <img src={profile.photoURL} alt="" className="w-full h-full object-cover" />
                        ) : (
                          <User className="w-5 h-5 text-navy/40" />
                        )}
@@ -104,10 +120,11 @@ export const Header: React.FC = () => {
                </div>
             ) : (
               <button
-                onClick={signInWithGoogle}
-                className="premium-button text-[10px] px-8 py-3.5 tracking-[0.2em]"
+                onClick={handleGoogleSignIn}
+                disabled={isLoggingIn}
+                className="premium-button text-[10px] px-8 py-3.5 tracking-[0.2em] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                LOGIN ALPHA
+                {isLoggingIn ? 'CONECTANDO...' : 'LOGIN ALPHA'}
               </button>
             )}
             
@@ -119,6 +136,30 @@ export const Header: React.FC = () => {
             </button>
           </div>
         </div>
+
+        {/* Login Error Alert */}
+        <AnimatePresence>
+          {loginError && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="mt-4 p-4 bg-red-50 border border-red-200 rounded-sm flex items-start gap-3"
+            >
+              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-semibold text-red-900">Erro ao conectar</p>
+                <p className="text-sm text-red-700">{loginError}</p>
+              </div>
+              <button
+                onClick={() => setLoginError(null)}
+                className="ml-auto text-red-600 hover:text-red-900"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Mobile Nav */}
@@ -163,13 +204,14 @@ export const Header: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      signInWithGoogle();
+                      handleGoogleSignIn();
                       setIsOpen(false);
                     }}
-                    className="premium-button w-full py-5 flex justify-center items-center space-x-2 text-[10px] tracking-widest font-black"
+                    disabled={isLoggingIn}
+                    className="premium-button w-full py-5 flex justify-center items-center space-x-2 text-[10px] tracking-widest font-black disabled:opacity-50"
                   >
                     <Crown className="w-4 h-4" />
-                    <span>ASSINAR AGORA</span>
+                    <span>{isLoggingIn ? 'CONECTANDO...' : 'ASSINAR AGORA'}</span>
                   </button>
                 )}
               </div>

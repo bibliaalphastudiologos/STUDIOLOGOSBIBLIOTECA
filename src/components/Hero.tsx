@@ -1,11 +1,26 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, BookOpen, Crown, Shield } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowRight, BookOpen, Crown, Shield, AlertCircle, X } from 'lucide-react';
 import { signInWithGoogle } from '../lib/firebase';
 import { useAuth } from '../lib/AuthContext';
 
 export const Hero: React.FC = () => {
   const { user, profile } = useAuth();
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  const handleLoginClick = async () => {
+    setLoginError(null);
+    setIsLoggingIn(true);
+    try {
+      await signInWithGoogle();
+    } catch (error: any) {
+      console.error('Login error:', error);
+      setLoginError(error.message || 'Erro ao fazer login. Tente novamente.');
+    } finally {
+      setIsLoggingIn(false);
+    }
+  };
 
   return (
     <section className="relative overflow-hidden pt-24 pb-32 lg:pt-40 lg:pb-64 bg-[#fafaf9] map-grid">
@@ -71,13 +86,22 @@ export const Hero: React.FC = () => {
                  } else if (user) {
                    window.open('https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed', '_blank');
                  } else {
-                   signInWithGoogle();
+                   handleLoginClick();
                  }
                }}
-               className="premium-button w-full sm:w-auto text-[11px] uppercase tracking-[0.6em] font-black px-20 py-8 flex items-center justify-center group shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] hover:-translate-y-2 transition-all duration-500 sheen-wrapper"
+               disabled={isLoggingIn}
+               className="premium-button w-full sm:w-auto text-[11px] uppercase tracking-[0.6em] font-black px-20 py-8 flex items-center justify-center group shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] hover:-translate-y-2 transition-all duration-500 sheen-wrapper disabled:opacity-50 disabled:cursor-not-allowed"
              >
-               <span>{profile?.status === 'approved' ? 'ABRIR BIBLIOTECA ALPHA' : user ? 'REATIVAR MEMBRESIA' : 'TORNAR-SE ALUNO ALPHA'}</span>
-               <ArrowRight className="w-4 h-4 ml-6 group-hover:translate-x-3 transition-transform duration-500" />
+               <span>
+                 {isLoggingIn 
+                   ? 'CONECTANDO...' 
+                   : profile?.status === 'approved' 
+                   ? 'ABRIR BIBLIOTECA ALPHA' 
+                   : user 
+                   ? 'REATIVAR MEMBRESIA' 
+                   : 'TORNAR-SE ALUNO ALPHA'}
+               </span>
+               {!isLoggingIn && <ArrowRight className="w-4 h-4 ml-6 group-hover:translate-x-3 transition-transform duration-500" />}
              </button>
              <a
                href="#biblioteca"
@@ -86,6 +110,30 @@ export const Hero: React.FC = () => {
                CATÁLOGO DE ESTUDOS
              </a>
           </motion.div>
+
+          {/* Login Error Alert */}
+          <AnimatePresence>
+            {loginError && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="mb-8 p-4 bg-red-50 border border-red-200 rounded-sm flex items-start gap-3 max-w-md w-full"
+              >
+                <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-red-900">Erro ao conectar</p>
+                  <p className="text-sm text-red-700">{loginError}</p>
+                </div>
+                <button
+                  onClick={() => setLoginError(null)}
+                  className="text-red-600 hover:text-red-900 flex-shrink-0"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Expert Segments */}
           <motion.div 
@@ -97,7 +145,7 @@ export const Hero: React.FC = () => {
             {[
               { label: 'TEOLOGIA', icon: Shield },
               { label: 'FILOSOFIA', icon: BookOpen },
-              { label: 'PSICOLOGIA', icon: Crown }
+              { label: 'PSICANÁLISE', icon: Crown }
             ].map((topic, i) => (
               <div key={topic.label} className="group flex flex-col items-center">
                 <topic.icon className="w-5 h-5 text-gold opacity-30 group-hover:opacity-100 transition-opacity mb-4" />

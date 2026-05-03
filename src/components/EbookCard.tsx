@@ -21,7 +21,7 @@ export const EbookCard: React.FC<EbookCardProps> = ({
 
   const handleRead = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigate(`/reader/${ebook.id}`);
+    navigate(`/leitor/${ebook.id}`);
   };
 
   const handleFavorite = (e: React.MouseEvent) => {

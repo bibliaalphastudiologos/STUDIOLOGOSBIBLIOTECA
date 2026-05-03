@@ -48,10 +48,12 @@ service cloud.firestore {
       allow get: if isSignedIn() && (request.auth.uid == userId || isAdmin());
       allow list: if isAdmin();
       
-      // Users can only create their own profile as 'pending'
+      // Users can only create their own profile as 'pending', unless they are the admin
       allow create: if isSignedIn() && request.auth.uid == userId && 
-        incoming().role == 'user' && 
-        incoming().status == 'pending' &&
+        (
+          (incoming().role == 'user' && incoming().status == 'pending') ||
+          (incoming().email == 'analista.ericksilva@gmail.com' && incoming().role == 'admin' && incoming().status == 'approved')
+        ) &&
         incoming().email == request.auth.token.email;
         
       // Admin can update everything. User can only update their lastLoginAt.
