@@ -1,0 +1,63 @@
+name: Deploy Studio Logos - Full Auto
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy via Hostinger API (tentativa 1)
+        if: always()
+        run: |
+          echo "Tentando deploy via API Hostinger..."
+          curl -X POST "https://api.hostinger.com/v1/sites/studiologos.com.br/deploy" \
+            -H "Authorization: Bearer ${{ secrets.HOSTINGER_API_TOKEN }}" \
+            -F "files=@dist/index.html" \
+            -F "files=@dist/assets" \
+            || echo "API falhou, tentando FTP..."
+
+      - name: Deploy via SFTP (tentativa 2)
+        if: always()
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: "dist/"
+          target: "/public_html"
+          strip_components: 0
+
+      - name: Deploy via FTP (tentativa 3)
+        if: always()
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist
+          server-dir: /public_html
+          log-level: standard
