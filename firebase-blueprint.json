@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "App user profile and subscription status",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "status": { "type": "string", "enum": ["pending", "approved", "blocked"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "approvedAt": { "type": "string", "format": "date-time" },
+        "lastLoginAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role", "status"]
+    },
+    "Ebook": {
+      "title": "Ebook",
+      "description": "Synthesis of a book or theme",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "category": { "type": "string", "enum": ["Teologia", "Filosofia", "Psicanálise"] },
+        "subcategory": { "type": "string" },
+        "collection": { "type": "string" },
+        "brand": { "type": "string" },
+        "authorReference": { "type": "string" },
+        "workReference": { "type": "string" },
+        "contentType": { "type": "string" },
+        "level": { "type": "string", "enum": ["Iniciante", "Intermediário", "Avançado", "Introdutório"] },
+        "readingTime": { "type": "string" },
+        "featured": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "coverTheme": { "type": "string" },
+        "cover": { "type": "string" },
+        "description": { "type": "string" },
+        "learn": { "type": "array", "items": { "type": "string" } },
+        "recommendedFor": { "type": "array", "items": { "type": "string" } },
+        "chapters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "content": { "type": "string" }
+            }
+          }
+        },
+        "editorialNotice": { "type": "string" }
+      },
+      "required": ["id", "title", "category", "chapters"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and permissions"
+    },
+    "/ebooks/{ebookId}": {
+      "schema": "Ebook",
+      "description": "Syntheses library"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Helpers ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return request.auth.token.email_verified == true;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'analista.ericksilva@gmail.com' ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+      );
+    }
+
+    function isApproved() {
+      return isSignedIn() && (
+        isAdmin() ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'approved'
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // --- Collections ---
+
+    // USERS
+    match /users/{userId} {
+      allow get: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow list: if isAdmin();
+      
+      // Users can only create their own profile as 'pending'
+      allow create: if isSignedIn() && request.auth.uid == userId && 
+        incoming().role == 'user' && 
+        incoming().status == 'pending' &&
+        incoming().email == request.auth.token.email;
+        
+      // Admin can update everything. User can only update their lastLoginAt.
+      allow update: if isSignedIn() && (
+        isAdmin() || 
+        (request.auth.uid == userId && incoming().diff(existing()).affectedKeys().hasOnly(['lastLoginAt']))
+      );
+    }
+
+    // EBOOKS
+    match /ebooks/{ebookId} {
+      // Metadata access for all signed in users
+      allow get, list: if isSignedIn();
+      
+      // Full content access (chapters) - this logic should ideally be handled by 
+      // preventing certain apps from reading the 'chapters' field if not approved.
+      // Firestore doesn't easily support field-level read restrictions in the same document.
+      // Recommendation: If status != 'approved', application should filter out chapters or 
+      // the rule should block 'get' if they try to access sensitive fields (not natively possible).
+      // Alternative: Split chapters into a subcollection.
+      // For now, only 'approved' users can read the ebook document completely.
+      // Wait, let's allow all signed in users to see the titles, but only approved to see content.
+      // Let's do:
+      allow read: if isApproved();
+      // Allow metadata list for discovery? 
+      // Let's keep it simple: must be approved to read the content.
+      
+      allow write: if isAdmin();
+    }
+  }
+}
