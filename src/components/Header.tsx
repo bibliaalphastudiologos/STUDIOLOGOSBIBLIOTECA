@@ -91,7 +91,7 @@ export const Header: React.FC = () => {
             {navItems.map((item) => (
               <a
                 key={item.name}
-                href={item.hash ? `/#${item.hash}` : item.path}
+                href={item.hash ? `/#${item.hash}` : `/#${item.path === '/' ? '' : item.path}`}
                 onClick={(e) => handleNavClick(e, item.path, item.hash)}
                 className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/60 hover:text-navy transition-all relative group cursor-pointer"
               >
@@ -190,7 +190,7 @@ export const Header: React.FC = () => {
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.name}
-                  href={item.hash ? `/#${item.hash}` : item.path}
+                  href={item.hash ? `/#${item.hash}` : `/#${item.path === '/' ? '' : item.path}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
