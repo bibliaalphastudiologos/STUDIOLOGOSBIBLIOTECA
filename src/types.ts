@@ -138,3 +138,22 @@ export interface FirestoreErrorInfo {
     isAnonymous?: boolean | null;
   };
 }
+
+// BookFilters for EbookFilters component
+export interface BookFilters {
+  category?: string;
+  subcategory?: string;
+  level?: string;
+  searchTerm?: string;
+  search?: string;
+  minReadingTime?: number;
+  maxReadingTime?: number;
+  contentType?: string;
+  tags?: string[];
+  sortBy?: string;
+  onlyFree?: boolean;
+  author?: string;
+  language?: string;
+  yearFrom?: number;
+  yearTo?: number;
+}

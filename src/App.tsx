@@ -38,6 +38,7 @@ const HomePage: React.FC = () => {
   const [filter, setFilter] = useState<'Todos' | 'Teologia' | 'Filosofia' | 'Psicanálise'>('Todos');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
+  const [contentTypeFilter, setContentTypeFilter] = useState<'all' | 'public_domain' | 'synthesis'>('all');
   const [lastReadEbook, setLastReadEbook] = useState<Ebook | null>(null);
 
   React.useEffect(() => {
@@ -56,12 +57,16 @@ const HomePage: React.FC = () => {
   const filteredEbooks = useMemo(() => {
     return DEMO_EBOOKS.filter(e => {
       const matchesFilter = filter === 'Todos' || e.category === filter;
-      const matchesSearch = e.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                            e.authorReference.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesSearch = !searchTerm || e.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            e.authorReference.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            (e.description || '').toLowerCase().includes(searchTerm.toLowerCase());
       const matchesLetter = !selectedLetter || e.title.startsWith(selectedLetter);
-      return matchesFilter && matchesSearch && matchesLetter;
+      const matchesContentType = contentTypeFilter === 'all' ||
+        (contentTypeFilter === 'public_domain' && e.contentTypeLabel === 'public_domain') ||
+        (contentTypeFilter === 'synthesis' && e.contentTypeLabel !== 'public_domain');
+      return matchesFilter && matchesSearch && matchesLetter && matchesContentType;
     });
-  }, [filter, searchTerm, selectedLetter]);
+  }, [filter, searchTerm, selectedLetter, contentTypeFilter]);
 
   return (
     <div className="min-h-screen bg-background grain">
@@ -295,25 +300,44 @@ const HomePage: React.FC = () => {
                 />
               </div>
 
-              <div className="flex flex-wrap md:flex-nowrap gap-2 bg-white p-2 rounded-sm border border-border shadow-sm">
-                {[
-                  { label: 'TUDO', value: 'Todos', color: 'hover:bg-black hover:shadow-black/20' },
-                  { label: 'TEOLOGIA', value: 'Teologia', color: 'hover:bg-theology hover:shadow-theology/20' },
-                  { label: 'FILOSOFIA', value: 'Filosofia', color: 'hover:bg-philosophy hover:shadow-philosophy/20' },
-                  { label: 'PSICANÁLISE', value: 'Psicanálise', color: 'hover:bg-psicanalise hover:shadow-psicanalise/20' }
-                ].map((cat) => (
-                  <button
-                    key={cat.label}
-                    onClick={() => setFilter(cat.value as any)}
-                    className={`px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black transition-all duration-300 rounded-sm shadow-sm ${
-                      filter === cat.value
-                        ? 'bg-black text-white'
-                        : `text-muted bg-gray-50/50 ${cat.color} hover:text-white hover:-translate-y-0.5`
-                    }`}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
+              <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap md:flex-nowrap gap-2 bg-white p-2 rounded-sm border border-border shadow-sm">
+                  {[
+                    { label: 'TUDO', value: 'Todos', color: 'hover:bg-black hover:shadow-black/20' },
+                    { label: 'TEOLOGIA', value: 'Teologia', color: 'hover:bg-theology hover:shadow-theology/20' },
+                    { label: 'FILOSOFIA', value: 'Filosofia', color: 'hover:bg-philosophy hover:shadow-philosophy/20' },
+                    { label: 'PSICANÁLISE', value: 'Psicanálise', color: 'hover:bg-psicanalise hover:shadow-psicanalise/20' }
+                  ].map((cat) => (
+                    <button
+                      key={cat.label}
+                      onClick={() => { setFilter(cat.value as any); setSelectedLetter(null); document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }); }}
+                      className={`px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black transition-all duration-300 rounded-sm shadow-sm ${
+                        filter === cat.value
+                          ? 'bg-black text-white'
+                          : `text-muted bg-gray-50/50 ${cat.color} hover:text-white hover:-translate-y-0.5`
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex gap-2 bg-white p-2 rounded-sm border border-border shadow-sm">
+                  {[
+                    { label: 'Todos', value: 'all' },
+                    { label: '📜 Domínio Público', value: 'public_domain' },
+                    { label: '✍ Sínteses', value: 'synthesis' },
+                  ].map((ct) => (
+                    <button
+                      key={ct.value}
+                      onClick={() => setContentTypeFilter(ct.value as any)}
+                      className={`px-4 py-2 text-[9px] uppercase tracking-widest font-black rounded-sm transition-all ${
+                        contentTypeFilter === ct.value ? 'bg-navy text-white' : 'text-muted hover:bg-gray-100'
+                      }`}
+                    >
+                      {ct.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
@@ -476,7 +500,7 @@ const HomePage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-sm p-6 text-center border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
-                onClick={() => { setFilter('Todos'); document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }); }}
+                onClick={() => { setFilter('Todos'); setSelectedLetter(null); document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
                 <div className="text-3xl mb-3">{item.icon}</div>
                 <div className="text-[8px] font-black uppercase tracking-widest text-gold mb-1">{item.year}</div>

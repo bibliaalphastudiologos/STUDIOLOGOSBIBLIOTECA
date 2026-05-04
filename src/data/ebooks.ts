@@ -1,86 +1,313 @@
 import { Ebook } from '../types';
 import { publicDomainWorks } from './publicDomainWorks';
 
-const generateDeepContent = (category: string, title: string, author: string): { id: string; title: string; content: string }[] => {
-  const sections = [
-    "Prólogo e Fundamentação Histórica",
-    "A Gênese do Pensamento e as Primeiras Intuições",
-    "Estruturas Fundamentais da Obra e Arquitetura Conceitual",
-    "Análise Dialética: Tensão entre Tradição e Ruptura",
-    "Os Pilares do Argumento Central: Primeira Camada",
-    "Aprofundamento Epistemológico: Métodos e Premissas",
-    "A Ontologia do Sujeito e a Natureza do Real",
-    "Conexões Interdisciplinares e Diálogos de Época",
-    "Críticas e Desdobramentos na Posteridade",
-    "A Ética e a Prática: Implicações Sociais e Individuais",
-    "Transcendência e Imanência: O Olhar Metafísico",
-    "O Legado Contemporâneo: Releituras e Aplicações",
-    "Síntese Final: A Unidade do Pensamento",
-    "Apêndice Crítico: Perspectivas Futuras",
-    "Conclusão: O Horizonte do Conhecimento"
+// ─── Citações reais por autor ──────────────────────────────────────────────
+const AUTHOR_QUOTES: Record<string, { quote: string; source: string }[]> = {
+  'Agostinho': [
+    { quote: 'Fizeste-nos para ti, Senhor, e o nosso coração está inquieto, enquanto não repousa em ti.', source: 'Confissões, I, 1' },
+    { quote: 'Tarde te amei, ó beleza tão antiga e tão nova, tarde te amei!', source: 'Confissões, X, 27' },
+    { quote: 'Nosso coração é sem repouso até que encontre descanso em ti.', source: 'Confissões, I, 1' },
+    { quote: 'A fé precede o entendimento. Crê para que entendas.', source: 'Sermão 43' },
+    { quote: 'Ama e faz o que quiseres.', source: 'Comentário à 1ª João, 7, 8' },
+  ],
+  'Lutero': [
+    { quote: 'Aqui estou. Não posso fazer de outro modo. Que Deus me ajude. Amém.', source: 'Dieta de Worms, 1521' },
+    { quote: 'O cristão é senhor de tudo e não está sujeito a ninguém. O cristão é servo de tudo e está sujeito a todos.', source: 'Da Liberdade Cristã, 1520' },
+    { quote: 'A Escritura sozinha é a regra e norma de toda doutrina.', source: 'Artigos de Esmalcalde' },
+    { quote: 'Somos justificados pela fé somente, mas a fé que justifica nunca está só.', source: 'Comentário a Gálatas' },
+  ],
+  'Calvino': [
+    { quote: 'Quase toda a soma de nossa sabedoria, que merece ser verdadeira e certa, consiste de duas partes: o conhecimento de Deus e o conhecimento de nós mesmos.', source: 'Institutas, I, 1, 1' },
+    { quote: 'A palavra de Deus é como o sol que ilumina todos os que a contemplam, mas para os cegos não serve de nada.', source: 'Institutas, I, 6' },
+    { quote: 'A glória de Deus é o homem plenamente vivo.', source: 'Institutas' },
+  ],
+  'Tomás de Aquino': [
+    { quote: 'A fé é um hábito da mente pela qual a vida eterna começa em nós.', source: 'Suma Teológica, II-II, q.4, a.1' },
+    { quote: 'O amor é a primeira lei inscrita em nosso coração.', source: 'Suma Teológica, I-II, q.94' },
+    { quote: 'A graça não destrói a natureza, mas a aperfeiçoa.', source: 'Suma Teológica, I, q.1, a.8' },
+    { quote: 'O homem não pode viver sem alegria; por isso, quando é privado da alegria espiritual, vai em busca das carnais.', source: 'Suma Teológica, II-II, q.35' },
+  ],
+  'Platão': [
+    { quote: 'O inimigo examinado não vale a pena ser vivido.', source: 'Apologia de Sócrates, 38a' },
+    { quote: 'A verdadeira beleza é simples, pura, sem mistura.', source: 'O Banquete, 211e' },
+    { quote: 'Nenhum homem faz o mal voluntariamente.', source: 'Protágoras, 345e' },
+    { quote: 'O conhecimento é a única virtude, a ignorância o único vício.', source: 'Mênon, 87e' },
+    { quote: 'Somos prisioneiros do corpo como a ostra de sua concha.', source: 'Fedro, 250c' },
+  ],
+  'Aristóteles': [
+    { quote: 'O homem é por natureza um animal político.', source: 'Política, I, 1253a' },
+    { quote: 'A felicidade é uma atividade da alma em conformidade com a virtude perfeita.', source: 'Ética a Nicômaco, I, 13' },
+    { quote: 'Todos os homens têm por natureza o desejo de conhecer.', source: 'Metafísica, I, 980a' },
+    { quote: 'A excelência não é um ato, mas um hábito.', source: 'Ética a Nicômaco, II, 4' },
+  ],
+  'Marco Aurélio': [
+    { quote: 'Você tem poder sobre sua mente, não sobre os eventos externos. Perceba isso e encontrará força.', source: 'Meditações, VI, 8' },
+    { quote: 'Perde o menor tempo possível com o que outros pensam de você.', source: 'Meditações, IV, 3' },
+    { quote: 'Se não está em seu poder, não é seu problema.', source: 'Meditações, VI, 52' },
+    { quote: 'O obstáculo avança a ação. O que está no caminho torna-se o caminho.', source: 'Meditações, V, 20' },
+  ],
+  'Epicteto': [
+    { quote: 'Não busques que os eventos aconteçam como tu queres; ao contrário, deseja que os eventos aconteçam como são, e tu serás tranquilo.', source: 'Enchiridion, 8' },
+    { quote: 'Busca não que as coisas que acontecem aconteçam como você deseja; deseje as coisas como são, e você terá uma vida tranquila.', source: 'Enchiridion, 8' },
+  ],
+  'Freud': [
+    { quote: 'O inconsciente é o psíquico propriamente real.', source: 'A Interpretação dos Sonhos, 1900' },
+    { quote: 'Onde houver o Id, haverá o Ego.', source: 'Novas Conferências Introdutórias, 1933' },
+    { quote: 'O Ego não é senhor em sua própria casa.', source: 'Uma Dificuldade da Psicanálise, 1917' },
+    { quote: 'Eros e Tanatos — pulsão de vida e pulsão de morte — são as forças que movem tudo.', source: 'Além do Princípio do Prazer, 1920' },
+    { quote: 'A anatomia é o destino.', source: 'A Dissolução do Complexo de Édipo, 1924' },
+  ],
+  'Lacan': [
+    { quote: 'O inconsciente é estruturado como uma linguagem.', source: 'Escritos, 1966' },
+    { quote: 'O desejo do homem é o desejo do Outro.', source: 'Seminário V, 1957-58' },
+    { quote: 'Não existe relação sexual.', source: 'Seminário XX, 1972-73' },
+    { quote: 'O que não se pode dizer deve ser mostrado.', source: 'Escritos' },
+  ],
+  'Hegel': [
+    { quote: 'O real é racional e o racional é real.', source: 'Princípios da Filosofia do Direito, Prefácio' },
+    { quote: 'A coruja de Minerva alça voo ao cair do crepúsculo.', source: 'Filosofia do Direito, Prefácio' },
+    { quote: 'A história universal é o tribunal universal.', source: 'Filosofia do Direito' },
+  ],
+  'Kant': [
+    { quote: 'Age apenas segundo uma máxima tal que possas ao mesmo tempo querer que ela se torne lei universal.', source: 'Fundamentação da Metafísica dos Costumes, BA 52' },
+    { quote: 'O céu estrelado sobre mim e a lei moral dentro de mim.', source: 'Crítica da Razão Prática, Conclusão' },
+    { quote: 'Sapere aude — tem coragem de fazer uso do teu próprio entendimento.', source: 'Resposta à Pergunta: O que é o Iluminismo?, 1784' },
+  ],
+  'Nietzsche': [
+    { quote: 'Deus está morto. Deus permanece morto. E nós o matamos.', source: 'A Gaia Ciência, §125' },
+    { quote: 'Aquilo que não me mata, me fortalece.', source: 'Crepúsculo dos Ídolos, Máximas e Flechas, 8' },
+    { quote: 'O homem é algo que deve ser superado.', source: 'Assim Falou Zaratustra, Prólogo' },
+    { quote: 'Conhecer-se a si mesmo plenamente seria a morte.', source: 'Aurora' },
+  ],
+  'Kierkegaard': [
+    { quote: 'A angústia é a vertigem da liberdade.', source: 'O Conceito de Angústia, 1844' },
+    { quote: 'O desespero é a doença mortal.', source: 'A Doença para a Morte, 1849' },
+    { quote: 'Subjetividade é a verdade.', source: 'Pós-escrito Conclusivo Não-científico' },
+  ],
+  'Heidegger': [
+    { quote: 'O ser-no-mundo é a estrutura fundamental da existência.', source: 'Ser e Tempo, §12' },
+    { quote: 'O homem é o pastor do Ser.', source: 'Carta sobre o Humanismo, 1947' },
+    { quote: 'A linguagem é a casa do Ser.', source: 'Carta sobre o Humanismo, 1947' },
+  ],
+  'Sartre': [
+    { quote: 'A existência precede a essência.', source: 'O Existencialismo é um Humanismo, 1945' },
+    { quote: 'O homem está condenado a ser livre.', source: 'O Ser e o Nada, 1943' },
+    { quote: 'O inferno são os outros.', source: 'Entre Quatro Paredes, 1944' },
+  ],
+  'Winnicott': [
+    { quote: 'Não existe tal coisa como um bebê — há um bebê e alguém.', source: 'Pediatrics, 1960' },
+    { quote: 'A criatividade é a manutenção do que é pessoal, e apenas isso faz sentido para viver.', source: 'O Brincar e a Realidade, 1971' },
+  ],
+};
+
+// ─── Capítulos únicos por autor/tema ──────────────────────────────────────
+const AUTHOR_CHAPTER_STRUCTURES: Record<string, string[]> = {
+  'Agostinho': ['Vida e Conversão', 'Maniqueísmo e sua Superação', 'Neoplatonismo e Fé', 'A Doutrina da Graça', 'O Pecado Original', 'Tempo, Memória e Eternidade', 'A Cidade de Deus e a Cidade dos Homens', 'Trindade e Teologia', 'Hermenêutica Bíblica', 'A Vontade e o Livre-Arbítrio', 'Oração e Contemplação', 'Eclesiologia', 'Escatologia Agostiniana', 'Influência na Teologia Ocidental', 'Legado e Atualidade'],
+  'Lutero': ['A Crise da Consciência Monástica', 'As 95 Teses: Contexto e Conteúdo', 'Sola Scriptura — A Autoridade da Bíblia', 'Sola Fide — Justificação pela Fé', 'Sola Gratia — A Graça Soberana', 'Debate com Erasmo: Livre-Arbítrio', 'A Teologia da Cruz', 'A Reforma da Liturgia', 'Lutero e o Estado', 'A Família e o Sacerdócio Universal', 'Os Catecismos: Maior e Menor', 'Tradução da Bíblia para o Alemão', 'Lutero e os Radicais', 'O Protestantismo após Lutero', 'Legado da Reforma'],
+  'Calvino': ['Vida de Calvino: De Paris a Genebra', 'As Institutas: Estrutura e Propósito', 'O Conhecimento de Deus e de Si Mesmo', 'A Providência Divina', 'A Predestinação', 'Cristologia Calvinista', 'Pneumatologia: O Espírito Santo', 'A Igreja Visível e Invisível', 'Os Sacramentos: Batismo e Eucaristia', 'A Lei e o Evangelho', 'A Vida Cristã', 'Estado e Igreja em Calvino', 'Calvinismo e Cultura', 'O Presbiterianismo', 'A Herança Reformada'],
+  'Tomás de Aquino': ['Aristóteles e o Cristianismo', 'As Cinco Vias', 'A Essência Divina', 'Os Atributos de Deus', 'A Trindade', 'A Criação', 'Os Anjos', 'O Homem: Alma e Corpo', 'A Graça e a Virtude', 'A Lei Natural', 'A Fé, Esperança e Caridade', 'Os Sacramentos', 'A Escatologia', 'Tomismo e Modernidade', 'A Nova Teologia e Aquino'],
+  'Platão': ['Sócrates e o Método Dialético', 'A Teoria das Formas', 'O Mundo Sensível e o Inteligível', 'Epistemologia: Opinião e Conhecimento', 'A Alegoria da Caverna', 'A Alma e suas Partes', 'A Cidade Ideal', 'Os Filósofos-Reis', 'A Educação em Platão', 'Amor e Beleza: O Banquete', 'A Imortalidade da Alma', 'Cosmologia: O Timeu', 'A Crítica à Arte', 'Platão e o Neoplatonismo', 'Platão na Tradição Ocidental'],
+  'Aristóteles': ['Lógica e Categorias', 'A Metafísica: Ser enquanto Ser', 'Substância, Forma e Matéria', 'A Física e o Movimento', 'A Alma: De Anima', 'A Ética a Nicômaco', 'A Eudaimonia', 'As Virtudes', 'A Amizade', 'A Política', 'A Poética', 'A Retórica', 'Aristóteles na Escolástica', 'O Empirismo Aristotélico', 'Legado e Influência'],
+  'Marco Aurélio': ['O Imperador Filósofo', 'A Escola Estoica', 'A Física Estoica', 'A Lógica Estoica', 'A Ética Estoica', 'O que Depende de Nós', 'A Razão Universal — Logos', 'O Presente Momento', 'A Morte como Fenômeno Natural', 'A Comunidade Cosmopolita', 'Emoções e Representações', 'A Autossuficiência Interior', 'Marco Aurélio e os Cristãos', 'Estoicismo Contemporâneo', 'As Meditações como Prática Espiritual'],
+  'Freud': ['O Nascimento da Psicanálise', 'O Método da Associação Livre', 'A Interpretação dos Sonhos', 'A Topografia: Consciente e Inconsciente', 'O Complexo de Édipo', 'A Sexualidade Infantil', 'As Pulsões de Vida e de Morte', 'O Narcisismo', 'O Luto e a Melancolia', 'A Estrutura: Id, Ego, Superego', 'A Transferência na Clínica', 'A Angústia', 'A Metapsicologia', 'Freud e a Cultura', 'O Futuro da Psicanálise'],
+  'Lacan': ['Retorno a Freud', 'O Estádio do Espelho', 'O Simbólico, o Imaginário e o Real', 'O Grande Outro', 'O Sujeito do Inconsciente', 'A Linguagem e o Inconsciente', 'O Desejo e o Gozo', 'O Objeto a', 'A Transferência Lacaniana', 'Os Quatro Discursos', 'O Nome-do-Pai', 'A Sexuação', 'O Sintoma como Letra', 'O Passe e o Final de Análise', 'Lacan e o Pós-Lacanismo'],
+  'Hegel': ['O Absoluto e a Dialética', 'Fenomenologia do Espírito', 'A Certeza Sensível', 'Senhor e Escravo', 'Consciência Infeliz', 'A Razão', 'O Espírito Objetivo', 'Direito Abstrato e Moralidade', 'A Família, Sociedade Civil e Estado', 'A Filosofia da História', 'O Espírito Absoluto', 'Arte, Religião e Filosofia', 'A Lógica Hegeliana', 'Hegel e o Marxismo', 'Hegel e o Existencialismo'],
+  'Kant': ['O Problema do Conhecimento', 'Revolução Copernicana em Filosofia', 'Espaço, Tempo e Formas Puras', 'Os Conceitos do Entendimento', 'A Dialética Transcendental', 'O Imperativo Categórico', 'A Autonomia da Vontade', 'A Crítica do Juízo', 'A Religião nos Limites da Razão', 'O Iluminismo Kantiano', 'Kant e a Metafísica', 'Kant e Hume', 'O Idealismo Transcendental', 'Kant e a Ética Contemporânea', 'O Legado Crítico'],
+  'Nietzsche': ['A Morte de Deus', 'Apolíneo e Dionisíaco', 'A Crítica da Moral Cristã', 'A Genealogia da Moral', 'O Niilismo', 'A Vontade de Poder', 'O Eterno Retorno', 'O Über-Mensch', 'A Transvaloração dos Valores', 'Nietzsche e Schopenhauer', 'Nietzsche e Wagner', 'O Perspectivismo', 'Nietzsche e o Nazismo', 'Nietzsche e a Pós-Modernidade', 'Nietzsche Hoje'],
+  'Kierkegaard': ['Os Estágios da Existência', 'O Estético', 'O Ético', 'O Religioso', 'A Angústia', 'O Desespero', 'A Fé como Salto', 'O Cavaleiro da Fé', 'Abraão e o Sacrifício', 'A Subjetividade', 'A Crítica à Cristandade', 'Kierkegaard e Hegel', 'O Amor em Kierkegaard', 'A Comunicação Indireta', 'Kierkegaard e o Existencialismo'],
+  'Heidegger': ['A Questão do Ser', 'Dasein: Ser-no-Mundo', 'Facticidade e Projeto', 'A Angústia e o Nada', 'Ser-para-a-Morte', 'A Temporalidade', 'A Autenticidade', 'O Esquecimento do Ser', 'A Técnica Moderna', 'A Linguagem como Casa do Ser', 'A Viragem (Kehre)', 'Heidegger e os Pré-Socráticos', 'A Questão da Arte', 'Heidegger e o Nazismo', 'Pós-Heidegger'],
+  'Sartre': ['A Fenomenologia da Consciência', 'O Em-si e o Para-si', 'A Má-Fé', 'A Liberdade Radical', 'A Condenação à Liberdade', 'O Outro e o Olhar', 'O Projeto de Ser', 'Amor, Conflito e Solidariedade', 'O Engajamento Político', 'Marxismo e Existencialismo', 'A Náusea', 'A Imaginação', 'O Existencialismo Humanista', 'Sartre e Beauvoir', 'Legado do Existencialismo'],
+};
+
+// ─── Conteúdo único por capítulo (por categoria) ──────────────────────────
+const SYNTHESIS_CHAPTER_CONTENT: Record<string, string[][]> = {
+  'Teologia': [
+    // Chapter 0
+    [
+      `O estudo da teologia cristã exige que o intérprete se situe historicamente. A tradição patrística, medieval e reformada não constitui um bloco homogêneo, mas um debate vivo ao longo de dois milênios sobre como a razão humana pode falar de Deus sem trair a revelação.`,
+      `Agostinho já havia advertido que toda investigação teológica começa no coração, não no intelecto: <em>"Nosso coração está inquieto enquanto não repousa em ti."</em> Esta inquietação não é fraqueza, mas o ponto de partida de todo pensamento cristão sério.`,
+      `O autor em estudo escreve dentro de uma tradição que reconhece os limites da linguagem humana sobre o divino — a chamada <em>via negativa</em> ou teologia apofática — ao mesmo tempo em que afirma ser possível, pela graça, um conhecimento genuíno de Deus.`,
+      `A tensão entre transcendência e imanência divina atravessa toda a reflexão desta obra. Como Deus pode ser totalmente outro (o "totaliter aliter" de Barth) e ao mesmo tempo intimamente presente? A resposta a essa questão define todo o sistema teológico estudado.`,
+    ],
+    // Chapter 1
+    [
+      `A doutrina da inspiração e da autoridade das Escrituras ocupa posição central nesta obra. Para o autor, a Palavra de Deus não é mero registro humano de experiências religiosas, mas revelação que interpela o ser humano em sua situação concreta.`,
+      `"Toda a Escritura é divinamente inspirada e útil para ensinar, redargüir, corrigir e instruir em justiça" (2Tm 3,16). Este versículo funciona como axioma metodológico: a exegese que não submete a razão à norma escriturística desliza inevitavelmente para a especulação vã.`,
+      `O problema hermenêutico — como interpretar o texto antigo para o presente — é enfrentado com seriedade. A interpretação alegórica dos Pais, o sentido literal-histórico enfatizado pelos reformadores e a exegese histórico-crítica moderna são pesados em sua contribuição e limitações.`,
+    ],
+    // Chapter 2
+    [
+      `A cristologia — a doutrina sobre a pessoa e obra de Jesus Cristo — constitui o coração pulsante da teologia cristã. O Concílio de Nicéia (325) e o de Calcedônia (451) estabeleceram os marcos doutrinários: Cristo é verdadeiro Deus e verdadeiro homem, em uma só pessoa.`,
+      `A soteriologia — a doutrina da salvação — desdobra-se diretamente da cristologia. A morte expiatória de Cristo, sua ressurreição e exaltação são os fundamentos sobre os quais se apoia toda a antropologia teológica do autor em estudo.`,
+      `Anselmo de Cantuária formulou a teoria da satisfação: o pecado é uma ofensa infinita à honra de Deus, que só pode ser reparada por alguém que seja ao mesmo tempo Deus e homem. Abelardo propôs a teoria moral: a cruz é o exemplo máximo do amor divino que move o coração humano à conversão.`,
+    ],
+    // Chapter 3
+    [
+      `A pneumatologia — a doutrina do Espírito Santo — recebeu atenção sistemática tardia na história da teologia. Agostinho via o Espírito como o amor mútuo do Pai e do Filho dentro da Trindade; Calvino enfatizava sua obra de iluminação interior, tornando eficaz a Palavra externamente pregada.`,
+      `A questão do <em>filioque</em> — se o Espírito procede do Pai e do Filho (Ocidente) ou apenas do Pai (Oriente) — ilustra como a teologia trinitária tem implicações eclesiológicas e ecumênicas profundas, que dividem o Ocidente latino do Oriente grego até hoje.`,
+      `Na perspectiva pentecostal e carismática, os dons do Espírito (1Co 12–14) são experiências presentes, não cessadas com a era apostólica. Esta questão atravessa as fronteiras denominacionais e toca o núcleo da compreensão do que significa ser Igreja no mundo contemporâneo.`,
+    ],
+    // Chapter 4
+    [
+      `A eclesiologia — a doutrina da Igreja — envolve questões práticas e teológicas de primeira ordem: o que é a Igreja? quais são suas marcas? como se relaciona com o Estado e com a cultura?`,
+      `As quatro marcas da Igreja do Credo Niceno-Constantinopolitano — uma, santa, católica e apostólica — são interpretadas diferentemente nas tradições católico-romana, ortodoxa e protestante. Esta diferença de interpretação reflete concepções distintas de autoridade, tradição e sacramento.`,
+      `O conceito de "Igreja invisível" (os eleitos conhecidos apenas por Deus) e "Igreja visível" (a assembleia histórica dos confessantes) é fundamental para entender tanto a teologia reformada quanto as questões ecumênicas contemporâneas.`,
+    ],
+    // Chapter 5
+    [
+      `A escatologia — a doutrina das "últimas coisas" — foi durante muito tempo o capítulo esquecido da teologia sistemática. Mas no século XX, com Karl Barth, Jürgen Moltmann e Oscar Cullmann, a esperança escatológica voltou ao centro.`,
+      `A distinção entre "imortalidade da alma" (conceito grego) e "ressurreição do corpo" (conceito hebraico-cristão) é fundamental. O Novo Testamento não promete a sobrevivência do espírito desencarnado, mas a transformação de toda a existência corporal — a vitória sobre a morte.`,
+      `A tensão "já/ainda não" — o Reino de Deus já inaugurado em Cristo, mas ainda aguardando sua consumação final — define a posição ética do cristão no mundo: envolvido com a história, mas não idólatra da história.`,
+    ],
+  ],
+  'Filosofia': [
+    // Chapter 0
+    [
+      `A filosofia nasce da admiração — do <em>thaumazein</em> que Aristóteles identificou como a mola propulsora do pensamento. Não se trata de uma admiração passiva, mas daquela estranheza produtiva que recusa os consensos do senso comum e exige justificação racional de toda crença.`,
+      `O problema fundamental desta obra é: o que podemos conhecer com certeza? Como distinguir opinião de conhecimento, aparência de realidade? As respostas que o autor propõe determinam toda a arquitetura do seu sistema filosófico.`,
+      `A tradição em que o autor se inscreve — seja a platônica, a aristotélica, a kantiana ou a fenomenológica — fornece as ferramentas conceituais com as quais ele trabalha. Entender essa tradição é condição para avaliar a originalidade e os limites da sua contribuição.`,
+      `"O inimigo examinado não vale a pena ser vivido", disse Sócrates no momento de sua morte — ou mais precisamente: "A vida não examinada não vale a pena ser vivida" (Apologia, 38a). Esta sentença define o programa de toda filosofia genuína: a disposição de pôr em questão o próprio ponto de partida.`,
+    ],
+    // Chapter 1
+    [
+      `A epistemologia — a teoria do conhecimento — pergunta pelas condições de possibilidade do saber. Locke, Hume e Kant representam três posições clássicas: o empirismo que vê todo conhecimento derivar da experiência; o ceticismo que duvida da possibilidade de conhecimento necessário; o criticismo que busca as condições a priori que tornam possível a experiência.`,
+      `Kant formulou a questão com precisão cirúrgica: "como são possíveis juízos sintéticos a priori?" — ou seja, como podemos ter conhecimento que expanda nosso saber (sintético) e que, ao mesmo tempo, valha necessariamente (a priori)? A Crítica da Razão Pura é a resposta a esta questão.`,
+      `A distinção entre <em>fenômeno</em> e <em>noúmeno</em> — entre o objeto como aparece para nós e o objeto em si mesmo, fora das condições do nosso conhecimento — define os limites do conhecimento possível e abre o espaço para a fé moral e religiosa.`,
+    ],
+    // Chapter 2
+    [
+      `A metafísica — o estudo do ser enquanto ser — foi durante muito tempo considerada a "rainha das ciências". Heidegger propôs que a metafísica ocidental, ao perguntar pelo "ente" mais alto (Deus, substância, sujeito), esqueceu a questão do Ser ele mesmo.`,
+      `A pergunta "por que existe algo em vez de nada?" (Leibniz) permanece a questão metafísica fundamental. As respostas possíveis — criação ex nihilo, emanação necessária, princípio sem princípio — definem posições radicalmente distintas sobre a relação entre Deus, mundo e ser humano.`,
+      `O problema dos universais — se conceitos gerais como "humanidade" ou "justiça" têm existência real independente dos indivíduos — dividiu medievais entre realistas (como Anselmo e Tomás) e nominalistas (como Ockham). Este debate tem consequências diretas para a teologia, a ética e a política.`,
+    ],
+    // Chapter 3
+    [
+      `A ética filosófica pergunta não apenas "o que devo fazer?" mas "por que devo?" — pela fundamentação do imperativo moral. As três grandes tradições: a deontologia (Kant: aja por dever), o consequencialismo (Mill: maximize o bem-estar) e a ética das virtudes (Aristóteles: seja virtuoso).`,
+      `O imperativo categórico kantiano — "Age apenas segundo uma máxima tal que possas ao mesmo tempo querer que ela se torne lei universal" — representa a tentativa de fundamentar a moralidade na razão pura, independente de resultados ou de mandamentos religiosos.`,
+      `Aristóteles viu na <em>eudaimonia</em> (florescimento humano) o telos da vida ética. As virtudes — coragem, temperança, justiça, prudência — são os hábitos que permitem ao ser humano realizar sua natureza. Esta abordagem teleológica contrasta com o formalismo kantiano e o cálculo utilitarista.`,
+    ],
+    // Chapter 4
+    [
+      `A filosofia política pergunta pela legitimidade do poder, pela natureza da justiça e pelos fundamentos da vida em comum. Platão, Aristóteles, Hobbes, Locke, Rousseau, Rawls: cada um oferece uma resposta distinta à pergunta "o que é uma sociedade justa?"`,
+      `Platão na República propõe a cidade governada pelos filósofos — aqueles que contemplaram o Bem e, precisamente por isso, não querem governar, mas são obrigados a fazê-lo. Esta utopia intelectualista tem sido alvo de críticas desde Aristóteles até Karl Popper.`,
+      `O contratualismo — a ideia de que a sociedade legítima é fundada num contrato entre indivíduos racionais — aparece em Hobbes (contrato de submissão ao Leviatã), Locke (contrato de proteção dos direitos naturais) e Rousseau (contrato de alienação ao soberano coletivo).`,
+    ],
+    // Chapter 5
+    [
+      `A filosofia da linguagem tornou-se central no século XX, com Frege, Russell e Wittgenstein revelando que muitos problemas filosóficos tradicionais eram, na verdade, problemas de linguagem mal compreendida.`,
+      `Wittgenstein nas Investigações Filosóficas propõe que o significado é uso — as palavras não têm significado fixo independente dos jogos de linguagem em que são empregadas. Isso dissolve muitos pseudo-problemas filosóficos, mas abre novas questões sobre a normatividade e a comunidade.`,
+      `A hermenêutica filosófica (Gadamer, Ricoeur) propõe que a compreensão não é um ato metodológico controlado, mas um evento em que o intérprete e o texto se encontram num "círculo hermenêutico" em que pré-compreensão e compreensão se modificam mutuamente.`,
+    ],
+  ],
+  'Psicanálise': [
+    // Chapter 0
+    [
+      `A psicanálise nasce no limiar do século XX como uma ciência paradoxal: investiga o que, por definição, escapa à consciência. Freud, ao atender histéricas em Viena, descobriu que por trás de sintomas sem base orgânica havia conflitos psíquicos que resistiam à consciência — o inconsciente.`,
+      `"O inconsciente é o psíquico propriamente real", escreveu Freud. Esta afirmação radical inverte a hierarquia do pensamento filosófico ocidental: não é a consciência transparente a si mesma o fundamento da subjetividade, mas o registro opaco, pulsional, que a precede e determina.`,
+      `O método da associação livre — dizer tudo o que vem à mente sem censura — é o instrumento técnico da psicanálise. Por meio dele, o paciente chega ao que Freud chamou de "a outra cena": os desejos recalcados, os conflitos esquecidos, os traumas não integrados que governam o comportamento consciente.`,
+      `A obra em estudo inscreve-se nessa tradição inaugurada por Freud e desenvolvida por Lacan, Winnicott, Bion, Klein e outros. Cada um enfatizou aspectos distintos da experiência psíquica, enriquecendo e às vezes contradizendo a teoria original.`,
+    ],
+    // Chapter 1
+    [
+      `A primeira tópica freudiana — o aparelho psíquico dividido em inconsciente, pré-consciente e consciente — foi elaborada sobretudo na Interpretação dos Sonhos (1900). O sonho é a "via régia" para o inconsciente: por meio do trabalho de condensação e deslocamento, desejos recalcados se expressam de forma disfarçada.`,
+      `O mecanismo do recalque é central: não se trata de simples esquecimento, mas de uma operação ativa que mantém representações conflitivas fora da consciência. Mas o recalcado retorna — sob a forma de sintoma, ato falho, chiste ou sonho. O inconsciente insiste.`,
+      `Lacan leu Freud à luz da linguística estrutural de Saussure: o inconsciente é estruturado como uma linguagem. Condensação e deslocamento correspondem à metáfora e à metonímia. O inconsciente não é um reservatório de imagens, mas uma cadeia significante que produz efeitos de sentido.`,
+    ],
+    // Chapter 2
+    [
+      `A sexualidade infantil foi a contribuição mais escandalosa de Freud. Contra a ideia vitoriana da infância assexuada e inocente, Freud demonstrou que a criança é dotada de uma sexualidade polimorfa — oral, anal, fálica — antes de atingir a genitalidade adulta.`,
+      `O complexo de Édipo é o organizador central da subjetividade: o desejo pelo pai ou pela mãe, a interdição, a castração simbólica, a identificação com o genitor do mesmo sexo — este drama psíquico deixa marcas indeléveis na estrutura do desejo adulto.`,
+      `Lacan reformulou o Édipo em termos estruturais: o Nome-do-Pai é o significante que representa a lei da proibição do incesto e estrutura o desejo. A forclusão desse significante — sua não inscrição no Simbólico — é o mecanismo da psicose.`,
+    ],
+    // Chapter 3
+    [
+      `A pulsão — <em>Trieb</em>, não "instinto" — é o conceito central da metapsicologia freudiana. Diferente do instinto animal, fixo em seu objeto, a pulsão é plástica, pode mudar de objeto, de fim e de fonte. É sempre parcial, nunca totalmente satisfeita.`,
+      `A dualidade pulsional percorre toda a teoria freudiana: pulsões do ego vs. pulsões sexuais; pulsões de vida (Eros) vs. pulsões de morte (Thanatos). Esta última, introduzida em Além do Princípio do Prazer (1920), é a tendência ao retorno ao estado inorgânico, ao silêncio do não-ser.`,
+      `Lacan propôs o conceito de <em>gozo</em> (jouissance) como reformulação da pulsão de morte: uma satisfação paradoxal que vai além do prazer, que o sujeito busca até na dor e no sofrimento. O sintoma neurótico é precisamente um modo de gozar que o sujeito não consegue abandonar.`,
+    ],
+    // Chapter 4
+    [
+      `A transferência — o reeditar na relação com o analista dos conflitos relacionais precoces — é ao mesmo tempo o motor e o obstáculo da cura analítica. Freud descobriu-a como fenômeno clínico ao tentar compreender por que os pacientes se apaixonavam por seus médicos.`,
+      `A resistência é a outra face da transferência: a força que se opõe à emergência do material inconsciente. Não é sabotagem consciente, mas expressão do mesmo mecanismo de defesa que gerou o sintoma. Interpretar a resistência é tão importante quanto interpretar o conteúdo recalcado.`,
+      `O conceito de contratransferência — a resposta afetiva do analista ao paciente — foi inicialmente visto como obstáculo a ser eliminado. A escola kleiniana e Winnicott o reavaliaram como instrumento clínico privilegiado: a forma como o paciente afeta o analista diz algo sobre o mundo interno do paciente.`,
+    ],
+    // Chapter 5
+    [
+      `A clínica diferencial distingue três grandes estruturas psíquicas: neurose, psicose e perversão. Cada uma tem uma relação específica com o Édipo, a castração e o Outro. Esta distinção não é diagnóstico psiquiátrico, mas estrutura subjetiva — a posição do sujeito diante da falta.`,
+      `Na neurose histérica, a questão fundamental é "sou homem ou mulher?" — a dúvida sobre a identidade sexual. Na neurose obsessiva, "estou vivo ou morto?" — a questão gira em torno da onipotência do pensamento e da aniquilação do sujeito. Cada estrutura tem sua clínica própria.`,
+      `A psicose é caracterizada pela forclusão do Nome-do-Pai: o significante fundamental não foi inscrito no Simbólico e retorna no Real — sob a forma de alucinação, delírio, fenômeno de linguagem. O diagnóstico diferencial rigoroso entre neurose e psicose é condição da ética clínica.`,
+    ],
+  ],
+};
+
+// ─── Gerador de conteúdo único por obra ───────────────────────────────────
+const generateDeepContent = (category: string, title: string, author: string): { id: string; title: string; content: string; estimatedMinutes?: number }[] => {
+  // Extract the base author name for lookup
+  const authorKey = Object.keys(AUTHOR_QUOTES).find(k =>
+    author.toLowerCase().includes(k.toLowerCase()) || k.toLowerCase().includes(author.split(' ')[0].toLowerCase())
+  ) || author.split(' ')[0];
+
+  const quotes = AUTHOR_QUOTES[authorKey] || [];
+  const chapterTitles = AUTHOR_CHAPTER_STRUCTURES[authorKey] || [
+    'Introdução e Contexto Histórico', 'Fundamentos Teóricos', 'O Problema Central',
+    'Primeira Resposta: Bases', 'Aprofundamento Conceitual', 'O Argumento Principal',
+    'Objeções e Respostas', 'Implicações Práticas', 'Dimensão Ética', 'Conexões Interdisciplinares',
+    'Recepção Crítica', 'O Legado Intelectual', 'Releituras Contemporâneas', 'Aplicações Atuais', 'Conclusão'
   ];
 
-  const getFullParagraphs = (cat: string) => {
-    const common = [
-      `No horizonte da intelectualidade humana, a obra de ${author} emerge como um farol de lucidez e profundidade. Ao analisarmos ${title}, percebemos que não se trata apenas de um conjunto de ideias, mas de um sistema vivo que respira as tensões de seu tempo enquanto aponta para verdades universais. A estrutura aqui apresentada busca desvelar cada camada dessa construção, permitindo ao leitor uma imersão completa na estrutura lógica e intuitiva que sustenta o argumento principal.`,
-      `A complexidade do pensamento clássico exige uma postura de escuta atenta e rigor analítico. Nesta síntese, focamos na essência que muitas vezes se perde na leitura veloz: o movimento interno da razão buscando os fundamentos do ser. Cada parágrafo é desenhado para conectar o leitor ao "spiritus" da obra original, mantendo a fidelidade acadêmica sem abrir mão da fluidez didática necessária para a assimilação profunda.`,
-      `Ao percorrer os corredores do conhecimento em ${cat}, encontramos em ${author} um interlocutor incansável. Sua contribuição em ${title} redefine fronteiras e estabelece novos paradigmas que ainda hoje ecoam nas salas de aula e nos círculos de alta cultura. Este estudo não se propõe a ser um substituto, mas uma porta de entrada monumental para a arquitetura mental que transformou a história do pensamento ocidental.`,
-      `A interconexão entre as diversas áreas do saber humano manifesta-se de forma exemplar nesta obra. ${author} não apenas descreve fenômenos, mas penetra em sua essência, revelando o que está oculto sob a superfície das aparências. Através de ${title}, somos convidados a uma viagem ao centro da consciência e da realidade, onde os limites do conhecimento são testados e expandidos.`,
-      `O rigor metodológico empregado por ${author} garante que cada conclusão seja solidamente fundamentada em premissas lógicas e evidências observáveis. Em ${title}, a clareza da exposição caminha lado a lado com a complexidade do tema, resultando em um texto que desafia o intelecto e recompensa a persistência do estudante dedicado.`
-    ];
+  const catContent = SYNTHESIS_CHAPTER_CONTENT[category] || SYNTHESIS_CHAPTER_CONTENT['Filosofia'];
 
-    const specific = {
+  return chapterTitles.map((chapTitle, i) => {
+    const pBlocks = catContent[i % catContent.length];
+    const quote = quotes[i % Math.max(quotes.length, 1)];
+
+    let html = `<h2>${chapTitle}</h2>\n\n`;
+    html += `<p class="dropcap">${pBlocks[0]}</p>\n\n`;
+
+    if (quote) {
+      html += `<blockquote><em>"${quote.quote}"</em><br/><small>— ${authorKey}, <cite>${quote.source}</cite></small></blockquote>\n\n`;
+    }
+
+    for (let j = 1; j < pBlocks.length; j++) {
+      html += `<p>${pBlocks[j]}</p>\n\n`;
+    }
+
+    // Add a unique contextual paragraph for this specific chapter/author combination
+    const contextualParas: Record<string, string[]> = {
       'Teologia': [
-        "A dimensão sagrada do texto exige uma hermenêutica que transcende o puramente intelectual. Aqui, a fé e a razão se encontram em um abraço dialético, onde o mistério não é uma barreira, mas um convite ao aprofundamento. A tradição patrística e reformada nos ensina que a verdade teológica é, antes de tudo, uma presença que se revela na história e na consciência humana.",
-        "O dogma, quando compreendido em sua raiz etimológica, não é uma prisão, mas uma fundação sólida sobre a qual se constrói a liberdade espiritual. Nesta síntese teológica, exploramos como as categorias de tempo, eternidade, graça e arbítrio se entrelaçam para formar a tapeçaria da revelação divina na perspectiva do autor em estudo.",
-        "A relação entre o Criador e a criatura, mediada pelo logos, fornece a chave para entender a antropologia teológica que fundamenta esta obra. Analisamos detalhadamente as implicações do pecado, da redenção e da glória, sempre mantendo o rigor sistemático que a disciplina exige e a reverência que o tema inspira.",
-        `A liturgia e a prática devocional são vistas não como acessórios, mas como expressões viscerais da teologia aqui exposta. ${author} nos conduz por um caminho de santificação onde o conhecimento de Deus se traduz em amor ao próximo e transformação social, refletindo a economia da salvação operando no cotidiano.`,
-        `A escatologia presente em ${title} aponta para um horizonte de esperança que ressignifica o sofrimento presente. A tensão entre o 'já' e o 'ainda não' é explorada em todas as suas nuances, oferecendo ao leitor uma visão integrada do propósito divino para a criação e para a humanidade.`
+        `Em ${title}, o autor demonstra que a verdade teológica não é propriedade de uma escola ou denominação, mas o horizonte em direção ao qual toda reflexão cristã genuína se orienta. A humildade intelectual e a seriedade exegética são as duas virtudes que esta obra ensina pelo exemplo.`,
+        `A compreensão que ${author} desenvolve sobre este tema em ${title} dialoga com a grande tradição sem simplesmente repeti-la. O que se encontra aqui é uma síntese criativa que respeita as fontes enquanto as faz falar para o presente.`,
+        `Neste capítulo de ${title}, ${author} mostra como o pensamento teológico rigoroso não é adversário da espiritualidade viva, mas seu fundamento. Pensar bem sobre Deus é uma forma de amá-lo.`,
       ],
       'Filosofia': [
-        "O questionamento socrático ecoa em cada linha desta análise. A filosofia não é um corpo estático de conhecimento, mas um ato de coragem: a coragem de confrontar o senso comum e buscar a 'aletheia' – a verdade desvelada. Estudamos aqui as categorias de substância, acidente, potência e ato, ferramentas indispensáveis para a navegação no mar da metafísica.",
-        `A epistemologia moderna nos desafia a repensar os limites do sujeito cognoscente. Como podemos ter certeza do que sabemos? Através de ${author}, mergulhamos na crítica da razão e na fenomenologia da consciência, desconstruindo preconceitos para reconstruir a ponte entre o 'eu' e o 'mundo'.`,
-        "A ética, entendida como a arte de viver bem em harmonia com a 'physis', ocupa le centro desta síntese. Investigamos o imperativo categórico, a eudaimonia e a vontade de poder, não apenas como conceitos abstratos, mas como guias para uma existência autêntica em um mundo marcado pela contingência.",
-        `A dimensão política do pensamento filosófico é abordada com profundidade, analisando as relações de poder, justiça e liberdade. ${author} em ${title} propõe uma visão do coletivo que respeita a individualidade ao mesmo tempo em que busca o bem comum, fundamentando a convivência social em princípios racionais e universais.`,
-        `A estética e a filosofia da arte são integradas nesta análise, mostrando como a beleza é uma manifestação da verdade e do ser. Através de ${title}, exploramos como a experiência estética pode ser uma via de acesso ao absoluto e uma forma de resistência à mecanização da vida contemporânea.`
+        `O que ${author} articula em ${title} sobre este tema não é mera especulação abstrata. É uma resposta à experiência concreta de limitação, mortalidade e desejo de sentido que constitui a condição humana em qualquer época.`,
+        `A originalidade de ${author} neste ponto de ${title} reside em não se satisfazer com as soluções prontas. Há uma disposição para seguir o argumento onde ele leva, mesmo que contradiga pressupostos estabelecidos — a marca do pensador genuíno.`,
+        `Em ${title}, este capítulo revela como a filosofia não é evasão da vida, mas seu aprofundamento. Pensar com rigor é uma forma de respeitar a complexidade do real.`,
       ],
       'Psicanálise': [
-        "O inconsciente é uma linguagem que aguarda ser decifrada. Nesta síntese, acompanhamos o movimento da pulsão e o complexo jogo entre o desejo e a lei. A subjetividade humana, vista através das lentes da psicanálise, revela-se como um campo de batalha onde o sintoma é, ao mesmo tempo, sofrimento e mensagem.",
-        "Mergulhamos na topográfica do aparelho psíquico, explorando as dinâmicas entre as instâncias internas e as exigências do mundo externo. O narcisismo, o luto e a melancolia são analisados não apenas como patologias, mas como modos de estruturação do sujeito em sua relação com a falta e o objeto.",
-        "A transferência e a resistência, pilares da clínica analítica, recebem aqui uma atenção especial. Entendemos como o encontro analítico permite a emergência de uma verdade que o sujeito desconhece em si mesmo, mas que governa seus atos e escolhas no cotidiano.",
-        `A função do pai e a estrutura do Édipo são revisitadas à luz das transformações sociais contemporâneas. ${author} nos oferece ferramentas para compreender a crise da autoridade e as novas formas de subjetivação que emergem em um mundo onde a imagem e o consumo parecem ocupar o lugar do simbólico.`,
-        `O final de análise e a ética da psicanálise são discutidos como horizontes de travessia e transformação. Em ${title}, vemos que o objetivo não é uma adaptação passiva à realidade, mas a conquista de uma posição subjetiva capaz de lidar com a falta constitutiva do ser humano de forma criativa e autêntica.`
-      ]
+        `A clínica informa e transforma a teoria em ${title}. ${author} não especula a partir de uma poltrona abstrata, mas a partir de encontros reais com o sofrimento humano — o que confere à sua obra uma densidade que a mera erudição não alcança.`,
+        `Em ${title}, este aspecto do pensamento de ${author} encontra ressonância nas experiências que qualquer pessoa reconhece: a repetição dos mesmos padrões relacionais, a atração pelo que nos faz mal, o paradoxo de desejar o que nos falta.`,
+        `A leitura deste capítulo de ${title} exige do leitor uma suspensão temporária dos julgamentos morais habituais. A psicanálise não julga — ela escuta. E é dessa escuta atenta que emerge a possibilidade de uma mudança real.`,
+      ],
     };
 
-    return [...common, ...(specific[cat as keyof typeof specific] || [])];
-  };
+    const ctParas = contextualParas[category] || contextualParas['Filosofia'];
+    html += `<p>${ctParas[i % ctParas.length]}</p>\n\n`;
 
-  return sections.map((s, i) => {
-    const paragraphs = getFullParagraphs(category);
-    
-    // We want to ensure each chapter feels like a real chapter with 15-20 varied paragraphs
-    // We'll use a deterministic approach based on title, author and index to vary content
-    const chapterSeed = (title.length + author.length + i);
-    const contentParagraphs = [];
-    
-    // If it's the first chapter, start with a unique introduction citing author and work
     if (i === 0) {
-      contentParagraphs.push(generateUniqueIntro(category, title, author));
-    }
-    
-    for (let j = 0; j < 20; j++) {
-      const pIndex = (chapterSeed + j) % paragraphs.length;
-      contentParagraphs.push(paragraphs[pIndex]);
+      html += `<h3>Sobre esta Síntese</h3>\n`;
+      html += `<p>Esta síntese do Studio Logos é um material didático autoral baseado no pensamento de ${author}. Não substitui a leitura das obras originais — antes, pretende ser uma porta de entrada que desperte o desejo de ler as fontes primárias. As citações em destaque são extratos das obras originais do autor.</p>\n`;
     }
 
     return {
       id: `cap-${i}`,
-      title: s,
-      content: contentParagraphs.join('\n\n')
+      title: chapTitle,
+      estimatedMinutes: 12 + (i % 3) * 5,
+      content: html,
     };
   });
 };
+
 
 const createEbook = (id: string, title: string, category: 'Teologia' | 'Filosofia' | 'Psicanálise', subcategory: string, author: string, theme: string, cover: string, subtitle?: string): Ebook => ({
   id,

@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Ebook } from '../types';
 
@@ -71,7 +72,7 @@ export default function OnlineReader({ ebook, onClose }: OnlineReaderProps) {
   const [addingNote, setAddingNote] = useState(false);
   const [lineHeight, setLineHeight] = useState(1.8);
   const [showTopBar, setShowTopBar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
 
   const contentRef = useRef<HTMLDivElement>(null);
   const chapterKey = ebook.chapters[currentChapterIndex]?.id;
@@ -98,7 +99,8 @@ export default function OnlineReader({ ebook, onClose }: OnlineReaderProps) {
     } catch {}
   }, [storageKey]);
 
-  const saveState = useCallback(() => {
+  // Save to localStorage on relevant changes
+  useEffect(() => {
     try {
       localStorage.setItem(storageKey, JSON.stringify({
         chapterIndex: currentChapterIndex,
@@ -112,8 +114,6 @@ export default function OnlineReader({ ebook, onClose }: OnlineReaderProps) {
     } catch {}
   }, [storageKey, currentChapterIndex, fontSizeIndex, themeIndex, readingProgress, bookmarks, highlights, notes]);
 
-  useEffect(() => { saveState(); }, [saveState]);
-
   // Reading progress tracking
   useEffect(() => {
     const el = contentRef.current;
@@ -124,14 +124,14 @@ export default function OnlineReader({ ebook, onClose }: OnlineReaderProps) {
       setReadingProgress(prev => ({ ...prev, [chapterKey]: progress }));
 
       // Hide/show top bar on scroll
-      const diff = scrollTop - lastScrollY;
+      const diff = scrollTop - lastScrollYRef.current;
       if (diff > 5) setShowTopBar(false);
       else if (diff < -5) setShowTopBar(true);
-      setLastScrollY(scrollTop);
+      lastScrollYRef.current = scrollTop;
     };
     el.addEventListener('scroll', handleScroll, { passive: true });
     return () => el.removeEventListener('scroll', handleScroll);
-  }, [chapterKey, lastScrollY]);
+  }, [chapterKey]);
 
   // Text selection for highlights
   useEffect(() => {
