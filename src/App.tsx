@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthProvider, useAuth } from './lib/AuthContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { EbookCard } from './components/EbookCard';
 import { EbookModal } from './components/EbookModal';
 import { AdminPanel } from './components/AdminPanel';
-import { OnlineReader } from './components/OnlineReader';
+import OnlineReader from './components/OnlineReader';
 import { DEMO_EBOOKS } from './data/ebooks';
-import { Ebook } from './types';
+import { Ebook, PAYMENT_LINKS } from './types';
 import { Search, Filter, BookOpen, ScrollText, Brain, Heart, ChevronRight, Shield, Crown, ArrowRight } from 'lucide-react';
 import { signInWithGoogle, auth } from './lib/firebase';
 import { motion, AnimatePresence } from 'motion/react';
@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
                 </div>
                 
                 <Link 
-                  to={`/reader/${lastReadEbook.id}`}
+                  to={`/leitor/${lastReadEbook.id}`}
                   className="flex items-center space-x-3 px-8 py-3 bg-gold text-navy rounded-sm text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white transition-all shadow-xl group"
                 >
                   <ScrollText className="w-4 h-4 group-hover:rotate-12 transition-transform" />
@@ -288,7 +288,7 @@ const HomePage: React.FC = () => {
                 <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300 group-focus-within:text-navy transition-colors" />
                 <input
                   type="text"
-                  placeholder="Pesquisar síntese..."
+                  placeholder="Buscar obra ou síntese..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full md:w-80 pl-14 pr-8 py-5 bg-white border border-border rounded-sm text-[11px] font-black uppercase tracking-widest focus:outline-none focus:ring-1 focus:ring-navy transition-all shadow-sm group-hover:shadow-md"
@@ -376,25 +376,167 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* BÍBLIA ALPHA PRODUCT SECTION */}
+      <section className="py-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #1a2d4a 50%, #0d1f36 100%)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="text-[9px] font-black uppercase tracking-[0.6em] text-gold mb-4">PRODUTO ESPECIAL</div>
+              <h2 className="font-serif text-4xl md:text-6xl text-white leading-tight mb-6">
+                Bíblia Alpha<br/>
+                <span className="text-gold">Studio Logos</span>
+              </h2>
+              <p className="text-white/70 text-base leading-relaxed mb-8">
+                Acesso exclusivo à edição digital da Bíblia Alpha — com notas teológicas, referências cruzadas e o sistema de estudo do Studio Logos integrado. Para quem leva a Palavra a sério.
+              </p>
+              <div className="space-y-3 mb-10">
+                {[
+                  'Notas teológicas em cada capítulo',
+                  'Referências cruzadas com obras clássicas',
+                  'Leitor premium com destaques e anotações',
+                  'Acesso vitalício após uma única compra',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-white/80 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <a
+                href={PAYMENT_LINKS.bibliaAlpha}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-navy text-[10px] font-black uppercase tracking-[0.4em] rounded-sm hover:bg-white transition-all shadow-2xl"
+              >
+                <BookOpen className="w-4 h-4" />
+                ADQUIRIR BÍBLIA ALPHA
+              </a>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="aspect-square max-w-sm mx-auto rounded-sm overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #1a3a5c, #2d5a8a)', border: '1px solid rgba(201,162,39,0.3)' }}
+              >
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
+                  <div className="text-6xl mb-6">✝</div>
+                  <div className="text-gold text-[10px] font-black uppercase tracking-[0.6em] mb-3">BÍBLIA ALPHA</div>
+                  <div className="text-white font-serif text-2xl mb-2">Studio Logos</div>
+                  <div className="text-white/40 text-xs">Edição Digital Exclusiva</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* PUBLIC DOMAIN HIGHLIGHT SECTION */}
+      <section className="py-24 bg-[#f8f7f2] border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-widest mb-6"
+              style={{ background: '#f0faf4', color: '#2d6a4f', border: '1px solid #c3e6cb' }}>
+              📜 Obras Integrais de Domínio Público
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">
+              Os Clássicos do Pensamento<br/>Ocidental
+            </h2>
+            <p className="text-muted text-sm max-w-2xl mx-auto leading-relaxed">
+              Acesso às obras integrais de Agostinho, Platão, Marco Aurélio, Tomás de Kempis e outros — disponíveis na íntegra, verificadas juridicamente como domínio público, com leitor premium integrado.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[
+              { author: 'Agostinho', work: 'Confissões', year: '397 d.C.', icon: '✝' },
+              { author: 'Tomás de Kempis', work: 'Imitação de Cristo', year: '1418', icon: '🕊' },
+              { author: 'Marco Aurélio', work: 'Meditações', year: '167 d.C.', icon: '⚖' },
+              { author: 'Platão', work: 'A República', year: '375 a.C.', icon: '🏛' },
+              { author: 'Tomás de Aquino', work: 'Suma Teológica', year: '1265', icon: '📖' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white rounded-sm p-6 text-center border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
+                onClick={() => { setFilter('Todos'); document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }); }}
+              >
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <div className="text-[8px] font-black uppercase tracking-widest text-gold mb-1">{item.year}</div>
+                <div className="font-serif text-navy text-sm font-semibold mb-1">{item.work}</div>
+                <div className="text-[9px] text-muted uppercase tracking-wider">{item.author}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-[9px] text-muted uppercase tracking-widest">
+              Todas as obras verificadas nos termos da Lei 9.610/98 (70 anos após o falecimento do autor) · Leitura online exclusiva · Sem download
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-32 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="font-serif text-5xl text-navy mb-6">FAQ.</h2>
-            <p className="text-muted text-[10px] uppercase tracking-[0.3em] font-black">Tudo o que você precisa saber sobre o acesso.</p>
+            <p className="text-muted text-[10px] uppercase tracking-[0.3em] font-black">Tudo o que você precisa saber.</p>
           </div>
           
           <div className="space-y-4">
             {[
-              { q: 'O que é o Studio Logos?', a: 'É uma plataforma de leitura online por assinatura com sínteses didáticas autorais nas áreas de teologia, filosofia e psicanálise.' },
-              { q: 'Qual o valor da assinatura?', a: 'R$ 11,00 por mês.' },
-              { q: 'Posso baixar os eBooks?', a: 'Não. A leitura acontece online dentro da plataforma Studio Logos para garantir a melhor experiência e proteção autoral.' },
-              { q: 'Os materiais são cópias dos livros originais?', a: 'Não. São sínteses didáticas autorais, criadas para introdução, estudo e organização do conhecimento.' },
+              {
+                q: 'O que é o Studio Logos?',
+                a: 'É uma plataforma de leitura online por assinatura. Reunimos dois tipos de conteúdo: (1) Obras integrais de domínio público — textos clássicos de Agostinho, Platão, Marco Aurélio e outros, disponíveis na íntegra; e (2) Sínteses didáticas autorais — materiais criados pelo Studio Logos para facilitar o estudo de obras filosóficas, teológicas e psicanalíticas.'
+              },
+              {
+                q: 'Qual o valor da assinatura?',
+                a: 'R$ 11,00 por mês. Após o pagamento, seu acesso é ativado pelo administrador. Para a Bíblia Alpha, há uma compra única separada.'
+              },
+              {
+                q: 'O que são "Obras de Domínio Público"?',
+                a: 'São obras cujos direitos autorais expiraram — conforme a Lei 9.610/98, 70 anos após o falecimento do autor. O Studio Logos verifica juridicamente cada obra antes de disponibilizá-la. Você lê o texto completo, original, dentro do nosso leitor premium. Não há download disponível.'
+              },
+              {
+                q: 'O que são "Sínteses Didáticas Autorais"?',
+                a: 'São materiais originais criados pelo Studio Logos para introduzir e organizar o pensamento de grandes autores. Não são cópias dos livros originais — são conteúdos pedagógicos independentes, com linguagem acessível e estrutura organizada para estudo.'
+              },
+              {
+                q: 'Posso baixar os conteúdos?',
+                a: 'Não. Toda a leitura acontece exclusivamente dentro da plataforma Studio Logos, tanto para obras de domínio público quanto para sínteses autorais. Isso garante a melhor experiência de leitura e a proteção dos conteúdos.'
+              },
+              {
+                q: 'O leitor tem recursos de estudo?',
+                a: 'Sim. O leitor premium do Studio Logos inclui: destaques coloridos, notas pessoais, marcadores, índice interativo, controle de fonte, modo foco e progresso de leitura — tudo salvo automaticamente.'
+              },
+              {
+                q: 'O que é a Bíblia Alpha?',
+                a: 'É um produto separado do Studio Logos: uma edição digital da Bíblia com notas teológicas, referências cruzadas e integração com o leitor premium. Adquirida por compra única — independente da assinatura mensal.'
+              },
             ].map((faq, i) => (
               <details key={i} className="group bg-[#f8f8f6] border border-gray-100 rounded-sm p-8 cursor-pointer outline-none transition-all hover:bg-[#f4f4f2]">
                 <summary className="flex justify-between items-center font-black text-navy uppercase tracking-[0.2em] text-[10px] list-none">
                   {faq.q}
-                  <ChevronRight className="w-4 h-4 group-open:rotate-90 transition-transform text-navy" />
+                  <ChevronRight className="w-4 h-4 group-open:rotate-90 transition-transform text-navy shrink-0 ml-4" />
                 </summary>
                 <div className="mt-6 text-muted text-sm leading-relaxed font-normal">
                   {faq.a}
@@ -404,19 +546,30 @@ const HomePage: React.FC = () => {
             
             <div className="p-12 text-center bg-[#f4f4f2] border border-gray-100 rounded-sm">
               <h4 className="font-serif text-2xl text-navy mb-4">Pronto para começar?</h4>
-              <p className="text-muted mb-8 font-normal uppercase tracking-widest text-xs">Transforme sua compreensão hoje por R$ 11,00/mês.</p>
-              <button 
-                onClick={() => {
-                  if (user) {
-                    window.open('https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed', '_blank');
-                  } else {
-                    signInWithGoogle();
-                  }
-                }}
-                className="premium-button px-10 py-4 text-[10px] uppercase tracking-[0.4em] font-black"
-              >
-                ASSINAR AGORA
-              </button>
+              <p className="text-muted mb-2 font-normal uppercase tracking-widest text-xs">Assinatura Studio Logos por R$ 11,00/mês.</p>
+              <p className="text-muted mb-8 font-normal text-xs">Acesso a obras integrais de domínio público + sínteses didáticas.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => {
+                    if (user) {
+                      window.open(PAYMENT_LINKS.studioLogosMonthly, '_blank');
+                    } else {
+                      signInWithGoogle();
+                    }
+                  }}
+                  className="premium-button px-10 py-4 text-[10px] uppercase tracking-[0.4em] font-black"
+                >
+                  ASSINAR STUDIO LOGOS
+                </button>
+                <a
+                  href={PAYMENT_LINKS.bibliaAlpha}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-navy text-navy text-[10px] font-black uppercase tracking-[0.4em] hover:bg-navy hover:text-white transition-all"
+                >
+                  BÍBLIA ALPHA →
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -475,6 +628,32 @@ const HomePage: React.FC = () => {
   );
 };
 
+const ReaderPage: React.FC = () => {
+  const { ebookId } = useParams<{ ebookId: string }>();
+  const navigate = useNavigate();
+  const ebook = DEMO_EBOOKS.find(e => e.id === ebookId || e.slug === ebookId);
+
+  React.useEffect(() => {
+    if (ebookId) localStorage.setItem('last_read_ebook', ebookId);
+  }, [ebookId]);
+
+  if (!ebook) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-navy font-serif text-2xl mb-4">Obra não encontrada</p>
+          <button onClick={() => navigate('/')} className="premium-button px-8 py-3 text-xs uppercase tracking-widest font-black">
+            Voltar à Biblioteca
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return <OnlineReader ebook={ebook} onClose={() => navigate('/')} />;
+};
+
+
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, profile, isApproved, loading, isAdmin } = useAuth();
   
@@ -505,7 +684,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
               <ul className="text-xs space-y-3 text-muted">
                 <li className="flex items-center">
                   <ChevronRight className="w-3 h-3 text-gold mr-2" /> 
-                  <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors underline">
+                  <a href={PAYMENT_LINKS.studioLogosMonthly} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors underline">
                     Concluir pagamento de R$ 11,00
                   </a>
                 </li>
@@ -563,7 +742,7 @@ function AppContent() {
           path="/leitor/:ebookId" 
           element={
             <ProtectedRoute>
-              <OnlineReader />
+              <ReaderPage />
             </ProtectedRoute>
           } 
         />

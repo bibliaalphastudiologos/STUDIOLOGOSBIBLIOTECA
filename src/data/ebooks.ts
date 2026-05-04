@@ -1,4 +1,5 @@
 import { Ebook } from '../types';
+import { publicDomainWorks } from './publicDomainWorks';
 
 const generateDeepContent = (category: string, title: string, author: string): { id: string; title: string; content: string }[] => {
   const sections = [
@@ -92,6 +93,10 @@ const createEbook = (id: string, title: string, category: 'Teologia' | 'Filosofi
   authorReference: author,
   workReference: "Obras Selecionadas",
   contentType: "Síntese didática autoral",
+  contentTypeLabel: 'synthesis' as const,
+  copyrightStatus: 'summary_only' as const,
+  accessMode: 'online_only' as const,
+  downloadAllowed: false as const,
   level: "Intermediário",
   readingTime: "5h de leitura profunda",
   coverTheme: theme,
@@ -400,5 +405,5 @@ const generateEbooks = () => {
 };
 
 
-export const DEMO_EBOOKS: Ebook[] = generateEbooks();
+export const DEMO_EBOOKS: Ebook[] = [...publicDomainWorks, ...generateEbooks()];
 
