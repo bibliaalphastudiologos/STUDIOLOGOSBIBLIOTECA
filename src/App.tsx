@@ -49,10 +49,15 @@ const HomePage: React.FC = () => {
     }
   }, []);
 
-  // Update filter when pathname changes
+  // Update filter when pathname changes + scroll to library
   React.useEffect(() => {
     setFilter(initialFilter as any);
-  }, [initialFilter]);
+    if (pathname !== '/') {
+      setTimeout(() => {
+        document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  }, [initialFilter, pathname]);
 
   const filteredEbooks = useMemo(() => {
     return DEMO_EBOOKS.filter(e => {
@@ -197,6 +202,11 @@ const HomePage: React.FC = () => {
                 key={i}
                 whileHover={{ y: -10 }}
                 className="flex-shrink-0 w-[400px] group cursor-pointer"
+                onClick={() => {
+                  setFilter(path.category as any);
+                  setSelectedLetter(null);
+                  setTimeout(() => document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden rounded-sm mb-8 shadow-2xl">
                   <img 
@@ -257,7 +267,12 @@ const HomePage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="group flex flex-col items-center text-center"
+                className="group flex flex-col items-center text-center cursor-pointer"
+                onClick={() => {
+                  setSearchTerm(master.name);
+                  setSelectedLetter(null);
+                  setTimeout(() => document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                }}
               >
                 <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 border border-white/10 group-hover:border-gold transition-colors duration-500 shadow-2xl">
                   <img src={master.img} alt={master.name} referrerPolicy="no-referrer" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-110" />
@@ -500,7 +515,13 @@ const HomePage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-sm p-6 text-center border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
-                onClick={() => { setFilter('Todos'); setSelectedLetter(null); document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }); }}
+                onClick={() => {
+                  setSearchTerm(item.author);
+                  setFilter('Todos');
+                  setSelectedLetter(null);
+                  setContentTypeFilter('public_domain');
+                  setTimeout(() => document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                }}
               >
                 <div className="text-3xl mb-3">{item.icon}</div>
                 <div className="text-[8px] font-black uppercase tracking-widest text-gold mb-1">{item.year}</div>

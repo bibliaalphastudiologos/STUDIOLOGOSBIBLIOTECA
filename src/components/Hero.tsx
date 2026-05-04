@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, BookOpen, Crown, Shield, AlertCircle, X } from 'lucide-react';
 import { signInWithGoogle } from '../lib/firebase';
 import { useAuth } from '../lib/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
   const { user, profile } = useAuth();
   const [loginError, setLoginError] = useState<string | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleLoginClick = async () => {
     setLoginError(null);
@@ -20,6 +22,13 @@ export const Hero: React.FC = () => {
     } finally {
       setIsLoggingIn(false);
     }
+  };
+
+  const handleTopicClick = (path: string) => {
+    navigate(path);
+    setTimeout(() => {
+      document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' });
+    }, 200);
   };
 
   return (
@@ -81,8 +90,7 @@ export const Hero: React.FC = () => {
              <button
                onClick={() => {
                  if (profile?.status === 'approved') {
-                   const el = document.getElementById('biblioteca');
-                   el?.scrollIntoView({ behavior: 'smooth' });
+                   document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' });
                  } else if (user) {
                    window.open('https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed', '_blank');
                  } else {
@@ -103,12 +111,12 @@ export const Hero: React.FC = () => {
                </span>
                {!isLoggingIn && <ArrowRight className="w-4 h-4 ml-6 group-hover:translate-x-3 transition-transform duration-500" />}
              </button>
-             <a
-               href="#biblioteca"
+             <button
+               onClick={() => document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' })}
                className="w-full sm:w-auto flex items-center justify-center px-16 py-8 border border-navy/10 text-[11px] uppercase tracking-[0.6em] font-black opacity-40 hover:opacity-100 hover:border-navy transition-all duration-500"
              >
                CATÁLOGO DE ESTUDOS
-             </a>
+             </button>
           </motion.div>
 
           {/* Login Error Alert */}
@@ -135,7 +143,7 @@ export const Hero: React.FC = () => {
             )}
           </AnimatePresence>
 
-          {/* Expert Segments */}
+          {/* Expert Segments — CLICKABLE */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -143,15 +151,19 @@ export const Hero: React.FC = () => {
             className="flex flex-wrap justify-center gap-x-16 gap-y-12"
           >
             {[
-              { label: 'TEOLOGIA', icon: Shield },
-              { label: 'FILOSOFIA', icon: BookOpen },
-              { label: 'PSICANÁLISE', icon: Crown }
-            ].map((topic, i) => (
-              <div key={topic.label} className="group flex flex-col items-center">
+              { label: 'TEOLOGIA', icon: Shield, path: '/teologia' },
+              { label: 'FILOSOFIA', icon: BookOpen, path: '/filosofia' },
+              { label: 'PSICANÁLISE', icon: Crown, path: '/psicanalise' }
+            ].map((topic) => (
+              <button
+                key={topic.label}
+                onClick={() => handleTopicClick(topic.path)}
+                className="group flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300"
+              >
                 <topic.icon className="w-5 h-5 text-gold opacity-30 group-hover:opacity-100 transition-opacity mb-4" />
                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-navy/40 group-hover:text-navy transition-colors">{topic.label}</span>
                 <div className="mt-4 w-4 h-px bg-gold/20 group-hover:w-8 transition-all" />
-              </div>
+              </button>
             ))}
           </motion.div>
         </div>

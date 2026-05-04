@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, User, LogIn, Crown, BookOpen, ChevronRight, AlertCircle } from 'lucide-react';
 import { useAuth } from '../lib/AuthContext';
 import { signInWithGoogle, auth } from '../lib/firebase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const Header: React.FC = () => {
@@ -11,6 +11,7 @@ export const Header: React.FC = () => {
   const [loginError, setLoginError] = useState<string | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const { user, profile, isAdmin } = useAuth();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -21,21 +22,35 @@ export const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'Início', path: '/' },
-    { name: 'Teologia', path: '/teologia' },
-    { name: 'Filosofia', path: '/filosofia' },
-    { name: 'Psicanálise', path: '/psicanalise' },
-    { name: 'Alpha', path: '/#biblioteca' },
+    { name: 'Início', path: '/', hash: '' },
+    { name: 'Teologia', path: '/teologia', hash: '' },
+    { name: 'Filosofia', path: '/filosofia', hash: '' },
+    { name: 'Psicanálise', path: '/psicanalise', hash: '' },
+    { name: 'Biblioteca', path: '/', hash: 'biblioteca' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    if (path.startsWith('/#')) {
-      if (window.location.pathname === '/') {
-        e.preventDefault();
-        const id = path.replace('/#', '');
-        const el = document.getElementById(id);
-        el?.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (e: React.MouseEvent, path: string, hash: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (hash) {
+      // scroll to anchor — navigate home first if needed
+      if (window.location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+        }, 200);
+      } else {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (path === '/') {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(path);
+      // Scroll to library section after navigation
+      setTimeout(() => {
+        document.getElementById('biblioteca')?.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
     }
   };
 
@@ -61,7 +76,7 @@ export const Header: React.FC = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 bg-black flex items-center justify-center rounded-sm group-hover:scale-110 transition-transform shadow-lg">
               <span className="text-white font-black text-xl tracking-tighter">SL</span>
             </div>
@@ -76,9 +91,9 @@ export const Header: React.FC = () => {
             {navItems.map((item) => (
               <a
                 key={item.name}
-                href={item.path}
-                onClick={(e) => handleNavClick(e, item.path)}
-                className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/60 hover:text-navy transition-all relative group"
+                href={item.hash ? `/#${item.hash}` : item.path}
+                onClick={(e) => handleNavClick(e, item.path, item.hash)}
+                className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/60 hover:text-navy transition-all relative group cursor-pointer"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gold transition-all group-hover:w-full" />
@@ -175,14 +190,11 @@ export const Header: React.FC = () => {
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.name}
-                  href={item.path}
+                  href={item.hash ? `/#${item.hash}` : item.path}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={(e) => {
-                    handleNavClick(e, item.path);
-                    setIsOpen(false);
-                  }}
+                  onClick={(e) => handleNavClick(e, item.path, item.hash)}
                   className="flex items-center justify-between text-xs font-black uppercase tracking-[0.3em] text-navy border-b border-gray-50 pb-4"
                 >
                   <span>{item.name}</span>
