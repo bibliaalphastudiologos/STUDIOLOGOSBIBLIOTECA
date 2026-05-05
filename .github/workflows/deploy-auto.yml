@@ -1,14 +1,11 @@
-name: Deploy Studio Logos
+name: Auto-Deploy Studio Logos
 'on':
   push:
     branches:
     - main
   workflow_dispatch: null
-permissions:
-  contents: write
 jobs:
   deploy:
-    name: Build → Limpar → Upload → Validar
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -16,161 +13,55 @@ jobs:
       with:
         node-version: '20'
         cache: npm
-    - name: Build de producao
-      run: 'npm ci
-
-        npm run build
+    - name: Build
+      run: 'npm ci && npm run build
 
         cp htaccess.txt dist/.htaccess
 
         cp 404-spa.html dist/404.html
 
-        echo "=== Build gerada ==="
+        echo "Assets gerados:"
 
         find dist -type f | sort
 
-        echo "=== .htaccess ==="
-
-        cat dist/.htaccess
+        cat dist/index.html
 
         '
-    - name: Limpar servidor e fazer upload
+    - name: Deploy no Hostinger
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: 'H="ftp://$FTP_HOST"
-
-        del() { curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE $1" 2>&1 | head
-        -1; }
-
-        up()  { echo -n "  $2: "; curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs
-        --retry 3 --retry-delay 3 "$2" && echo "OK ($(wc -c < $1) bytes)" || echo
-        "FAIL"; }
-
-
-        echo "=== [1/4] APAGANDO LIXO E ARQUIVOS ANTIGOS ==="
-
-        # Raiz
-
-        for f in index.html index.php .htaccess 404.html .ftp-deploy-sync-state.json;
-        do del "$f"; done
-
-        # Assets — deleta todos os arquivos existentes pelo nome real
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $NF}'' |
-        grep -v "^\." | grep -v "^$" | while read f; do del "assets/$f"; done
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD assets" 2>&1 | head -1
-
-        # Subpastas erradas
-
-        for f in public_html/.htaccess public_html/index.html public_html/404.html;
-        do del "$f"; done
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html/assets" 2>&1
-        | head -1
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html" 2>&1 | head
-        -1
-
-        # WordPress (se voltar)
-
-        for f in wp-config.php wp-login.php wp-blog-header.php wp-cron.php wp-load.php
-        wp-mail.php wp-settings.php wp-signup.php wp-trackback.php xmlrpc.php wp-activate.php
-        wp-links-opml.php wp-comments-post.php readme.html license.txt; do del "$f";
-        done
-
-        sleep 2
-
-
-        echo ""
-
-        echo "=== [2/4] SUBINDO ARQUIVOS NA RAIZ ==="
-
-        up dist/.htaccess  "$H/.htaccess"
-
-        up dist/index.html "$H/index.html"
-
-        up dist/404.html   "$H/404.html"
-
-
-        echo ""
-
-        echo "=== [3/4] SUBINDO ASSETS ==="
-
-        # Identifica os nomes reais gerados pelo vite (hash no nome)
-
-        JS_FILE=$(ls dist/assets/*.js | head -1)
-
-        CSS_FILE=$(ls dist/assets/*.css | head -1)
-
-        up "$JS_FILE"  "$H/assets/$(basename $JS_FILE)"
-
-        up "$CSS_FILE" "$H/assets/$(basename $CSS_FILE)"
-
-
-        echo ""
-
-        echo "=== [4/4] CONFIRMANDO NO SERVIDOR ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
-
-        echo "--- assets/ ---"
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
-
-        echo "--- .htaccess ---"
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/.htaccess"
-
-        '
-    - name: Validar site em producao
-      run: "sleep 20\n# Pegar nome real dos assets\nJS_FILE=$(ls dist/assets/*.js\
-        \ | head -1 | xargs basename)\nCSS_FILE=$(ls dist/assets/*.css | head -1 |\
-        \ xargs basename)\n\necho \"=== Testando HTTP ===\"\nIDX_CODE=$(curl -s -o\
-        \ /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/)\n\
-        IDX_SIZE=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 20 https://studiologos.com.br/)\n\
-        JS_CODE=$(curl  -s -o /dev/null -w \"%{http_code}\" --max-time 30 \"https://studiologos.com.br/assets/$JS_FILE\"\
-        )\nJS_SIZE=$(curl  -s -o /dev/null -w \"%{size_download}\" --max-time 30 \"\
-        https://studiologos.com.br/assets/$JS_FILE\")\nCSS_CODE=$(curl -s -o /dev/null\
-        \ -w \"%{http_code}\" --max-time 20 \"https://studiologos.com.br/assets/$CSS_FILE\"\
-        )\nCSS_SIZE=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 20 \"\
-        https://studiologos.com.br/assets/$CSS_FILE\")\nSPA_CODE=$(curl -s -o /dev/null\
-        \ -w \"%{http_code}\" --max-time 10 https://studiologos.com.br/biblioteca)\n\
-        \necho \"  index.html : $IDX_CODE ($IDX_SIZE bytes)\"\necho \"  JS bundle\
-        \  : $JS_CODE ($JS_SIZE bytes) — $JS_FILE\"\necho \"  CSS bundle : $CSS_CODE\
-        \ ($CSS_SIZE bytes) — $CSS_FILE\"\necho \"  /biblioteca: $SPA_CODE (SPA routing)\"\
-        \n\nif [ \"$IDX_CODE\" = \"200\" ] && [ \"$JS_CODE\" = \"200\" ] && [ \"$CSS_CODE\"\
-        \ = \"200\" ]; then\n  echo \"\"\n  echo \"========================================\"\
-        \n  echo \" DEPLOY CONCLUIDO COM SUCESSO\"\n  echo \" index.html  200 OK\"\
-        \n  echo \" JS bundle   200 OK  1.3 MB\"\n  echo \" CSS bundle  200 OK  76\
-        \ KB\"\n  echo \" SPA routing $SPA_CODE\"\n  echo \" https://studiologos.com.br\"\
-        \n  echo \"========================================\"\nelse\n  echo \"FALHA:\
-        \ IDX=$IDX_CODE JS=$JS_CODE CSS=$CSS_CODE\"\n  exit 1\nfi\n"
-    - name: Snapshot branch deploy
-      run: 'git config user.email "actions@github.com"
-
-        git config user.name "GitHub Actions CI"
-
-        # Copiar apenas os arquivos compilados (sem node_modules)
-
-        cp -r dist /tmp/snap
-
-        git checkout --orphan deploy-ci
-
-        git rm -rf . 2>/dev/null || true
-
-        cp -r /tmp/snap/. .
-
-        git add -A
-
-        git commit -m "deploy: $(date -u +%Y-%m-%dT%H:%M:%SZ) — ${GITHUB_SHA:0:7}"
-        || true
-
-        git push --force origin deploy-ci:deploy
-
-        echo "Branch deploy atualizado com apenas os arquivos compilados"
-
-        '
-      continue-on-error: true
+      run: "H=\"ftp://$FTP_HOST\"\ndel() { curl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" -Q \"DELE $1\" 2>&1 | head -1; }\nup()  { echo -n \"  $2: \"; curl\
+        \ -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs \"$2\" &&\
+        \ echo \"OK $(wc -c<$1)b\" || echo \"FAIL\"; }\n\n# Apagar todos os assets\
+        \ antigos (qualquer hash)\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\"\
+        \ | awk '{print $NF}' | grep \"\\.\" | while read f; do\n  del \"assets/$f\"\
+        \ndone\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"RMD assets\" 2>&1\
+        \ | head -1\n\n# Apagar arquivos raiz\nfor f in index.html .htaccess 404.html\
+        \ index.php .ftp-deploy-sync-state.json; do del \"$f\"; done\n\n# Subir com\
+        \ nomes dinâmicos (qualquer hash)\nJS=$(ls dist/assets/*.js | head -1)\nCSS=$(ls\
+        \ dist/assets/*.css | head -1)\necho \"Subindo: $(basename $JS) + $(basename\
+        \ $CSS)\"\nup dist/.htaccess  \"$H/.htaccess\"\nup dist/index.html \"$H/index.html\"\
+        \nup dist/404.html   \"$H/404.html\"\nup \"$CSS\"          \"$H/assets/$(basename\
+        \ $CSS)\"\nup \"$JS\"           \"$H/assets/$(basename $JS)\"\n\necho \"\"\
+        \necho \"Estado final:\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" |\
+        \ awk '{print $5,$NF}'\necho \"assets/:\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/assets/\" | awk '{print $5,$NF}'\n"
+    - name: Validar
+      run: "sleep 20\nJS=$(ls dist/assets/*.js | head -1 | xargs basename)\nCSS=$(ls\
+        \ dist/assets/*.css | head -1 | xargs basename)\nJS_OK=$(curl -s -o /dev/null\
+        \ -w \"%{http_code}\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
+        )\nCSS_OK=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 \"https://studiologos.com.br/assets/$CSS\"\
+        )\nIDX_OK=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -c \"\
+        assets/\")\n\ncurl -s -o /dev/null -w \"/              %{http_code} %{size_download}b\\\
+        n\" --max-time 20 https://studiologos.com.br/\ncurl -s -o /dev/null -w \"\
+        JS bundle:     %{http_code} %{size_download}b\\n\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
+        \ncurl -s -o /dev/null -w \"CSS bundle:    %{http_code} %{size_download}b\\\
+        n\" --max-time 20 \"https://studiologos.com.br/assets/$CSS\"\ncurl -s -o /dev/null\
+        \ -w \"/biblioteca:   %{http_code}\\n\" --max-time 10 https://studiologos.com.br/biblioteca\n\
+        \nif [ \"$JS_OK\" = \"200\" ] && [ \"$CSS_OK\" = \"200\" ] && [ \"$IDX_OK\"\
+        \ -gt \"0\" ]; then\n  echo \"\"\n  echo \"✅ SITE 100% NO AR\"\n  echo \"\U0001F310\
+        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=$JS_OK CSS=$CSS_OK IDX=$IDX_OK\"\
+        \n  exit 1\nfi\n"
