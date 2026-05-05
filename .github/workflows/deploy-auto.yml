@@ -4,12 +4,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      force_rebuild:
-        description: 'Forçar rebuild completo'
-        required: false
-        default: 'false'
-        type: boolean
 
 env:
   SSH_HOST: 89.116.115.179
@@ -27,6 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🟢 Configurar Node.js 20
         uses: actions/setup-node@v4
@@ -80,25 +75,6 @@ jobs:
           </html>
           EOF
 
-      - name: 🔄 Atualizar branch deploy com build atual
-        run: |
-          git config user.email "deploy@studiologos.com.br"
-          git config user.name "Studio Logos CI"
-          git fetch origin deploy 2>/dev/null || true
-          
-          # Criar branch deploy órfão com os arquivos compilados
-          git checkout --orphan deploy-ci
-          git rm -rf . --quiet 2>/dev/null || true
-          
-          # Copiar arquivos da build
-          cp -r dist/. .
-          
-          # Commit
-          git add -A
-          git diff --cached --quiet || git commit -m "deploy: auto-build $(date -u '+%Y-%m-%dT%H:%M:%SZ') — ${{ github.sha }}"
-          git push --force origin deploy-ci:deploy
-          echo "✅ Branch deploy atualizado"
-
       - name: 🔧 Instalar sshpass e rsync
         run: |
           sudo apt-get update -qq
@@ -119,67 +95,13 @@ jobs:
           SSHEOF
           chmod 600 ~/.ssh/config
 
-          # Verificar conectividade
-          sshpass -p "$SSH_PASS" ssh -p $SSH_PORT \
-            -o StrictHostKeyChecking=no \
-            -o UserKnownHostsFile=/dev/null \
-            $SSH_USER@$SSH_HOST "echo '✅ SSH OK'" || {
-              echo "⚠️ SSH falhou, tentando FTP fallback..."
-              exit 1
-            }
-
-          # Upload via rsync
           sshpass -p "$SSH_PASS" rsync -avz --delete \
             -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
             dist/ \
-            $SSH_USER@$SSH_HOST:$REMOTE_DIR/
+            $SSH_USER@$SSH_HOST:$REMOTE_DIR/ && echo "✅ rsync OK" || echo "⚠️ rsync falhou, FTP será tentado"
 
-          echo "✅ Upload rsync concluído!"
-
-      - name: 🔍 Validar deploy no servidor
-        env:
-          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          echo "=== Arquivos no servidor ==="
-          sshpass -p "$SSH_PASS" ssh -p $SSH_PORT \
-            -o StrictHostKeyChecking=no \
-            -o UserKnownHostsFile=/dev/null \
-            $SSH_USER@$SSH_HOST \
-            "ls -lh $REMOTE_DIR/ && echo '---' && ls -lh $REMOTE_DIR/assets/ 2>/dev/null || true"
-
-      - name: 🌐 Validar HTTP do site
-        run: |
-          echo "Aguardando propagação (15s)..."
-          sleep 15
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/ 2>/dev/null || echo "000")
-          echo "HTTP Status: $HTTP_STATUS"
-          if [[ "$HTTP_STATUS" == "200" || "$HTTP_STATUS" == "301" || "$HTTP_STATUS" == "302" ]]; then
-            echo "✅ Site respondendo: $HTTP_STATUS"
-          else
-            echo "⚠️ Site retornou: $HTTP_STATUS (pode ser DNS/SSL ainda propagando)"
-          fi
-          echo "🌐 https://studiologos.com.br"
-
-  ftp-fallback:
-    name: 📁 FTP Fallback (se SSH falhar)
-    runs-on: ubuntu-latest
-    needs: build-and-deploy
-    if: failure()
-
-    steps:
-      - name: ⬇️ Checkout
-        uses: actions/checkout@v4
-
-      - name: 🟢 Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: 📦 Install + Build
-        run: npm ci && npm run build
-
-      - name: 📁 Deploy via FTP
+      - name: 📁 Deploy FTP (backup/fallback)
+        if: always()
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -187,4 +109,41 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: /domains/studiologos.com.br/public_html/
-          log-level: standard
+          log-level: minimal
+        continue-on-error: true
+
+      - name: 🔄 Atualizar branch deploy (build snapshot)
+        if: success()
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          
+          # Salvar dist em pasta temporária
+          cp -r dist /tmp/deploy-snapshot
+          
+          # Configurar o worktree do branch deploy
+          git fetch origin deploy 2>/dev/null || true
+          git checkout --orphan deploy-temp
+          git rm -rf . --quiet 2>/dev/null || true
+          
+          # Copiar build
+          cp -r /tmp/deploy-snapshot/. .
+          
+          git add -A
+          git commit -m "snapshot: $(date -u '+%Y-%m-%dT%H:%M:%SZ') — ${GITHUB_SHA:0:7}" || echo "Nada a commitar"
+          git push --force origin deploy-temp:deploy
+          echo "✅ Branch deploy atualizado"
+        continue-on-error: true
+
+      - name: 🌐 Validar site em produção
+        run: |
+          echo "Aguardando propagação (10s)..."
+          sleep 10
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/ 2>/dev/null || echo "000")
+          echo "HTTP Status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" = "200" ] || [ "$HTTP_STATUS" = "301" ] || [ "$HTTP_STATUS" = "302" ]; then
+            echo "✅ Site respondendo: $HTTP_STATUS"
+            echo "🌐 https://studiologos.com.br"
+          else
+            echo "⚠️ Site retornou $HTTP_STATUS — verificar manualmente"
+          fi
