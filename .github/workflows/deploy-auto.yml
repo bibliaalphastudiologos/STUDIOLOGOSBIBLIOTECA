@@ -1,125 +1,121 @@
-name: "Auto-Deploy Studio Logos"
-
-on:
+name: Deploy Studio Logos
+'on':
   push:
-    branches: [main]
-  workflow_dispatch:
-
+    branches:
+    - main
+  workflow_dispatch: null
 jobs:
   deploy:
+    name: Build → Limpar → Upload → Validar
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: npm
+    - name: Build de producao
+      run: 'npm ci
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
+        npm run build
 
-      - name: "Build"
-        run: |
-          npm ci
-          npm run build
-          cp htaccess.txt dist/.htaccess
-          cp 404-spa.html dist/404.html
-          echo "Build OK:"
-          cat dist/index.html | grep "assets/"
+        cp htaccess.txt dist/.htaccess
 
-      - name: "Descobrir path FTP e fazer upload"
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          # Listar raiz FTP para descobrir estrutura real
-          echo "=== Listando raiz FTP ==="
-          curl -s --ftp-ssl-reqd \
-            --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/" 2>&1 || \
-          curl -s \
-            --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/" 2>&1 || echo "ftp listing falhou"
+        cp 404-spa.html dist/404.html
 
-          echo ""
-          echo "=== Listando /domains/ ==="
-          curl -s --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/domains/" 2>&1 || echo "sem /domains/"
+        echo ""
 
-          echo ""
-          echo "=== Listando /domains/studiologos.com.br/ ==="
-          curl -s --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/domains/studiologos.com.br/" 2>&1 || echo "sem esse path"
+        echo "=== Build gerada ==="
 
-          echo ""
-          echo "=== Listando /domains/studiologos.com.br/public_html/ ==="
-          curl -s --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/domains/studiologos.com.br/public_html/" 2>&1 | head -20
+        find dist -type f | sort
 
-      - name: "Upload via curl FTP direto"
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          BASE="ftp://$FTP_HOST/domains/studiologos.com.br/public_html"
+        echo ""
 
-          upload() {
-            local file="$1"
-            local dest="$2"
-            echo "Uploading $file -> $dest"
-            curl -s -T "$file" \
-              --user "$FTP_USER:$FTP_PASS" \
-              "$dest" && echo "OK" || echo "FALHOU"
-          }
+        echo "=== .htaccess que sera subido ==="
 
-          # Criar pasta assets se não existir
-          curl -s --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/domains/studiologos.com.br/public_html/" \
-            --ftp-create-dirs 2>&1 | head -3
+        cat dist/.htaccess
 
-          # Upload dos arquivos um a um (sobreescrevendo qualquer coisa)
-          upload "dist/index.html"    "$BASE/index.html"
-          upload "dist/.htaccess"     "$BASE/.htaccess"
-          upload "dist/404.html"      "$BASE/404.html"
+        echo ""
 
-          # Criar pasta assets
-          curl -s --user "$FTP_USER:$FTP_PASS" \
-            --ftp-create-dirs \
-            "ftp://$FTP_HOST/domains/studiologos.com.br/public_html/assets/" 2>&1 | head -2
+        echo "=== index.html ==="
 
-          upload "dist/assets/index-DYJn2QEj.js"  "$BASE/assets/index-DYJn2QEj.js"
-          upload "dist/assets/index-DjS088-i.css" "$BASE/assets/index-DjS088-i.css"
+        cat dist/index.html
 
-          echo ""
-          echo "=== Listando servidor após upload ==="
-          curl -s --user "$FTP_USER:$FTP_PASS" \
-            "ftp://$FTP_HOST/domains/studiologos.com.br/public_html/" | head -20
+        '
+    - name: Limpar servidor e fazer upload
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USERNAME }}
+        FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+      run: "H=\"ftp://$FTP_HOST\"\n\n# Funcoes auxiliares\ndel() { curl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"DELE $1\" 2>&1 | head -1; }\nup() \
+        \ {\n  echo -n \"  $2: \"\n  curl -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\"\
+        \ --ftp-create-dirs --retry 3 --retry-delay 3 \"$2\"\n  echo \"OK ($(wc -c\
+        \ < $1) bytes)\"\n}\n\necho \"=== [1/4] APAGANDO LIXO E ARQUIVOS ANTIGOS ===\"\
+        \n# Raiz\nfor f in index.html index.php .htaccess 404.html .ftp-deploy-sync-state.json;\
+        \ do\n  del \"$f\"\ndone\n# Assets (todos os possiveis hash names)\ncurl -s\
+        \ --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\" | awk '{print $NF}' | grep\
+        \ -v \"^\\.\" | grep -v \"^$\" | while read f; do\n  del \"assets/$f\"\ndone\n\
+        curl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"RMD assets\" 2>&1 | head\
+        \ -1\n# Subpastas erradas de deploys anteriores\nfor f in public_html/.htaccess\
+        \ public_html/index.html public_html/404.html; do del \"$f\"; done\ncurl -s\
+        \ --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"RMD public_html/assets\" 2>&1\
+        \ | head -1\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"RMD public_html\"\
+        \ 2>&1 | head -1\n# WordPress (se ainda existir)\nfor f in wp-config.php wp-login.php\
+        \ wp-blog-header.php wp-cron.php wp-load.php wp-mail.php wp-settings.php wp-signup.php\
+        \ wp-trackback.php xmlrpc.php wp-activate.php wp-links-opml.php wp-comments-post.php\
+        \ readme.html license.txt; do\n  del \"$f\"\ndone\nsleep 2\n\necho \"\"\n\
+        echo \"=== [2/4] SUBINDO ARQUIVOS NA RAIZ ===\"\nup dist/.htaccess  \"$H/.htaccess\"\
+        \nup dist/index.html \"$H/index.html\"\nup dist/404.html   \"$H/404.html\"\
+        \n\necho \"\"\necho \"=== [3/4] SUBINDO ASSETS ===\"\nup dist/assets/index-DjS088-i.css\
+        \ \"$H/assets/index-DjS088-i.css\"\nup dist/assets/index-DYJn2QEj.js  \"$H/assets/index-DYJn2QEj.js\"\
+        \n\necho \"\"\necho \"=== [4/4] CONFIRMANDO NO SERVIDOR ===\"\ncurl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"$H/\" | awk '{print $1,$5,$NF}'\necho \"--- assets/\
+        \ ---\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\" | awk '{print\
+        \ $1,$5,$NF}'\necho \"--- .htaccess ---\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/.htaccess\"\n"
+    - name: Validar site em producao
+      run: "sleep 20\necho \"=== Testando HTTP ===\"\nIDX_CODE=$(curl -s -o /dev/null\
+        \ -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/)\nIDX_SIZE=$(curl\
+        \ -s -o /dev/null -w \"%{size_download}\" --max-time 20 https://studiologos.com.br/)\n\
+        JS_CODE=$(curl  -s -o /dev/null -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+        JS_SIZE=$(curl  -s -o /dev/null -w \"%{size_download}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+        CSS_CODE=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
+        CSS_SIZE=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
+        SPA_CODE=$(curl  -s -o /dev/null -w \"%{http_code}\" --max-time 10 https://studiologos.com.br/biblioteca)\n\
+        \necho \"  index.html : $IDX_CODE ($IDX_SIZE bytes)\"\necho \"  JS bundle\
+        \  : $JS_CODE ($JS_SIZE bytes)\"\necho \"  CSS bundle : $CSS_CODE ($CSS_SIZE\
+        \ bytes)\"\necho \"  /biblioteca: $SPA_CODE (SPA routing)\"\n\nif [ \"$IDX_CODE\"\
+        \ = \"200\" ] && [ \"$JS_CODE\" = \"200\" ] && [ \"$CSS_CODE\" = \"200\" ];\
+        \ then\n  echo \"\"\n  echo \"========================================\"\n\
+        \  echo \" DEPLOY CONCLUIDO COM SUCESSO\"\n  echo \" index.html  200 OK\"\n\
+        \  echo \" JS bundle   200 OK  $(echo $JS_SIZE | awk '{printf \"%.1f MB\"\
+        , $1/1048576}')\"\n  echo \" CSS bundle  200 OK  $(echo $CSS_SIZE | awk '{printf\
+        \ \"%.1f KB\", $1/1024}')\"\n  echo \" SPA routing $SPA_CODE\"\n  echo \"\
+        \ https://studiologos.com.br\"\n  echo \"========================================\"\
+        \nelse\n  echo \"FALHA: IDX=$IDX_CODE JS=$JS_CODE CSS=$CSS_CODE\"\n  exit\
+        \ 1\nfi\n"
+    - name: Snapshot branch deploy
+      run: 'git config user.email "actions@github.com"
 
-      - name: "Validar"
-        run: |
-          sleep 10
-          CONTENT=$(curl -s --max-time 20 https://studiologos.com.br/)
-          echo "$CONTENT" | grep -o "<title>[^<]*</title>"
-          if echo "$CONTENT" | grep -q "assets/index-"; then
-            echo "SUCESSO: build compilada ativa"
-          else
-            echo "AINDA COM ARQUIVO ERRADO:"
-            echo "$CONTENT" | head -15
-            echo ""
-            echo "=== Checando se existe /public_html/ alternativo ==="
-            curl -s --max-time 10 https://studiologos.com.br/studiologos-probe.txt || echo "probe not found"
-            exit 1
-          fi
+        git config user.name "GitHub Actions CI"
 
-      - name: "Snapshot branch deploy"
-        run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions CI"
-          cp -r dist /tmp/snap
-          git checkout --orphan deploy-ci
-          git rm -rf . 2>/dev/null || true
-          cp -r /tmp/snap/. .
-          git add -A
-          git commit -m "deploy $(date -u +%Y-%m-%dT%H:%M:%SZ) ${GITHUB_SHA:0:7}" || true
-          git push --force origin deploy-ci:deploy || true
-        continue-on-error: true
+        cp -r dist /tmp/snap
+
+        git checkout --orphan deploy-ci
+
+        git rm -rf . 2>/dev/null || true
+
+        cp -r /tmp/snap/. .
+
+        git add -A
+
+        git commit -m "deploy: $(date -u +%Y-%m-%dT%H:%M:%SZ) — ${GITHUB_SHA:0:7}"
+        || true
+
+        git push --force origin deploy-ci:deploy
+
+        echo "Branch deploy atualizado"
+
+        '
+      continue-on-error: true
