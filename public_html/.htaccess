@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Redireciona requisições para arquivos/diretórios existentes
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Redireciona tudo para index.html para SPA routing
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
