@@ -16,18 +16,46 @@ jobs:
     - name: Build
       run: 'npm ci && npm run build
 
-        cp htaccess.txt dist/.htaccess
-
         cp 404-spa.html dist/404.html
 
-        echo "Assets gerados:"
+        # htaccess sem nenhum rewrite para assets
 
-        find dist -type f | sort
+        cat > dist/.htaccess << "HTEOF"
+
+        Options -MultiViews
+
+        AddType application/javascript .js
+
+        AddType text/css .css
+
+        <IfModule mod_rewrite.c>
+
+        RewriteEngine On
+
+        RewriteRule ^assets/.*$ - [L,NC]
+
+        RewriteCond %{REQUEST_FILENAME} !-f
+
+        RewriteCond %{REQUEST_FILENAME} !-d
+
+        RewriteRule ^ /index.html [L]
+
+        </IfModule>
+
+        HTEOF
+
+        echo "=== .htaccess gerado ==="
+
+        cat dist/.htaccess
+
+        echo ""
+
+        echo "=== index.html ==="
 
         cat dist/index.html
 
         '
-    - name: Deploy no Hostinger
+    - name: Deploy limpo
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
@@ -35,33 +63,34 @@ jobs:
       run: "H=\"ftp://$FTP_HOST\"\ndel() { curl -s --user \"$FTP_USER:$FTP_PASS\"\
         \ \"$H/\" -Q \"DELE $1\" 2>&1 | head -1; }\nup()  { echo -n \"  $2: \"; curl\
         \ -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs \"$2\" &&\
-        \ echo \"OK $(wc -c<$1)b\" || echo \"FAIL\"; }\n\n# Apagar todos os assets\
-        \ antigos (qualquer hash)\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\"\
+        \ echo \"OK $(wc -c<$1)b\" || echo \"FAIL\"; }\n\n# Apagar assets antigos\
+        \ (todos os hashes)\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\"\
         \ | awk '{print $NF}' | grep \"\\.\" | while read f; do\n  del \"assets/$f\"\
         \ndone\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"RMD assets\" 2>&1\
-        \ | head -1\n\n# Apagar arquivos raiz\nfor f in index.html .htaccess 404.html\
-        \ index.php .ftp-deploy-sync-state.json; do del \"$f\"; done\n\n# Subir com\
-        \ nomes dinâmicos (qualquer hash)\nJS=$(ls dist/assets/*.js | head -1)\nCSS=$(ls\
-        \ dist/assets/*.css | head -1)\necho \"Subindo: $(basename $JS) + $(basename\
-        \ $CSS)\"\nup dist/.htaccess  \"$H/.htaccess\"\nup dist/index.html \"$H/index.html\"\
-        \nup dist/404.html   \"$H/404.html\"\nup \"$CSS\"          \"$H/assets/$(basename\
-        \ $CSS)\"\nup \"$JS\"           \"$H/assets/$(basename $JS)\"\n\necho \"\"\
-        \necho \"Estado final:\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" |\
+        \ | head -1\n\n# Apagar raiz\nfor f in index.html .htaccess 404.html; do del\
+        \ \"$f\"; done\nsleep 1\n\n# Subir\nJS=$(ls dist/assets/*.js | head -1)\n\
+        CSS=$(ls dist/assets/*.css | head -1)\necho \"=== Subindo ===\"\nup dist/.htaccess\
+        \  \"$H/.htaccess\"\nup dist/index.html \"$H/index.html\"\nup dist/404.html\
+        \   \"$H/404.html\"\nup \"$CSS\"          \"$H/assets/$(basename $CSS)\"\n\
+        up \"$JS\"           \"$H/assets/$(basename $JS)\"\n\necho \"\"\necho \"===\
+        \ Estado servidor ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" |\
         \ awk '{print $5,$NF}'\necho \"assets/:\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/assets/\" | awk '{print $5,$NF}'\n"
+        \ \"$H/assets/\" | awk '{print $5,$NF}'\necho \".htaccess:\"\ncurl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"$H/.htaccess\"\n"
     - name: Validar
       run: "sleep 20\nJS=$(ls dist/assets/*.js | head -1 | xargs basename)\nCSS=$(ls\
-        \ dist/assets/*.css | head -1 | xargs basename)\nJS_OK=$(curl -s -o /dev/null\
-        \ -w \"%{http_code}\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
-        )\nCSS_OK=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 \"https://studiologos.com.br/assets/$CSS\"\
-        )\nIDX_OK=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -c \"\
-        assets/\")\n\ncurl -s -o /dev/null -w \"/              %{http_code} %{size_download}b\\\
+        \ dist/assets/*.css | head -1 | xargs basename)\n\necho \"=== HTTP ===\"\n\
+        curl -s -o /dev/null -w \"/              %{http_code} %{size_download}b\\\
         n\" --max-time 20 https://studiologos.com.br/\ncurl -s -o /dev/null -w \"\
         JS bundle:     %{http_code} %{size_download}b\\n\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
         \ncurl -s -o /dev/null -w \"CSS bundle:    %{http_code} %{size_download}b\\\
         n\" --max-time 20 \"https://studiologos.com.br/assets/$CSS\"\ncurl -s -o /dev/null\
-        \ -w \"/biblioteca:   %{http_code}\\n\" --max-time 10 https://studiologos.com.br/biblioteca\n\
-        \nif [ \"$JS_OK\" = \"200\" ] && [ \"$CSS_OK\" = \"200\" ] && [ \"$IDX_OK\"\
-        \ -gt \"0\" ]; then\n  echo \"\"\n  echo \"✅ SITE 100% NO AR\"\n  echo \"\U0001F310\
-        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=$JS_OK CSS=$CSS_OK IDX=$IDX_OK\"\
-        \n  exit 1\nfi\n"
+        \ -w \"/biblioteca:   %{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
+        \nJS_SZ=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
+        )\nCSS_SZ=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 20 \"\
+        https://studiologos.com.br/assets/$CSS\")\n\n# JS deve ter mais de 100KB (1.3MB\
+        \ real)\nif [ \"$JS_SZ\" -gt \"100000\" ] && [ \"$CSS_SZ\" -gt \"10000\" ];\
+        \ then\n  echo \"\"\n  echo \"✅ SITE 100% NO AR E FUNCIONAL\"\n  echo \"\U0001F310\
+        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=${JS_SZ}b CSS=${CSS_SZ}b\
+        \ - assets sendo redirecionados\"\n  curl -sI --max-time 10 \"https://studiologos.com.br/assets/$JS\"\
+        \ | head -5\n  exit 1\nfi\n"
