@@ -1,4 +1,4 @@
-name: 🚀 Auto-Deploy Studio Logos → Hostinger
+name: "\U0001F680 Auto-Deploy Studio Logos \u2192 Hostinger"
 
 on:
   push:
@@ -7,62 +7,35 @@ on:
 
 jobs:
   deploy:
-    name: Build → Clean Upload → Validate
+    name: "Build \u2192 Clean Upload \u2192 Validate"
     runs-on: ubuntu-latest
 
     steps:
-      - name: ⬇️ Checkout
+      - name: "Checkout"
         uses: actions/checkout@v4
 
-      - name: 🟢 Node.js 20
+      - name: "Node.js 20"
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
-      - name: 📦 Instalar dependências
+      - name: "Instalar dependencias"
         run: npm ci
 
-      - name: 🔨 Build de produção
+      - name: "Build de producao"
         run: npm run build
 
-      - name: 📄 .htaccess — SPA routing + cache + gzip
+      - name: "Criar .htaccess e 404.html"
         run: |
-          cat > dist/.htaccess << 'EOF'
-Options -MultiViews
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType text/html "access plus 0 seconds"
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType font/woff2 "access plus 1 year"
-</IfModule>
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript
-</IfModule>
-EOF
+          printf 'Options -MultiViews\nRewriteEngine On\nRewriteBase /\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteCond %%{REQUEST_FILENAME} !-d\nRewriteRule ^ index.html [QSA,L]\n' > dist/.htaccess
+          printf '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=/"><title>Studio Logos</title></head><body><script>window.location.href="/";</script></body></html>\n' > dist/404.html
+          echo "--- dist/ ---"
+          find dist -type f | sort
+          echo "--- index.html ---"
+          cat dist/index.html
 
-      - name: 📄 404.html — SPA redirect
-        run: |
-          cat > dist/404.html << 'EOF'
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=/"><title>Studio Logos</title>
-</head><body><script>window.location.href='/';</script></body></html>
-EOF
-
-      - name: 📋 Confirmar build
-        run: |
-          echo "=== dist/ ===" && find dist -type f | sort
-          echo ""
-          echo "=== index.html ===" && cat dist/index.html
-
-      - name: 🚀 FTP Upload → /public_html (CLEAN SLATE)
+      - name: "FTP Upload - CLEAN SLATE"
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -73,7 +46,7 @@ EOF
           dangerous-clean-slate: true
           log-level: standard
 
-      - name: 🔄 Snapshot → branch deploy
+      - name: "Snapshot branch deploy"
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions CI"
@@ -83,21 +56,20 @@ EOF
           cp -r /tmp/snap/. .
           git add -A
           git commit -m "deploy: $(date -u '+%Y-%m-%dT%H:%M:%SZ') ${GITHUB_SHA:0:7}" || true
-          git push --force origin deploy-ci:deploy
-          echo "✅ Branch deploy atualizado"
+          git push --force origin deploy-ci:deploy || true
         continue-on-error: true
 
-      - name: 🌐 Validar produção
+      - name: "Validar producao"
         run: |
           sleep 15
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/)
-          TITLE=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -o '<title>[^<]*</title>' | head -1)
+          CONTENT=$(curl -s --max-time 20 https://studiologos.com.br/)
           echo "HTTP: $STATUS"
-          echo "Title: $TITLE"
-          if echo "$TITLE" | grep -q "Studio Logos"; then
-            echo "✅ BUILD CORRETA NO AR"
+          echo "$CONTENT" | grep -o '<title>[^<]*</title>' | head -1
+          if echo "$CONTENT" | grep -q "assets/index-"; then
+            echo "BUILD COMPILADA CONFIRMADA NO SERVIDOR"
           else
-            echo "⚠️ Title não corresponde — verificar"
+            echo "ATENCAO: servidor pode estar com arquivo errado"
+            echo "$CONTENT" | head -10
             exit 1
           fi
-          echo "🌐 https://studiologos.com.br"
