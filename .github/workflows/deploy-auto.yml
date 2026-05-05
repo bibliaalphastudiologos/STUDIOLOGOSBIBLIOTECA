@@ -16,18 +16,18 @@ jobs:
     - name: Build
       run: 'npm ci && npm run build
 
+        cp htaccess.txt dist/.htaccess
+
         cp 404-spa.html dist/404.html
-
-        # htaccess minimo - sem tocar em assets
-
-        printf "Options -MultiViews\nErrorDocument 404 /index.html\n" > dist/.htaccess
 
         echo "=== .htaccess ===" && cat dist/.htaccess
 
         echo "=== index.html ===" && cat dist/index.html
 
+        echo "=== assets ===" && ls -lh dist/assets/
+
         '
-    - name: Deploy
+    - name: Deploy limpo no Hostinger
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
@@ -41,23 +41,24 @@ jobs:
         "$2" && echo "OK $(wc -c<$1)b" || echo "FAIL"; }
 
 
-        # Limpar assets antigos
+        echo "=== Deletar TUDO (assets + raiz) ==="
 
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $NF}'' |
         grep "\." | while read f; do del "assets/$f"; done
 
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD assets" 2>&1 | head -1
 
-        for f in index.html .htaccess 404.html; do del "$f"; done
+        for f in index.html .htaccess 404.html index.php .ftp-deploy-sync-state.json;
+        do del "$f"; done
 
-        sleep 1
+        sleep 3
 
 
         JS=$(ls dist/assets/*.js | head -1)
 
         CSS=$(ls dist/assets/*.css | head -1)
 
-        echo "JS: $(basename $JS) | CSS: $(basename $CSS)"
+        echo "Subindo: $(basename $JS) + $(basename $CSS)"
 
 
         up dist/.htaccess  "$H/.htaccess"
@@ -73,7 +74,7 @@ jobs:
 
         echo ""
 
-        echo "=== Servidor final ==="
+        echo "=== Estado servidor ==="
 
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $5,$NF}''
 
@@ -86,18 +87,21 @@ jobs:
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/.htaccess"
 
         '
-    - name: Validar
-      run: "sleep 20\nJS=$(ls dist/assets/*.js | head -1 | xargs basename)\nCSS=$(ls\
+    - name: Validar site
+      run: "sleep 30\nJS=$(ls dist/assets/*.js | head -1 | xargs basename)\nCSS=$(ls\
         \ dist/assets/*.css | head -1 | xargs basename)\n\necho \"=== HTTP ===\"\n\
         curl -s -o /dev/null -w \"/              %{http_code} %{size_download}b\\\
         n\" --max-time 20 https://studiologos.com.br/\ncurl -s -o /dev/null -w \"\
-        JS bundle:     %{http_code} %{size_download}b\\n\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
-        \ncurl -s -o /dev/null -w \"CSS bundle:    %{http_code} %{size_download}b\\\
+        JS:            %{http_code} %{size_download}b\\n\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
+        \ncurl -s -o /dev/null -w \"CSS:           %{http_code} %{size_download}b\\\
         n\" --max-time 20 \"https://studiologos.com.br/assets/$CSS\"\ncurl -s -o /dev/null\
         \ -w \"/biblioteca:   %{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
-        \nJS_SZ=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
-        )\necho \"JS size: ${JS_SZ} bytes\"\n\nif [ \"$JS_SZ\" -gt \"100000\" ]; then\n\
-        \  echo \"\"\n  echo \"✅ SITE 100% NO AR E FUNCIONAL\"\n  echo \"\U0001F310\
-        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=${JS_SZ}b — .htaccess\
-        \ bloqueando assets\"\n  curl -sI --max-time 10 \"https://studiologos.com.br/assets/$JS\"\
-        \ | head -6\n  exit 1\nfi\n"
+        \necho \"\"\necho \"Content-Type do JS:\"\ncurl -sI --max-time 15 \"https://studiologos.com.br/assets/$JS\"\
+        \ | grep -i \"content-type\\|content-length\\|etag\"\n\nJS_SZ=$(curl -s -o\
+        \ /dev/null -w \"%{size_download}\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
+        )\nCSS_SZ=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 20 \"\
+        https://studiologos.com.br/assets/$CSS\")\n\nif [ \"$JS_SZ\" -gt \"100000\"\
+        \ ] && [ \"$CSS_SZ\" -gt \"10000\" ]; then\n  echo \"\"\n  echo \"✅ SITE 100%\
+        \ NO AR\"\n  echo \"   JS: ${JS_SZ} bytes OK\"\n  echo \"   CSS: ${CSS_SZ}\
+        \ bytes OK\"\n  echo \"\U0001F310 https://studiologos.com.br\"\nelse\n  echo\
+        \ \"❌ JS=${JS_SZ}b CSS=${CSS_SZ}b\"\n  exit 1\nfi\n"

@@ -1,12 +1,12 @@
 Options -MultiViews
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  # Assets passam sem rewrite
-  RewriteRule ^assets/ - [L]
-  # SPA: redireciona rotas inexistentes para index.html
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ /index.html [L]
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.js$">
+    Header set Content-Type "application/javascript; charset=utf-8"
+  </FilesMatch>
+  <FilesMatch "\.css$">
+    Header set Content-Type "text/css; charset=utf-8"
+  </FilesMatch>
 </IfModule>
-# Fallback para LiteSpeed que ignora RewriteRule em alguns casos
+
 ErrorDocument 404 /index.html
