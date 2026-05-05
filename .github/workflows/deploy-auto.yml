@@ -1,4 +1,4 @@
-name: "\U0001F680 Auto-Deploy Studio Logos \u2192 Hostinger"
+name: "Auto-Deploy Studio Logos"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: "Build \u2192 Clean Upload \u2192 Validate"
+    name: "Build e Deploy"
     runs-on: ubuntu-latest
 
     steps:
@@ -23,30 +23,45 @@ jobs:
       - name: "Instalar dependencias"
         run: npm ci
 
-      - name: "Build de producao"
+      - name: "Build producao"
         run: npm run build
 
-      - name: "Criar .htaccess e 404.html"
+      - name: "Copiar htaccess e 404 para dist"
         run: |
-          printf 'Options -MultiViews\nRewriteEngine On\nRewriteBase /\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteCond %%{REQUEST_FILENAME} !-d\nRewriteRule ^ index.html [QSA,L]\n' > dist/.htaccess
-          printf '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=/"><title>Studio Logos</title></head><body><script>window.location.href="/";</script></body></html>\n' > dist/404.html
-          echo "--- dist/ ---"
+          cp htaccess.txt dist/.htaccess
+          cp 404-spa.html dist/404.html
+          echo "Arquivos em dist:"
           find dist -type f | sort
-          echo "--- index.html ---"
+          echo "---index.html---"
           cat dist/index.html
 
-      - name: "FTP Upload - CLEAN SLATE"
+      - name: "FTP Deploy com clean slate"
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /public_html/
+          server-dir: /domains/studiologos.com.br/public_html/
           dangerous-clean-slate: true
           log-level: standard
 
-      - name: "Snapshot branch deploy"
+      - name: "Validar site em producao"
+        run: |
+          sleep 20
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/ || echo 0)
+          CONTENT=$(curl -s --max-time 20 https://studiologos.com.br/ || echo "")
+          echo "HTTP Status: $STATUS"
+          echo "$CONTENT" | grep -o "<title>[^<]*</title>"
+          if echo "$CONTENT" | grep -q "assets/index-"; then
+            echo "OK: BUILD COMPILADA ATIVA NO SERVIDOR"
+          else
+            echo "FALHA: servidor com arquivo incorreto"
+            echo "$CONTENT" | head -15
+            exit 1
+          fi
+
+      - name: "Snapshot no branch deploy"
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions CI"
@@ -55,21 +70,6 @@ jobs:
           git rm -rf . 2>/dev/null || true
           cp -r /tmp/snap/. .
           git add -A
-          git commit -m "deploy: $(date -u '+%Y-%m-%dT%H:%M:%SZ') ${GITHUB_SHA:0:7}" || true
+          git commit -m "deploy $(date -u +%Y-%m-%dT%H:%M:%SZ) ${GITHUB_SHA:0:7}" || true
           git push --force origin deploy-ci:deploy || true
         continue-on-error: true
-
-      - name: "Validar producao"
-        run: |
-          sleep 15
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/)
-          CONTENT=$(curl -s --max-time 20 https://studiologos.com.br/)
-          echo "HTTP: $STATUS"
-          echo "$CONTENT" | grep -o '<title>[^<]*</title>' | head -1
-          if echo "$CONTENT" | grep -q "assets/index-"; then
-            echo "BUILD COMPILADA CONFIRMADA NO SERVIDOR"
-          else
-            echo "ATENCAO: servidor pode estar com arquivo errado"
-            echo "$CONTENT" | head -10
-            exit 1
-          fi
