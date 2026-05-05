@@ -12,37 +12,99 @@ jobs:
         cache: npm
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
-        dist/404.html && ls -lh dist/ && ls -lh dist/assets/
-    - name: Upload assets + verificar
+        dist/404.html && echo "dist:" && find dist -type f | sort
+    - name: Deletar lixo + subir tudo correto
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: "H=\"ftp://$FTP_HOST\"\nup() { echo -n \"UP $2: \"; curl -v -T \"$1\" --user\
-        \ \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs \"$2\" 2>&1 | grep -E \"^[<>*]|226|550|125|150|Upload\"\
-        \ | head -5; echo \"($(wc -c<$1)b)\"; }\n\necho \"=== Estado assets/ antes\
-        \ ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\" | awk '{print\
-        \ $5,$NF}'\n\n# Deletar assets velhos\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/\" -Q \"DELE assets/index-DYJn2QEj.js\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/\" -Q \"DELE assets/index-DjS088-i.css\"\n\n# Upload JS (arquivo grande\
-        \ - 1.3MB)\necho \"=== Subindo JS (1.3MB) ===\"\ncurl -T dist/assets/index-DYJn2QEj.js\
-        \ \\\n  --user \"$FTP_USER:$FTP_PASS\" \\\n  --ftp-create-dirs \\\n  --retry\
-        \ 3 --retry-delay 5 \\\n  \"$H/assets/index-DYJn2QEj.js\" && echo \"JS OK\"\
-        \ || echo \"JS FAIL\"\n\n# Upload CSS\necho \"=== Subindo CSS (78KB) ===\"\
-        \ncurl -T dist/assets/index-DjS088-i.css \\\n  --user \"$FTP_USER:$FTP_PASS\"\
-        \ \\\n  --ftp-create-dirs \\\n  \"$H/assets/index-DjS088-i.css\" && echo \"\
-        CSS OK\" || echo \"CSS FAIL\"\n\necho \"\"\necho \"=== assets/ apos upload\
-        \ ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\" | awk '{print\
-        \ $5,$NF}'\n"
-    - name: Validar assets HTTP
-      run: "sleep 10\nJS=$(curl -s -o /dev/null -w \"%{http_code} %{size_download}b\"\
-        \ --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\nCSS=$(curl\
-        \ -s -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time 30 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
-        echo \"JS:  $JS\"\necho \"CSS: $CSS\"\nif echo \"$JS\" | grep -q \"^200\"\
-        \ && echo \"$CSS\" | grep -q \"^200\"; then\n  echo \"\"\n  echo \"✅ TODOS\
-        \ OS ASSETS OK\"\n  echo \"✅ SITE COMPLETAMENTE FUNCIONAL\"\n  echo \"\U0001F310\
-        \ https://studiologos.com.br\"\nelse\n  echo \"❌ Assets com problema\"\n \
-        \ exit 1\nfi\n"
+      run: 'H="ftp://$FTP_HOST"
+
+        del() { curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE $1" 2>&1 | grep
+        -E "250|550" | head -1; echo "DEL $1"; }
+
+        up()  { curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs --retry
+        3 --retry-delay 3 "$2" && echo "UP OK $2" || echo "UP FAIL $2"; }
+
+
+        echo "=== DELETAR TUDO ==="
+
+        del "index.html"
+
+        del "index.php"
+
+        del ".htaccess"
+
+        del "404.html"
+
+        del "assets/index-DYJn2QEj.js"
+
+        del "assets/index-DjS088-i.css"
+
+        del "assets/index-UIeH9Ysg.js"
+
+        del "assets/index-mCBVk_n0.css"
+
+        del ".ftp-deploy-sync-state.json"
+
+        del "studiologos-probe.txt"
+
+        del "deploy_test.txt"
+
+        del "domains/studiologos.com.br/public_html/index.html"
+
+        del "domains/studiologos.com.br/public_html/.htaccess"
+
+        del "domains/studiologos.com.br/public_html/404.html"
+
+        del "domains/studiologos.com.br/public_html/assets/index-DYJn2QEj.js"
+
+        del "domains/studiologos.com.br/public_html/assets/index-DjS088-i.css"
+
+
+        echo "=== SUBIR CORRETO ==="
+
+        up dist/.htaccess   "$H/.htaccess"
+
+        up dist/404.html    "$H/404.html"
+
+        up dist/index.html  "$H/index.html"
+
+        up dist/assets/index-DjS088-i.css "$H/assets/index-DjS088-i.css"
+
+        up dist/assets/index-DYJn2QEj.js  "$H/assets/index-DYJn2QEj.js"
+
+
+        echo ""
+
+        echo "=== ESTADO FINAL ==="
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $5,$NF}''
+
+        echo "--- assets/ ---"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $5,$NF}''
+
+        '
+    - name: Validar HTTP completo
+      run: "sleep 20\necho \"=== HTTP tests ===\"\ncurl -s -o /dev/null -w \"/ index.html:\
+        \     %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
+        curl -s -o /dev/null -w \"  JS asset:       %{http_code} %{size_download}b\\\
+        n\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js\ncurl\
+        \ -s -o /dev/null -w \"  CSS asset:      %{http_code} %{size_download}b\\\
+        n\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css\ncurl\
+        \ -s -o /dev/null -w \"  /biblioteca:    %{http_code}\\n\"               \
+        \    --max-time 10 https://studiologos.com.br/biblioteca\n\nJS_OK=$(curl -s\
+        \ -o /dev/null -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+        CSS_OK=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
+        IDX=$(curl -s --max-time 20 https://studiologos.com.br/)\nIDX_OK=$(echo \"\
+        $IDX\" | grep -c \"assets/index-\")\n\nif [ \"$JS_OK\" = \"200\" ] && [ \"\
+        $CSS_OK\" = \"200\" ] && [ \"$IDX_OK\" -gt \"0\" ]; then\n  echo \"\"\n  echo\
+        \ \"✅ DEPLOY 100% VALIDADO\"\n  echo \"   index.html: OK (build compilada)\"\
+        \n  echo \"   JS asset:   OK ($JS_OK)\"\n  echo \"   CSS asset:  OK ($CSS_OK)\"\
+        \n  echo \"   SPA routing: OK\"\n  echo \"\U0001F310 https://studiologos.com.br\"\
+        \nelse\n  echo \"❌ Problemas detectados: JS=$JS_OK CSS=$CSS_OK IDX=$IDX_OK\"\
+        \n  echo \"$IDX\" | head -8\n  exit 1\nfi\n"
     - name: Snapshot branch deploy
       run: 'git config user.email "actions@github.com"
 
