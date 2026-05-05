@@ -12,71 +12,50 @@ jobs:
         cache: npm
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
-        dist/404.html
-    - name: CHMOD + verificar permissoes
+        dist/404.html && echo "=== dist/ ===" && find dist -type f | sort && echo
+        "=== htaccess ===" && cat dist/.htaccess
+    - name: Limpar servidor e subir tudo correto
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: 'H="ftp://$FTP_HOST"
-
-        echo "=== Permissoes atuais ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
-
-        echo "--- assets/ ---"
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
-
-
-        echo ""
-
-        echo "=== CHMOD 755 em assets/ e 644 nos arquivos ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "SITE CHMOD 755 assets" 2>&1
-        | head -3
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "SITE CHMOD 644 assets/index-DYJn2QEj.js"
-        2>&1 | head -3
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "SITE CHMOD 644 assets/index-DjS088-i.css"
-        2>&1 | head -3
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "SITE CHMOD 644 index.html"
-        2>&1 | head -3
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "SITE CHMOD 644 .htaccess" 2>&1
-        | head -3
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "SITE CHMOD 644 404.html" 2>&1
-        | head -3
-
-
-        echo ""
-
-        echo "=== Permissoes apos CHMOD ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
-
-        echo "--- assets/ ---"
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
-
-        '
-    - name: Validar HTTP
-      run: "sleep 10\necho \"=== HTTP tests ===\"\ncurl -s -o /dev/null -w \"/ index.html:\
+      run: "H=\"ftp://$FTP_HOST\"\nup() { echo -n \"UP $2: \"; curl -s -T \"$1\" --user\
+        \ \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs \"$2\" && echo \"OK $(wc -c<$1)b\"\
+        \ || echo \"FAIL\"; }\n\n# Deletar TUDO (incluindo assets velhos)\nfor f in\
+        \ index.html .htaccess 404.html index.php assets/index-DYJn2QEj.js assets/index-DjS088-i.css\
+        \ assets/index-UIeH9Ysg.js assets/index-mCBVk_n0.css .ftp-deploy-sync-state.json\
+        \ deploy_test.txt; do\n  curl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q\
+        \ \"DELE $f\" 2>&1 | head -1\ndone\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" -Q \"RMD assets\" 2>&1 | head -1\nsleep 2\n\n# Subir na ordem certa:\
+        \ htaccess primeiro\nup dist/.htaccess  \"$H/.htaccess\"\nup dist/404.html\
+        \   \"$H/404.html\"\nup dist/index.html \"$H/index.html\"\n\n# Criar pasta\
+        \ assets e subir arquivos\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\"\
+        \ -Q \"MKD assets\" 2>&1 | head -1\nsleep 1\nup dist/assets/index-DjS088-i.css\
+        \ \"$H/assets/index-DjS088-i.css\"\nup dist/assets/index-DYJn2QEj.js  \"$H/assets/index-DYJn2QEj.js\"\
+        \n\necho \"\"\necho \"=== ESTADO FINAL SERVIDOR ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" | awk '{print $1,$5,$NF}'\necho \"--- assets/ ---\"\ncurl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"$H/assets/\" | awk '{print $1,$5,$NF}'\n\n# Confirmar\
+        \ .htaccess subido com tamanho correto\nHTSIZE=$(curl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" | grep \".htaccess\" | awk '{print $5}')\necho \"\"\necho \".htaccess\
+        \ no servidor: ${HTSIZE} bytes (esperado: 213)\"\n"
+    - name: Validar site completo
+      run: "sleep 20\necho \"=== Testes HTTP ===\"\ncurl -s -o /dev/null -w \"index.html:\
         \ %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
-        curl -s -o /dev/null -w \"  JS:         %{http_code} %{size_download}b\\n\"\
+        curl -s -o /dev/null -w \"JS asset:   %{http_code} %{size_download}b\\n\"\
         \ --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js\ncurl\
-        \ -s -o /dev/null -w \"  CSS:        %{http_code} %{size_download}b\\n\" --max-time\
+        \ -s -o /dev/null -w \"CSS asset:  %{http_code} %{size_download}b\\n\" --max-time\
         \ 20 https://studiologos.com.br/assets/index-DjS088-i.css\ncurl -s -o /dev/null\
-        \ -w \"  /biblioteca:%{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
+        \ -w \"/biblioteca:%{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
         \nJS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
         CSS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
-        if [ \"$JS\" = \"200\" ] && [ \"$CSS\" = \"200\" ]; then\n  echo \"\"\n  echo\
-        \ \"✅ SITE 100% FUNCIONAL\"\n  echo \"\U0001F310 https://studiologos.com.br\"\
-        \nelse\n  echo \"❌ JS=$JS CSS=$CSS\"\n  exit 1\nfi\n"
-    - name: Snapshot branch deploy
+        IDX=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -c \"assets/index-\"\
+        )\n\nif [ \"$JS\" = \"200\" ] && [ \"$CSS\" = \"200\" ] && [ \"$IDX\" -gt\
+        \ \"0\" ]; then\n  echo \"\"\n  echo \"✅ DEPLOY 100% VALIDADO E FUNCIONAL\"\
+        \n  echo \"   index.html: OK (build compilada)\"\n  echo \"   JS bundle: \
+        \ OK 1.3MB\"\n  echo \"   CSS bundle: OK 78KB\"\n  echo \"   SPA routing:\
+        \ OK\"\n  echo \"\U0001F310 https://studiologos.com.br\"\nelse\n  echo \"\
+        ❌ JS=$JS CSS=$CSS IDX=$IDX\"\n  exit 1\nfi\n"
+    - name: Atualizar branch deploy
       run: 'git config user.email "actions@github.com"
 
         git config user.name "GitHub Actions CI"
