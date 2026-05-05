@@ -5,25 +5,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  SSH_HOST: 89.116.115.179
-  SSH_PORT: 65002
-  SSH_USER: u876483543
-  REMOTE_DIR: /home/u876483543/domains/studiologos.com.br/public_html
-
 jobs:
-  build-and-deploy:
-    name: Build → Deploy → Validate
+  deploy:
+    name: Build → Clean Upload → Validate
     runs-on: ubuntu-latest
 
     steps:
-      - name: ⬇️ Checkout branch main
+      - name: ⬇️ Checkout
         uses: actions/checkout@v4
-        with:
-          ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🟢 Configurar Node.js 20
+      - name: 🟢 Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -35,115 +26,78 @@ jobs:
       - name: 🔨 Build de produção
         run: npm run build
 
-      - name: 📄 Gerar .htaccess (SPA + cache + gzip)
+      - name: 📄 .htaccess — SPA routing + cache + gzip
         run: |
-          cat > dist/.htaccess << 'HTEOF'
-          Options -MultiViews
-          RewriteEngine On
-          RewriteBase /
-          RewriteCond %{REQUEST_FILENAME} !-f
-          RewriteCond %{REQUEST_FILENAME} !-d
-          RewriteRule ^ index.html [QSA,L]
-          <IfModule mod_expires.c>
-            ExpiresActive On
-            ExpiresByType text/html "access plus 0 seconds"
-            ExpiresByType text/css "access plus 1 year"
-            ExpiresByType application/javascript "access plus 1 year"
-            ExpiresByType image/png "access plus 1 year"
-            ExpiresByType image/jpeg "access plus 1 year"
-            ExpiresByType image/svg+xml "access plus 1 year"
-            ExpiresByType font/woff2 "access plus 1 year"
-          </IfModule>
-          <IfModule mod_deflate.c>
-            AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
-          </IfModule>
-          HTEOF
+          cat > dist/.htaccess << 'EOF'
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>
+EOF
 
-      - name: 📄 Gerar 404.html (SPA redirect)
+      - name: 📄 404.html — SPA redirect
         run: |
           cat > dist/404.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="pt-BR">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="refresh" content="0;url=/">
-            <title>Studio Logos</title>
-          </head>
-          <body>
-            <script>window.location.href = '/';</script>
-          </body>
-          </html>
-          EOF
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<meta http-equiv="refresh" content="0;url=/"><title>Studio Logos</title>
+</head><body><script>window.location.href='/';</script></body></html>
+EOF
 
-      - name: 🔧 Instalar sshpass e rsync
+      - name: 📋 Confirmar build
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y sshpass rsync
+          echo "=== dist/ ===" && find dist -type f | sort
+          echo ""
+          echo "=== index.html ===" && cat dist/index.html
 
-      - name: 🚀 Deploy SFTP → Hostinger (porta 65002)
-        env:
-          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          mkdir -p ~/.ssh
-          cat > ~/.ssh/config << 'SSHEOF'
-          Host hostinger
-            HostName 89.116.115.179
-            Port 65002
-            User u876483543
-            StrictHostKeyChecking no
-            UserKnownHostsFile /dev/null
-          SSHEOF
-          chmod 600 ~/.ssh/config
-
-          sshpass -p "$SSH_PASS" rsync -avz --delete \
-            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
-            dist/ \
-            $SSH_USER@$SSH_HOST:$REMOTE_DIR/ && echo "✅ rsync OK" || echo "⚠️ rsync falhou, FTP será tentado"
-
-      - name: 📁 Deploy FTP (backup/fallback)
-        if: always()
+      - name: 🚀 FTP Upload → /public_html (CLEAN SLATE)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /domains/studiologos.com.br/public_html/
-          log-level: minimal
-        continue-on-error: true
+          server-dir: /public_html/
+          dangerous-clean-slate: true
+          log-level: standard
 
-      - name: 🔄 Atualizar branch deploy (build snapshot)
-        if: success()
+      - name: 🔄 Snapshot → branch deploy
         run: |
           git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          
-          # Salvar dist em pasta temporária
-          cp -r dist /tmp/deploy-snapshot
-          
-          # Configurar o worktree do branch deploy
-          git fetch origin deploy 2>/dev/null || true
-          git checkout --orphan deploy-temp
-          git rm -rf . --quiet 2>/dev/null || true
-          
-          # Copiar build
-          cp -r /tmp/deploy-snapshot/. .
-          
+          git config user.name "GitHub Actions CI"
+          cp -r dist /tmp/snap
+          git checkout --orphan deploy-ci
+          git rm -rf . 2>/dev/null || true
+          cp -r /tmp/snap/. .
           git add -A
-          git commit -m "snapshot: $(date -u '+%Y-%m-%dT%H:%M:%SZ') — ${GITHUB_SHA:0:7}" || echo "Nada a commitar"
-          git push --force origin deploy-temp:deploy
+          git commit -m "deploy: $(date -u '+%Y-%m-%dT%H:%M:%SZ') ${GITHUB_SHA:0:7}" || true
+          git push --force origin deploy-ci:deploy
           echo "✅ Branch deploy atualizado"
         continue-on-error: true
 
-      - name: 🌐 Validar site em produção
+      - name: 🌐 Validar produção
         run: |
-          echo "Aguardando propagação (10s)..."
-          sleep 10
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/ 2>/dev/null || echo "000")
-          echo "HTTP Status: $HTTP_STATUS"
-          if [ "$HTTP_STATUS" = "200" ] || [ "$HTTP_STATUS" = "301" ] || [ "$HTTP_STATUS" = "302" ]; then
-            echo "✅ Site respondendo: $HTTP_STATUS"
-            echo "🌐 https://studiologos.com.br"
+          sleep 15
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://studiologos.com.br/)
+          TITLE=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -o '<title>[^<]*</title>' | head -1)
+          echo "HTTP: $STATUS"
+          echo "Title: $TITLE"
+          if echo "$TITLE" | grep -q "Studio Logos"; then
+            echo "✅ BUILD CORRETA NO AR"
           else
-            echo "⚠️ Site retornou $HTTP_STATUS — verificar manualmente"
+            echo "⚠️ Title não corresponde — verificar"
+            exit 1
           fi
+          echo "🌐 https://studiologos.com.br"
