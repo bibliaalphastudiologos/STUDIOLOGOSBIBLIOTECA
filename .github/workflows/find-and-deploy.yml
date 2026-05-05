@@ -1,0 +1,68 @@
+name: "Find Path and Deploy"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    name: "Probe FTP paths"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Criar arquivo probe"
+        run: |
+          mkdir -p probe
+          echo "probe-ok-$(date -u +%s)" > probe/studiologos-probe.txt
+
+      - name: "FTP para /public_html/"
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./probe/
+          server-dir: /public_html/
+          log-level: minimal
+        continue-on-error: true
+
+      - name: "Testar path 1"
+        run: |
+          sleep 3
+          echo "=== /public_html/ ==="
+          curl -s --max-time 10 https://studiologos.com.br/studiologos-probe.txt || echo "NOT FOUND"
+
+      - name: "FTP para /domains/studiologos.com.br/public_html/"
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./probe/
+          server-dir: /domains/studiologos.com.br/public_html/
+          log-level: minimal
+        continue-on-error: true
+
+      - name: "Testar path 2"
+        run: |
+          sleep 3
+          echo "=== /domains/studiologos.com.br/public_html/ ==="
+          curl -s --max-time 10 https://studiologos.com.br/studiologos-probe.txt || echo "NOT FOUND"
+
+      - name: "FTP para /home/u876483543/domains/studiologos.com.br/public_html/"
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./probe/
+          server-dir: /home/u876483543/domains/studiologos.com.br/public_html/
+          log-level: minimal
+        continue-on-error: true
+
+      - name: "Testar path 3"
+        run: |
+          sleep 3
+          echo "=== /home/u876483543/domains/... ==="
+          curl -s --max-time 10 https://studiologos.com.br/studiologos-probe.txt || echo "NOT FOUND"
