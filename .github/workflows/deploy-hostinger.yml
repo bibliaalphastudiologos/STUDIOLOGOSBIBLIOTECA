@@ -1,9 +1,15 @@
-name: Deploy Studio Logos → Hostinger (FTP)
+name: Deploy Studio Logos → Hostinger (SFTP)
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+env:
+  SSH_HOST: 89.116.115.179
+  SSH_PORT: 65002
+  SSH_USER: u876483543
+  REMOTE_DIR: /home/u876483543/domains/studiologos.com.br/public_html
 
 jobs:
   build-and-deploy:
@@ -27,40 +33,25 @@ jobs:
 
       - name: 📄 Criar .htaccess para SPA routing
         run: |
-          cat > dist/.htaccess << 'EOF'
+          cat > dist/.htaccess << 'HTEOF'
           Options -MultiViews
           RewriteEngine On
           RewriteCond %{REQUEST_FILENAME} !-f
           RewriteCond %{REQUEST_FILENAME} !-d
           RewriteRule ^ index.html [QSA,L]
-          
-          # Cache para assets estáticos
           <IfModule mod_expires.c>
             ExpiresActive On
             ExpiresByType text/css "access plus 1 year"
             ExpiresByType application/javascript "access plus 1 year"
             ExpiresByType image/png "access plus 1 year"
-            ExpiresByType image/jpg "access plus 1 year"
             ExpiresByType image/jpeg "access plus 1 year"
-            ExpiresByType image/gif "access plus 1 year"
             ExpiresByType image/svg+xml "access plus 1 year"
-            ExpiresByType image/x-icon "access plus 1 year"
             ExpiresByType font/woff2 "access plus 1 year"
           </IfModule>
-          
-          # Compressão Gzip
           <IfModule mod_deflate.c>
-            AddOutputFilterByType DEFLATE text/plain
-            AddOutputFilterByType DEFLATE text/html
-            AddOutputFilterByType DEFLATE text/xml
-            AddOutputFilterByType DEFLATE text/css
-            AddOutputFilterByType DEFLATE application/xml
-            AddOutputFilterByType DEFLATE application/xhtml+xml
-            AddOutputFilterByType DEFLATE application/rss+xml
-            AddOutputFilterByType DEFLATE application/javascript
-            AddOutputFilterByType DEFLATE application/x-javascript
+            AddOutputFilterByType DEFLATE text/html text/css application/javascript
           </IfModule>
-          EOF
+          HTEOF
 
       - name: 📄 Criar página 404.html
         run: |
@@ -70,12 +61,10 @@ jobs:
           <head>
             <meta charset="UTF-8">
             <meta http-equiv="refresh" content="0;url=/">
-            <title>Studio Logos - Redirecionando...</title>
+            <title>Studio Logos</title>
           </head>
           <body>
-            <script>
-              window.location.href = window.location.origin + '/#' + window.location.pathname;
-            </script>
+            <script>window.location.href = '/';</script>
           </body>
           </html>
           EOF
@@ -87,19 +76,43 @@ jobs:
           echo "=== Tamanho total ==="
           du -sh dist/
 
-      - name: 🚀 Deploy via FTP para Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /public_html/
-          dangerous-clean-slate: true
-          log-level: standard
-          timeout: 60000
-
-      - name: ✅ Deploy concluído
+      - name: 🔧 Instalar sshpass e rsync
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y sshpass rsync
+
+      - name: 🚀 Deploy via SFTP/rsync para Hostinger
+        env:
+          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          # Configurar SSH para não verificar host
+          mkdir -p ~/.ssh
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+          echo "UserKnownHostsFile /dev/null" >> ~/.ssh/config
+          
+          # Limpar o diretório remoto e fazer upload
+          sshpass -p "$SSH_PASS" ssh -p $SSH_PORT $SSH_USER@$SSH_HOST \
+            "rm -rf $REMOTE_DIR/* && mkdir -p $REMOTE_DIR"
+          
+          # Upload dos arquivos via rsync sobre SSH
+          sshpass -p "$SSH_PASS" rsync -avz --delete \
+            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
+            dist/ \
+            $SSH_USER@$SSH_HOST:$REMOTE_DIR/
+          
+          echo "✅ Upload concluído!"
+
+      - name: ✅ Verificar deploy
+        env:
+          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          echo "=== Verificando arquivos no servidor ==="
+          sshpass -p "$SSH_PASS" ssh -p $SSH_PORT \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            $SSH_USER@$SSH_HOST \
+            "ls -lh $REMOTE_DIR/ && echo '✅ Deploy verificado!'"
+          
+          echo ""
           echo "🎉 Studio Logos deployado com sucesso!"
           echo "🌐 Acesse: https://studiologos.com.br"
