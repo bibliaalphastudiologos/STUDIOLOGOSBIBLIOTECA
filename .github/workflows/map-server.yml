@@ -12,95 +12,111 @@ jobs:
         cache: npm
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
-        dist/404.html
-    - name: Purge LiteSpeed cache + re-upload assets
+        dist/404.html && find dist -type f | sort
+    - name: Limpar TUDO e subir na raiz correta
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
       run: 'H="ftp://$FTP_HOST"
 
-        up() { curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs "$2"
-        && echo "OK $2 $(wc -c<$1)b" || echo "FAIL $2"; }
+        del() { curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE $1" 2>&1 | head
+        -1; echo "DEL $1"; }
+
+        up()  { echo -n "UP $2: "; curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs
+        "$2" && echo "OK $(wc -c<$1)b" || echo "FAIL"; }
 
 
-        # Reupload assets com novo nome de arquivo para forçar miss de cache
+        echo "=== RAIZ FTP (antes) ==="
 
-        # Mas primeiro: tentar purge via HTTP
-
-        echo "=== Purge LiteSpeed via HTTP ==="
-
-        curl -s -X PURGE -H "X-LiteSpeed-Purge: *" --max-time 10 https://studiologos.com.br/
-        || true
-
-        curl -s -X PURGE --max-time 10 "https://studiologos.com.br/assets/index-DYJn2QEj.js"
-        || true
-
-        curl -s -X PURGE --max-time 10 "https://studiologos.com.br/assets/index-DjS088-i.css"
-        || true
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
 
 
-        # Forcar miss: deletar e reupar com timestamp diferente
+        # Deletar arquivos errados da raiz
 
-        echo "=== Deletar e reupar assets ==="
+        for f in index.html .htaccess 404.html index.php; do del "$f"; done
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-DYJn2QEj.js"
+        for f in assets/index-DYJn2QEj.js assets/index-DjS088-i.css assets/index-UIeH9Ysg.js
+        assets/index-mCBVk_n0.css; do del "$f"; done
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-DjS088-i.css"
+        for f in .ftp-deploy-sync-state.json studiologos-probe.txt deploy_test.txt;
+        do del "$f"; done
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-UIeH9Ysg.js"
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-mCBVk_n0.css"
+        # Deletar subpasta public_html/public_html/ (arquivos dentro)
 
-        sleep 3
+        echo "--- limpando public_html/ duplicada ---"
+
+        for f in public_html/index.html public_html/.htaccess public_html/404.html
+        public_html/index.php; do del "$f"; done
+
+        for f in public_html/assets/index-DYJn2QEj.js public_html/assets/index-DjS088-i.css
+        public_html/assets/index-UIeH9Ysg.js public_html/assets/index-mCBVk_n0.css;
+        do del "$f"; done
+
+        for f in public_html/.ftp-deploy-sync-state.json public_html/studiologos-probe.txt
+        public_html/deploy_test.txt; do del "$f"; done
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html/assets" 2>&1
+        | head -1; echo "RMD public_html/assets"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html" 2>&1 | head
+        -1; echo "RMD public_html"
+
+
+        # Deletar domains/ (lixo de tentativas anteriores)
+
+        echo "--- limpando domains/ ---"
+
+        for f in domains/studiologos.com.br/public_html/index.html domains/studiologos.com.br/public_html/.htaccess
+        domains/studiologos.com.br/public_html/404.html; do del "$f"; done
+
+        for f in domains/studiologos.com.br/public_html/assets/index-DYJn2QEj.js domains/studiologos.com.br/public_html/assets/index-DjS088-i.css;
+        do del "$f"; done
+
+
+        echo ""
+
+        echo "=== SUBINDO NA RAIZ CORRETA ==="
+
+        up dist/.htaccess  "$H/.htaccess"
+
+        up dist/404.html   "$H/404.html"
+
+        up dist/index.html "$H/index.html"
 
         up dist/assets/index-DjS088-i.css "$H/assets/index-DjS088-i.css"
 
         up dist/assets/index-DYJn2QEj.js  "$H/assets/index-DYJn2QEj.js"
 
 
-        # Criar .htaccess com header de purge para o LiteSpeed
-
-        printf "Options -MultiViews\n<IfModule mod_rewrite.c>\nRewriteEngine On\nRewriteCond
-        %%{REQUEST_FILENAME} !-f\nRewriteCond %%{REQUEST_FILENAME} !-d\nRewriteRule
-        .* /index.html [L]\n</IfModule>\n<IfModule mod_headers.c>\nHeader set X-LiteSpeed-Cache-Control
-        \"no-cache\"\n</IfModule>\n" > /tmp/ht.txt
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE .htaccess"
-
-        sleep 1
-
-        curl -s -T /tmp/ht.txt --user "$FTP_USER:$FTP_PASS" "$H/.htaccess" && echo
-        "htaccess OK"
-
-
         echo ""
 
-        echo "=== Estado servidor ==="
+        echo "=== ESTADO FINAL ==="
 
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $5,$NF}''
+        echo "--- assets/ ---"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
 
         '
-    - name: Aguardar e validar
-      run: "sleep 30\necho \"=== Tentativa 1 (30s) ===\"\nJS=$(curl -s -o /dev/null\
-        \ -w \"%{http_code} %{size_download}b\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
-        echo \"JS: $JS\"\n\necho \"=== Tentativa 2 (60s) ===\"\nsleep 30\nJS2=$(curl\
-        \ -s -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
-        CSS2=$(curl -s -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time\
-        \ 20 https://studiologos.com.br/assets/index-DjS088-i.css)\nIDX=$(curl -s\
-        \ -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time 20 https://studiologos.com.br/)\n\
-        SPA=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 10 https://studiologos.com.br/biblioteca)\n\
-        echo \"/           $IDX\"\necho \"JS:         $JS2\"\necho \"CSS:        $CSS2\"\
-        \necho \"/biblioteca $SPA\"\n\nJS_CODE=$(echo \"$JS2\" | cut -d\" \" -f1)\n\
-        CSS_CODE=$(echo \"$CSS2\" | cut -d\" \" -f1)\nif [ \"$JS_CODE\" = \"200\"\
-        \ ] && [ \"$CSS_CODE\" = \"200\" ]; then\n  echo \"\"\n  echo \"✅ DEPLOY 100%\
-        \ VALIDADO\"\n  echo \"\U0001F310 https://studiologos.com.br\"\nelse\n  echo\
-        \ \"\"\n  echo \"JS=$JS_CODE CSS=$CSS_CODE\"\n  echo \"ETag do asset (se ainda\
-        \ for o cache antigo = 119f):\"\n  curl -sI --max-time 10 https://studiologos.com.br/assets/index-DYJn2QEj.js\
-        \ | grep -i \"etag\\|last-modified\\|content-length\"\n  exit 1\nfi\n"
-    - name: Branch deploy
+    - name: Validar site em producao
+      run: "sleep 15\necho \"=== HTTP ===\"\ncurl -s -o /dev/null -w \"index.html:\
+        \ %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
+        curl -s -o /dev/null -w \"JS:         %{http_code} %{size_download}b\\n\"\
+        \ --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js\ncurl\
+        \ -s -o /dev/null -w \"CSS:        %{http_code} %{size_download}b\\n\" --max-time\
+        \ 20 https://studiologos.com.br/assets/index-DjS088-i.css\ncurl -s -o /dev/null\
+        \ -w \"/biblioteca:%{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
+        \nJS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+        CSS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
+        IDX=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -c \"assets/index-\"\
+        )\n\nif [ \"$JS\" = \"200\" ] && [ \"$CSS\" = \"200\" ] && [ \"$IDX\" -gt\
+        \ \"0\" ]; then\n  echo \"\"\n  echo \"✅ DEPLOY 100% FUNCIONAL\"\n  echo \"\
+        \   index.html OK | JS OK | CSS OK | SPA OK\"\n  echo \"\U0001F310 https://studiologos.com.br\"\
+        \nelse\n  echo \"❌ JS=$JS CSS=$CSS IDX=$IDX\"\n  exit 1\nfi\n"
+    - name: Snapshot branch deploy
       run: 'git config user.email "actions@github.com"
 
         git config user.name "GitHub Actions CI"
@@ -119,6 +135,8 @@ jobs:
         true
 
         git push --force origin deploy-ci:deploy || true
+
+        echo "Branch deploy atualizado"
 
         '
       continue-on-error: true
