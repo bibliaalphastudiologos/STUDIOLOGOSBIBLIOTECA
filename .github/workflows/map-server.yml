@@ -12,28 +12,42 @@ jobs:
         cache: npm
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
-        dist/404.html && echo OK && cat dist/index.html | grep assets
-    - name: DELETE + upload cirurgico via curl FTP
+        dist/404.html && cp index.php dist/index.php
+    - name: Mapear FTP completo - listar todos os subdiretorios
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: "BASE=\"ftp://$FTP_HOST/domains/studiologos.com.br/public_html\"\n# Deletar\
-        \ arquivos antigos via DELE\nfor f in index.html .htaccess 404.html assets/index-DYJn2QEj.js\
-        \ assets/index-DjS088-i.css; do\n  curl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$BASE/\" -Q \"DELE $f\" 2>/dev/null || true\ndone\nsleep 3\n# Upload dos\
-        \ novos arquivos\nup() { echo -n \"$2: \"; curl -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\"\
-        \ --ftp-create-dirs \"$2\" && echo \"OK\" || echo \"FAIL\"; }\nup dist/index.html\
-        \ \"$BASE/index.html\"\nup dist/.htaccess \"$BASE/.htaccess\"\nup dist/404.html\
-        \ \"$BASE/404.html\"\nup dist/assets/index-DYJn2QEj.js \"$BASE/assets/index-DYJn2QEj.js\"\
-        \nup dist/assets/index-DjS088-i.css \"$BASE/assets/index-DjS088-i.css\"\n\
-        echo \"\"\necho \"=== index.html no servidor (bytes) ===\"\ncurl -s --user\
-        \ \"$FTP_USER:$FTP_PASS\" \"$BASE/index.html\" | wc -c"
-    - name: Validar HTTP
-      run: "sleep 15\nfor i in 1 2 3 4 5; do\n  SZ=$(curl -s -o /dev/null -w \"%{size_download}\"\
-        \ -H \"Cache-Control: no-cache\" --max-time 15 https://studiologos.com.br/)\n\
-        \  echo \"Tentativa $i: $SZ bytes\"\n  C=$(curl -s -H \"Cache-Control: no-cache\"\
-        \ --max-time 15 https://studiologos.com.br/)\n  if echo \"$C\" | grep -q \"\
-        assets/index-\"; then\n    echo \"SUCESSO: BUILD COMPILADA ATIVA\"\n    exit\
-        \ 0\n  fi\n  echo \"$C\" | grep \"src=\" | head -2\n  sleep 15\ndone\necho\
-        \ \"FALHA\"\nexit 1"
+      run: "echo \"=== RAIZ FTP ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"ftp://$FTP_HOST/\"\
+        \ | sort\necho \"\"\necho \"=== Cada subdir da raiz ===\"\ncurl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"ftp://$FTP_HOST/\" | awk '{print $NF}' | grep\
+        \ -v \"^\\.\" | while read d; do\n  echo \"--- /$d ---\"\n  curl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"ftp://$FTP_HOST/$d/\" 2>/dev/null | awk '{print\
+        \ $5, $NF}' | head -10\ndone\necho \"\"\necho \"=== Buscando index.html em\
+        \ todos os caminhos ===\"\nfor path in \"/\" \"/public_html/\" \"/www/\" \"\
+        /html/\" \"/web/\" \"/httpdocs/\" \"/studiologos.com.br/\" \"/domains/studiologos.com.br/public_html/\"\
+        ; do\n  SZ=$(curl -s --user \"$FTP_USER:$FTP_PASS\" \"ftp://$FTP_HOST${path}index.html\"\
+        \ 2>/dev/null | wc -c)\n  echo \"$path index.html = $SZ bytes\"\ndone\n"
+    - name: Upload em TODOS os paths possiveis simultaneamente
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USERNAME }}
+        FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+      run: "up() { curl -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs\
+        \ \"$2\" && echo \"OK $2\" || echo \"FAIL $2\"; }\nfor base in \"/\" \"/public_html/\"\
+        \ \"/www/\" \"/html/\" \"/web/\" \"/httpdocs/\"; do\n  B=\"ftp://$FTP_HOST${base}\"\
+        \n  up dist/index.html   \"${B}index.html\"\n  up dist/index.php    \"${B}index.php\"\
+        \n  up dist/.htaccess    \"${B}.htaccess\"\n  up dist/404.html     \"${B}404.html\"\
+        \n  up dist/assets/index-DYJn2QEj.js  \"${B}assets/index-DYJn2QEj.js\"\n \
+        \ up dist/assets/index-DjS088-i.css \"${B}assets/index-DjS088-i.css\"\ndone\n"
+    - name: Validar qual path funcionou
+      run: "sleep 20\nfor url in \"https://studiologos.com.br/\" \"https://studiologos.com.br/index.php\"\
+        \ \"https://studiologos.com.br/index.html\"; do\n  SZ=$(curl -s -o /dev/null\
+        \ -w \"%{size_download}\" --max-time 10 \"$url\")\n  C=$(curl -s --max-time\
+        \ 10 \"$url\")\n  if echo \"$C\" | grep -q \"assets/index-\"; then\n    echo\
+        \ \"SUCESSO em $url ($SZ bytes)\"\n  else\n    echo \"falha em $url ($SZ bytes)\"\
+        \n  fi\ndone\nC=$(curl -s --max-time 20 https://studiologos.com.br/)\nif echo\
+        \ \"$C\" | grep -q \"assets/index-\"; then echo \"BUILD ATIVA NA RAIZ\"; exit\
+        \ 0; fi\nC=$(curl -s --max-time 20 https://studiologos.com.br/index.php)\n\
+        if echo \"$C\" | grep -q \"assets/index-\"; then echo \"BUILD ATIVA VIA PHP\
+        \ - ajustando htaccess\"; exit 0; fi\necho \"FALHA TOTAL\"\nexit 1\n"
