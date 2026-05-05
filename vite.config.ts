@@ -8,7 +8,7 @@ export default defineConfig(({mode}) => {
   return {
     // './' garante assets relativos — funciona tanto no domínio customizado
     // (studiologos.com.br/) quanto no GitHub Pages subdirectory
-    base: './',
+    base: '/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
