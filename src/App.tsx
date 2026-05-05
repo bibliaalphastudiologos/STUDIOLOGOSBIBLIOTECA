@@ -9,6 +9,8 @@ import { AdminPanel } from './components/AdminPanel';
 import { CategoryPage } from './components/CategoryPage';
 import { NotFoundPage } from './components/NotFoundPage';
 import OnlineReader from './components/OnlineReader';
+import { FeaturedSection } from './components/FeaturedSection';
+import { Footer } from './components/Footer';
 import { DEMO_EBOOKS } from './data/ebooks';
 import { Ebook, PAYMENT_LINKS } from './types';
 import { Search, BookOpen, ScrollText, ChevronRight, Shield, Crown, ArrowRight } from 'lucide-react';
@@ -499,6 +501,7 @@ const HomePage: React.FC = () => {
         </div>
       </footer>
 
+      <FeaturedSection />
       <EbookModal ebook={selectedEbook} onClose={() => setSelectedEbook(null)} />
 
       <AnimatePresence>
@@ -624,6 +627,7 @@ function AppContent() {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      {!isReader && <Footer />}
     </div>
   );
 }
