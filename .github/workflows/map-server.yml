@@ -8,28 +8,72 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
 
-      - name: "Install sshpass"
-        run: sudo apt-get install -y sshpass -q
-
-      - name: "SSH - mapear filesystem completo"
-        env:
-          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
+      - name: "Build"
         run: |
-          sshpass -p "$SSH_PASS" ssh -p 65002 \
-            -o StrictHostKeyChecking=no -o ConnectTimeout=15 \
-            u876483543@89.116.115.179 "
-            echo '=== HOME ==='
-            ls -la ~/
-            echo '=== domains ==='
-            ls -la ~/domains/ 2>/dev/null || echo sem domains
-            echo '=== studiologos public_html ==='
-            ls -la ~/domains/studiologos.com.br/public_html/ 2>/dev/null || echo sem esse path
-            echo '=== index.html atual ==='
-            cat ~/domains/studiologos.com.br/public_html/index.html 2>/dev/null | head -5
-            echo '=== FTP probe ==='
-            find ~/ -name 'studiologos-probe.txt' 2>/dev/null
-            find ~/ -name '.ftp-deploy-sync-state.json' 2>/dev/null
-            echo '=== wc index ==='
-            wc -c ~/domains/studiologos.com.br/public_html/index.html 2>/dev/null
-          " 2>&1
+          npm ci && npm run build
+          cp htaccess.txt dist/.htaccess
+          cp 404-spa.html dist/404.html
+
+      - name: "Inspecionar servidor FTP completo"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          echo "=== RAIZ FTP ==="
+          curl -sv --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" 2>&1 | grep -v "^[*<>]"
+
+          echo ""
+          echo "=== LISTING RECURSIVO - buscando index.html ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" | awk '{print $NF}' | while read item; do
+            if echo "$item" | grep -qv "^\.$\|^\.\.$"; then
+              echo "--- /$item/ ---"
+              curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/$item/" 2>/dev/null | head -10
+            fi
+          done
+
+      - name: "Subir index.html correto em TODOS os paths possiveis"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          up() {
+            curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" "$2" && echo "OK: $2" || echo "FAIL: $2"
+          }
+          # Raiz FTP (ja sabemos que funciona)
+          up dist/index.html  "ftp://$FTP_HOST/index.html"
+          up dist/.htaccess   "ftp://$FTP_HOST/.htaccess"
+          # Tentar subdiretórios comuns
+          for sub in public_html www html httpdocs web; do
+            up dist/index.html "ftp://$FTP_HOST/$sub/index.html"
+          done
+
+      - name: "Verificar cada path no browser"
+        run: |
+          sleep 5
+          for path in "" "index.html"; do
+            SIZE=$(curl -s -o /dev/null -w "%{size_download}" --max-time 10 "https://studiologos.com.br/$path")
+            CONTENT=$(curl -s --max-time 10 "https://studiologos.com.br/$path")
+            echo "PATH=/$path SIZE=$SIZE"
+            echo "$CONTENT" | grep -oE "(src|href)=['\"][^'\"]*['\"]" | head -3
+            echo ""
+          done
+
+      - name: "Resultado final"
+        run: |
+          sleep 5
+          C=$(curl -s --max-time 20 https://studiologos.com.br/)
+          echo "$C" | grep -o "<title>[^<]*</title>"
+          if echo "$C" | grep -q "assets/index-"; then
+            echo "SUCESSO"
+          else
+            echo "FALHA - conteudo:"
+            echo "$C" | head -15
+            exit 1
+          fi
