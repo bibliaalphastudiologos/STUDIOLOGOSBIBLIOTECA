@@ -43,9 +43,8 @@ if [ ! -d "public_html" ]; then
     mkdir -p public_html
 fi
 
-# Copiar arquivos de dist para public_html
-echo "  Copiando arquivos de dist/ para public_html/..."
-cp -r dist/* public_html/
+# O build já é gerado em public_html pelo vite.config.ts
+echo "  Build já gerado em public_html/ pelo Vite."
 
 # Garantir que .htaccess está presente
 if [ ! -f "public_html/.htaccess" ]; then

@@ -1,11 +1,12 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  
-  # Redireciona requisições para arquivos/diretórios existentes
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  
-  # Redireciona tudo para index.html para SPA routing
-  RewriteRule ^ index.html [QSA,L]
+Options -MultiViews
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.js$">
+    Header set Content-Type "application/javascript; charset=utf-8"
+  </FilesMatch>
+  <FilesMatch "\.css$">
+    Header set Content-Type "text/css; charset=utf-8"
+  </FilesMatch>
 </IfModule>
+
+ErrorDocument 404 /index.html
