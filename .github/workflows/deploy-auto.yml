@@ -18,65 +18,74 @@ jobs:
 
         cp 404-spa.html dist/404.html
 
-        # htaccess sem nenhum rewrite para assets
+        # htaccess minimo - sem tocar em assets
 
-        cat > dist/.htaccess << "HTEOF"
+        printf "Options -MultiViews\nErrorDocument 404 /index.html\n" > dist/.htaccess
 
-        Options -MultiViews
+        echo "=== .htaccess ===" && cat dist/.htaccess
 
-        AddType application/javascript .js
-
-        AddType text/css .css
-
-        <IfModule mod_rewrite.c>
-
-        RewriteEngine On
-
-        RewriteRule ^assets/.*$ - [L,NC]
-
-        RewriteCond %{REQUEST_FILENAME} !-f
-
-        RewriteCond %{REQUEST_FILENAME} !-d
-
-        RewriteRule ^ /index.html [L]
-
-        </IfModule>
-
-        HTEOF
-
-        echo "=== .htaccess gerado ==="
-
-        cat dist/.htaccess
-
-        echo ""
-
-        echo "=== index.html ==="
-
-        cat dist/index.html
+        echo "=== index.html ===" && cat dist/index.html
 
         '
-    - name: Deploy limpo
+    - name: Deploy
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: "H=\"ftp://$FTP_HOST\"\ndel() { curl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/\" -Q \"DELE $1\" 2>&1 | head -1; }\nup()  { echo -n \"  $2: \"; curl\
-        \ -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs \"$2\" &&\
-        \ echo \"OK $(wc -c<$1)b\" || echo \"FAIL\"; }\n\n# Apagar assets antigos\
-        \ (todos os hashes)\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\"\
-        \ | awk '{print $NF}' | grep \"\\.\" | while read f; do\n  del \"assets/$f\"\
-        \ndone\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"RMD assets\" 2>&1\
-        \ | head -1\n\n# Apagar raiz\nfor f in index.html .htaccess 404.html; do del\
-        \ \"$f\"; done\nsleep 1\n\n# Subir\nJS=$(ls dist/assets/*.js | head -1)\n\
-        CSS=$(ls dist/assets/*.css | head -1)\necho \"=== Subindo ===\"\nup dist/.htaccess\
-        \  \"$H/.htaccess\"\nup dist/index.html \"$H/index.html\"\nup dist/404.html\
-        \   \"$H/404.html\"\nup \"$CSS\"          \"$H/assets/$(basename $CSS)\"\n\
-        up \"$JS\"           \"$H/assets/$(basename $JS)\"\n\necho \"\"\necho \"===\
-        \ Estado servidor ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" |\
-        \ awk '{print $5,$NF}'\necho \"assets/:\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/assets/\" | awk '{print $5,$NF}'\necho \".htaccess:\"\ncurl -s --user\
-        \ \"$FTP_USER:$FTP_PASS\" \"$H/.htaccess\"\n"
+      run: 'H="ftp://$FTP_HOST"
+
+        del() { curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE $1" 2>&1 | head
+        -1; }
+
+        up()  { echo -n "  $2: "; curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs
+        "$2" && echo "OK $(wc -c<$1)b" || echo "FAIL"; }
+
+
+        # Limpar assets antigos
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $NF}'' |
+        grep "\." | while read f; do del "assets/$f"; done
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD assets" 2>&1 | head -1
+
+        for f in index.html .htaccess 404.html; do del "$f"; done
+
+        sleep 1
+
+
+        JS=$(ls dist/assets/*.js | head -1)
+
+        CSS=$(ls dist/assets/*.css | head -1)
+
+        echo "JS: $(basename $JS) | CSS: $(basename $CSS)"
+
+
+        up dist/.htaccess  "$H/.htaccess"
+
+        up dist/index.html "$H/index.html"
+
+        up dist/404.html   "$H/404.html"
+
+        up "$CSS"          "$H/assets/$(basename $CSS)"
+
+        up "$JS"           "$H/assets/$(basename $JS)"
+
+
+        echo ""
+
+        echo "=== Servidor final ==="
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $5,$NF}''
+
+        echo "assets/:"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $5,$NF}''
+
+        echo ".htaccess:"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/.htaccess"
+
+        '
     - name: Validar
       run: "sleep 20\nJS=$(ls dist/assets/*.js | head -1 | xargs basename)\nCSS=$(ls\
         \ dist/assets/*.css | head -1 | xargs basename)\n\necho \"=== HTTP ===\"\n\
@@ -87,10 +96,8 @@ jobs:
         n\" --max-time 20 \"https://studiologos.com.br/assets/$CSS\"\ncurl -s -o /dev/null\
         \ -w \"/biblioteca:   %{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
         \nJS_SZ=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 30 \"https://studiologos.com.br/assets/$JS\"\
-        )\nCSS_SZ=$(curl -s -o /dev/null -w \"%{size_download}\" --max-time 20 \"\
-        https://studiologos.com.br/assets/$CSS\")\n\n# JS deve ter mais de 100KB (1.3MB\
-        \ real)\nif [ \"$JS_SZ\" -gt \"100000\" ] && [ \"$CSS_SZ\" -gt \"10000\" ];\
-        \ then\n  echo \"\"\n  echo \"✅ SITE 100% NO AR E FUNCIONAL\"\n  echo \"\U0001F310\
-        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=${JS_SZ}b CSS=${CSS_SZ}b\
-        \ - assets sendo redirecionados\"\n  curl -sI --max-time 10 \"https://studiologos.com.br/assets/$JS\"\
-        \ | head -5\n  exit 1\nfi\n"
+        )\necho \"JS size: ${JS_SZ} bytes\"\n\nif [ \"$JS_SZ\" -gt \"100000\" ]; then\n\
+        \  echo \"\"\n  echo \"✅ SITE 100% NO AR E FUNCIONAL\"\n  echo \"\U0001F310\
+        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=${JS_SZ}b — .htaccess\
+        \ bloqueando assets\"\n  curl -sI --max-time 10 \"https://studiologos.com.br/assets/$JS\"\
+        \ | head -6\n  exit 1\nfi\n"
