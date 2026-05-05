@@ -13,83 +13,93 @@ jobs:
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
         dist/404.html
-    - name: Mapear wp-content e wp-includes
+    - name: Purge LiteSpeed cache + re-upload assets
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
       run: 'H="ftp://$FTP_HOST"
 
-        echo "=== wp-content/ ==="
+        up() { curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs "$2"
+        && echo "OK $2 $(wc -c<$1)b" || echo "FAIL $2"; }
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/wp-content/" | awk ''{print $1,$5,$NF}''
+
+        # Reupload assets com novo nome de arquivo para forçar miss de cache
+
+        # Mas primeiro: tentar purge via HTTP
+
+        echo "=== Purge LiteSpeed via HTTP ==="
+
+        curl -s -X PURGE -H "X-LiteSpeed-Purge: *" --max-time 10 https://studiologos.com.br/
+        || true
+
+        curl -s -X PURGE --max-time 10 "https://studiologos.com.br/assets/index-DYJn2QEj.js"
+        || true
+
+        curl -s -X PURGE --max-time 10 "https://studiologos.com.br/assets/index-DjS088-i.css"
+        || true
+
+
+        # Forcar miss: deletar e reupar com timestamp diferente
+
+        echo "=== Deletar e reupar assets ==="
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-DYJn2QEj.js"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-DjS088-i.css"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-UIeH9Ysg.js"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE assets/index-mCBVk_n0.css"
+
+        sleep 3
+
+        up dist/assets/index-DjS088-i.css "$H/assets/index-DjS088-i.css"
+
+        up dist/assets/index-DYJn2QEj.js  "$H/assets/index-DYJn2QEj.js"
+
+
+        # Criar .htaccess com header de purge para o LiteSpeed
+
+        printf "Options -MultiViews\n<IfModule mod_rewrite.c>\nRewriteEngine On\nRewriteCond
+        %%{REQUEST_FILENAME} !-f\nRewriteCond %%{REQUEST_FILENAME} !-d\nRewriteRule
+        .* /index.html [L]\n</IfModule>\n<IfModule mod_headers.c>\nHeader set X-LiteSpeed-Cache-Control
+        \"no-cache\"\n</IfModule>\n" > /tmp/ht.txt
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE .htaccess"
+
+        sleep 1
+
+        curl -s -T /tmp/ht.txt --user "$FTP_USER:$FTP_PASS" "$H/.htaccess" && echo
+        "htaccess OK"
+
 
         echo ""
 
-        echo "=== wp-content/.htaccess ==="
+        echo "=== Estado servidor ==="
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/wp-content/.htaccess" 2>/dev/null
-        || echo "sem .htaccess em wp-content"
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
 
-        echo ""
-
-        echo "=== wp-includes/.htaccess ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/wp-includes/.htaccess" 2>/dev/null
-        || echo "sem .htaccess em wp-includes"
-
-        echo ""
-
-        echo "=== .htaccess raiz ATUAL ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/.htaccess"
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $5,$NF}''
 
         '
-    - name: Deletar WordPress recursivo + garantir assets
-      env:
-        FTP_HOST: ${{ secrets.FTP_HOST }}
-        FTP_USER: ${{ secrets.FTP_USERNAME }}
-        FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: "H=\"ftp://$FTP_HOST\"\ndel() { curl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/\" -Q \"DELE $1\" 2>&1 | head -1; }\nrmd() { curl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/\" -Q \"RMD $1\" 2>&1 | head -1; }\nup()  { curl -s -T \"$1\" --user\
-        \ \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs \"$2\" && echo \"UP OK: $2 $(wc\
-        \ -c<$1)b\" || echo \"FAIL: $2\"; }\n\n# Listar e deletar wp-content recursivamente\n\
-        for subdir in wp-content wp-includes; do\n  echo \"--- Deletando /$subdir/\
-        \ ---\"\n  # Listar nivel 1\n  curl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/$subdir/\"\
-        \ | awk '{print $NF}' | grep -v \"^\\.\" | while read item; do\n    # Tentar\
-        \ deletar como arquivo\n    curl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\"\
-        \ -Q \"DELE $subdir/$item\" 2>&1 | head -1\n    # Se for diretório, listar\
-        \ e deletar nivel 2\n    curl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/$subdir/$item/\"\
-        \ | awk '{print $NF}' | grep -v \"^\\.\" | while read sub; do\n      curl\
-        \ -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"DELE $subdir/$item/$sub\"\
-        \ 2>&1 | head -1\n    done\n    curl -s --user \"$FTP_USER:$FTP_PASS\" \"\
-        $H/\" -Q \"RMD $subdir/$item\" 2>&1 | head -1\n  done\n  del \"$subdir/.htaccess\"\
-        \n  del \"$subdir/index.php\"\n  del \"$subdir/index.html\"\n  rmd \"$subdir\"\
-        \n  echo \"Deletado: $subdir\"\ndone\n\n# Garantir .htaccess correto na raiz\n\
-        del \".htaccess\"\nsleep 1\nup dist/.htaccess \"$H/.htaccess\"\n\n# Garantir\
-        \ assets corretos\ndel \"assets/index-UIeH9Ysg.js\"\ndel \"assets/index-mCBVk_n0.css\"\
-        \nup dist/assets/index-DjS088-i.css \"$H/assets/index-DjS088-i.css\"\nup dist/assets/index-DYJn2QEj.js\
-        \  \"$H/assets/index-DYJn2QEj.js\"\n\necho \"\"\necho \"=== Estado final ===\"\
-        \ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" | awk '{print $1,$5,$NF}'\n\
-        echo \"--- assets/ ---\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/assets/\"\
-        \ | awk '{print $5,$NF}'\necho \"--- .htaccess ---\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
-        \ \"$H/.htaccess\"\n"
-    - name: Validar site completo
-      run: "sleep 20\necho \"=== HTTP tests ===\"\ncurl -s -o /dev/null -w \"/   \
-        \          %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
-        curl -s -o /dev/null -w \"JS bundle:    %{http_code} %{size_download}b\\n\"\
-        \ --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js\ncurl\
-        \ -s -o /dev/null -w \"CSS bundle:   %{http_code} %{size_download}b\\n\" --max-time\
-        \ 20 https://studiologos.com.br/assets/index-DjS088-i.css\ncurl -s -o /dev/null\
-        \ -w \"/biblioteca:  %{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
-        \nJS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
-        CSS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
-        if [ \"$JS\" = \"200\" ] && [ \"$CSS\" = \"200\" ]; then\n  echo \"\"\n  echo\
-        \ \"✅ SITE 100% FUNCIONAL - WP REMOVIDO\"\n  echo \"\U0001F310 https://studiologos.com.br\"\
-        \nelse\n  echo \"\"\n  echo \"JS=$JS CSS=$CSS\"\n  echo \"Headers do asset:\"\
-        \n  curl -sI --max-time 10 https://studiologos.com.br/assets/index-DYJn2QEj.js\n\
-        \  exit 1\nfi\n"
+    - name: Aguardar e validar
+      run: "sleep 30\necho \"=== Tentativa 1 (30s) ===\"\nJS=$(curl -s -o /dev/null\
+        \ -w \"%{http_code} %{size_download}b\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+        echo \"JS: $JS\"\n\necho \"=== Tentativa 2 (60s) ===\"\nsleep 30\nJS2=$(curl\
+        \ -s -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+        CSS2=$(curl -s -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time\
+        \ 20 https://studiologos.com.br/assets/index-DjS088-i.css)\nIDX=$(curl -s\
+        \ -o /dev/null -w \"%{http_code} %{size_download}b\" --max-time 20 https://studiologos.com.br/)\n\
+        SPA=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 10 https://studiologos.com.br/biblioteca)\n\
+        echo \"/           $IDX\"\necho \"JS:         $JS2\"\necho \"CSS:        $CSS2\"\
+        \necho \"/biblioteca $SPA\"\n\nJS_CODE=$(echo \"$JS2\" | cut -d\" \" -f1)\n\
+        CSS_CODE=$(echo \"$CSS2\" | cut -d\" \" -f1)\nif [ \"$JS_CODE\" = \"200\"\
+        \ ] && [ \"$CSS_CODE\" = \"200\" ]; then\n  echo \"\"\n  echo \"✅ DEPLOY 100%\
+        \ VALIDADO\"\n  echo \"\U0001F310 https://studiologos.com.br\"\nelse\n  echo\
+        \ \"\"\n  echo \"JS=$JS_CODE CSS=$CSS_CODE\"\n  echo \"ETag do asset (se ainda\
+        \ for o cache antigo = 119f):\"\n  curl -sI --max-time 10 https://studiologos.com.br/assets/index-DYJn2QEj.js\
+        \ | grep -i \"etag\\|last-modified\\|content-length\"\n  exit 1\nfi\n"
     - name: Branch deploy
       run: 'git config user.email "actions@github.com"
 
