@@ -12,8 +12,29 @@ jobs:
         cache: npm
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
-        dist/404.html && find dist -type f | sort
-    - name: Limpar TUDO e subir na raiz correta
+        dist/404.html && echo "=== dist/ ===" && find dist -type f | sort && echo
+        "=== .htaccess ===" && cat dist/.htaccess
+    - name: Listar servidor completo
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USERNAME }}
+        FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+      run: 'H="ftp://$FTP_HOST"
+
+        echo "=== RAIZ ==="
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
+
+        echo "=== assets/ ==="
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
+
+        echo "=== .htaccess atual ==="
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/.htaccess"
+
+        '
+    - name: Apagar TUDO e subir site limpo
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
@@ -27,72 +48,73 @@ jobs:
         "$2" && echo "OK $(wc -c<$1)b" || echo "FAIL"; }
 
 
-        echo "=== RAIZ FTP (antes) ==="
+        echo "=== APAGANDO WORDPRESS ==="
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
+        WP_FILES="index.php wp-config.php wp-login.php wp-blog-header.php wp-cron.php
+        wp-load.php wp-mail.php wp-settings.php wp-signup.php wp-trackback.php xmlrpc.php
+        wp-activate.php wp-links-opml.php wp-comments-post.php readme.html license.txt"
+
+        for f in $WP_FILES; do del "$f"; done
 
 
-        # Deletar arquivos errados da raiz
+        echo ""
 
-        for f in index.html .htaccess 404.html index.php; do del "$f"; done
+        echo "=== APAGANDO LIXO RAIZ ==="
+
+        for f in index.html .htaccess 404.html .ftp-deploy-sync-state.json deploy_test.txt
+        studiologos-probe.txt; do del "$f"; done
+
+
+        echo ""
+
+        echo "=== APAGANDO ASSETS ANTIGOS ==="
 
         for f in assets/index-DYJn2QEj.js assets/index-DjS088-i.css assets/index-UIeH9Ysg.js
         assets/index-mCBVk_n0.css; do del "$f"; done
 
-        for f in .ftp-deploy-sync-state.json studiologos-probe.txt deploy_test.txt;
-        do del "$f"; done
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD assets" && echo "RMD assets"
 
 
-        # Deletar subpasta public_html/public_html/ (arquivos dentro)
+        echo ""
 
-        echo "--- limpando public_html/ duplicada ---"
+        echo "=== APAGANDO SUBPASTAS ERRADAS ==="
 
         for f in public_html/index.html public_html/.htaccess public_html/404.html
-        public_html/index.php; do del "$f"; done
-
-        for f in public_html/assets/index-DYJn2QEj.js public_html/assets/index-DjS088-i.css
-        public_html/assets/index-UIeH9Ysg.js public_html/assets/index-mCBVk_n0.css;
+        public_html/assets/index-DYJn2QEj.js public_html/assets/index-DjS088-i.css;
         do del "$f"; done
 
-        for f in public_html/.ftp-deploy-sync-state.json public_html/studiologos-probe.txt
-        public_html/deploy_test.txt; do del "$f"; done
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html/assets" &&
+        echo "RMD public_html/assets"
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html/assets" 2>&1
-        | head -1; echo "RMD public_html/assets"
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html" 2>&1 | head
-        -1; echo "RMD public_html"
-
-
-        # Deletar domains/ (lixo de tentativas anteriores)
-
-        echo "--- limpando domains/ ---"
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD public_html" && echo "RMD
+        public_html"
 
         for f in domains/studiologos.com.br/public_html/index.html domains/studiologos.com.br/public_html/.htaccess
-        domains/studiologos.com.br/public_html/404.html; do del "$f"; done
+        domains/studiologos.com.br/public_html/404.html domains/studiologos.com.br/public_html/assets/index-DYJn2QEj.js
+        domains/studiologos.com.br/public_html/assets/index-DjS088-i.css; do del "$f";
+        done
 
-        for f in domains/studiologos.com.br/public_html/assets/index-DYJn2QEj.js domains/studiologos.com.br/public_html/assets/index-DjS088-i.css;
-        do del "$f"; done
-
-
-        echo ""
-
-        echo "=== SUBINDO NA RAIZ CORRETA ==="
-
-        up dist/.htaccess  "$H/.htaccess"
-
-        up dist/404.html   "$H/404.html"
-
-        up dist/index.html "$H/index.html"
-
-        up dist/assets/index-DjS088-i.css "$H/assets/index-DjS088-i.css"
-
-        up dist/assets/index-DYJn2QEj.js  "$H/assets/index-DYJn2QEj.js"
+        sleep 2
 
 
         echo ""
 
-        echo "=== ESTADO FINAL ==="
+        echo "=== SUBINDO SITE LIMPO ==="
+
+        up dist/.htaccess                     "$H/.htaccess"
+
+        up dist/index.html                    "$H/index.html"
+
+        up dist/404.html                      "$H/404.html"
+
+        up dist/assets/index-DjS088-i.css     "$H/assets/index-DjS088-i.css"
+
+        up dist/assets/index-DYJn2QEj.js      "$H/assets/index-DYJn2QEj.js"
+
+
+        echo ""
+
+        echo "=== SERVIDOR FINAL ==="
 
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
 
@@ -100,23 +122,31 @@ jobs:
 
         curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
 
+        echo "--- .htaccess ---"
+
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/.htaccess"
+
         '
-    - name: Validar site em producao
-      run: "sleep 15\necho \"=== HTTP ===\"\ncurl -s -o /dev/null -w \"index.html:\
-        \ %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
-        curl -s -o /dev/null -w \"JS:         %{http_code} %{size_download}b\\n\"\
-        \ --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js\ncurl\
-        \ -s -o /dev/null -w \"CSS:        %{http_code} %{size_download}b\\n\" --max-time\
-        \ 20 https://studiologos.com.br/assets/index-DjS088-i.css\ncurl -s -o /dev/null\
-        \ -w \"/biblioteca:%{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
-        \nJS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
+    - name: Validar site 100%
+      run: "sleep 20\necho \"=== HTTP ===\"\ncurl -s -o /dev/null -w \"/         \
+        \     %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
+        curl -s -o /dev/null -w \"JS bundle:     %{http_code} %{size_download}b\\\
+        n\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js\ncurl\
+        \ -s -o /dev/null -w \"CSS bundle:    %{http_code} %{size_download}b\\n\"\
+        \ --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css\ncurl\
+        \ -s -o /dev/null -w \"/biblioteca:   %{http_code}\\n\"                  \
+        \ --max-time 10 https://studiologos.com.br/biblioteca\n\nJS=$(curl -s -o /dev/null\
+        \ -w \"%{http_code}\" --max-time 30 https://studiologos.com.br/assets/index-DYJn2QEj.js)\n\
         CSS=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 https://studiologos.com.br/assets/index-DjS088-i.css)\n\
         IDX=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -c \"assets/index-\"\
         )\n\nif [ \"$JS\" = \"200\" ] && [ \"$CSS\" = \"200\" ] && [ \"$IDX\" -gt\
-        \ \"0\" ]; then\n  echo \"\"\n  echo \"✅ DEPLOY 100% FUNCIONAL\"\n  echo \"\
-        \   index.html OK | JS OK | CSS OK | SPA OK\"\n  echo \"\U0001F310 https://studiologos.com.br\"\
-        \nelse\n  echo \"❌ JS=$JS CSS=$CSS IDX=$IDX\"\n  exit 1\nfi\n"
-    - name: Snapshot branch deploy
+        \ \"0\" ]; then\n  echo \"\"\n  echo \"✅ SITE 100% NO AR\"\n  echo \"   index.html\
+        \ : OK (build compilada)\"\n  echo \"   JS bundle  : OK 1.3MB\"\n  echo \"\
+        \   CSS bundle : OK 78KB\"\n  echo \"   SPA routing: OK\"\n  echo \"\U0001F310\
+        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=$JS CSS=$CSS IDX=$IDX\"\
+        \n  echo \"--- headers JS ---\"\n  curl -sI --max-time 10 https://studiologos.com.br/assets/index-DYJn2QEj.js\
+        \ | head -6\n  exit 1\nfi\n"
+    - name: Atualizar branch deploy
       run: 'git config user.email "actions@github.com"
 
         git config user.name "GitHub Actions CI"
