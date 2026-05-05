@@ -19,61 +19,62 @@ jobs:
           cp htaccess.txt dist/.htaccess
           cp 404-spa.html dist/404.html
 
-      - name: "Inspecionar servidor FTP completo"
+      - name: "Inspecionar /domains/ via FTP"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
-          echo "=== RAIZ FTP ==="
-          curl -sv --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" 2>&1 | grep -v "^[*<>]"
+          echo "=== /domains/ ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/" 2>&1
+
+          echo "=== /domains/studiologos.com.br/ ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/studiologos.com.br/" 2>&1
+
+          echo "=== /domains/studiologos.com.br/public_html/ ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/studiologos.com.br/public_html/" 2>&1
+
+          echo "=== index.html dentro de /domains/ ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/studiologos.com.br/public_html/index.html" 2>&1 | wc -c
+
+      - name: "Upload cirurgico em /domains/studiologos.com.br/public_html/"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          BASE="ftp://$FTP_HOST/domains/studiologos.com.br/public_html"
+          
+          up() {
+            echo -n "  $2 ... "
+            curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs "$2" \
+              && echo "OK" || echo "FAIL"
+          }
+
+          up dist/index.html   "$BASE/index.html"
+          up dist/.htaccess    "$BASE/.htaccess"
+          up dist/404.html     "$BASE/404.html"
+          up dist/assets/index-DYJn2QEj.js  "$BASE/assets/index-DYJn2QEj.js"
+          up dist/assets/index-DjS088-i.css "$BASE/assets/index-DjS088-i.css"
 
           echo ""
-          echo "=== LISTING RECURSIVO - buscando index.html ==="
-          curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" | awk '{print $NF}' | while read item; do
-            if echo "$item" | grep -qv "^\.$\|^\.\.$"; then
-              echo "--- /$item/ ---"
-              curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/$item/" 2>/dev/null | head -10
-            fi
-          done
+          echo "=== Verificar o que chegou ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "$BASE/" 2>&1
+          echo ""
+          echo "=== Size do index.html no servidor ==="
+          curl -s --user "$FTP_USER:$FTP_PASS" "$BASE/index.html" 2>&1 | wc -c
 
-      - name: "Subir index.html correto em TODOS os paths possiveis"
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+      - name: "Validar resultado"
         run: |
-          up() {
-            curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" "$2" && echo "OK: $2" || echo "FAIL: $2"
-          }
-          # Raiz FTP (ja sabemos que funciona)
-          up dist/index.html  "ftp://$FTP_HOST/index.html"
-          up dist/.htaccess   "ftp://$FTP_HOST/.htaccess"
-          # Tentar subdiretórios comuns
-          for sub in public_html www html httpdocs web; do
-            up dist/index.html "ftp://$FTP_HOST/$sub/index.html"
-          done
-
-      - name: "Verificar cada path no browser"
-        run: |
-          sleep 5
-          for path in "" "index.html"; do
-            SIZE=$(curl -s -o /dev/null -w "%{size_download}" --max-time 10 "https://studiologos.com.br/$path")
-            CONTENT=$(curl -s --max-time 10 "https://studiologos.com.br/$path")
-            echo "PATH=/$path SIZE=$SIZE"
-            echo "$CONTENT" | grep -oE "(src|href)=['\"][^'\"]*['\"]" | head -3
-            echo ""
-          done
-
-      - name: "Resultado final"
-        run: |
-          sleep 5
+          sleep 10
           C=$(curl -s --max-time 20 https://studiologos.com.br/)
+          SZ=$(echo "$C" | wc -c)
+          echo "Size recebido: $SZ"
           echo "$C" | grep -o "<title>[^<]*</title>"
           if echo "$C" | grep -q "assets/index-"; then
-            echo "SUCESSO"
+            echo "SUCESSO: BUILD COMPILADA NO AR"
           else
-            echo "FALHA - conteudo:"
+            echo "FALHA"
             echo "$C" | head -15
             exit 1
           fi
