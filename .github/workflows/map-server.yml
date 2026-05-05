@@ -1,31 +1,35 @@
-name: "Map Server"
+name: "Map and Fix Server"
 
 on:
   workflow_dispatch:
 
 jobs:
-  map:
+  fix:
     runs-on: ubuntu-latest
     steps:
-      - name: "Install tools"
+      - uses: actions/checkout@v4
+
+      - name: "Install sshpass"
         run: sudo apt-get install -y sshpass -q
 
-      - name: "Map filesystem via SSH"
+      - name: "SSH - mapear filesystem completo"
         env:
           SSH_PASS: ${{ secrets.SSH_PASSWORD }}
         run: |
           sshpass -p "$SSH_PASS" ssh -p 65002 \
             -o StrictHostKeyChecking=no -o ConnectTimeout=15 \
-            u876483543@89.116.115.179 \
-            "echo '=SSH_OK=' && pwd && echo '' && ls -la ~/domains/ && echo '' && ls -la ~/domains/studiologos.com.br/ && echo '' && ls -la ~/domains/studiologos.com.br/public_html/ && echo '' && cat ~/domains/studiologos.com.br/public_html/index.html | head -5" \
-            2>&1 || echo "SSH_FALHOU"
-
-      - name: "Map FTP root via listing"
-        env:
-          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          sshpass -p "$SSH_PASS" ssh -p 65002 \
-            -o StrictHostKeyChecking=no \
-            u876483543@89.116.115.179 \
-            "find / -name 'studiologos-probe.txt' 2>/dev/null | head -10" \
-            2>&1 || echo "find falhou"
+            u876483543@89.116.115.179 "
+            echo '=== HOME ==='
+            ls -la ~/
+            echo '=== domains ==='
+            ls -la ~/domains/ 2>/dev/null || echo sem domains
+            echo '=== studiologos public_html ==='
+            ls -la ~/domains/studiologos.com.br/public_html/ 2>/dev/null || echo sem esse path
+            echo '=== index.html atual ==='
+            cat ~/domains/studiologos.com.br/public_html/index.html 2>/dev/null | head -5
+            echo '=== FTP probe ==='
+            find ~/ -name 'studiologos-probe.txt' 2>/dev/null
+            find ~/ -name '.ftp-deploy-sync-state.json' 2>/dev/null
+            echo '=== wc index ==='
+            wc -c ~/domains/studiologos.com.br/public_html/index.html 2>/dev/null
+          " 2>&1
