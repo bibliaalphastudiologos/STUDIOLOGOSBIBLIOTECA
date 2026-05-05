@@ -22,8 +22,8 @@ export default defineConfig(({mode}) => {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
     build: {
-      outDir: 'public_html',
-      emptyOutDir: true,
+      outDir: '.',
+      emptyOutDir: false,
       // Suprime aviso de chunk grande
       chunkSizeWarningLimit: 1000,
     },
