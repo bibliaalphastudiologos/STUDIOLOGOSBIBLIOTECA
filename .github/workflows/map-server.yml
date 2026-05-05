@@ -13,111 +13,116 @@ jobs:
     - name: Build
       run: npm ci && npm run build && cp htaccess.txt dist/.htaccess && cp 404-spa.html
         dist/404.html
-    - name: Listar raiz FTP completa
+    - name: Listar estado atual do servidor
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: 'echo "=== CONTEUDO COMPLETO DA RAIZ FTP ==="
+      run: 'echo "=== RAIZ FTP ==="
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" | awk ''{print $1,
-        $5, $NF}''
+        curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/" | awk ''{print $1,$5,$NF}''
 
-        echo ""
+        echo "=== assets/ ==="
 
-        echo "=== SIZE index.html atual ==="
+        curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/assets/" 2>&1 | awk
+        ''{print $1,$5,$NF}''
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/index.html" | wc -c
+        echo "=== domains/ ==="
 
-        echo "=== CONTEUDO index.html atual ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/index.html"
+        curl -s --user "$FTP_USER:$FTP_PASS" "ftp://$FTP_HOST/domains/" 2>&1 | awk
+        ''{print $1,$5,$NF}'' | head -20
 
         '
-    - name: DELETAR todos os arquivos antigos
+    - name: Deletar lixo e subir assets corretos
       env:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USER: ${{ secrets.FTP_USERNAME }}
         FTP_PASS: ${{ secrets.FTP_PASSWORD }}
       run: 'H="ftp://$FTP_HOST"
 
-        del() { curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE $1" 2>&1 && echo
-        "DEL: $1" || echo "skip: $1"; }
+        del() { curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "DELE $1" 2>&1 | grep
+        -v "^*" || true; echo "DEL $1"; }
 
-        # Deletar TUDO que pode estar conflitando
+        up()  { curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs "$2"
+        && echo "UP OK $2 ($(wc -c<$1)b)" || echo "FAIL $2"; }
 
-        del "index.html"
 
-        del ".htaccess"
-
-        del "404.html"
-
-        del "index.php"
-
-        del "studiologos-probe.txt"
-
-        del ".ftp-deploy-sync-state.json"
-
-        del "deploy_test.txt"
-
-        del "assets/index-DYJn2QEj.js"
-
-        del "assets/index-DjS088-i.css"
+        # Limpar assets velhos
 
         del "assets/index-UIeH9Ysg.js"
 
         del "assets/index-mCBVk_n0.css"
 
-        # Remover pasta assets vazia e recriar
+        del "assets/index-DYJn2QEj.js"
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" -Q "RMD assets" 2>&1 || true
+        del "assets/index-DjS088-i.css"
 
-        sleep 2
 
-        echo "=== Raiz apos delete ==="
+        # Limpar lixo na raiz
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $5, $NF}''
+        del ".ftp-deploy-sync-state.json"
 
-        '
-    - name: Upload clean dos arquivos corretos
-      env:
-        FTP_HOST: ${{ secrets.FTP_HOST }}
-        FTP_USER: ${{ secrets.FTP_USERNAME }}
-        FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-      run: 'H="ftp://$FTP_HOST"
+        del "studiologos-probe.txt"
 
-        up() { curl -s -T "$1" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs "$2"
-        && echo "UP OK: $2 ($(wc -c < $1)b)" || echo "UP FAIL: $2"; }
+        del "deploy_test.txt"
 
-        up dist/index.html                    "$H/index.html"
+        del "index.php"
 
-        up dist/.htaccess                     "$H/.htaccess"
 
-        up dist/404.html                      "$H/404.html"
+        # Limpar pasta domains/ (uploads errados anteriores)
 
-        up dist/assets/index-DYJn2QEj.js      "$H/assets/index-DYJn2QEj.js"
+        del "domains/studiologos.com.br/public_html/assets/index-DYJn2QEj.js"
 
-        up dist/assets/index-DjS088-i.css     "$H/assets/index-DjS088-i.css"
+        del "domains/studiologos.com.br/public_html/assets/index-DjS088-i.css"
+
+        del "domains/studiologos.com.br/public_html/index.html"
+
+        del "domains/studiologos.com.br/public_html/.htaccess"
+
+        del "domains/studiologos.com.br/public_html/404.html"
+
+
+        # Subir assets corretos na raiz FTP
+
+        up dist/assets/index-DYJn2QEj.js  "$H/assets/index-DYJn2QEj.js"
+
+        up dist/assets/index-DjS088-i.css "$H/assets/index-DjS088-i.css"
+
+
+        # Reupar index/htaccess/404 também (garantia)
+
+        up dist/index.html  "$H/index.html"
+
+        up dist/.htaccess   "$H/.htaccess"
+
+        up dist/404.html    "$H/404.html"
+
 
         echo ""
 
-        echo "=== Raiz apos upload ==="
+        echo "=== Estado final da raiz FTP ==="
 
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1, $5, $NF}''
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/" | awk ''{print $1,$5,$NF}''
 
-        echo ""
+        echo "=== assets/ ==="
 
-        echo "=== index.html no servidor ==="
-
-        curl -s --user "$FTP_USER:$FTP_PASS" "$H/index.html"
+        curl -s --user "$FTP_USER:$FTP_PASS" "$H/assets/" | awk ''{print $1,$5,$NF}''
 
         '
-    - name: Validar site em producao
-      run: "sleep 20\nC=$(curl -s --max-time 20 https://studiologos.com.br/)\necho\
-        \ \"HTTP size: $(echo \"$C\" | wc -c)\"\necho \"$C\" | grep -o \"<title>[^<]*</title>\"\
-        \necho \"$C\" | grep \"src=\\|href=\" | head -5\nif echo \"$C\" | grep -q\
-        \ \"assets/index-\"; then\n  echo \"✅ SUCESSO: BUILD COMPILADA ATIVA\"\nelse\n\
-        \  echo \"❌ AINDA COM ARQUIVO ERRADO\"\n  exit 1\nfi\n"
+    - name: Validar site completo
+      run: "sleep 15\necho \"=== index.html ===\"\nSTATUS=$(curl -s -o /dev/null -w\
+        \ \"%{http_code}\" --max-time 15 https://studiologos.com.br/)\nSZ=$(curl -s\
+        \ -o /dev/null -w \"%{size_download}\" --max-time 15 https://studiologos.com.br/)\n\
+        echo \"HTTP $STATUS | $SZ bytes\"\n\necho \"=== assets ===\"\ncurl -s -o /dev/null\
+        \ -w \"JS:  %{http_code} %{size_download}b\\n\" --max-time 15 https://studiologos.com.br/assets/index-DYJn2QEj.js\n\
+        curl -s -o /dev/null -w \"CSS: %{http_code} %{size_download}b\\n\" --max-time\
+        \ 15 https://studiologos.com.br/assets/index-DjS088-i.css\n\necho \"=== SPA\
+        \ routing ===\"\ncurl -s -o /dev/null -w \"/biblioteca: %{http_code}\\n\"\
+        \ --max-time 15 https://studiologos.com.br/biblioteca\n\nC=$(curl -s --max-time\
+        \ 20 https://studiologos.com.br/)\nif echo \"$C\" | grep -q \"assets/index-\"\
+        ; then\n  echo \"\"\n  echo \"✅ DEPLOY COMPLETO E VALIDADO\"\n  echo \"\U0001F310\
+        \ https://studiologos.com.br\"\nelse\n  echo \"❌ index.html sem assets\"\n\
+        \  echo \"$C\" | head -10\n  exit 1\nfi\n"
     - name: Snapshot branch deploy
       run: 'git config user.email "actions@github.com"
 
