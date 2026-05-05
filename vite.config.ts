@@ -8,7 +8,7 @@ export default defineConfig(({mode}) => {
   return {
     // './' garante assets relativos — funciona tanto no domínio customizado
     // (studiologos.com.br/) quanto no GitHub Pages subdirectory
-    base: '/',
+    base: './',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
@@ -22,8 +22,8 @@ export default defineConfig(({mode}) => {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
     build: {
-      outDir: '.',
-      emptyOutDir: false,
+      outDir: 'public_html',
+      emptyOutDir: true,
       // Suprime aviso de chunk grande
       chunkSizeWarningLimit: 1000,
     },
