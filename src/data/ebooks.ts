@@ -2,6 +2,7 @@ import { Ebook } from '../types';
 import { publicDomainWorks } from './publicDomainWorks';
 import { philosophyPublicDomainWorks } from './philosophyPublicDomain';
 import { brazilianLiteratureWorks } from './brazilianLiterature';
+import { additionalWorks } from './additionalWorks';
 
 // ─── Citações reais por autor ──────────────────────────────────────────────
 const AUTHOR_QUOTES: Record<string, { quote: string; source: string }[]> = {
@@ -553,5 +554,5 @@ const generateEbooks = () => {
 };
 
 
-export const DEMO_EBOOKS: Ebook[] = [...publicDomainWorks, ...philosophyPublicDomainWorks, ...brazilianLiteratureWorks, ...generateEbooks()];
+export const DEMO_EBOOKS: Ebook[] = [...publicDomainWorks, ...philosophyPublicDomainWorks, ...brazilianLiteratureWorks, ...additionalWorks, ...generateEbooks()];
 

@@ -4,7 +4,7 @@ export type UserStatus = 'pending' | 'approved' | 'blocked';
 export type ContentType = 'public_domain' | 'synthesis';
 export type CopyrightStatus = 'public_domain_verified' | 'summary_only' | 'licensed';
 
-export type MainCategory = 'Teologia' | 'Filosofia' | 'Psicanálise';
+export type MainCategory = 'Teologia' | 'Filosofia' | 'Psicanálise' | 'Literatura Brasileira';
 
 export type SubcategoryTeologia =
   | 'Bíblia' | 'Comentários Bíblicos' | 'Doutrina Cristã' | 'História da Igreja'

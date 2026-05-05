@@ -13,6 +13,8 @@ import { FeaturedSection } from './components/FeaturedSection';
 import { Footer } from './components/Footer';
 import { DEMO_EBOOKS } from './data/ebooks';
 import { Ebook, PAYMENT_LINKS } from './types';
+import LibraryPage from './components/LibraryPage';
+import EbookDetailPage from './components/EbookDetailPage';
 import { Search, BookOpen, ScrollText, ChevronRight, Shield, Crown, ArrowRight } from 'lucide-react';
 import { signInWithGoogle, auth } from './lib/firebase';
 import { motion, AnimatePresence } from 'motion/react';
@@ -606,7 +608,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 // ─── AppContent ───────────────────────────────────────────────────────────────
 function AppContent() {
   const { pathname } = useLocation();
-  const isReader = pathname.startsWith('/leitor/');
+  const isReader = pathname.startsWith('/leitor/') || pathname.startsWith('/ebook/');
 
   return (
     <div className="selection:bg-navy selection:text-white cursor-default">
@@ -625,6 +627,8 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
+        <Route path="/biblioteca" element={<LibraryPage />} />
+        <Route path="/ebook/:slug" element={<EbookDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {!isReader && <Footer />}
