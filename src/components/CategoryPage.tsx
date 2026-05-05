@@ -35,14 +35,14 @@ const CATEGORY_CONFIG: Record<Category, CategoryConfig> = {
       { label: 'Patrística', value: 'Padres da Igreja' },
       { label: 'Reforma', value: 'Lutero & Calvino' },
       { label: 'Escolástica', value: 'Tomás de Aquino' },
-      { label: 'Domínio Público', value: 'Obras Integrais' },
+      { label: 'Obras Integrais', value: 'Obras Integrais' },
     ],
     image: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=1400',
   },
   Filosofia: {
     title: 'Filosofia',
     subtitle: 'O Pensamento no Limite',
-    description: 'De Platão a Nietzsche, de Kant a Heidegger: obras integrais de domínio público e sínteses que percorrem toda a história do pensamento ocidental. Para quem quer compreender o mundo em profundidade.',
+    description: 'De Platão a Nietzsche, de Kant a Heidegger: obras integrais que percorrem toda a história do pensamento ocidental. Para quem quer compreender o mundo em profundidade.',
     color: 'text-philosophy',
     bgGradient: 'from-[#1a0a28] via-[#2d1a4a] to-[#1d0d36]',
     icon: <BookOpen className="w-8 h-8" />,
@@ -51,7 +51,7 @@ const CATEGORY_CONFIG: Record<Category, CategoryConfig> = {
       { label: 'Filosofia Clássica', value: 'Platão & Aristóteles' },
       { label: 'Filosofia Moderna', value: 'Kant & Hegel' },
       { label: 'Existencialismo', value: 'Nietzsche & Kierkegaard' },
-      { label: '100+ Obras', value: 'Domínio Público' },
+      { label: '100+ Obras', value: 'Obras Clássicas' },
     ],
     image: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=1400',
   },
@@ -182,8 +182,8 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
             <div className="flex gap-2 bg-white p-2 rounded-sm border border-gray-200">
               {[
                 { label: 'Todos', value: 'all' },
-                { label: '📜 Domínio Público', value: 'public_domain' },
-                { label: '✍ Sínteses', value: 'synthesis' },
+                { label: 'Obras Clássicas', value: 'public_domain' },
+                { label: 'Curadoria', value: 'synthesis' },
               ].map(ct => (
                 <button
                   key={ct.value}

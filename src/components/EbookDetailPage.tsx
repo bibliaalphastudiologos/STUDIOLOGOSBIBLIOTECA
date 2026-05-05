@@ -89,7 +89,7 @@ export default function EbookDetailPage() {
               <div className="flex flex-wrap gap-1 mt-3">
                 <span className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded font-black"
                   style={{ background: '#c9a22720', color: '#c9a227' }}>
-                  Domínio Público
+                  Obra Clássica
                 </span>
                 {hasTranslation && (
                   <span className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded font-black"
@@ -268,7 +268,7 @@ export default function EbookDetailPage() {
                 { label: 'Tempo de Leitura', value: ebook.readingTime },
                 { label: 'Idioma Original', value: ebook.originalLanguage || 'Português' },
                 { label: 'Capítulos', value: `${ebook.chapters?.length || 0}` },
-                { label: 'Status', value: 'Domínio Público' },
+                { label: 'Status', value: 'Obra Clássica' },
                 { label: 'Acesso', value: 'Somente Online' },
               ].map(item => (
                 <div key={item.label} className="flex justify-between gap-2 text-xs">

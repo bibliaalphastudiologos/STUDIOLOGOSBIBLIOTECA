@@ -1,0 +1,106 @@
+name: Map and Fix Server
+'on':
+  workflow_dispatch: null
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: npm
+    - name: Build
+      run: 'npm ci && npm run build
+
+        cp htaccess.txt dist/.htaccess
+
+        cp 404-spa.html dist/404.html
+
+        echo "=== dist/ ==="
+
+        find dist -type f | sort
+
+        echo "=== index.html ==="
+
+        cat dist/index.html
+
+        '
+    - name: Apagar TUDO no servidor e subir site limpo
+      env:
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USERNAME }}
+        FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+      run: "H=\"ftp://$FTP_HOST\"\ndel() { curl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" -Q \"DELE $1\" 2>&1 | head -1; echo \"DEL $1\"; }\nup()  { echo\
+        \ -n \"UP $2: \"; curl -s -T \"$1\" --user \"$FTP_USER:$FTP_PASS\" --ftp-create-dirs\
+        \ \"$2\" && echo \"OK $(wc -c<$1)b\" || echo \"FAIL\"; }\n\necho \"=== ESTADO\
+        \ ATUAL ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" | awk '{print\
+        \ $1,$5,$NF}'\n\necho \"\"\necho \"=== APAGANDO TUDO ===\"\n# WordPress\n\
+        for f in index.php wp-config.php wp-login.php wp-blog-header.php wp-cron.php\
+        \ wp-load.php wp-mail.php wp-settings.php wp-signup.php wp-trackback.php xmlrpc.php\
+        \ wp-activate.php wp-links-opml.php wp-comments-post.php readme.html license.txt;\
+        \ do del \"$f\"; done\n# Nossos arquivos\nfor f in index.html .htaccess 404.html\
+        \ index.php .ftp-deploy-sync-state.json deploy_test.txt studiologos-probe.txt;\
+        \ do del \"$f\"; done\n# Assets (todos os hashes)\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/assets/\" | awk '{print $NF}' | grep -v \"^\\.\" | grep -v \"^d\" |\
+        \ while read f; do\n  del \"assets/$f\"\ndone\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" -Q \"RMD assets\" && echo \"RMD assets\"\n# Subpastas erradas\n\
+        for f in public_html/index.html public_html/.htaccess public_html/404.html;\
+        \ do del \"$f\"; done\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/\" -Q \"\
+        RMD public_html/assets\" 2>&1 | head -1\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" -Q \"RMD public_html\" 2>&1 | head -1\nsleep 2\n\necho \"\"\necho\
+        \ \"=== SUBINDO SITE LIMPO ===\"\n# Pegar o nome real do JS gerado\nJS_FILE=$(ls\
+        \ dist/assets/*.js | head -1)\nCSS_FILE=$(ls dist/assets/*.css | head -1)\n\
+        JS_NAME=$(basename $JS_FILE)\nCSS_NAME=$(basename $CSS_FILE)\necho \"JS: $JS_NAME\"\
+        \necho \"CSS: $CSS_NAME\"\n\nup dist/.htaccess                  \"$H/.htaccess\"\
+        \nup dist/index.html                 \"$H/index.html\"\nup dist/404.html \
+        \                  \"$H/404.html\"\nup \"$CSS_FILE\"                     \"\
+        $H/assets/$CSS_NAME\"\nup \"$JS_FILE\"                      \"$H/assets/$JS_NAME\"\
+        \n\necho \"\"\necho \"=== ESTADO FINAL ===\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\"\
+        \ \"$H/\" | awk '{print $1,$5,$NF}'\necho \"--- assets/ ---\"\ncurl -s --user\
+        \ \"$FTP_USER:$FTP_PASS\" \"$H/assets/\" | awk '{print $1,$5,$NF}'\necho \"\
+        --- .htaccess ---\"\ncurl -s --user \"$FTP_USER:$FTP_PASS\" \"$H/.htaccess\"\
+        \n"
+    - name: Validar site 100%
+      run: "sleep 20\n# Pegar nome real do JS\nJS_NAME=$(ls dist/assets/*.js | head\
+        \ -1 | xargs basename)\nCSS_NAME=$(ls dist/assets/*.css | head -1 | xargs\
+        \ basename)\n\necho \"=== HTTP ===\"\ncurl -s -o /dev/null -w \"/        \
+        \    %{http_code} %{size_download}b\\n\" --max-time 20 https://studiologos.com.br/\n\
+        curl -s -o /dev/null -w \"JS:          %{http_code} %{size_download}b\\n\"\
+        \ --max-time 30 \"https://studiologos.com.br/assets/$JS_NAME\"\ncurl -s -o\
+        \ /dev/null -w \"CSS:         %{http_code} %{size_download}b\\n\" --max-time\
+        \ 20 \"https://studiologos.com.br/assets/$CSS_NAME\"\ncurl -s -o /dev/null\
+        \ -w \"/biblioteca: %{http_code}\\n\"                   --max-time 10 https://studiologos.com.br/biblioteca\n\
+        \nJS_OK=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 30 \"https://studiologos.com.br/assets/$JS_NAME\"\
+        )\nCSS_OK=$(curl -s -o /dev/null -w \"%{http_code}\" --max-time 20 \"https://studiologos.com.br/assets/$CSS_NAME\"\
+        )\nIDX=$(curl -s --max-time 20 https://studiologos.com.br/ | grep -c \"assets/\"\
+        )\n\nif [ \"$JS_OK\" = \"200\" ] && [ \"$CSS_OK\" = \"200\" ] && [ \"$IDX\"\
+        \ -gt \"0\" ]; then\n  echo \"\"\n  echo \"✅ SITE 100% NO AR\"\n  echo \"\U0001F310\
+        \ https://studiologos.com.br\"\nelse\n  echo \"❌ JS=$JS_OK CSS=$CSS_OK IDX=$IDX\"\
+        \n  curl -sI --max-time 10 \"https://studiologos.com.br/assets/$JS_NAME\"\
+        \ | head -5\n  exit 1\nfi\n"
+    - name: Atualizar branch deploy
+      run: 'git config user.email "actions@github.com"
+
+        git config user.name "GitHub Actions CI"
+
+        cp -r dist /tmp/snap
+
+        git checkout --orphan deploy-ci
+
+        git rm -rf . 2>/dev/null || true
+
+        cp -r /tmp/snap/. .
+
+        git add -A
+
+        git commit -m "deploy $(date -u +%Y-%m-%dT%H:%M:%SZ) ${GITHUB_SHA:0:7}" ||
+        true
+
+        git push --force origin deploy-ci:deploy || true
+
+        echo "OK"
+
+        '
+      continue-on-error: true

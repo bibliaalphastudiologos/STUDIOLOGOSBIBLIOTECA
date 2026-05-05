@@ -399,7 +399,7 @@ const HomePage: React.FC = () => {
             </div>
             <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">Os Clássicos do Pensamento<br/>Ocidental</h2>
             <p className="text-muted text-sm max-w-2xl mx-auto leading-relaxed">
-              Obras integrais de Agostinho, Platão, Marco Aurélio, Tomás de Kempis e outros — verificadas juridicamente como domínio público.
+              Obras integrais de Agostinho, Platão, Marco Aurélio, Tomás de Kempis e outros — cuidadosamente selecionadas e verificadas.
             </p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -436,7 +436,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="space-y-4">
             {[
-              { q: 'O que é o Studio Logos?', a: 'Uma plataforma de leitura online com obras integrais de domínio público (Agostinho, Platão, Marco Aurélio...) e sínteses didáticas autorais sobre Teologia, Filosofia e Psicanálise.' },
+              { q: 'O que é o Studio Logos?', a: 'Uma plataforma de leitura online com obras integrais clássicas (Agostinho, Platão, Marco Aurélio...) e curadoria exclusiva sobre Teologia, Filosofia e Psicanálise.' },
               { q: 'Qual o valor da assinatura?', a: 'R$ 11,00 por mês. Após o pagamento, seu acesso é ativado pelo administrador. A Bíblia Alpha é uma compra única separada.' },
               { q: 'O que são Obras de Domínio Público?', a: 'Obras cujos direitos expiraram conforme a Lei 9.610/98 (70 anos após a morte do autor). Disponíveis na íntegra, sem download — exclusivamente no leitor premium.' },
               { q: 'O que são Sínteses Didáticas?', a: 'Materiais originais do Studio Logos para introduzir grandes autores com linguagem acessível e estrutura pedagógica. Não são cópias dos originais.' },

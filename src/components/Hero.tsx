@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
             className="max-w-2xl mx-auto"
           >
             <p className="text-base md:text-lg text-white/70 leading-relaxed">
-              Leia <strong>dentro do site</strong>, sem downloads. Acesso a obras em domínio público, traduções verificadas, e sínteses exclusivas de <strong>Filosofia, Teologia, Literatura Brasileira e Literatura Portuguesa</strong>.
+              Leia <strong>dentro do site</strong>, sem downloads. Acesso a obras clássicas, traduções verificadas e curadoria exclusiva de <strong>Filosofia, Teologia, Literatura Brasileira e Literatura Portuguesa</strong>.
             </p>
           </motion.div>
 
@@ -193,7 +193,7 @@ export const Hero: React.FC = () => {
           >
             <div>
               <p className="text-2xl md:text-3xl font-black text-gold">500+</p>
-              <p className="text-xs text-white/60 uppercase tracking-widest mt-2">Obras em Domínio Público</p>
+              <p className="text-xs text-white/60 uppercase tracking-widest mt-2">Biblioteca Clássica</p>
             </div>
             <div>
               <p className="text-2xl md:text-3xl font-black text-gold">100%</p>

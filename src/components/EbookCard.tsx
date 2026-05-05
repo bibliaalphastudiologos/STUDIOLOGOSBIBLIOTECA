@@ -104,7 +104,7 @@ export const EbookCard: React.FC<EbookCardProps> = ({
               className="flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/20 border border-green-500/40"
             >
               <Zap className="w-3 h-3 text-green-600" />
-              <span className="text-[7px] font-black text-green-700 uppercase tracking-widest">Domínio Público</span>
+              <span className="text-[7px] font-black text-green-700 uppercase tracking-widest">Obra Clássica</span>
             </motion.div>
           )}
         </div>
@@ -116,7 +116,7 @@ export const EbookCard: React.FC<EbookCardProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             className="absolute top-4 left-4 z-20 px-3 py-1 bg-gold text-navy text-[8px] font-black uppercase tracking-widest rounded-full shadow-lg"
           >
-            ✨ NOVO
+            NOVO
           </motion.div>
         )}
 

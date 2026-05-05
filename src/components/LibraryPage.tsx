@@ -159,7 +159,7 @@ export default function LibraryPage() {
               Biblioteca Studio Logos
             </h1>
             <p className="text-white/60 text-sm max-w-xl mx-auto">
-              {stats.total}+ obras em domínio público — Teologia, Filosofia, Psicanálise e Literatura Brasileira.
+              {stats.total}+ obras — Teologia, Filosofia, Psicanálise e Literatura Brasileira.
               Leitura online exclusiva, sem downloads.
             </p>
           </div>

@@ -51,7 +51,7 @@ export const FeaturedSection: React.FC = () => {
             {
               icon: Shield,
               title: 'Obras Verificadas',
-              description: 'Todas as obras em domínio público são verificadas e autenticadas. Traduções confiáveis e edições de qualidade.',
+              description: 'Todas as obras são verificadas e autenticadas. Traduções confiáveis e edições de qualidade.',
               color: 'text-philosophy'
             },
             {
