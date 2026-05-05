@@ -1,0 +1,9 @@
+{
+  "deployment": {
+    "type": "nodejs",
+    "script": "deploy.sh",
+    "buildCommand": "npm run build",
+    "installCommand": "npm install --production",
+    "outputDirectory": "public_html"
+  }
+}
