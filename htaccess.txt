@@ -1,10 +1,12 @@
 Options -MultiViews
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Deixar assets passarem sem rewrite
+  # Assets passam sem rewrite
   RewriteRule ^assets/ - [L]
-  # SPA routing: só redireciona se não for arquivo/pasta real
+  # SPA: redireciona rotas inexistentes para index.html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ /index.html [L]
 </IfModule>
+# Fallback para LiteSpeed que ignora RewriteRule em alguns casos
+ErrorDocument 404 /index.html
