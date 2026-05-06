@@ -1,6 +1,8 @@
 // ─── Translation Service — Studio Logos ──────────────────────────────────────
-// Tradução por capítulo via Google Translate (API gratuita não oficial)
-// com cache em localStorage para evitar chamadas repetidas.
+// Tradução por capítulo. Quando VITE_TRANSLATION_ENDPOINT estiver configurado,
+// o endpoint deve usar Google Cloud Translation e cache compartilhado por
+// obra/capítulo/idioma. Sem endpoint, o front mantém cache local e preserva o
+// fluxo de leitura sem travar a plataforma.
 
 import { safeStorage } from './safeStorage';
 
@@ -78,6 +80,33 @@ async function translateChunk(text: string, targetLang = 'pt'): Promise<string> 
   return translated;
 }
 
+async function translateViaConfiguredEndpoint(
+  ebookId: string,
+  chapterId: string,
+  htmlContent: string,
+  targetLang: string
+): Promise<string | null> {
+  const endpoint = import.meta.env.VITE_TRANSLATION_ENDPOINT;
+  if (!endpoint) return null;
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ebookId,
+      chapterId,
+      sourceLanguage: 'auto',
+      targetLanguage: targetLang,
+      format: 'html',
+      content: htmlContent,
+    }),
+  });
+
+  if (!response.ok) throw new Error(`Translation endpoint error: ${response.status}`);
+  const data = await response.json() as { translatedHtml?: string; text?: string };
+  return data.translatedHtml || data.text || null;
+}
+
 // Traduz conteúdo HTML de um capítulo completo
 export async function translateChapter(
   ebookId: string,
@@ -93,6 +122,13 @@ export async function translateChapter(
   if (cached) {
     onProgress?.(100);
     return cached;
+  }
+
+  const endpointResult = await translateViaConfiguredEndpoint(ebookId, chapterId, htmlContent, targetLang);
+  if (endpointResult) {
+    saveToCache(cacheKey, endpointResult);
+    onProgress?.(100);
+    return endpointResult;
   }
 
   // Dividir em blocos

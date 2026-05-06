@@ -1,10 +1,11 @@
 import React from 'react';
+import { PAYMENT_LINKS } from '../types';
 import { motion } from 'framer-motion';
 import { Crown, BookOpen, Zap, ArrowRight, Shield, Sparkles } from 'lucide-react';
 import { useAuth } from '../lib/AuthContext';
 export const FeaturedSection: React.FC = () => {
   const handleSubscribe = async () => {
-    window.open('https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed', '_blank');
+    window.open(PAYMENT_LINKS.studioLogosMonthly, '_blank');
   };
 
   return (

@@ -321,7 +321,7 @@ export default function LibraryPage() {
           <p className="text-white/60 text-sm mb-6">
             Por apenas R$ 11/mês, leia quantas obras quiser, com marcadores, notas, destaques e tradução automática.
           </p>
-          <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed"
+          <a href="https://mpago.la/1cFocZN"
             target="_blank" rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all hover:opacity-90"
             style={{ background: '#c9a227', color: '#fff' }}>

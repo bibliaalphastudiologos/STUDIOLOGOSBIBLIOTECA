@@ -1,44 +1,112 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { 
-  X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, 
-  Languages, Save, Menu, Book
+import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  BookmarkPlus,
+  ChevronLeft,
+  ChevronRight,
+  Languages,
+  List,
+  Maximize2,
+  Minimize2,
+  Save,
+  Type,
+  X,
 } from "lucide-react";
 import { type Ebook } from "../studioTypes";
-import { translateChapter } from "../lib/translationService";
 import { safeStorage } from "../lib/safeStorage";
 import { useAuth } from "./AuthProvider";
 import { loadEbookProgress, saveEbookProgress } from "../services/ebookProgress";
+import { isTranslationCached, translateChapter } from "../lib/translationService";
+import { PAYMENT_LINKS } from "../types";
+import { loadImportedChapters } from "../services/ebookImport";
 
 interface ReaderProps {
   ebook: Ebook;
   onClose: () => void;
+  onRelatedRead?: (ebook: Ebook) => void;
+  related?: Ebook[];
 }
 
-export function Reader({ ebook, onClose }: ReaderProps) {
-  const { user } = useAuth();
-  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
-  const [content, setContent] = useState("");
-  const [isTranslating, setIsTranslating] = useState(false);
-  const [zoom, setZoom] = useState(1);
-  const [theme, setTheme] = useState<"dark" | "sepia" | "light">("light");
-  const [showToc, setShowToc] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [cloudLoaded, setCloudLoaded] = useState(false);
+function sanitizeHtml(html: string): string {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/\son\w+="[^"]*"/gi, "")
+    .replace(/\son\w+='[^']*'/gi, "")
+    .replace(/javascript:/gi, "");
+}
 
-  const chapters = ebook.chapters || [{ id: 'main', title: 'Conteúdo Principal', content: ebook.content }];
-  const currentChapter = chapters[currentChapterIndex];
+function stripHtml(html: string): string {
+  return sanitizeHtml(html)
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderProps) {
+  const { user } = useAuth();
+  const [chapterIndex, setChapterIndex] = useState(0);
+  const [zoom, setZoom] = useState(1);
+  const [theme, setTheme] = useState<"sepia" | "light" | "dark">("sepia");
+  const [focusMode, setFocusMode] = useState(false);
+  const [tocOpen, setTocOpen] = useState(true);
+  const [translatedContent, setTranslatedContent] = useState<Record<string, string>>({});
+  const [languageMode, setLanguageMode] = useState<"original" | "pt">("original");
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [translationProgress, setTranslationProgress] = useState(0);
+  const [cloudLoaded, setCloudLoaded] = useState(false);
+  const [importedChapters, setImportedChapters] = useState<Ebook["chapters"] | null>(null);
+  const [importingText, setImportingText] = useState(false);
+
+  const chapters = importedChapters || (ebook.chapters.length ? ebook.chapters : [{
+    id: `${ebook.id}-chapter-1`,
+    title: "Apresentação da obra",
+    content: `<p>${ebook.content}</p>`,
+    estimatedMinutes: 5,
+  }]);
+  const currentChapter = chapters[Math.min(chapterIndex, chapters.length - 1)];
+  const translationKey = currentChapter.id;
+  const currentHtml = languageMode === "pt" && translatedContent[translationKey]
+    ? translatedContent[translationKey]
+    : currentChapter.content;
+  const progress = Math.round(((chapterIndex + 1) / chapters.length) * 100);
+  const hasTranslation = ebook.translationAvailable || ebook.originalLanguage !== "Português";
+  const cached = isTranslationCached(ebook.id, currentChapter.id);
+
+  const themeClasses = {
+    sepia: "bg-[#F7F1E6] text-[#2d251a]",
+    light: "bg-[#fbfbf8] text-[#141414]",
+    dark: "bg-[#101010] text-[#e9dfcf]",
+  };
+
+  const relatedWorks = useMemo(
+    () => related.filter((item) => item.id !== ebook.id).slice(0, 4),
+    [ebook.id, related],
+  );
 
   useEffect(() => {
     setCloudLoaded(false);
-    setContent(currentChapter.content);
+    setChapterIndex(0);
+    setLanguageMode("original");
+    setTranslatedContent({});
+    setImportedChapters(null);
+
+    if (ebook.importSource) {
+      setImportingText(true);
+      loadImportedChapters(ebook)
+        .then((chaptersFromSource) => {
+          if (chaptersFromSource?.length) setImportedChapters(chaptersFromSource);
+        })
+        .catch((error) => console.warn("[StudioLogos Reader] Falha ao importar texto técnico:", error))
+        .finally(() => setImportingText(false));
+    }
 
     const saved = safeStorage.getItem(`reading-${ebook.id}`);
     try {
       if (saved) {
         const data = JSON.parse(saved);
-        setCurrentChapterIndex(data.chapterIndex || 0);
-        setProgress(data.progress || 0);
+        setChapterIndex(Math.min(Math.max(data.chapterIndex || data.page - 1 || 0, 0), chapters.length - 1));
       }
     } catch {
       safeStorage.removeItem(`reading-${ebook.id}`);
@@ -52,217 +120,268 @@ export function Reader({ ebook, onClose }: ReaderProps) {
     loadEbookProgress(user, ebook.id)
       .then((cloudProgress) => {
         if (!cloudProgress) return;
-        setCurrentChapterIndex(cloudProgress.chapterIndex || 0);
-        setProgress(cloudProgress.progress || 0);
+        const nextIndex = cloudProgress.chapterIndex ?? ((cloudProgress.page || 1) - 1);
+        setChapterIndex(Math.min(Math.max(nextIndex || 0, 0), chapters.length - 1));
       })
-      .catch((error) => {
-        console.warn('[StudioLogos Reader] Falha ao carregar progresso:', error);
-      })
+      .catch((error) => console.warn("[StudioLogos Reader] Falha ao carregar progresso:", error))
       .finally(() => setCloudLoaded(true));
-  }, [ebook.id, user]);
+  }, [ebook, user]);
 
   useEffect(() => {
-    setContent(currentChapter.content);
-    const nextProgress = Math.min(100, Math.round(((currentChapterIndex + 1) / chapters.length) * 100));
-    setProgress(nextProgress);
-    
-    safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({ chapterIndex: currentChapterIndex, progress: nextProgress }));
+    safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({
+      chapterIndex,
+      chapterId: currentChapter.id,
+      progress,
+    }));
 
     if (!user || !cloudLoaded) return;
 
     const timer = window.setTimeout(() => {
-      saveEbookProgress(user, ebook.id, { chapterIndex: currentChapterIndex, progress: nextProgress }).catch((error) => {
-        console.warn('[StudioLogos Reader] Falha ao salvar progresso:', error);
-      });
+      saveEbookProgress(user, ebook.id, {
+        chapterIndex,
+        chapterId: currentChapter.id,
+        page: chapterIndex + 1,
+        progress,
+      }).catch((error) => console.warn("[StudioLogos Reader] Falha ao salvar progresso:", error));
     }, 500);
 
     return () => window.clearTimeout(timer);
-  }, [currentChapterIndex, ebook.id, user, cloudLoaded]);
+  }, [chapterIndex, cloudLoaded, currentChapter.id, ebook.id, progress, user]);
 
   const handleTranslate = async () => {
-    if (isTranslating) return;
+    if (!hasTranslation) return;
     setIsTranslating(true);
+    setTranslationProgress(0);
     try {
-      const translated = await translateChapter(ebook.id, currentChapter.id, currentChapter.content, 'pt');
-      setContent(translated);
-    } catch (error) {
-      console.error("Erro na tradução:", error);
-      window.alert("Falha na tradução automática. Tente novamente em instantes.");
+      const translated = await translateChapter(
+        ebook.id,
+        currentChapter.id,
+        currentChapter.content,
+        "pt",
+        setTranslationProgress,
+      );
+      setTranslatedContent((current) => ({ ...current, [currentChapter.id]: translated }));
+      setLanguageMode("pt");
     } finally {
       setIsTranslating(false);
     }
   };
 
-  const themes = {
-    dark: "bg-[#0F0F0F] text-[#E0D7CC]/80",
-    sepia: "bg-[#f4ecd8] text-[#5f4b32]",
-    light: "bg-white text-gray-900"
+  const saveProgress = () => {
+    safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({
+      chapterIndex,
+      chapterId: currentChapter.id,
+      progress,
+    }));
+
+    if (!user) {
+      window.alert("Entre com Google para salvar seu progresso na conta.");
+      return;
+    }
+
+    saveEbookProgress(user, ebook.id, {
+      chapterIndex,
+      chapterId: currentChapter.id,
+      page: chapterIndex + 1,
+      progress,
+    })
+      .then(() => window.alert("Progresso salvo na sua conta."))
+      .catch(() => window.alert("Não foi possível salvar na nuvem agora."));
+  };
+
+  const goToChapter = (index: number) => {
+    setChapterIndex(Math.min(Math.max(index, 0), chapters.length - 1));
+    setLanguageMode("original");
+    window.setTimeout(() => {
+      document.querySelector(".reader-scroll")?.scrollTo({ top: 0, behavior: "smooth" });
+    }, 50);
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`fixed inset-0 z-[100] flex flex-col ${themes[theme]} transition-colors duration-500`}
+      className={`fixed inset-0 z-[100] ${themeClasses[theme]} transition-colors duration-300`}
     >
-      {/* Top Toolbar */}
-      <header className={`h-20 flex items-center justify-between px-10 border-b ${theme === 'light' ? 'border-black/5 bg-white/80' : 'border-white/10 bg-black/40'} backdrop-blur-md`}>
-        <div className="flex items-center gap-6">
-          <button onClick={onClose} className="p-3 hover:bg-black/5 rounded-full transition-colors">
-            <X className="w-5 h-5" />
+      <header className={`h-auto md:h-20 px-4 md:px-8 py-3 md:py-0 border-b flex flex-col md:flex-row md:items-center justify-between gap-3 ${theme === "dark" ? "border-white/10 bg-black/50" : "border-black/10 bg-white/65"} backdrop-blur-xl`}>
+        <div className="flex items-center gap-3 min-w-0">
+          <button onClick={onClose} className="p-2 hover:bg-black/10 rounded-sm" aria-label="Voltar à estante">
+            <ArrowLeft className="w-5 h-5" />
           </button>
-          <div className="hidden md:block">
-            <h1 className={`font-serif text-lg font-bold leading-tight ${theme === 'light' ? 'text-black' : 'text-white'} truncate max-w-[300px]`}>{ebook.title}</h1>
-            <p className="text-[9px] opacity-40 uppercase tracking-[0.2em] font-bold">{ebook.author}</p>
+          <div className="min-w-0">
+            <p className="text-[9px] uppercase tracking-[0.24em] font-black accent-gold">Leitor Studio Logos</p>
+            <h1 className="font-serif text-lg leading-tight truncate">{ebook.title}</h1>
+            <p className="text-[10px] opacity-50 uppercase tracking-[0.16em] truncate">{ebook.author}</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-4">
-          <button 
-            onClick={() => setShowToc(!showToc)}
-            className={`p-3 rounded-sm transition-all ${showToc ? 'bg-[#C5A059] text-black' : 'hover:bg-black/5'}`}
-            title="Sumário"
-          >
-            <Menu className="w-5 h-5" />
+        <div className="flex flex-wrap items-center gap-2">
+          <button onClick={() => setTocOpen((value) => !value)} className="reader-icon-button" title="Sumário">
+            <List className="w-4 h-4" />
           </button>
-
-          <button 
-            onClick={handleTranslate} 
-            disabled={isTranslating}
-            className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-white rounded-sm text-[10px] uppercase tracking-widest font-bold hover:opacity-90 transition-all disabled:opacity-50"
-          >
-            <Languages className={`w-3.5 h-3.5 ${isTranslating ? 'animate-spin' : ''}`} />
-            <span className="hidden sm:inline">{isTranslating ? 'Traduzindo...' : 'Traduzir'}</span>
+          <button onClick={() => setZoom((value) => Math.max(0.85, value - 0.1))} className="reader-icon-button" title="Diminuir fonte">
+            <Type className="w-3.5 h-3.5" />
+            <span className="text-[10px]">-</span>
           </button>
-          
-          <div className="h-6 w-[1px] bg-black/10 mx-1 hidden sm:block" />
-          
-          <div className="flex bg-black/5 rounded-sm p-1 border border-black/5">
-            <button onClick={() => setZoom(z => Math.max(0.8, z - 0.1))} className="p-1.5 hover:bg-black/10 rounded-sm"><ZoomOut className="w-4 h-4" /></button>
-            <button onClick={() => setZoom(z => Math.min(2, z + 0.1))} className="p-1.5 hover:bg-black/10 rounded-sm"><ZoomIn className="w-4 h-4" /></button>
-          </div>
-          
-          <div className="hidden lg:flex bg-black/5 rounded-sm p-1 border border-black/5">
-            <button onClick={() => setTheme("dark")} className={`p-1.5 rounded-sm transition-all text-xs px-2 ${theme === 'dark' ? 'bg-[#C5A059] text-black font-bold' : 'hover:bg-black/5'}`}>Dark</button>
-            <button onClick={() => setTheme("sepia")} className={`p-1.5 rounded-sm transition-all text-xs px-2 ${theme === 'sepia' ? 'bg-[#C5A059] text-black font-bold' : 'hover:bg-black/5'}`}>Sepia</button>
-            <button onClick={() => setTheme("light")} className={`p-1.5 rounded-sm transition-all text-xs px-2 ${theme === 'light' ? 'bg-[#C5A059] text-black font-bold' : 'hover:bg-black/5'}`}>Light</button>
-          </div>
+          <button onClick={() => setZoom((value) => Math.min(1.45, value + 0.1))} className="reader-icon-button" title="Aumentar fonte">
+            <Type className="w-4 h-4" />
+            <span className="text-[10px]">+</span>
+          </button>
+          <button onClick={() => setFocusMode((value) => !value)} className="reader-icon-button" title="Modo sem distrações">
+            {focusMode ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+          </button>
+          {(["sepia", "light", "dark"] as const).map((item) => (
+            <button
+              key={item}
+              onClick={() => setTheme(item)}
+              className={`px-3 py-2 text-[10px] uppercase tracking-[0.16em] font-bold border rounded-sm ${theme === item ? "bg-[#C5A059] text-black border-[#C5A059]" : "border-black/10"}`}
+            >
+              {item === "sepia" ? "Sépia" : item === "light" ? "Claro" : "Noite"}
+            </button>
+          ))}
+          {hasTranslation && (
+            <button
+              onClick={languageMode === "pt" ? () => setLanguageMode("original") : handleTranslate}
+              disabled={isTranslating}
+              className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-white rounded-sm text-[10px] uppercase tracking-[0.16em] font-bold disabled:opacity-50"
+            >
+              <Languages className="w-4 h-4" />
+              {languageMode === "pt" ? "Original" : isTranslating ? `${translationProgress}%` : cached ? "Português" : "Traduzir"}
+            </button>
+          )}
+          <button onClick={saveProgress} className="reader-icon-button text-[#B48A3D]" title="Salvar progresso">
+            <Save className="w-4 h-4" />
+          </button>
+          <button onClick={onClose} className="reader-icon-button" title="Fechar leitor">
+            <X className="w-4 h-4" />
+          </button>
         </div>
       </header>
 
-      <div className="flex-1 flex overflow-hidden relative">
-        {/* Table of Contents Sidebar */}
-        <AnimatePresence>
-          {showToc && (
-            <motion.aside
-              initial={{ x: -300 }}
-              animate={{ x: 0 }}
-              exit={{ x: -300 }}
-              className={`w-72 border-r ${theme === 'light' ? 'bg-[#F9F7F2] border-black/5' : 'bg-[#1A1A1A] border-white/5'} overflow-y-auto z-20 absolute md:relative h-full`}
-            >
-              <div className="p-6 space-y-4">
-                <h3 className="text-[10px] uppercase tracking-[0.3em] font-black accent-gold">Sumário</h3>
-                <div className="space-y-1">
-                  {chapters.map((ch, idx) => (
+      <div className="h-[calc(100vh-92px)] md:h-[calc(100vh-80px)] flex">
+        {tocOpen && !focusMode && (
+          <aside className={`hidden lg:flex w-80 shrink-0 border-r flex-col ${theme === "dark" ? "border-white/10 bg-black/20" : "border-black/10 bg-white/40"}`}>
+            <div className="p-6 border-b border-inherit">
+              <p className="text-[9px] uppercase tracking-[0.3em] font-black accent-gold mb-3">Sumário</p>
+              <p className="text-sm opacity-60">{chapters.length} capítulos · {ebook.estimatedReadTime}</p>
+            </div>
+            <nav className="overflow-auto custom-scrollbar p-3">
+              {chapters.map((chapter, index) => (
+                <button
+                  key={chapter.id}
+                  onClick={() => goToChapter(index)}
+                  className={`w-full text-left px-4 py-3 rounded-sm mb-1 transition-colors ${index === chapterIndex ? "bg-[#C5A059] text-black" : "hover:bg-black/5"}`}
+                >
+                  <span className="block text-[9px] uppercase tracking-[0.18em] opacity-50">Capítulo {index + 1}</span>
+                  <span className="block text-sm font-serif leading-snug">{chapter.title}</span>
+                  <span className="block text-[10px] opacity-50 mt-1">{chapter.estimatedMinutes} min</span>
+                </button>
+              ))}
+            </nav>
+          </aside>
+        )}
+
+        <main className="reader-scroll flex-1 overflow-auto custom-scrollbar">
+          <div className={`${focusMode ? "max-w-3xl" : "max-w-4xl"} mx-auto px-5 md:px-12 py-10 md:py-16`}>
+            {!focusMode && (
+              <section className="mb-10 grid md:grid-cols-[120px_1fr] gap-8 items-start">
+                <div className={`hidden md:block aspect-[2/3] ${ebook.coverColor} relative overflow-hidden shadow-2xl border border-black/10`}>
+                  <div className="absolute inset-3 border border-white/10" />
+                  <span className="absolute inset-0 flex items-center justify-center font-serif text-4xl" style={{ color: ebook.coverAccent }}>
+                    {ebook.coverMark}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.32em] font-black accent-gold mb-3">{ebook.category} · {ebook.collection}</p>
+                  <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{ebook.title}</h2>
+                  <p className="text-sm opacity-60 leading-relaxed max-w-2xl">{ebook.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {[ebook.originalLanguage, ebook.approximateYear, `${chapters.length} capítulos`, ebook.estimatedReadTime].map((item) => (
+                      <span key={item} className="text-[10px] uppercase tracking-[0.16em] border border-current/15 px-3 py-1 opacity-70">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            <article className="reader-article">
+              <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.28em] font-black accent-gold mb-2">Capítulo {chapterIndex + 1}</p>
+                  <h3 className="text-2xl md:text-3xl font-serif">{currentChapter.title}</h3>
+                </div>
+                <button className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-bold opacity-60 hover:opacity-100">
+                  <BookmarkPlus className="w-4 h-4" />
+                  Adicionar à minha biblioteca
+                </button>
+              </div>
+
+              {importingText && (
+                <div className="mb-8 border border-[#C5A059]/30 bg-[#C5A059]/10 px-5 py-4 text-sm">
+                  Preparando texto integral no leitor Studio Logos...
+                </div>
+              )}
+
+              <div
+                className="studio-prose"
+                style={{ fontSize: `${zoom}rem` }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(currentHtml) }}
+              />
+            </article>
+
+            {chapterIndex === chapters.length - 1 && (
+              <section className={`mt-16 p-8 border ${theme === "dark" ? "border-white/10 bg-white/5" : "border-black/10 bg-white/60"}`}>
+                <p className="text-[10px] uppercase tracking-[0.3em] font-black accent-gold mb-4">Próxima leitura</p>
+                <h3 className="font-serif text-2xl mb-3">Continue sua formação com obras relacionadas.</h3>
+                <p className="text-sm opacity-60 mb-6">Acesse centenas de obras integrais em uma experiência premium organizada para estudo e leitura contínua.</p>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {relatedWorks.map((item) => (
                     <button
-                      key={ch.id}
-                      onClick={() => {
-                        setCurrentChapterIndex(idx);
-                        if (window.innerWidth < 768) setShowToc(false);
-                      }}
-                      className={`w-full text-left p-3 text-xs rounded-sm transition-all flex items-center gap-3 ${
-                        currentChapterIndex === idx 
-                        ? 'bg-[#C5A059] text-black font-bold' 
-                        : 'hover:bg-black/5 opacity-60'
-                      }`}
+                      key={item.id}
+                      onClick={() => onRelatedRead?.(item)}
+                      className="text-left p-4 border border-current/10 hover:border-[#C5A059] transition-colors"
                     >
-                      <span className="opacity-30 font-mono">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="truncate">{ch.title}</span>
+                      <span className="text-[9px] uppercase tracking-[0.2em] opacity-40">{item.category}</span>
+                      <span className="block font-serif text-lg">{item.title}</span>
+                      <span className="block text-xs opacity-50">{item.author}</span>
                     </button>
                   ))}
                 </div>
-              </div>
-            </motion.aside>
-          )}
-        </AnimatePresence>
+                <a href={PAYMENT_LINKS.studioLogosMonthly} className="inline-block mt-6 px-5 py-3 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.22em] font-bold">
+                  Acessar biblioteca completa
+                </a>
+              </section>
+            )}
 
-        {/* Main Content Area */}
-        <main className="flex-1 relative overflow-auto custom-scrollbar flex justify-center p-6 md:p-20">
-          <motion.article 
-            key={`${ebook.id}-${currentChapterIndex}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{ fontSize: `${zoom}rem` }}
-            className="max-w-2xl w-full font-serif leading-[2] space-y-12 hyphens-auto text-justify tracking-wide text-lg md:text-xl"
-          >
-            <div className="flex gap-4 mb-12 items-center text-[10px] uppercase tracking-[0.4em] accent-gold font-bold">
-              <div className={`h-[1px] w-8 ${theme === 'light' ? 'bg-[#B48A3D]' : 'bg-[#C5A059]'}`} />
-              <span>{currentChapter.title} • {currentChapterIndex + 1} de {chapters.length}</span>
+            <div className="mt-14 pt-6 border-t border-current/10 text-[10px] leading-relaxed opacity-45">
+              Crédito técnico: {ebook.sourceName}{ebook.sourceUrl ? ` · ${ebook.sourceUrl}` : ""}. Conteúdo tratado editorialmente para leitura online no Studio Logos.
             </div>
-            
-            <div 
-              className="reader-content space-y-8"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-            
-            {/* Navigation Buttons inside content */}
-            <div className="pt-20 flex justify-between border-t border-black/5">
-              <button 
-                onClick={() => setCurrentChapterIndex(i => Math.max(0, i - 1))}
-                disabled={currentChapterIndex === 0}
-                className="flex flex-col items-start gap-2 group disabled:opacity-20"
-              >
-                <span className="text-[9px] uppercase tracking-widest opacity-40 font-bold">Anterior</span>
-                <span className="flex items-center gap-2 font-serif text-sm group-hover:accent-gold transition-colors">
-                  <ChevronLeft className="w-4 h-4" /> 
-                  {currentChapterIndex > 0 ? chapters[currentChapterIndex - 1].title : 'Início'}
-                </span>
-              </button>
-
-              <button 
-                onClick={() => setCurrentChapterIndex(i => Math.min(chapters.length - 1, i + 1))}
-                disabled={currentChapterIndex === chapters.length - 1}
-                className="flex flex-col items-end gap-2 group disabled:opacity-20 text-right"
-              >
-                <span className="text-[9px] uppercase tracking-widest opacity-40 font-bold">Próximo</span>
-                <span className="flex items-center gap-2 font-serif text-sm group-hover:accent-gold transition-colors">
-                  {currentChapterIndex < chapters.length - 1 ? chapters[currentChapterIndex + 1].title : 'Fim'}
-                  <ChevronRight className="w-4 h-4" />
-                </span>
-              </button>
-            </div>
-          </motion.article>
+          </div>
         </main>
       </div>
 
-      {/* Navigation Footer */}
-      <footer className={`h-16 border-t ${theme === 'light' ? 'border-black/5 bg-white/90' : 'border-white/10 bg-black/60'} flex items-center justify-between px-6 md:px-16`}>
-        <div className="flex items-center gap-4">
-          <Book className="w-4 h-4 opacity-30" />
-          <div className="hidden sm:block h-1 w-32 md:w-64 bg-black/5 rounded-full overflow-hidden">
-            <div className="h-full bg-[#C5A059] transition-all duration-500" style={{ width: `${progress}%` }} />
+      <footer className={`fixed bottom-0 left-0 right-0 h-16 border-t flex items-center justify-between px-5 md:px-10 ${theme === "dark" ? "border-white/10 bg-black/80" : "border-black/10 bg-white/90"} backdrop-blur-xl`}>
+        <button
+          onClick={() => goToChapter(chapterIndex - 1)}
+          disabled={chapterIndex === 0}
+          className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold disabled:opacity-20 hover:text-[#B48A3D]"
+        >
+          <ChevronLeft className="w-4 h-4" /> Anterior
+        </button>
+        <div className="flex items-center gap-4 min-w-0 w-1/2 md:w-auto">
+          <div className="w-full md:w-80 h-1 bg-black/10 overflow-hidden">
+            <div className="h-full bg-[#C5A059]" style={{ width: `${progress}%` }} />
           </div>
-          <span className="text-[9px] font-mono opacity-50 tracking-widest">{progress}% CONCLUÍDO</span>
+          <span className="text-[9px] font-mono opacity-50 tracking-widest whitespace-nowrap">{progress}%</span>
         </div>
-
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={() => setCurrentChapterIndex(i => Math.max(0, i - 1))}
-            disabled={currentChapterIndex === 0}
-            className="p-2 hover:bg-black/5 rounded-full disabled:opacity-20"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <span className="text-[10px] font-bold font-mono">{currentChapterIndex + 1} / {chapters.length}</span>
-          <button 
-            onClick={() => setCurrentChapterIndex(i => Math.min(chapters.length - 1, i + 1))}
-            disabled={currentChapterIndex === chapters.length - 1}
-            className="p-2 hover:bg-black/5 rounded-full disabled:opacity-20"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        <button
+          onClick={() => goToChapter(chapterIndex + 1)}
+          disabled={chapterIndex === chapters.length - 1}
+          className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold disabled:opacity-20 hover:text-[#B48A3D]"
+        >
+          Próximo <ChevronRight className="w-4 h-4" />
+        </button>
       </footer>
     </motion.div>
   );

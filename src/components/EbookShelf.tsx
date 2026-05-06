@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import { Filter, Search } from "lucide-react";
 import { type Ebook, Category } from "../studioTypes";
 
 interface EbookShelfProps {
@@ -19,21 +20,74 @@ function initials(value: string): string {
 }
 
 export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead }) => {
+  const [search, setSearch] = useState("");
+  const [language, setLanguage] = useState("Todos");
+  const [collection, setCollection] = useState("Todas");
+
+  const languages = useMemo(() => ["Todos", ...Array.from(new Set(ebooks.map((ebook) => ebook.originalLanguage).filter(Boolean))).slice(0, 6)], [ebooks]);
+  const collections = useMemo(() => ["Todas", ...Array.from(new Set(ebooks.map((ebook) => ebook.collection).filter(Boolean))).slice(0, 6)], [ebooks]);
+  const filtered = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    return ebooks.filter((ebook) => {
+      const matchesSearch = !query
+        || ebook.title.toLowerCase().includes(query)
+        || ebook.author.toLowerCase().includes(query)
+        || ebook.tags.some((tag) => tag.toLowerCase().includes(query));
+      const matchesLanguage = language === "Todos" || ebook.originalLanguage === language;
+      const matchesCollection = collection === "Todas" || ebook.collection === collection;
+      return matchesSearch && matchesLanguage && matchesCollection;
+    });
+  }, [collection, ebooks, language, search]);
+
   return (
     <section className="py-12 px-10 max-w-7xl mx-auto space-y-10">
-      <div className="flex items-baseline justify-between border-b border-black/5 pb-4">
-        <h2 className="text-3xl font-serif text-[#1A1A1A]">{category}</h2>
-        <p className="text-[9px] uppercase tracking-[0.2em] opacity-40 font-bold mb-1">
-          {ebooks.length} obras curadas
-        </p>
+      <div className="border-b border-black/5 pb-5 space-y-5">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.32em] font-black accent-gold">Estante digital</p>
+            <h2 className="text-3xl font-serif text-[#1A1A1A]">{category}</h2>
+          </div>
+          <p className="text-[9px] uppercase tracking-[0.2em] opacity-40 font-bold mb-1">
+            {filtered.length} de {ebooks.length} obras selecionadas
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-[1fr_auto_auto] gap-3">
+          <label className="relative block">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 opacity-35" />
+            <input
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Buscar por título, autor ou tema..."
+              className="w-full h-11 pl-10 pr-4 bg-white border border-black/10 text-sm outline-none focus:border-[#C5A059]"
+            />
+          </label>
+          <label className="relative">
+            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 opacity-35" />
+            <select
+              value={language}
+              onChange={(event) => setLanguage(event.target.value)}
+              className="h-11 pl-10 pr-8 bg-white border border-black/10 text-xs uppercase tracking-[0.12em] outline-none focus:border-[#C5A059]"
+            >
+              {languages.map((item) => <option key={item} value={item}>{item}</option>)}
+            </select>
+          </label>
+          <select
+            value={collection}
+            onChange={(event) => setCollection(event.target.value)}
+            className="h-11 px-3 bg-white border border-black/10 text-xs uppercase tracking-[0.12em] outline-none focus:border-[#C5A059]"
+          >
+            {collections.map((item) => <option key={item} value={item}>{item}</option>)}
+          </select>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
-        {ebooks.map((ebook, idx) => (
+        {filtered.map((ebook) => (
           <div
             key={ebook.id}
             className="group relative"
-            onClick={() => ebook.isSpecial ? window.open(ebook.link, '_blank') : onRead(ebook)}
+            onClick={() => onRead(ebook)}
           >
             {/* Book Cover Container */}
             <div className={`aspect-[2/3] relative overflow-hidden paper-texture ebook-shadow transition-all duration-500 group-hover:-translate-y-2 cursor-pointer ${ebook.isSpecial ? 'border border-[#C5A059]' : 'border border-black/5'}`}>
@@ -90,6 +144,9 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
               </p>
               <p className="text-[10px] font-serif text-black/60 truncate">
                 {ebook.author}
+              </p>
+              <p className="text-[9px] text-black/35 truncate">
+                {ebook.chapters.length} capítulos · {ebook.originalLanguage}
               </p>
             </div>
           </div>

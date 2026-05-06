@@ -6,6 +6,8 @@ const PROGRESS_DOC = 'studiologos-ebook-progress';
 
 export interface EbookProgressState {
   page?: number;
+  chapterIndex?: number;
+  chapterId?: string;
   progress?: number;
   ebookId?: string;
   updatedAt?: unknown;

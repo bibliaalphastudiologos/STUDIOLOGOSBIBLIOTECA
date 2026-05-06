@@ -14,6 +14,15 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     target: 'es2017',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          motion: ['framer-motion'],
+          firebase: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
+        },
+      },
+    },
   },
   server: {
     port: 3000,

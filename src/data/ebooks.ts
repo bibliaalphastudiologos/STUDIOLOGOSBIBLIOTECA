@@ -3,6 +3,7 @@ import { GutendexService } from '../lib/gutendex';
 import { additionalWorks } from './additionalWorks';
 import { brazilianLiteratureWorks } from './brazilianLiterature';
 import { philosophyPublicDomainWorks } from './philosophyPublicDomain';
+import { psychoanalysisWorks } from './psychoanalysisWorks';
 import { publicDomainWorks } from './publicDomainWorks';
 
 // Dados demo como fallback e complemento
@@ -103,6 +104,7 @@ export const DEMO_EBOOKS: Ebook[] = dedupeEbooks([
   ...publicDomainWorks,
   ...additionalWorks,
   ...philosophyPublicDomainWorks,
+  ...psychoanalysisWorks,
   ...brazilianLiteratureWorks,
 ]);
 

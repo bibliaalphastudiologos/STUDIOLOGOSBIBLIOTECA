@@ -1,11 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { EbookShelf } from "./components/EbookShelf";
 import { ThematicRow } from "./components/ThematicRow";
 import { Reader } from "./components/Reader";
-import { CategoryPage } from "./components/CategoryPage";
+import { EbookPreview } from "./components/EbookPreview";
 import { EBOOKS } from "./data";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,9 +13,10 @@ import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { PAYMENT_LINKS } from "./types";
 
-function HomePage() {
+export default function App() {
   const { user, hasAccess, login, loading } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
+  const [previewEbook, setPreviewEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
   const [lastRead, setLastRead] = useState<Ebook | null>(() => {
     const saved = safeStorage.getItem("last-read");
@@ -43,14 +43,25 @@ function HomePage() {
     }
 
     setSelectedEbook(ebook);
+    setPreviewEbook(null);
     setLastRead(ebook);
     safeStorage.setItem("last-read", JSON.stringify(ebook.id));
+  };
+
+  const handlePreview = (ebook: Ebook) => {
+    if (ebook.isSpecial && ebook.link) {
+      window.location.href = ebook.link;
+      return;
+    }
+
+    setPreviewEbook(ebook);
   };
 
   useEffect(() => {
     if (!lockedEbook || !user || !hasAccess) return;
 
     setSelectedEbook(lockedEbook);
+    setPreviewEbook(null);
     setLastRead(lockedEbook);
     safeStorage.setItem("last-read", JSON.stringify(lockedEbook.id));
     setLockedEbook(null);
@@ -65,8 +76,14 @@ function HomePage() {
     Category.SPECIAL,
     Category.PHILOSOPHY,
     Category.THEOLOGY,
+    Category.CHRISTIAN_SPIRITUALITY,
+    Category.BRAZILIAN_LITERATURE,
+    Category.PORTUGUESE_LITERATURE,
+    Category.UNIVERSAL_LITERATURE,
+    Category.HISTORY,
+    Category.HUMANITIES,
     Category.PSYCHOANALYSIS,
-    Category.LITERATURE
+    Category.LITERATURE,
   ];
 
   const groupedEbooks = useMemo(() => {
@@ -78,14 +95,15 @@ function HomePage() {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen relative font-sans">
+      <Navigation />
+      
       <main>
         <Hero />
 
         {/* Section: Recommended Axis */}
         <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          <motion.a 
-            href="/filosofia"
+          <motion.div 
             whileHover={{ y: -5 }}
             className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
@@ -96,10 +114,9 @@ function HomePage() {
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
               Explorar Conceitos <BookOpen className="w-3 h-3" />
             </div>
-          </motion.a>
+          </motion.div>
 
-          <motion.a 
-            href="/psicanalise"
+          <motion.div 
             whileHover={{ y: -5 }}
             className="p-10 border border-black/5 bg-[#1A1A1A] text-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
@@ -110,10 +127,9 @@ function HomePage() {
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
               Ver Coleção <ChevronRight className="w-3 h-3" />
             </div>
-          </motion.a>
+          </motion.div>
 
-          <motion.a 
-            href="/teologia"
+          <motion.div 
             whileHover={{ y: -5 }}
             className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
@@ -124,7 +140,7 @@ function HomePage() {
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
               Recomendações <BookOpen className="w-3 h-3" />
             </div>
-          </motion.a>
+          </motion.div>
         </section>
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
@@ -169,16 +185,15 @@ function HomePage() {
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
-                { area: "Filosofia Clássica", count: "32", icon: "ALPHA", desc: "Do pré-socrático ao idealismo.", link: "/filosofia" },
-                { area: "Teologia Sistemática", count: "18", icon: "LOGOS", desc: "Dogmática e hermenêutica sacra.", link: "/teologia" },
-                { area: "Psicanálise Clínica", count: "14", icon: "PSYCHE", desc: "Tradição freudiana e lacaniana.", link: "/psicanalise" },
-                { area: "Literatura Universal", count: "56", icon: "NOMOS", desc: "Os grandes épicos da humanidade.", link: "/literatura" }
+                { area: "Filosofia", count: String(groupedEbooks[Category.PHILOSOPHY]?.length || 0), icon: "ALPHA", desc: "Clássicos essenciais do pensamento." },
+                { area: "Teologia", count: String(groupedEbooks[Category.THEOLOGY]?.length || 0), icon: "LOGOS", desc: "Patrística, Reforma e sermões." },
+                { area: "Literatura Brasileira", count: String(groupedEbooks[Category.BRAZILIAN_LITERATURE]?.length || 0), icon: "BR", desc: "Obras fundamentais em português." },
+                { area: "História & Humanidades", count: String((groupedEbooks[Category.HISTORY]?.length || 0) + (groupedEbooks[Category.HUMANITIES]?.length || 0)), icon: "NOMOS", desc: "Formação histórica e ensaística." }
               ].map((item, idx) => (
-                <motion.a 
+                <motion.div 
                   key={idx}
-                  href={item.link}
                   whileHover={{ y: -4, borderColor: "#B48A3D" }}
-                  className="p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-6 group cursor-pointer transition-all hover:border-[#B48A3D]"
+                  className="p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-6 group cursor-pointer transition-all"
                 >
                   <div className="text-[10px] font-black accent-gold tracking-[0.3em]">{item.icon}</div>
                   <div>
@@ -186,7 +201,7 @@ function HomePage() {
                     <p className="text-[10px] text-black/40 font-mono tracking-widest uppercase mb-4">{item.count} Obras</p>
                     <p className="text-xs text-black/60 leading-relaxed">{item.desc}</p>
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -194,7 +209,7 @@ function HomePage() {
 
         <ThematicRow />
 
-        <div id="acervo" className="space-y-32 pb-40">
+        <div className="space-y-32 pb-40">
           {categories.map(cat => {
             const ebooks = groupedEbooks[cat];
             if (!ebooks || ebooks.length === 0) return null;
@@ -203,7 +218,7 @@ function HomePage() {
                 <EbookShelf 
                   category={cat} 
                   ebooks={ebooks} 
-                  onRead={handleRead}
+                  onRead={handlePreview}
                 />
                 
                 {/* Tactical Recommendation per category */}
@@ -213,7 +228,7 @@ function HomePage() {
                       <p className="text-[10px] accent-gold font-bold uppercase tracking-widest text-[#C5A059]">Leitura Recomendada</p>
                       <p className="text-sm font-serif opacity-80 text-white">Baseado no eixo de {cat}</p>
                     </div>
-                    <a href={`/${cat.toLowerCase().replace(/\s+/g, '')}`} className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059]">Explorar Guia →</a>
+                    <button className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059]">Explorar Guia →</button>
                   </div>
                 </div>
               </div>
@@ -257,8 +272,8 @@ function HomePage() {
           <span className="text-black">Cloud Sync: Ativo</span>
         </div>
         <div className="flex items-center gap-8">
-          <a href="/" className="hover:text-[#C5A059] transition-colors text-black">Biblioteca Privada</a>
-          <a href="https://studiologos.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A059] transition-colors text-black">Studiologos.com.br</a>
+          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Biblioteca Privada</a>
+          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Studiologos.com.br</a>
         </div>
       </footer>
 
@@ -311,27 +326,20 @@ function HomePage() {
           <Reader 
             ebook={selectedEbook} 
             onClose={() => setSelectedEbook(null)} 
+            onRelatedRead={handleRead}
+            related={EBOOKS.filter((item) => item.category === selectedEbook.category)}
+          />
+        )}
+        {previewEbook && !selectedEbook && (
+          <EbookPreview
+            ebook={previewEbook}
+            related={EBOOKS.filter((item) => item.category === previewEbook.category && item.id !== previewEbook.id)}
+            canRead={Boolean(user && hasAccess)}
+            onClose={() => setPreviewEbook(null)}
+            onRead={handleRead}
           />
         )}
       </AnimatePresence>
-    </>
-  );
-}
-
-export default function App() {
-  return (
-    <Router>
-      <div className="min-h-screen relative font-sans bg-white">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/filosofia" element={<CategoryPage category="Filosofia" />} />
-          <Route path="/teologia" element={<CategoryPage category="Teologia" />} />
-          <Route path="/psicanalise" element={<CategoryPage category="Psicanálise" />} />
-          <Route path="/literatura" element={<CategoryPage category="Literatura" />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </div>
-    </Router>
+    </div>
   );
 }

@@ -60,6 +60,14 @@ export interface ReaderFeatures {
   search?: boolean;
 }
 
+export interface TechnicalImportSource {
+  provider: 'project_gutenberg' | 'wikisource' | 'internet_archive' | 'manual_review';
+  providerId: string;
+  textUrl?: string;
+  htmlUrl?: string;
+  validatedAt: string;
+}
+
 export interface Ebook {
   id: string;
   slug?: string;
@@ -93,6 +101,7 @@ export interface Ebook {
   sourceApi?: string;
   sourceUrl?: string;
   sourceEdition?: string;
+  importSource?: TechnicalImportSource;
   translator?: string;
   translationStatus?: string;
   publicDomainEvidence?: string;
