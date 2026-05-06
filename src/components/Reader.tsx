@@ -47,7 +47,7 @@ function stripHtml(html: string): string {
 export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderProps) {
   const { user } = useAuth();
   const [chapterIndex, setChapterIndex] = useState(0);
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(1.08);
   const [theme, setTheme] = useState<"sepia" | "light" | "dark">("sepia");
   const [focusMode, setFocusMode] = useState(false);
   const [tocOpen, setTocOpen] = useState(true);
@@ -75,9 +75,9 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   const cached = isTranslationCached(ebook.id, currentChapter.id);
 
   const themeClasses = {
-    sepia: "bg-[#F7F1E6] text-[#2d251a]",
-    light: "bg-[#fbfbf8] text-[#141414]",
-    dark: "bg-[#101010] text-[#e9dfcf]",
+    sepia: "bg-[#F4EBDD] text-[#2f281f]",
+    light: "bg-[#fbfaf6] text-[#171717]",
+    dark: "bg-[#11100e] text-[#e8dece]",
   };
 
   const relatedWorks = useMemo(
@@ -220,11 +220,11 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           <button onClick={() => setTocOpen((value) => !value)} className="reader-icon-button" title="Sumário">
             <List className="w-4 h-4" />
           </button>
-          <button onClick={() => setZoom((value) => Math.max(0.85, value - 0.1))} className="reader-icon-button" title="Diminuir fonte">
+          <button onClick={() => setZoom((value) => Math.max(0.95, value - 0.08))} className="reader-icon-button" title="Diminuir fonte">
             <Type className="w-3.5 h-3.5" />
             <span className="text-[10px]">-</span>
           </button>
-          <button onClick={() => setZoom((value) => Math.min(1.45, value + 0.1))} className="reader-icon-button" title="Aumentar fonte">
+          <button onClick={() => setZoom((value) => Math.min(1.4, value + 0.08))} className="reader-icon-button" title="Aumentar fonte">
             <Type className="w-4 h-4" />
             <span className="text-[10px]">+</span>
           </button>
@@ -283,7 +283,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
         )}
 
         <main className="reader-scroll flex-1 overflow-auto custom-scrollbar">
-          <div className={`${focusMode ? "max-w-3xl" : "max-w-4xl"} mx-auto px-5 md:px-12 py-10 md:py-16`}>
+          <div className={`${focusMode ? "max-w-[46rem]" : "max-w-4xl"} mx-auto px-5 md:px-12 py-10 md:py-16`}>
             {!focusMode && (
               <section className="mb-10 grid md:grid-cols-[120px_1fr] gap-8 items-start">
                 <div className={`hidden md:block aspect-[2/3] ${ebook.coverColor} relative overflow-hidden shadow-2xl border border-black/10`}>
