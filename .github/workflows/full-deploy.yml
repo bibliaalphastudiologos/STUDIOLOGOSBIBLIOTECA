@@ -32,6 +32,9 @@ jobs:
       - name: Verificar arquivos gerados
         run: ls -la dist/
 
+      - name: Garantir .htaccess na dist
+        run: cp .htaccess dist/.htaccess && echo ".htaccess copiado para dist/"
+
       - name: Deploy via Hostinger Action (tentativa 1)
         if: ${{ always() && (secrets.HOSTINGER_USERNAME != '' && secrets.HOSTINGER_PASSWORD != '') }}
         uses: hostinger/deploy-to-hostinger@v1
