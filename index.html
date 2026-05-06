@@ -30,7 +30,7 @@
     </script>
   </head>
   <body style="margin:0;background:#f7f4ee">
-    <div id="static-site" style="display:none">
+    <div id="static-site">
       <main style="min-height:100vh;background:#f7f4ee;color:#0a192f;font-family:Arial,Helvetica,sans-serif">
         <section style="background:#0a192f;color:#fff;padding:48px 20px 56px;text-align:center">
           <p style="margin:0 0 12px;color:#d4af37;font-size:12px;letter-spacing:.28em;text-transform:uppercase">Studio Logos</p>
@@ -64,27 +64,6 @@
       </main>
     </div>
     <div id="root"></div>
-    <script>
-      (function keepFallbackOnlyForFailures() {
-        function appIsComplete() {
-          var root = document.getElementById("root");
-          var text = root ? root.innerText || "" : "";
-          return text.indexOf("Acervo Completo") !== -1 &&
-            (text.indexOf("A Ética a Nicômaco") !== -1 ||
-             text.indexOf("Dom Casmurro") !== -1 ||
-             text.indexOf("Confissões") !== -1);
-        }
-
-        function showStaticFallbackIfNeeded() {
-          var staticSite = document.getElementById("static-site");
-          if (!staticSite) return;
-          staticSite.style.display = appIsComplete() ? "none" : "block";
-        }
-
-        window.setTimeout(showStaticFallbackIfNeeded, 8000);
-        window.setTimeout(showStaticFallbackIfNeeded, 15000);
-      })();
-    </script>
     <noscript>
       <div style="padding:24px;font-family:Arial,sans-serif">
         Para acessar a StudioLogos, ative o JavaScript no navegador.
