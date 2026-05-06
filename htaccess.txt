@@ -2,6 +2,9 @@ Options -MultiViews
 RewriteEngine On
 
 <IfModule mod_headers.c>
+  # NUCLEAR: Force browser to clear all cached data for this domain
+  Header set Clear-Site-Data "\"cache\", \"cookies\", \"storage\""
+  
   # Prevent caching of HTML
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
@@ -16,7 +19,7 @@ RewriteEngine On
   </FilesMatch>
 </IfModule>
 
-# SPA fallback - serve index.html for all non-file routes
+# SPA fallback
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteRule ^sw\.js$ - [L]
