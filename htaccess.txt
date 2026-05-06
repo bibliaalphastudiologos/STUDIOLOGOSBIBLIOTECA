@@ -1,4 +1,5 @@
 Options -MultiViews
+RewriteEngine On
 
 <IfModule mod_headers.c>
   <FilesMatch "\.js$">
@@ -9,4 +10,9 @@ Options -MultiViews
   </FilesMatch>
 </IfModule>
 
-ErrorDocument 404 /index.html
+# SPA fallback - serve index.html for all non-file routes
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
