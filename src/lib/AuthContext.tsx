@@ -1,126 +1,77 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { doc, getDoc, setDoc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { auth, db, getRedirectResult } from './firebase';
-import { UserProfile } from '../types';
+import { User, onAuthStateChanged, signOut } from 'firebase/auth';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { auth, db } from './firebase';
 
 interface AuthContextType {
   user: User | null;
-  profile: UserProfile | null;
-  loading: boolean;
   isAdmin: boolean;
-  isApproved: boolean;
+  login: () => Promise<void>;
+  logout: () => Promise<void>;
+  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  profile: null,
-  loading: true,
   isAdmin: false,
-  isApproved: false,
+  login: async () => {},
+  logout: async () => {},
+  loading: true,
 });
+
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // ── Tratar resultado de signInWithRedirect ao montar ──────────────────────
   useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result?.user) {
-          console.log('Login Google (redirect) bem-sucedido:', result.user.email);
+    const unsub = onAuthStateChanged(auth, async (u) => {
+      setUser(u);
+      if (u) {
+        const userDoc = await getDoc(doc(db, 'users', u.uid));
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          setIsAdmin(data.role === 'admin');
         }
-      })
-      .catch((error) => {
-        // Erros de redirect são silenciosos — o onAuthStateChanged vai cuidar do estado
-        console.error('Erro no resultado do redirect:', error?.code, error?.message);
-      });
-  }, []);
-
-  // ── Listener principal de autenticação ────────────────────────────────────
-  useEffect(() => {
-    let unsubProfile: (() => void) | null = null;
-
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      // Limpa listener de perfil anterior
-      if (unsubProfile) {
-        unsubProfile();
-        unsubProfile = null;
       }
-
-      setUser(firebaseUser);
-
-      if (firebaseUser) {
-        const profileRef = doc(db, 'users', firebaseUser.uid);
-        const profileSnap = await getDoc(profileRef);
-
-        if (!profileSnap.exists()) {
-          // Primeiro login — cria perfil
-          const isAdminEmail = firebaseUser.email === 'analista.ericksilva@gmail.com';
-          const newProfile: UserProfile = {
-            uid: firebaseUser.uid,
-            name: firebaseUser.displayName || 'Usuário',
-            email: firebaseUser.email || '',
-            photoURL: firebaseUser.photoURL || '',
-            role: isAdminEmail ? 'admin' : 'user',
-            status: isAdminEmail ? 'approved' : 'pending',
-            createdAt: new Date(),
-            lastLoginAt: new Date(),
-          };
-          await setDoc(profileRef, newProfile);
-          setProfile(newProfile);
-        } else {
-          // Logins subsequentes — atualiza lastLoginAt
-          try {
-            await updateDoc(profileRef, { lastLoginAt: new Date() });
-          } catch (e) {
-            // Regra Firestore impede usuários comuns de atualizar outros campos,
-            // mas lastLoginAt deve estar liberado pela regra de update.
-            console.warn('Não foi possível atualizar lastLoginAt:', e);
-          }
-        }
-
-        // Listener em tempo real para mudanças no perfil (ex.: admin aprovar)
-        unsubProfile = onSnapshot(
-          profileRef,
-          (snap) => {
-            if (snap.exists()) {
-              setProfile(snap.data() as UserProfile);
-            }
-            setLoading(false);
-          },
-          (error) => {
-            console.error('Erro no snapshot do perfil:', error);
-            setLoading(false);
-          }
-        );
-      } else {
-        setProfile(null);
-        setLoading(false);
-      }
+      setLoading(false);
     });
-
-    return () => {
-      unsubscribe();
-      if (unsubProfile) unsubProfile();
-    };
+    return () => unsub();
   }, []);
 
-  const isAdmin =
-    !!user?.email && user.email.toLowerCase().trim() === 'analista.ericksilva@gmail.com';
-  const isApproved =
-    isAdmin || profile?.status === 'approved' || profile?.role === 'admin';
-  const finalLoading = loading && !isAdmin;
+  const login = async () => {
+    const { signInWithGoogle } = await import('./firebase');
+    const { user: u, error } = await signInWithGoogle();
+    if (error) throw new Error(error);
+    if (u) {
+      const userRef = doc(db, 'users', u.uid);
+      const snap = await getDoc(userRef);
+      if (!snap.exists()) {
+        await setDoc(userRef, {
+          uid: u.uid,
+          name: u.displayName,
+          email: u.email,
+          photoURL: u.photoURL,
+          role: u.email === 'analista.ericksilva@gmail.com' ? 'admin' : 'user',
+          status: u.email === 'analista.ericksilva@gmail.com' ? 'approved' : 'pending',
+          createdAt: new Date(),
+          lastLoginAt: new Date(),
+        });
+        if (u.email === 'analista.ericksilva@gmail.com') setIsAdmin(true);
+      }
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+    setIsAdmin(false);
+  };
 
   return (
-    <AuthContext.Provider
-      value={{ user, profile, loading: finalLoading, isAdmin, isApproved }}
-    >
+    <AuthContext.Provider value={{ user, isAdmin, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
 };
-
-export const useAuth = () => useContext(AuthContext);

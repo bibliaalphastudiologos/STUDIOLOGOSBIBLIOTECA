@@ -1,6 +1,6 @@
 import React from 'react';
 import { Filter, ChevronDown, ChevronUp, X, Calendar, User, Globe } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BookFilters } from '../types';
 
 interface EbookFiltersProps {

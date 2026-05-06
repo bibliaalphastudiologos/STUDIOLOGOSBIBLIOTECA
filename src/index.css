@@ -1,123 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
-
-  --color-background: #fafaf9;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f4f4f2;
-  --color-text: #0f172a;
-  --color-navy: #0f172a;
-  --color-muted: #64748b;
-  --color-gold: #c5a059;
-  --color-gold-soft: #fbf7ef;
-  --color-border: #f1f5f9;
-  
-  --color-accent-emerald: #10b981;
-  --color-accent-blue: #3b82f6;
-  --color-accent-orange: #fb923c;
-
-  --color-theology: #4338ca;
-  --color-theology-soft: #eef2ff;
-  --color-philosophy: #b91c1c;
-  --color-philosophy-soft: #fef2f2;
-  --color-psicanalise: #0d9488;
-  --color-psicanalise-soft: #f0fdfa;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-background text-text font-sans antialiased selection:bg-gold selection:text-white;
+    @apply font-sans text-navy bg-background;
   }
 }
 
-.map-grid {
-  background-image: radial-gradient(circle, #e5e5e5 1px, transparent 1px);
-  background-size: 40px 40px;
+@layer utilities {
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+  }
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid #e5e5e5;
-}
-
-.premium-card {
-  @apply bg-white border border-border shadow-xl hover:shadow-2xl transition-all duration-300;
-}
-
-.sheen-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.sheen-wrapper::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -150%;
-  width: 250%;
-  height: 250%;
-  background: linear-gradient(
-    30deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.1) 40%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.1) 60%,
-    transparent 80%
-  );
-  transition: 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-  pointer-events: none;
-  opacity: 0;
-  z-index: 20;
-}
-
-.sheen-wrapper:hover::after {
-  opacity: 1;
-  left: 50%;
-}
-
-.grain {
-  position: relative;
-}
-
-.grain::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: 0.05;
-  z-index: 10;
-}
-
-.premium-button {
-  @apply px-8 py-3 bg-black text-white font-bold rounded-sm hover:bg-gray-900 active:scale-95 transition-all duration-200;
-}
-
-.premium-button-outline {
-  @apply px-8 py-3 border-2 border-gray-100 text-gray-400 font-bold rounded-sm hover:border-black hover:text-black active:scale-95 transition-all duration-200;
-}
-
-.glass-header {
-  @apply sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100;
-}
-
-.serif {
-  @apply font-serif;
-}
-
-.pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+@layer components {
+  .text-theology { @apply text-theology; }
+  .text-philosophy { @apply text-philosophy; }
+  .text-psicanalise { @apply text-psicanalise; }
 }
