@@ -1,558 +1,240 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  Link,
-  useLocation,
-} from 'react-router-dom';
-import { AuthProvider, useAuth } from './lib/AuthContext';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { EbookCard } from './components/EbookCard';
-import { EbookModal } from './components/EbookModal';
-import { AdminPanel } from './components/AdminPanel';
-import { OnlineReader } from './components/OnlineReader';
-import { SearchBar } from './components/SearchBar';
-import { EbookFilters } from './components/EbookFilters';
-import { EbookStats } from './components/EbookStats';
-import { DEMO_EBOOKS } from './data/ebooks';
-import { Ebook, BookFilters, ReadingStats } from './types';
-import { safeStorage } from './lib/safeStorage';
-import {
-  Search,
-  Filter,
-  BookOpen,
-  ScrollText,
-  Brain,
-  Heart,
-  ChevronRight,
-  Shield,
-  Crown,
-  ArrowRight,
-  Loader2,
-  RefreshCw,
-  Sparkles,
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useMemo } from "react";
+import { Navigation } from "./components/Navigation";
+import { Hero } from "./components/Hero";
+import { EbookShelf } from "./components/EbookShelf";
+import { ThematicRow } from "./components/ThematicRow";
+import { Reader } from "./components/Reader";
+import { EBOOKS } from "./data";
+import { Category, type Ebook } from "./studioTypes";
+import { AnimatePresence, motion } from "framer-motion";
+import { BookOpen, ChevronRight } from "lucide-react";
+import { safeStorage } from "./lib/safeStorage";
 
-// ============================================
-// HOOK PERSONALIZADO DE EBOOKS
-// ============================================
-function useEbooksWithGutendex(initialCategory = 'Todos') {
-  const [ebooks, setEbooks] = useState<Ebook[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filters, setFilters] = useState<BookFilters>({
-    search: '',
-    category: initialCategory === 'Teologia' || initialCategory === 'Filosofia' || initialCategory === 'Psicanálise'
-      ? initialCategory
-      : 'Todos',
-    language: '',
-    author: '',
-    yearFrom: null,
-    yearTo: null,
-    onlyFree: false,
-    sortBy: 'relevance',
-    sortOrder: 'desc',
-  });
-  const [favorites, setFavorites] = useState<Set<string>>(new Set());
-  const [history, setHistory] = useState<any[]>([]);
-  const [stats, setStats] = useState<ReadingStats>({
-    totalRead: 0,
-    currentlyReading: 0,
-    favoritesCount: 0,
-    readingTime: 0,
-    lastReadAt: null,
-  });
-
-  // Carregar persistências
-  useEffect(() => {
-    const fav = safeStorage.getItem('studiologos_favorites');
-    const hist = safeStorage.getItem('studiologos_history');
-    const st = safeStorage.getItem('studiologos_stats');
-
-    try {
-      if (fav) setFavorites(new Set(JSON.parse(fav)));
-      if (hist) setHistory(JSON.parse(hist));
-      if (st) setStats(JSON.parse(st));
-    } catch {
-      safeStorage.removeItem('studiologos_favorites');
-      safeStorage.removeItem('studiologos_history');
-      safeStorage.removeItem('studiologos_stats');
-    }
-  }, []);
-
-  // Salvar favoritos
-  useEffect(() => {
-    safeStorage.setItem('studiologos_favorites', JSON.stringify([...favorites]));
-    setStats(s => ({ ...s, favoritesCount: favorites.size }));
-  }, [favorites]);
-
-  // Carregar ebooks iniciais
-  useEffect(() => {
-    loadEbooks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters.category]);
-
-  const loadEbooks = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      // Simula busca na Gutendex (ou usa DEMO)
-      // Aqui você Integrating real
-      await new Promise(r => setTimeout(r, 800)); // simula network delay
-
-      // Por enquanto usa DEMO + simula enriquecimento Gutendex
-      const enriched = DEMO_EBOOKS.map(ebook => ({
-        ...ebook,
-        isFromGutendex: false, // marcar depois
-        downloadUrl: `https://www.gutenberg.org/ebooks/${ebook.id.replace('demo-', '')}.epub`,
-      }));
-
-      setEbooks(enriched);
-    } catch (err: any) {
-      setError(err.message || 'Erro ao carregar');
-      setEbooks(DEMO_EBOOKS);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const refresh = () => loadEbooks();
-
-  // Filtragem
-  const filteredEbooks = useMemo(() => {
-    let result = [...ebooks];
-
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(e =>
-        e.title.toLowerCase().includes(q) ||
-        e.authorReference.toLowerCase().includes(q) ||
-        e.description.toLowerCase().includes(q)
-      );
-    }
-
-    if (filters.category !== 'Todos') {
-      result = result.filter(e => e.category === filters.category);
-    }
-
-    if (filters.author) {
-      const authorFilter = filters.author.toLowerCase();
-      result = result.filter(e =>
-        e.authorReference.toLowerCase().includes(authorFilter)
-      );
-    }
-
-    if (filters.onlyFree) {
-      result = result.filter(e =>
-        e.brand === 'Project Gutenberg' ||
-        e.brand === 'Domínio Público' ||
-        e.contentType === 'public_domain' ||
-        e.contentTypeLabel === 'public_domain' ||
-        e.editorialNotice?.toLowerCase().includes('gratuitamente') ||
-        e.editorialNotice?.toLowerCase().includes('domínio público') ||
-        e.editorialNotice?.toLowerCase().includes('dominio publico')
-      );
-    }
-
-    // Ordenação
-    result.sort((a, b) => {
-      switch (filters.sortBy) {
-        case 'title':
-          return a.title.localeCompare(b.title);
-        case 'author':
-          return a.authorReference.localeCompare(b.authorReference);
-        default:
-          return 0;
-      }
-    });
-
-    return result;
-  }, [ebooks, searchQuery, filters]);
-
-  const toggleFavorite = (id: string) => {
-    setFavorites(prev => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
-  };
-
-  const addToHistory = (ebookId: string, progress: number, time: number) => {
-    const entry = {
-      ebookId,
-      readAt: new Date().toISOString(),
-      progress,
-      totalTime: time,
-    };
-    setHistory(prev => [entry, ...prev.slice(0, 49)]);
-
-    setStats(s => ({
-      ...s,
-      totalRead: s.totalRead + (progress >= 90 ? 1 : 0),
-      currentlyReading: progress < 90 ? s.currentlyReading + 1 : s.currentlyReading,
-      readingTime: s.readingTime + time,
-      lastReadAt: new Date().toISOString(),
-    }));
-  };
-
-  return {
-    ebooks,
-    filteredEbooks,
-    loading,
-    error,
-    filters,
-    setFilters,
-    favorites,
-    toggleFavorite,
-    history,
-    addToHistory,
-    stats,
-    searchQuery,
-    setSearchQuery,
-    refresh,
-  };
-}
-
-// ============================================
-// COMPONENTE PRINCIPAL HOME
-// ============================================
-const HomePage: React.FC = () => {
-   const { user } = useAuth();
-   const { pathname } = useLocation();
-
-   useEffect(() => {
-   }, []);
-
-  // Categoria inicial baseada na URL
-  const initialCategory = useMemo(() => {
-    if (pathname.includes('teologia')) return 'Teologia';
-    if (pathname.includes('filosofia')) return 'Filosofia';
-    if (pathname.includes('psicanalise')) return 'Psicanálise';
-    return 'Todos';
-  }, [pathname]);
-
-  const {
-    filteredEbooks,
-    loading,
-    error,
-    filters,
-    setFilters,
-    favorites,
-    toggleFavorite,
-    stats,
-    searchQuery,
-    setSearchQuery,
-    refresh,
-  } = useEbooksWithGutendex(initialCategory);
-
+export default function App() {
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
-  // Leitura contínua
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 1000);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Continuação da última leitura
-  useEffect(() => {
-    const lastId = safeStorage.getItem('last_read_ebook');
-    if (lastId && !selectedEbook) {
-      const found = DEMO_EBOOKS.find(e => e.id === lastId);
-      if (found) setSelectedEbook(found);
+  const [lastRead, setLastRead] = useState<Ebook | null>(() => {
+    const saved = safeStorage.getItem("last-read");
+    try {
+      if (saved) {
+        const ebookId = JSON.parse(saved);
+        return EBOOKS.find(b => b.id === ebookId) || null;
+      }
+    } catch {
+      safeStorage.removeItem("last-read");
     }
-  }, []);
+    return null;
+  });
 
-  // Atualiza filtro quando a rota muda
-  useEffect(() => {
-    const category = initialCategory as any;
-    if (category !== filters.category) {
-      setFilters(prev => ({ ...prev, category }));
-    }
-  }, [initialCategory, filters.category, setFilters]);
+  const handleRead = (ebook: Ebook) => {
+    setSelectedEbook(ebook);
+    setLastRead(ebook);
+    safeStorage.setItem("last-read", JSON.stringify(ebook.id));
+  };
 
-  // Categorias disponíveis
   const categories = [
-    { key: 'Todos', label: 'Todos', icon: '📚', count: filteredEbooks.length },
-    { key: 'Filosofia', label: 'Filosofia', icon: '🧠', count: filteredEbooks.filter(e => e.category === 'Filosofia').length },
-    { key: 'Psicanálise', label: 'Psicanálise', icon: '🔍', count: filteredEbooks.filter(e => e.category === 'Psicanálise').length },
-    { key: 'Teologia', label: 'Teologia', icon: '✝️', count: filteredEbooks.filter(e => e.category === 'Teologia').length },
-    { key: 'Literatura', label: 'Literatura', icon: '◆', count: filteredEbooks.filter(e => e.category === 'Literatura').length },
+    Category.SPECIAL,
+    Category.PHILOSOPHY,
+    Category.THEOLOGY,
+    Category.PSYCHOANALYSIS,
+    Category.LITERATURE
   ];
 
+  const groupedEbooks = useMemo(() => {
+    const result: Partial<Record<Category, Ebook[]>> = {};
+    categories.forEach(cat => {
+      result[cat] = EBOOKS.filter(e => e.category === cat);
+    });
+    return result;
+  }, []);
+
   return (
-    <>
-      <Header />
-      <div className="min-h-screen bg-background grain pt-16">
+    <div className="min-h-screen relative font-sans">
+      <Navigation />
+      
+      <main>
         <Hero />
 
-      {/* Barra de busca principal */}
-      <section className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <SearchBar
-            value={searchQuery}
-            onChange={setSearchQuery}
-            placeholder="Buscar por título, autor, assunto..."
-            suggestions={['Aristóteles', 'Nietzsche', 'Freud', 'Kant', 'Heidegger']}
-          />
-        </div>
-      </section>
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        {/* Estatísticas */}
-        <EbookStats
-          stats={stats}
-          totalEbooks={filteredEbooks.length}
-          favoritesCount={favorites.size}
-        />
-
-        {/* Filtros */}
-        <div className="mb-8">
-          <EbookFilters
-            filters={filters}
-            onFilterChange={setFilters}
-            onClearFilters={() => setFilters({
-              ...filters,
-              search: '',
-              author: '',
-              language: '',
-              yearFrom: null,
-              yearTo: null,
-            })}
-          />
-        </div>
-
-        {/* Categorias rápidas */}
-        <div className="flex flex-wrap gap-3 mb-10">
-          {categories.map(cat => (
-            <button
-              key={cat.key}
-              onClick={() => setFilters(prev => ({ ...prev, category: cat.key as any }))}
-              className={`
-                group relative px-5 py-3 rounded-sm border-2 transition-all duration-300
-                ${filters.category === cat.key
-                  ? 'border-navy bg-navy text-white shadow-lg shadow-navy/20'
-                  : 'border-gray-200 bg-white hover:border-navy/30 hover:shadow-md'
-                }
-              `}
-            >
-              <span className="text-xl mr-2">{cat.icon}</span>
-              <span className="font-semibold">{cat.label}</span>
-              <span className={`ml-2 text-xs px-2 py-0.5 rounded-full ${
-                filters.category === cat.key
-                  ? 'bg-white/20 text-white'
-                  : 'bg-gray-100 text-gray-600'
-              }`}>
-                {cat.count}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* Botão refresh */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-serif text-navy">
-            {filters.category === 'Todos' ? 'Acervo Completo' : filters.category}
-            <span className="ml-2 text-sm font-normal text-gray-500">
-              ({filteredEbooks.length} {filteredEbooks.length === 1 ? 'obra' : 'obras'})
-            </span>
-          </h2>
-          <button
-            onClick={refresh}
-            disabled={loading}
-            className="flex items-center space-x-2 px-4 py-2 text-sm text-navy hover:bg-navy/5 rounded-sm transition-colors disabled:opacity-50"
+        {/* Section: Recommended Axis */}
+        <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-            <span>Atualizar</span>
-          </button>
+            <div>
+              <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">Eixo Temático</span>
+              <h3 className="text-3xl font-serif mt-4">Metafísica & Existência</h3>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
+              Explorar Conceitos <BookOpen className="w-3 h-3" />
+            </div>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="p-10 border border-black/5 bg-[#1A1A1A] text-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
+          >
+            <div>
+              <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">Curadoria do Editor</span>
+              <h3 className="text-3xl font-serif mt-4">O Despertar da Psique</h3>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
+              Ver Coleção <ChevronRight className="w-3 h-3" />
+            </div>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
+          >
+            <div>
+              <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">Área de Pesquisa</span>
+              <h3 className="text-3xl font-serif mt-4">Tradição & Dogma</h3>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
+              Recomendações <BookOpen className="w-3 h-3" />
+            </div>
+          </motion.div>
+        </section>
+        
+        {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
+        {lastRead && !selectedEbook && (
+          <div className="fixed left-10 bottom-24 z-40 hidden xl:block w-[280px]">
+            <div className="bg-white p-8 rounded-sm border border-black/5 shadow-2xl">
+              <h3 className="text-[10px] uppercase tracking-[0.3em] font-extrabold accent-gold mb-6">Retomar Leitura</h3>
+              <div className="flex gap-4 mb-6">
+                <div className={`w-16 h-24 ${lastRead.coverColor} border border-black/10 shadow-lg flex-shrink-0 relative overflow-hidden`}>
+                  {lastRead.coverImage && <img src={lastRead.coverImage} className="w-full h-full object-cover grayscale opacity-50" />}
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-serif text-lg leading-tight mb-1 truncate text-[#0F0F0F]">{lastRead.title}</h4>
+                  <p className="text-[9px] opacity-40 uppercase tracking-widest font-mono">Curadoria Studiologos</p>
+                  <div className="w-full bg-black/5 h-[1px] mt-4">
+                    <div className="bg-[#B48A3D] h-full w-2/3" />
+                  </div>
+                  <p className="text-[9px] mt-2 opacity-30 tracking-widest font-bold">SÍNTESE ATIVA</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setSelectedEbook(lastRead)}
+                className="w-full py-3 bg-[#1A1A1A] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-black transition-all"
+              >
+                Retomar Agora
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Axis of knowledge */}
+        <section className="py-24 px-10 bg-[#F2F0E9] border-y border-black/10">
+          <div className="max-w-7xl mx-auto space-y-16">
+            <div className="space-y-4">
+              <span className="accent-gold text-[10px] uppercase tracking-[0.5em] font-black">Navegação Curatorial</span>
+              <h2 className="text-4xl font-serif text-black leading-tight">Explorar por <br/> <span className="accent-gold">Dimensão de Conhecimento</span></h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                { area: "Filosofia Clássica", count: "32", icon: "ALPHA", desc: "Do pré-socrático ao idealismo." },
+                { area: "Teologia Sistemática", count: "18", icon: "LOGOS", desc: "Dogmática e hermenêutica sacra." },
+                { area: "Psicanálise Clínica", count: "14", icon: "PSYCHE", desc: "Tradição freudiana e lacaniana." },
+                { area: "Literatura Universal", count: "56", icon: "NOMOS", desc: "Os grandes épicos da humanidade." }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  whileHover={{ y: -4, borderColor: "#B48A3D" }}
+                  className="p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-6 group cursor-pointer transition-all"
+                >
+                  <div className="text-[10px] font-black accent-gold tracking-[0.3em]">{item.icon}</div>
+                  <div>
+                    <h4 className="font-serif text-xl mb-2">{item.area}</h4>
+                    <p className="text-[10px] text-black/40 font-mono tracking-widest uppercase mb-4">{item.count} Obras</p>
+                    <p className="text-xs text-black/60 leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <ThematicRow />
+
+        <div className="space-y-32 pb-40">
+          {categories.map(cat => {
+            const ebooks = groupedEbooks[cat];
+            if (!ebooks || ebooks.length === 0) return null;
+            return (
+              <div key={cat} className="space-y-4">
+                <EbookShelf 
+                  category={cat} 
+                  ebooks={ebooks} 
+                  onRead={handleRead}
+                />
+                
+                {/* Tactical Recommendation per category */}
+                <div className="px-10 max-w-7xl mx-auto">
+                  <div className="bg-[#1A1A1A] p-6 flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] accent-gold font-bold uppercase tracking-widest text-[#C5A059]">Leitura Recomendada</p>
+                      <p className="text-sm font-serif opacity-80 text-white">Baseado no eixo de {cat}</p>
+                    </div>
+                    <button className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059]">Explorar Guia →</button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Error state */}
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-sm p-6 text-center mb-8">
-            <p className="text-red-700 mb-3">{error}</p>
-            <button
-              onClick={refresh}
-              className="px-4 py-2 bg-red-600 text-white rounded-sm hover:bg-red-700"
-            >
-              Tentar novamente
-            </button>
-          </div>
-        )}
-
-        {/* Grid de ebooks */}
-        {loading && filteredEbooks.length === 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <EbookSkeleton key={i} />
-            ))}
-          </div>
-        ) : filteredEbooks.length === 0 ? (
-          <EmptyState onClearFilters={() => setFilters(prev => ({ ...prev, search: '', author: '', category: 'Todos' }))} />
-        ) : (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              <AnimatePresence mode="popLayout">
-                {filteredEbooks.map((ebook, idx) => (
-                  <motion.div
-                    key={ebook.id}
-                    layout
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  >
-                    <EbookCard
-                      ebook={ebook}
-                      onClick={() => setSelectedEbook(ebook)}
-                      isFavorite={favorites.has(ebook.id)}
-                      onToggleFavorite={() => toggleFavorite(ebook.id)}
-                    />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-
-            {/* Load more (se houver mais) */}
-            {!loading && filteredEbooks.length < 50 && (
-              <div className="text-center mt-12">
-                <p className="text-gray-500 text-sm">
-                  Mostrando {filteredEbooks.length} obras
-                </p>
+        {/* Engagement Section: Invitation to Depth */}
+        <section className="py-40 bg-[#1A1A1A] text-white text-center space-y-10 px-6">
+          <motion.div
+            initial={{ y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto space-y-6"
+          >
+            <span className="accent-gold text-[10px] uppercase tracking-[0.6em] font-black">Convite à Profundidade</span>
+            <h2 className="text-5xl md:text-6xl font-serif leading-tight text-white">
+              Sua busca pelo <span className="accent-gold italic">Ser</span> começa aqui.
+            </h2>
+            <p className="text-white/50 text-lg md:text-xl font-serif font-light leading-relaxed">
+              Junte-se a uma comunidade de leitores que não se contentam com a superfície. Receba sínteses exclusivas e ensaios inéditos semanalmente.
+            </p>
+            
+            <div className="pt-10 max-w-md mx-auto">
+              <div className="flex border-b border-white/20 pb-2 group focus-within:border-[#C5A059] transition-colors">
+                <input 
+                  type="email" 
+                  placeholder="Seu melhor e-mail literário" 
+                  className="bg-transparent flex-1 outline-none text-sm font-serif text-white placeholder:text-white/20"
+                />
+                <button className="accent-gold text-[10px] font-black uppercase tracking-widest hover:opacity-80 transition-opacity">Inscrever-se</button>
               </div>
-            )}
-          </>
-        )}
-
-        {/* Back to top */}
-        <AnimatePresence>
-          {showBackToTop && (
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="fixed bottom-8 right-8 z-50 p-3 bg-navy text-white rounded-full shadow-lg hover:bg-navy/90 transition-colors"
-            >
-              <ChevronRight className="w-5 h-5 rotate-[-90deg]" />
-            </motion.button>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        </section>
       </main>
 
-      {/* Modal do ebook */}
+      <footer className="px-10 py-12 bg-[#F2F0E9] border-t border-black/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.3em] opacity-50 uppercase font-extrabold gap-6">
+        <div className="flex flex-col md:flex-row items-center gap-10">
+          <span className="accent-gold opacity-100">Curadoria Literária Superior</span>
+          <span className="text-black">Cloud Sync: Ativo</span>
+        </div>
+        <div className="flex items-center gap-8">
+          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Biblioteca Privada</a>
+          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Studiologos.com.br</a>
+        </div>
+      </footer>
+
       <AnimatePresence>
         {selectedEbook && (
-          <EbookModal
-            ebook={selectedEbook}
-            onClose={() => setSelectedEbook(null)}
-            isFavorite={favorites.has(selectedEbook.id)}
-            onToggleFavorite={() => toggleFavorite(selectedEbook.id)}
-            onRead={() => {
-              // Navega para o leitor
-              window.location.href = `/reader/${selectedEbook.id}`;
-            }}
+          <Reader 
+            ebook={selectedEbook} 
+            onClose={() => setSelectedEbook(null)} 
           />
         )}
       </AnimatePresence>
     </div>
-    </>
   );
-};
-
-// Skeleton loader
-const EbookSkeleton: React.FC = () => (
-  <div className="bg-white rounded-sm border border-gray-100 overflow-hidden animate-pulse">
-    <div className="h-80 bg-gradient-to-br from-gray-200 to-gray-300" />
-    <div className="p-5 space-y-3">
-      <div className="h-4 bg-gray-200 rounded w-3/4" />
-      <div className="h-3 bg-gray-200 rounded w-1/2" />
-      <div className="h-3 bg-gray-200 rounded w-2/3" />
-    </div>
-  </div>
-);
-
-// Empty state
-const EmptyState: React.FC<{ onClearFilters: () => void }> = ({ onClearFilters }) => (
-  <div className="text-center py-20">
-    <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-    <h3 className="text-xl font-serif text-navy mb-2">Nenhum ebook encontrado</h3>
-    <p className="text-gray-500 mb-6">Tente ajustar seus filtros ou busca.</p>
-    <button
-      onClick={onClearFilters}
-      className="px-6 py-3 bg-navy text-white rounded-sm hover:bg-navy/90 transition-colors"
-    >
-      Limpar filtros
-    </button>
-  </div>
-);
-
-// ============================================
-// ERROR BOUNDARY
-// ============================================
-class ErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  { hasError: boolean; error: Error | null }
-> {
-  constructor(props: any) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
-  }
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{ padding: 40, fontFamily: 'sans-serif', background: '#0a192f', color: 'white', minHeight: '100vh' }}>
-          <h1 style={{ color: '#d4af37' }}>Studio Logos - Erro Detectado</h1>
-          <p style={{ color: '#ff6b6b', fontSize: 18 }}>{this.state.error?.message}</p>
-          <pre style={{ background: '#1a2a4f', padding: 20, borderRadius: 8, overflow: 'auto', fontSize: 14 }}>
-            {this.state.error?.stack}
-          </pre>
-          <button onClick={() => window.location.reload()} style={{ marginTop: 20, padding: '10px 20px', background: '#d4af37', border: 'none', borderRadius: 4, cursor: 'pointer' }}>
-            Recarregar
-          </button>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
 }
-
-// ============================================
-// APP PRINCIPAL
-// ============================================
-const App: React.FC = () => {
-  return (
-    <ErrorBoundary>
-      <AuthProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/admin" element={<AdminPanel />} />
-            <Route path="/reader/:id" element={<OnlineReader />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Router>
-      </AuthProvider>
-    </ErrorBoundary>
-  );
-};
-
-// Admin liberado
-function RequireAdmin({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
-
-export default App;

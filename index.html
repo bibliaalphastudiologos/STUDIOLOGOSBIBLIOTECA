@@ -8,6 +8,9 @@
     <meta http-equiv="Expires" content="0" />
     <title>StudioLogos Biblioteca Premium</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      .react-ready #static-site { display: none; }
+    </style>
     <script>
       // Remove Service Workers antigos antes do React iniciar.
       (function repairOldCache() {
@@ -29,37 +32,45 @@
       })();
     </script>
   </head>
-  <body style="margin:0;background:#f7f4ee">
+  <body style="margin:0;background:#f9f7f2">
     <div id="static-site">
-      <main style="min-height:100vh;background:#f7f4ee;color:#0a192f;font-family:Arial,Helvetica,sans-serif">
-        <section style="background:#0a192f;color:#fff;padding:48px 20px 56px;text-align:center">
-          <p style="margin:0 0 12px;color:#d4af37;font-size:12px;letter-spacing:.28em;text-transform:uppercase">Studio Logos</p>
-          <h1 style="margin:0 auto 16px;max-width:780px;font-size:clamp(34px,7vw,72px);line-height:1.02;font-family:Georgia,serif">Biblioteca Premium de Conhecimento</h1>
-          <p style="margin:0 auto;max-width:680px;color:rgba(255,255,255,.78);font-size:18px;line-height:1.55">Obras clássicas de Teologia, Filosofia e Psicanálise para leitura, estudo e pesquisa.</p>
+      <main style="min-height:100vh;background:#f9f7f2;color:#1a1a1a;font-family:Inter,Arial,Helvetica,sans-serif">
+        <section style="position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 64px;overflow:hidden">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% -20%,rgba(197,160,89,.12) 0%,transparent 68%),linear-gradient(to bottom,#fff 0%,#f9f7f2 100%)"></div>
+          <div style="position:relative;z-index:1;max-width:920px">
+            <p style="margin:0 0 20px;color:#b48a3d;font-size:10px;letter-spacing:.5em;text-transform:uppercase;font-weight:900">Curadoria Literária Superior</p>
+            <h1 style="margin:0 auto 26px;font-size:clamp(48px,9vw,104px);line-height:1.05;font-family:Georgia,serif;color:#0f0f0f;font-weight:500">Conhecimento para a <span style="color:#b48a3d">Imortalidade</span></h1>
+            <p style="margin:0 auto;max-width:740px;color:rgba(26,26,26,.7);font-size:clamp(18px,3vw,25px);line-height:1.55;font-family:Georgia,serif">Alta curadoria em Filosofia, Teologia, Psicanálise e Literatura. A ponte entre o rigor clássico e a síntese contemporânea.</p>
+          </div>
         </section>
-        <section style="max-width:1120px;margin:0 auto;padding:34px 18px 54px">
-          <h2 style="margin:0 0 18px;font-family:Georgia,serif;font-size:30px">Acervo em destaque</h2>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
-            <article style="background:#fff;border:1px solid #e7e0d5;padding:22px;border-radius:4px">
-              <p style="margin:0 0 10px;color:#8b6f2d;font-size:12px;text-transform:uppercase;letter-spacing:.18em">Filosofia</p>
-              <h3 style="margin:0 0 8px;font-family:Georgia,serif;font-size:24px">A Ética a Nicômaco</h3>
-              <p style="margin:0 0 14px;color:#57616f;line-height:1.5">Aristóteles. Virtude, justiça, felicidade e vida boa.</p>
-              <span style="font-size:13px;color:#0a192f">45 min de leitura</span>
+        <section style="max-width:1180px;margin:0 auto;padding:48px 24px 72px">
+          <div style="display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.06);padding-bottom:18px;margin-bottom:32px;gap:24px">
+            <h2 style="margin:0;font-family:Georgia,serif;font-size:34px;font-weight:500">Acervo em destaque</h2>
+            <p style="margin:0;color:rgba(0,0,0,.42);font-size:9px;letter-spacing:.24em;text-transform:uppercase;font-weight:900">Fallback seguro</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px">
+            <article>
+              <div style="aspect-ratio:2/3;background:#1a1a1a;color:#fff;display:flex;flex-direction:column;justify-content:space-between;text-align:center;padding:26px 18px;box-shadow:0 20px 40px rgba(0,0,0,.08)">
+                <p style="margin:0;color:rgba(197,160,89,.9);font-size:8px;letter-spacing:.25em;text-transform:uppercase;font-weight:900">Filosofia</p>
+                <h3 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:500">A Ética a Nicômaco</h3>
+                <p style="margin:0;color:rgba(255,255,255,.45);font-size:9px;letter-spacing:.18em;text-transform:uppercase">Aristóteles</p>
+              </div>
             </article>
-            <article style="background:#fff;border:1px solid #e7e0d5;padding:22px;border-radius:4px">
-              <p style="margin:0 0 10px;color:#8b6f2d;font-size:12px;text-transform:uppercase;letter-spacing:.18em">Filosofia</p>
-              <h3 style="margin:0 0 8px;font-family:Georgia,serif;font-size:24px">Assim Falou Zaratustra</h3>
-              <p style="margin:0 0 14px;color:#57616f;line-height:1.5">Friedrich Nietzsche. Super-homem, crítica da moral e vontade de poder.</p>
-              <span style="font-size:13px;color:#0a192f">60 min de leitura</span>
+            <article>
+              <div style="aspect-ratio:2/3;background:#3b2615;color:#fff;display:flex;flex-direction:column;justify-content:space-between;text-align:center;padding:26px 18px;box-shadow:0 20px 40px rgba(0,0,0,.08)">
+                <p style="margin:0;color:rgba(197,160,89,.9);font-size:8px;letter-spacing:.25em;text-transform:uppercase;font-weight:900">Teologia</p>
+                <h3 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:500">Confissões</h3>
+                <p style="margin:0;color:rgba(255,255,255,.45);font-size:9px;letter-spacing:.18em;text-transform:uppercase">Agostinho</p>
+              </div>
             </article>
-            <article style="background:#fff;border:1px solid #e7e0d5;padding:22px;border-radius:4px">
-              <p style="margin:0 0 10px;color:#8b6f2d;font-size:12px;text-transform:uppercase;letter-spacing:.18em">Psicanálise</p>
-              <h3 style="margin:0 0 8px;font-family:Georgia,serif;font-size:24px">O Processo</h3>
-              <p style="margin:0 0 14px;color:#57616f;line-height:1.5">Franz Kafka. Alienação moderna, símbolos e leitura psicológica.</p>
-              <span style="font-size:13px;color:#0a192f">40 min de leitura</span>
+            <article>
+              <div style="aspect-ratio:2/3;background:#211827;color:#fff;display:flex;flex-direction:column;justify-content:space-between;text-align:center;padding:26px 18px;box-shadow:0 20px 40px rgba(0,0,0,.08)">
+                <p style="margin:0;color:rgba(197,160,89,.9);font-size:8px;letter-spacing:.25em;text-transform:uppercase;font-weight:900">Literatura</p>
+                <h3 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:500">Dom Casmurro</h3>
+                <p style="margin:0;color:rgba(255,255,255,.45);font-size:9px;letter-spacing:.18em;text-transform:uppercase">Machado de Assis</p>
+              </div>
             </article>
           </div>
-          <p style="margin:24px 0 0;color:#57616f;font-size:14px">Se a versão interativa não carregar, esta página de segurança mantém o conteúdo principal visível enquanto o navegador bloqueia o JavaScript.</p>
         </section>
       </main>
     </div>

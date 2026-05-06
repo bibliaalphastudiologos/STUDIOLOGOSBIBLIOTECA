@@ -22,3 +22,4 @@ ReactDOM.createRoot(rootElement).render(
 );
 
 window.__STUDIOLOGOS_MOUNTED__ = true;
+document.documentElement.classList.add('react-ready');
