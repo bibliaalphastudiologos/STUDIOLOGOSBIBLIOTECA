@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "./AuthProvider";
 
 export function Navigation() {
-  const { user, loading, login, logout } = useAuth();
+  const { user, profile, hasAccess, loading, login, logout } = useAuth();
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5 px-10 py-6 flex items-center justify-between">
@@ -29,10 +29,10 @@ export function Navigation() {
       <div className="flex items-center gap-6">
         <div className="hidden md:block text-right">
           <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold">
-            {user ? "Conta conectada" : "Login único"}
+            {user ? (hasAccess ? "Acesso liberado" : "Aguardando aprovação") : "Login único"}
           </p>
           <p className="text-sm font-serif text-[#1A1A1A]">
-            {user?.displayName || user?.email || "Bíblia Alpha"}
+            {profile?.nome || user?.displayName || user?.email || "Bíblia Alpha"}
           </p>
         </div>
         {user ? (

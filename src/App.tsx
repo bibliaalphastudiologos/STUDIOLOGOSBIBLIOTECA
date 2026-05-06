@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { EbookShelf } from "./components/EbookShelf";
@@ -10,9 +10,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, ChevronRight, Lock } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
+import { PAYMENT_LINKS } from "./types";
 
 export default function App() {
-  const { user, login, loading } = useAuth();
+  const { user, hasAccess, login, loading } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
   const [lastRead, setLastRead] = useState<Ebook | null>(() => {
@@ -34,10 +35,29 @@ export default function App() {
       return;
     }
 
+    if (!hasAccess && !ebook.isSpecial) {
+      window.location.href = PAYMENT_LINKS.studioLogosMonthly;
+      return;
+    }
+
     setSelectedEbook(ebook);
     setLastRead(ebook);
     safeStorage.setItem("last-read", JSON.stringify(ebook.id));
   };
+
+  useEffect(() => {
+    if (!lockedEbook || !user || !hasAccess) return;
+
+    setSelectedEbook(lockedEbook);
+    setLastRead(lockedEbook);
+    safeStorage.setItem("last-read", JSON.stringify(lockedEbook.id));
+    setLockedEbook(null);
+  }, [hasAccess, lockedEbook, user]);
+
+  useEffect(() => {
+    if (!lockedEbook || !user || loading || hasAccess) return;
+    window.location.href = PAYMENT_LINKS.studioLogosMonthly;
+  }, [hasAccess, loading, lockedEbook, user]);
 
   const categories = [
     Category.SPECIAL,
@@ -253,19 +273,26 @@ export default function App() {
               <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Login único Bíblia Alpha</p>
               <h2 className="text-3xl font-serif mb-4">Entre para continuar a leitura</h2>
               <p className="text-sm text-black/60 leading-relaxed mb-8">
-                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, use o mesmo login Google da Bíblia Alpha.
+                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, entre uma vez na plataforma com o mesmo login Google da Bíblia Alpha.
               </p>
               <div className="space-y-3">
                 <button
                   onClick={async () => {
                     await login();
-                    setLockedEbook(null);
                   }}
                   disabled={loading}
                   className="w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-black disabled:opacity-50"
                 >
                   Entrar com Google
                 </button>
+                {user && !hasAccess && (
+                  <a
+                    href={PAYMENT_LINKS.studioLogosMonthly}
+                    className="block w-full py-4 bg-[#C5A059] text-black text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-[#B48A3D]"
+                  >
+                    Assinar para liberar acesso
+                  </a>
+                )}
                 <button
                   onClick={() => setLockedEbook(null)}
                   className="w-full py-3 text-[10px] uppercase tracking-[0.24em] font-bold text-black/50 hover:text-black"
