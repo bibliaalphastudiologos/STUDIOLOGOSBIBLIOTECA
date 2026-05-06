@@ -481,20 +481,55 @@ const EmptyState: React.FC<{ onClearFilters: () => void }> = ({ onClearFilters }
 );
 
 // ============================================
+// ERROR BOUNDARY
+// ============================================
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean; error: Error | null }
+> {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 40, fontFamily: 'sans-serif', background: '#0a192f', color: 'white', minHeight: '100vh' }}>
+          <h1 style={{ color: '#d4af37' }}>Studio Logos - Erro Detectado</h1>
+          <p style={{ color: '#ff6b6b', fontSize: 18 }}>{this.state.error?.message}</p>
+          <pre style={{ background: '#1a2a4f', padding: 20, borderRadius: 8, overflow: 'auto', fontSize: 14 }}>
+            {this.state.error?.stack}
+          </pre>
+          <button onClick={() => window.location.reload()} style={{ marginTop: 20, padding: '10px 20px', background: '#d4af37', border: 'none', borderRadius: 4, cursor: 'pointer' }}>
+            Recarregar
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+// ============================================
 // APP PRINCIPAL
 // ============================================
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/admin" element={<AdminPanel />} />
-          <Route path="/reader/:id" element={<OnlineReader />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/reader/:id" element={<OnlineReader />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 };
 
