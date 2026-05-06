@@ -19,6 +19,7 @@ import { EbookFilters } from './components/EbookFilters';
 import { EbookStats } from './components/EbookStats';
 import { DEMO_EBOOKS } from './data/ebooks';
 import { Ebook, BookFilters, ReadingStats } from './types';
+import { safeStorage } from './lib/safeStorage';
 import {
   Search,
   Filter,
@@ -69,18 +70,24 @@ function useEbooksWithGutendex(initialCategory = 'Todos') {
 
   // Carregar persistências
   useEffect(() => {
-    const fav = localStorage.getItem('studiologos_favorites');
-    const hist = localStorage.getItem('studiologos_history');
-    const st = localStorage.getItem('studiologos_stats');
+    const fav = safeStorage.getItem('studiologos_favorites');
+    const hist = safeStorage.getItem('studiologos_history');
+    const st = safeStorage.getItem('studiologos_stats');
 
-    if (fav) setFavorites(new Set(JSON.parse(fav)));
-    if (hist) setHistory(JSON.parse(hist));
-    if (st) setStats(JSON.parse(st));
+    try {
+      if (fav) setFavorites(new Set(JSON.parse(fav)));
+      if (hist) setHistory(JSON.parse(hist));
+      if (st) setStats(JSON.parse(st));
+    } catch {
+      safeStorage.removeItem('studiologos_favorites');
+      safeStorage.removeItem('studiologos_history');
+      safeStorage.removeItem('studiologos_stats');
+    }
   }, []);
 
   // Salvar favoritos
   useEffect(() => {
-    localStorage.setItem('studiologos_favorites', JSON.stringify([...favorites]));
+    safeStorage.setItem('studiologos_favorites', JSON.stringify([...favorites]));
     setStats(s => ({ ...s, favoritesCount: favorites.size }));
   }, [favorites]);
 
@@ -250,7 +257,7 @@ const HomePage: React.FC = () => {
 
   // Continuação da última leitura
   useEffect(() => {
-    const lastId = localStorage.getItem('last_read_ebook');
+    const lastId = safeStorage.getItem('last_read_ebook');
     if (lastId && !selectedEbook) {
       const found = DEMO_EBOOKS.find(e => e.id === lastId);
       if (found) setSelectedEbook(found);

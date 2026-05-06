@@ -2,6 +2,8 @@
 // Tradução por capítulo via Google Translate (API gratuita não oficial)
 // com cache em localStorage para evitar chamadas repetidas.
 
+import { safeStorage } from './safeStorage';
+
 const CACHE_PREFIX = 'sl_translation_';
 const CACHE_VERSION = 'v1';
 
@@ -11,12 +13,12 @@ function getCacheKey(ebookId: string, chapterId: string, targetLang: string): st
 
 function getFromCache(key: string): string | null {
   try {
-    const raw = localStorage.getItem(key);
+    const raw = safeStorage.getItem(key);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     // Cache válido por 30 dias
     if (Date.now() - parsed.timestamp > 30 * 24 * 60 * 60 * 1000) {
-      localStorage.removeItem(key);
+      safeStorage.removeItem(key);
       return null;
     }
     return parsed.text;
@@ -27,7 +29,7 @@ function getFromCache(key: string): string | null {
 
 function saveToCache(key: string, text: string): void {
   try {
-    localStorage.setItem(key, JSON.stringify({ text, timestamp: Date.now() }));
+    safeStorage.setItem(key, JSON.stringify({ text, timestamp: Date.now() }));
   } catch {
     // localStorage cheio — limpar cache antigo
     clearOldCache();
@@ -36,9 +38,9 @@ function saveToCache(key: string, text: string): void {
 
 function clearOldCache(): void {
   try {
-    const keys = Object.keys(localStorage).filter(k => k.startsWith(CACHE_PREFIX));
+    const keys = safeStorage.keys().filter(k => k.startsWith(CACHE_PREFIX));
     // Remover os mais antigos
-    keys.slice(0, Math.floor(keys.length / 2)).forEach(k => localStorage.removeItem(k));
+    keys.slice(0, Math.floor(keys.length / 2)).forEach(k => safeStorage.removeItem(k));
   } catch {}
 }
 

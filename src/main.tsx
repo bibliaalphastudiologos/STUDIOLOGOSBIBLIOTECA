@@ -3,8 +3,22 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+declare global {
+  interface Window {
+    __STUDIOLOGOS_MOUNTED__?: boolean;
+  }
+}
+
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Elemento raiz #root não encontrado');
+}
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+
+window.__STUDIOLOGOS_MOUNTED__ = true;

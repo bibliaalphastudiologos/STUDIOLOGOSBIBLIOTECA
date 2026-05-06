@@ -3,6 +3,7 @@ import { Ebook, BookFilters, ReadingStats, ReadingHistory } from '../types';
 import { GutendexService } from '../lib/gutendex';
 import { GutendexBook } from '../types/gutendex';
 import { DEMO_EBOOKS } from '../data/ebooks';
+import { safeStorage } from '../lib/safeStorage';
 
 const FAVORITES_KEY = 'studiologos_favorites';
 const HISTORY_KEY = 'studiologos_history';
@@ -60,29 +61,35 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
 
   // Carrega favoritos/histórico do localStorage
   useEffect(() => {
-    const fav = localStorage.getItem(FAVORITES_KEY);
-    const hist = localStorage.getItem(HISTORY_KEY);
-    const st = localStorage.getItem(READING_STATS_KEY);
+    const fav = safeStorage.getItem(FAVORITES_KEY);
+    const hist = safeStorage.getItem(HISTORY_KEY);
+    const st = safeStorage.getItem(READING_STATS_KEY);
 
-    if (fav) setFavorites(new Set(JSON.parse(fav)));
-    if (hist) setHistory(JSON.parse(hist));
-    if (st) setStats(JSON.parse(st));
+    try {
+      if (fav) setFavorites(new Set(JSON.parse(fav)));
+      if (hist) setHistory(JSON.parse(hist));
+      if (st) setStats(JSON.parse(st));
+    } catch {
+      safeStorage.removeItem(FAVORITES_KEY);
+      safeStorage.removeItem(HISTORY_KEY);
+      safeStorage.removeItem(READING_STATS_KEY);
+    }
   }, []);
 
   // Salva favoritos
   useEffect(() => {
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+    safeStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
     setStats(s => ({ ...s, favoritesCount: favorites.size }));
   }, [favorites]);
 
   // Salva histórico
   useEffect(() => {
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    safeStorage.setItem(HISTORY_KEY, JSON.stringify(history));
   }, [history]);
 
   // Salva stats
   useEffect(() => {
-    localStorage.setItem(READING_STATS_KEY, JSON.stringify(stats));
+    safeStorage.setItem(READING_STATS_KEY, JSON.stringify(stats));
   }, [stats]);
 
   // Carrega ebooks iniciais

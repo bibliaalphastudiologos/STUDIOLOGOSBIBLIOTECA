@@ -1,4 +1,5 @@
 import { GutendexBook, GutendexResponse } from '../types/gutendex';
+import { safeStorage } from './safeStorage';
 
 const GUTENDEX_BASE = 'https://gutendex.com';
 const CACHE_KEY = 'studiologos_gutendex_cache';
@@ -32,7 +33,7 @@ export class GutendexService {
     const cacheKey = `${CACHE_KEY}_${category}_${page}`;
 
     // Verifica cache
-    const cached = localStorage.getItem(cacheKey);
+    const cached = safeStorage.getItem(cacheKey);
     if (cached) {
       const { data, timestamp } = JSON.parse(cached);
       if (Date.now() - timestamp < CACHE_DURATION) {
@@ -60,7 +61,7 @@ export class GutendexService {
     const data: GutendexResponse = await response.json();
 
     // Salva no cache
-    localStorage.setItem(cacheKey, JSON.stringify({
+    safeStorage.setItem(cacheKey, JSON.stringify({
       data,
       timestamp: Date.now()
     }));
@@ -73,7 +74,7 @@ export class GutendexService {
    */
   static async searchBooks(query: string, page: number = 1): Promise<GutendexResponse> {
     const cacheKey = `${CACHE_KEY}_search_${query}_${page}`;
-    const cached = localStorage.getItem(cacheKey);
+    const cached = safeStorage.getItem(cacheKey);
 
     if (cached) {
       const { data, timestamp } = JSON.parse(cached);
@@ -91,7 +92,7 @@ export class GutendexService {
     const response = await fetch(`${GUTENDEX_BASE}/books?${params}`);
     const data: GutendexResponse = await response.json();
 
-    localStorage.setItem(cacheKey, JSON.stringify({
+    safeStorage.setItem(cacheKey, JSON.stringify({
       data,
       timestamp: Date.now()
     }));
@@ -104,7 +105,7 @@ export class GutendexService {
    */
   static async getBook(id: number): Promise<GutendexBook | null> {
     const cacheKey = `${CACHE_KEY}_book_${id}`;
-    const cached = localStorage.getItem(cacheKey);
+    const cached = safeStorage.getItem(cacheKey);
 
     if (cached) {
       const { data, timestamp } = JSON.parse(cached);
@@ -118,7 +119,7 @@ export class GutendexService {
       if (!response.ok) return null;
 
       const data: GutendexBook = await response.json();
-      localStorage.setItem(cacheKey, JSON.stringify({
+      safeStorage.setItem(cacheKey, JSON.stringify({
         data,
         timestamp: Date.now()
       }));
@@ -217,8 +218,8 @@ export class GutendexService {
    * Limpa cache (útil para forçar atualização)
    */
   static clearCache(): void {
-    Object.keys(localStorage)
+    safeStorage.keys()
       .filter(key => key.startsWith(CACHE_KEY))
-      .forEach(key => localStorage.removeItem(key));
+      .forEach(key => safeStorage.removeItem(key));
   }
 }
