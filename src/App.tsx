@@ -54,7 +54,7 @@ function useEbooksWithGutendex(initialCategory = 'Todos') {
     author: '',
     yearFrom: null,
     yearTo: null,
-    onlyFree: true,
+    onlyFree: false,
     sortBy: 'relevance',
     sortOrder: 'desc',
   });
@@ -149,7 +149,15 @@ function useEbooksWithGutendex(initialCategory = 'Todos') {
     }
 
     if (filters.onlyFree) {
-      result = result.filter(e => e.brand === 'Project Gutenberg' || e.editorialNotice?.includes('gratuitamente'));
+      result = result.filter(e =>
+        e.brand === 'Project Gutenberg' ||
+        e.brand === 'Domínio Público' ||
+        e.contentType === 'public_domain' ||
+        e.contentTypeLabel === 'public_domain' ||
+        e.editorialNotice?.toLowerCase().includes('gratuitamente') ||
+        e.editorialNotice?.toLowerCase().includes('domínio público') ||
+        e.editorialNotice?.toLowerCase().includes('dominio publico')
+      );
     }
 
     // Ordenação
@@ -278,6 +286,7 @@ const HomePage: React.FC = () => {
     { key: 'Filosofia', label: 'Filosofia', icon: '🧠', count: filteredEbooks.filter(e => e.category === 'Filosofia').length },
     { key: 'Psicanálise', label: 'Psicanálise', icon: '🔍', count: filteredEbooks.filter(e => e.category === 'Psicanálise').length },
     { key: 'Teologia', label: 'Teologia', icon: '✝️', count: filteredEbooks.filter(e => e.category === 'Teologia').length },
+    { key: 'Literatura', label: 'Literatura', icon: '◆', count: filteredEbooks.filter(e => e.category === 'Literatura').length },
   ];
 
   return (

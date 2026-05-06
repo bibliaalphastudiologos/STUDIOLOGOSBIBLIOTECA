@@ -50,6 +50,7 @@ export const EbookFilters: React.FC<EbookFiltersProps> = ({
             <option value="Teologia">Teologia</option>
             <option value="Filosofia">Filosofia</option>
             <option value="Psicanálise">Psicanálise</option>
+            <option value="Literatura">Literatura</option>
           </select>
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
         </div>
@@ -70,7 +71,7 @@ export const EbookFilters: React.FC<EbookFiltersProps> = ({
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
         </div>
 
-        {/* Apenas gratuitos */}
+        {/* Domínio público */}
         <label className="flex items-center space-x-2 px-3 py-2 bg-gray-50 rounded-sm border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
           <input
             type="checkbox"
@@ -78,7 +79,7 @@ export const EbookFilters: React.FC<EbookFiltersProps> = ({
             onChange={(e) => updateFilter('onlyFree', e.target.checked)}
             className="w-4 h-4 text-navy rounded border-gray-300 focus:ring-navy"
           />
-          <span className="text-sm text-gray-700">Grátis apenas</span>
+          <span className="text-sm text-gray-700">Domínio público</span>
         </label>
 
         {/* Expandir filtros avançados */}
@@ -213,7 +214,7 @@ export const EbookFilters: React.FC<EbookFiltersProps> = ({
           )}
           {filters.onlyFree && (
             <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-700 text-xs rounded-sm">
-              Gratuitos
+              Domínio público
               <button onClick={() => updateFilter('onlyFree', false)} className="ml-1 hover:text-red-600">
                 <X className="w-3 h-3" />
               </button>

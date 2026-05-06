@@ -181,15 +181,19 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
       );
     }
 
-    // Apenas gratuitos
+    // Obras gratuitas / domínio público
     if (filters.onlyFree) {
-      result = result.filter(e => 
-        e.brand === 'Project Gutenberg' || 
+      result = result.filter(e =>
+        e.brand === 'Project Gutenberg' ||
+        e.brand === 'Domínio Público' ||
+        e.contentType === 'public_domain' ||
+        e.contentTypeLabel === 'public_domain' ||
         (e.editorialNotice && (
-          e.editorialNotice.includes('gratuitamente') ||
-          e.editorialNotice.includes('gratuito') ||
-          e.editorialNotice.includes('domínio público') ||
-          e.editorialNotice.includes('grátis')
+          e.editorialNotice.toLowerCase().includes('gratuitamente') ||
+          e.editorialNotice.toLowerCase().includes('gratuito') ||
+          e.editorialNotice.toLowerCase().includes('domínio público') ||
+          e.editorialNotice.toLowerCase().includes('dominio publico') ||
+          e.editorialNotice.toLowerCase().includes('grátis')
         ))
       );
     }
