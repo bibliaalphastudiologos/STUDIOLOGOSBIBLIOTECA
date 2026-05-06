@@ -135,8 +135,9 @@ function useEbooksWithGutendex(initialCategory = 'Todos') {
     }
 
     if (filters.author) {
+      const authorFilter = filters.author.toLowerCase();
       result = result.filter(e =>
-        e.authorReference.toLowerCase().includes(filters.author.toLowerCase())
+        e.authorReference.toLowerCase().includes(authorFilter)
       );
     }
 

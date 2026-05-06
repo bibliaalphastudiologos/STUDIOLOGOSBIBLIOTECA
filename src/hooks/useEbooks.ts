@@ -105,10 +105,11 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
         'Teologia': 'theology',
       };
 
-      if (filters.category !== 'Todos' && categoryMap[filters.category]) {
-        const topic = categoryMap[filters.category];
+      const selectedCategory = filters.category ?? 'Todos';
+      if (selectedCategory !== 'Todos' && categoryMap[selectedCategory]) {
+        const topic = categoryMap[selectedCategory];
         const response = await GutendexService.fetchByCategory(
-          filters.category as 'Filosofia' | 'Psicanálise' | 'Teologia',
+          selectedCategory as 'Filosofia' | 'Psicanálise' | 'Teologia',
           pageNum
         );
         gutendexBooks = response.results;
@@ -129,7 +130,7 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
 
       // Mescla com DEMO_EBOOKS (prioriza Gutendex se duplicar)
       const demoFiltered = DEMO_EBOOKS.filter(
-        e => filters.category === 'Todos' || e.category === filters.category
+        e => selectedCategory === 'Todos' || e.category === selectedCategory
       );
 
       const merged = pageNum === 1
@@ -167,8 +168,9 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
 
     // Filtro de autor
     if (filters.author) {
+      const authorFilter = filters.author.toLowerCase();
       result = result.filter(e =>
-        e.authorReference.toLowerCase().includes(filters.author.toLowerCase())
+        e.authorReference.toLowerCase().includes(authorFilter)
       );
     }
 

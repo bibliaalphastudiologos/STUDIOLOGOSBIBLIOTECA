@@ -211,7 +211,15 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
         )}
       </section>
 
-      <EbookModal ebook={selectedEbook} onClose={() => setSelectedEbook(null)} />
+      {selectedEbook && (
+        <EbookModal
+          ebook={selectedEbook}
+          onClose={() => setSelectedEbook(null)}
+          isFavorite={false}
+          onToggleFavorite={() => {}}
+          onRead={() => {}}
+        />
+      )}
     </div>
   );
 };

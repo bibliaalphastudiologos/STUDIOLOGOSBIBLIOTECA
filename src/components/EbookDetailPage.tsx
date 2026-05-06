@@ -49,6 +49,7 @@ export default function EbookDetailPage() {
   const gradient = getCoverGradient(ebook.coverTheme, ebook.category);
   const canRead  = true; // Acesso liberado conforme solicitado
   const hasTranslation = ebook.originalLanguage && !ebook.originalLanguage.toLowerCase().includes('portugu');
+  const tags = ebook.tags ?? [];
 
   // Related books (same category, excluding current)
   const related = DEMO_EBOOKS
@@ -286,11 +287,11 @@ export default function EbookDetailPage() {
             )}
 
             {/* Tags */}
-            {ebook.tags?.length > 0 && (
+            {tags.length > 0 && (
               <div>
                 <h3 className="text-navy text-sm font-bold mb-2">Tags</h3>
                 <div className="flex flex-wrap gap-1.5">
-                  {ebook.tags.map(tag => (
+                  {tags.map(tag => (
                     <span key={tag} className="text-[10px] px-2 py-0.5 rounded"
                       style={{ background: '#0d1b2a08', color: '#0d1b2a60' }}>
                       #{tag}

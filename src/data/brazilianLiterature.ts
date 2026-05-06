@@ -3,15 +3,29 @@ import { Ebook } from '../types';
 function bl(
   id: string, title: string, fullTitle: string, subtitle: string,
   author: string, originalWork: string, year: string, lang: string, deathYear: number,
-  category: string, level: string, readTime: string, description: string,
+  category: Ebook['category'], level: Ebook['level'], readTime: string, description: string,
   cover: string, chapters: { title: string; estimatedMinutes: number; content: string }[],
   tags: string[]
 ): Ebook {
   return {
     id, title, fullTitle, subtitle, authorReference: author,
+    subcategory: 'Literatura Brasileira',
+    collection: 'Literatura Brasileira',
+    brand: 'StudioLogos',
+    workReference: originalWork,
     originalWork, yearPublished: year, originalLanguage: lang,
     category, level, estimatedReadTime: readTime, description,
-    coverStyle: cover, chapters,
+    contentType: 'public_domain',
+    readingTime: readTime,
+    coverTheme: cover,
+    coverStyle: cover,
+    learn: [],
+    recommendedFor: [],
+    editorialNotice: 'Obra em dominio publico conforme criterio editorial informado.',
+    chapters: chapters.map((chapter, index) => ({
+      id: `${id}-${index + 1}`,
+      ...chapter,
+    })),
     tags: ['literatura', 'domínio público', ...tags],
     contentTypeLabel: 'public_domain',
     copyrightStatus: { isPublicDomain: true, deathYear, verifiedUnder: 'Lei 9.610/98 — 70 anos após falecimento do autor' },

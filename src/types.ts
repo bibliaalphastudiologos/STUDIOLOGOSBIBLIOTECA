@@ -2,9 +2,17 @@ export type UserRole = 'user' | 'admin';
 export type UserStatus = 'pending' | 'approved' | 'blocked';
 
 export type ContentType = 'public_domain' | 'synthesis';
-export type CopyrightStatus = 'public_domain_verified' | 'summary_only' | 'licensed';
+export type CopyrightStatus =
+  | 'public_domain_verified'
+  | 'summary_only'
+  | 'licensed'
+  | {
+      isPublicDomain?: boolean;
+      deathYear?: number;
+      verifiedUnder?: string;
+    };
 
-export type MainCategory = 'Teologia' | 'Filosofia' | 'Psicanálise' | 'Literatura Brasileira';
+export type MainCategory = 'Teologia' | 'Filosofia' | 'Psicanálise' | 'Literatura Brasileira' | 'Literatura';
 
 export type SubcategoryTeologia =
   | 'Bíblia' | 'Comentários Bíblicos' | 'Doutrina Cristã' | 'História da Igreja'
@@ -40,14 +48,16 @@ export interface Chapter {
 }
 
 export interface ReaderFeatures {
-  tableOfContents: boolean;
-  readingProgress: boolean;
-  fontSizeControl: boolean;
-  focusMode: boolean;
-  bookmarks: boolean;
-  notes: boolean;
-  highlights: boolean;
-  internalSearch: boolean;
+  tableOfContents?: boolean;
+  readingProgress?: boolean;
+  fontSizeControl?: boolean;
+  fontControl?: boolean;
+  focusMode?: boolean;
+  bookmarks?: boolean;
+  notes?: boolean;
+  highlights?: boolean;
+  internalSearch?: boolean;
+  search?: boolean;
 }
 
 export interface Ebook {
@@ -55,6 +65,7 @@ export interface Ebook {
   slug?: string;
   title: string;
   displayTitle?: string;
+  fullTitle?: string;
   subtitle: string;
   category: MainCategory;
   subcategory: string;
@@ -62,6 +73,8 @@ export interface Ebook {
   brand: string;
   authorReference: string;
   workReference: string;
+  originalWork?: string;
+  yearPublished?: string;
 
   // Content type system
   contentType: string;
@@ -70,6 +83,11 @@ export interface Ebook {
   accessMode?: 'online_only';
   downloadAllowed?: false;
   fullTextAllowed?: boolean;
+  isFree?: boolean;
+  isPremium?: boolean;
+  isFeatured?: boolean;
+  isFromGutendex?: boolean;
+  downloadUrl?: string;
 
   // Source info (for public domain)
   sourceApi?: string;
@@ -83,9 +101,11 @@ export interface Ebook {
 
   level: 'Iniciante' | 'Intermediário' | 'Avançado' | 'Introdutório';
   readingTime: string;
+  estimatedReadTime?: string;
   featured?: boolean;
   isNew?: boolean;
   coverTheme: string;
+  coverStyle?: string;
   cover?: string;
   description: string;
   learn: string[];
@@ -98,6 +118,15 @@ export interface Ebook {
 
   // Tags
   tags?: string[];
+  chapterCount?: number;
+  pageCount?: number;
+}
+
+export interface ReadingHistory {
+  ebookId: string;
+  readAt: string;
+  progress: number;
+  totalTime: number;
 }
 
 // Payment configuration
@@ -119,12 +148,17 @@ export enum OperationType {
 }
 
 export interface ReadingStats {
-  totalBooksRead: number;
-  totalReadingTime: number;
-  currentStreak: number;
-  longestStreak: number;
-  favoriteCategory: string;
-  lastReadDate: any;
+  totalBooksRead?: number;
+  totalReadingTime?: number;
+  currentStreak?: number;
+  longestStreak?: number;
+  favoriteCategory?: string;
+  lastReadDate?: any;
+  totalRead: number;
+  currentlyReading: number;
+  favoritesCount: number;
+  readingTime: number;
+  lastReadAt: any;
 }
 
 export interface FirestoreErrorInfo {
@@ -146,14 +180,15 @@ export interface BookFilters {
   level?: string;
   searchTerm?: string;
   search?: string;
-  minReadingTime?: number;
-  maxReadingTime?: number;
+  minReadingTime?: number | null;
+  maxReadingTime?: number | null;
   contentType?: string;
   tags?: string[];
   sortBy?: string;
   onlyFree?: boolean;
   author?: string;
   language?: string;
-  yearFrom?: number;
-  yearTo?: number;
+  yearFrom?: number | null;
+  yearTo?: number | null;
+  sortOrder?: 'asc' | 'desc' | string;
 }
