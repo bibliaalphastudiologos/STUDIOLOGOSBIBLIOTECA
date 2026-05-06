@@ -5,6 +5,7 @@ import { brazilianLiteratureWorks } from './brazilianLiterature';
 import { philosophyPublicDomainWorks } from './philosophyPublicDomain';
 import { psychoanalysisWorks } from './psychoanalysisWorks';
 import { publicDomainWorks } from './publicDomainWorks';
+import { gutenbergMegaCatalogWorks } from './gutenbergMegaCatalog';
 
 // Dados demo como fallback e complemento
 const FEATURED_EBOOKS: Ebook[] = [
@@ -106,6 +107,7 @@ export const DEMO_EBOOKS: Ebook[] = dedupeEbooks([
   ...philosophyPublicDomainWorks,
   ...psychoanalysisWorks,
   ...brazilianLiteratureWorks,
+  ...gutenbergMegaCatalogWorks,
 ]);
 
 /**

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Filter, Search } from "lucide-react";
 import { type Ebook, Category } from "../studioTypes";
 
@@ -23,6 +23,7 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
   const [search, setSearch] = useState("");
   const [language, setLanguage] = useState("Todos");
   const [collection, setCollection] = useState("Todas");
+  const [visibleCount, setVisibleCount] = useState(24);
 
   const languages = useMemo(() => ["Todos", ...Array.from(new Set(ebooks.map((ebook) => ebook.originalLanguage).filter(Boolean))).slice(0, 6)], [ebooks]);
   const collections = useMemo(() => ["Todas", ...Array.from(new Set(ebooks.map((ebook) => ebook.collection).filter(Boolean))).slice(0, 6)], [ebooks]);
@@ -38,6 +39,12 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
       return matchesSearch && matchesLanguage && matchesCollection;
     });
   }, [collection, ebooks, language, search]);
+
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [category, collection, language, search]);
+
+  const visible = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
 
   return (
     <section className="py-12 px-10 max-w-7xl mx-auto space-y-10">
@@ -83,7 +90,7 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
-        {filtered.map((ebook) => (
+        {visible.map((ebook) => (
           <div
             key={ebook.id}
             className="group relative"
@@ -152,6 +159,17 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
           </div>
         ))}
       </div>
+
+      {filtered.length > visible.length && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={() => setVisibleCount((value) => Math.min(value + 24, filtered.length))}
+            className="h-11 px-6 border border-black/10 bg-white text-[10px] uppercase tracking-[0.22em] font-bold hover:border-[#C5A059] hover:text-[#8A682B] transition-colors"
+          >
+            Carregar mais obras
+          </button>
+        </div>
+      )}
     </section>
   );
 }

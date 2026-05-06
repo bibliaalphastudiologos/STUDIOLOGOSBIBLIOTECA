@@ -6,6 +6,7 @@ import { ThematicRow } from "./components/ThematicRow";
 import { Reader } from "./components/Reader";
 import { EbookPreview } from "./components/EbookPreview";
 import { EBOOKS } from "./data";
+import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, ChevronRight, Lock } from "lucide-react";
@@ -111,62 +112,27 @@ export default function App() {
 
         {/* Section: Recommended Axis */}
         <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          <motion.div 
-            whileHover={{ y: -5 }}
-            role="button"
-            tabIndex={0}
-            onClick={() => handleAxisOpen({ category: Category.PHILOSOPHY, term: 'metafísica', label: 'Metafísica & Existência' })}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: Category.PHILOSOPHY, term: 'metafísica', label: 'Metafísica & Existência' });
-            }}
-            className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
-          >
-            <div>
-              <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">Eixo Temático</span>
-              <h3 className="text-3xl font-serif mt-4">Metafísica & Existência</h3>
-            </div>
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
-              Explorar Conceitos <BookOpen className="w-3 h-3" />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -5 }}
-            role="button"
-            tabIndex={0}
-            onClick={() => handleAxisOpen({ category: Category.PSYCHOANALYSIS, term: 'inconsciente', label: 'O Despertar da Psique' })}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: Category.PSYCHOANALYSIS, term: 'inconsciente', label: 'O Despertar da Psique' });
-            }}
-            className="p-10 border border-black/5 bg-[#1A1A1A] text-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
-          >
-            <div>
-              <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">Curadoria do Editor</span>
-              <h3 className="text-3xl font-serif mt-4">O Despertar da Psique</h3>
-            </div>
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
-              Ver Coleção <ChevronRight className="w-3 h-3" />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -5 }}
-            role="button"
-            tabIndex={0}
-            onClick={() => handleAxisOpen({ category: Category.THEOLOGY, term: 'dogma', label: 'Tradição & Dogma' })}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: Category.THEOLOGY, term: 'dogma', label: 'Tradição & Dogma' });
-            }}
-            className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
-          >
-            <div>
-              <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">Área de Pesquisa</span>
-              <h3 className="text-3xl font-serif mt-4">Tradição & Dogma</h3>
-            </div>
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
-              Recomendações <BookOpen className="w-3 h-3" />
-            </div>
-          </motion.div>
+          {STUDY_ROUTES.slice(0, 3).map((route, index) => (
+            <motion.div
+              key={route.id}
+              whileHover={{ y: -5 }}
+              role="button"
+              tabIndex={0}
+              onClick={() => handleAxisOpen({ category: route.category, term: route.term, label: route.title })}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: route.category, term: route.term, label: route.title });
+              }}
+              className={`p-10 border border-black/5 shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#1A1A1A] text-white' : 'bg-white'}`}
+            >
+              <div>
+                <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">{route.eyebrow}</span>
+                <h3 className="text-3xl font-serif mt-4">{route.title}</h3>
+              </div>
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
+                Explorar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
+              </div>
+            </motion.div>
+          ))}
         </section>
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
@@ -234,6 +200,37 @@ export default function App() {
         </section>
 
         <ThematicRow />
+
+        <section className="px-10 pb-24 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+              <span className="accent-gold text-[10px] uppercase tracking-[0.5em] font-black">Roteiros de estudo</span>
+              <h2 className="text-4xl font-serif text-[#1A1A1A] mt-4">Leitura por tema</h2>
+            </div>
+            <p className="max-w-xl text-sm text-black/50 font-serif leading-relaxed">
+              Percursos para entrar no acervo por problema, tradição e área de formação, sem transformar a biblioteca em uma lista solta de arquivos.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {STUDY_ROUTES.map((route) => (
+              <button
+                key={route.id}
+                onClick={() => handleAxisOpen({ category: route.category, term: route.term, label: route.title })}
+                className="text-left p-6 bg-white border border-black/5 hover:border-[#C5A059] transition-colors rounded-sm"
+              >
+                <p className="text-[9px] uppercase tracking-[0.28em] font-black accent-gold mb-3">{route.eyebrow}</p>
+                <h3 className="font-serif text-2xl mb-3">{route.title}</h3>
+                <p className="text-xs leading-relaxed text-black/50 mb-5">{route.description}</p>
+                <div className="space-y-2">
+                  {route.steps.map((step) => (
+                    <p key={step} className="text-[10px] uppercase tracking-[0.18em] font-bold text-black/35">{step}</p>
+                  ))}
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
 
         <div className="space-y-32 pb-40">
           {categories.map(cat => {

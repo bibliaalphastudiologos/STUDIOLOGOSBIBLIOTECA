@@ -12,7 +12,16 @@ export type CopyrightStatus =
       verifiedUnder?: string;
     };
 
-export type MainCategory = 'Teologia' | 'Filosofia' | 'Psicanálise' | 'Literatura Brasileira' | 'Literatura';
+export type MainCategory =
+  | 'Teologia'
+  | 'Filosofia'
+  | 'Psicanálise'
+  | 'Espiritualidade'
+  | 'Literatura Brasileira'
+  | 'Literatura Portuguesa'
+  | 'História'
+  | 'Humanidades'
+  | 'Literatura';
 
 export type SubcategoryTeologia =
   | 'Bíblia' | 'Comentários Bíblicos' | 'Doutrina Cristã' | 'História da Igreja'
