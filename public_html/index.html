@@ -11,5 +11,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Remove Service Workers antigos (resíduo do WordPress)
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          registrations.forEach(function(registration) {
+            registration.unregister();
+          });
+        });
+        // Limpa caches antigos
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            names.forEach(function(name) { caches.delete(name); });
+          });
+        }
+      }
+    </script>
   </body>
 </html>
