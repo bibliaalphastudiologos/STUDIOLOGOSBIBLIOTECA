@@ -20,7 +20,7 @@ export function Reader({ ebook, onClose }: ReaderProps) {
   const [content, setContent] = useState(ebook.content);
   const [isTranslating, setIsTranslating] = useState(false);
   const [zoom, setZoom] = useState(1);
-  const [theme, setTheme] = useState<"dark" | "sepia" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "sepia" | "light">("light");
   const [page, setPage] = useState(1);
   const [progress, setProgress] = useState(0);
   const [cloudLoaded, setCloudLoaded] = useState(false);
@@ -154,17 +154,23 @@ export function Reader({ ebook, onClose }: ReaderProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           style={{ fontSize: `${zoom}rem` }}
-          className="max-w-2xl w-full font-serif leading-[1.8] space-y-10 hyphens-auto text-justify"
+          className="max-w-2xl w-full font-serif leading-[2] space-y-12 hyphens-auto text-justify tracking-wide text-lg md:text-xl"
         >
           <div className="flex gap-4 mb-12 items-center text-[10px] uppercase tracking-[0.4em] accent-gold font-bold">
             <div className={`h-[1px] w-8 ${theme === 'light' ? 'bg-[#B48A3D]' : 'bg-[#C5A059]'}`} />
             <span>Capítulo Central • Página {page}</span>
           </div>
           
-          <p className={`first-letter:text-6xl first-letter:font-bold first-letter:mr-4 first-letter:float-left ${theme === 'light' ? 'first-letter:text-[#B48A3D]' : 'first-letter:text-[#C5A059]'}`}>
-            {content}
-          </p>
-          
+          <div className="space-y-8">
+            {content.split('\n').map((paragraph, idx) => (
+              <p 
+                key={idx} 
+                className={`${idx === 0 ? 'first-letter:text-7xl first-letter:font-bold first-letter:mr-4 first-letter:float-left' : ''} ${theme === 'light' ? 'first-letter:text-[#B48A3D]' : 'first-letter:text-[#C5A059]'} mb-6`}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>   
           {/* Decorative Illustration */}
           <div className="py-8">
             <div className={`aspect-video w-full overflow-hidden rounded-sm border border-black/5 ebook-shadow relative group`}>

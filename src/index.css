@@ -6,10 +6,12 @@
 @layer base {
   body {
     @apply bg-[#F9F7F2] text-[#1A1A1A] antialiased selection:bg-[#C5A059] selection:text-white;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-[#0F0F0F];
+    @apply font-serif text-[#0F0F0F] tracking-tight;
   }
 }
 

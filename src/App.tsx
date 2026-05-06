@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { EbookShelf } from "./components/EbookShelf";
 import { ThematicRow } from "./components/ThematicRow";
 import { Reader } from "./components/Reader";
+import { CategoryPage } from "./components/CategoryPage";
 import { EBOOKS } from "./data";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,7 +14,7 @@ import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { PAYMENT_LINKS } from "./types";
 
-export default function App() {
+function HomePage() {
   const { user, hasAccess, login, loading } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
@@ -76,9 +78,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen relative font-sans">
-      <Navigation />
-      
+    <>
       <main>
         <Hero />
 
@@ -166,15 +166,16 @@ export default function App() {
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
-                { area: "Filosofia Clássica", count: "32", icon: "ALPHA", desc: "Do pré-socrático ao idealismo." },
-                { area: "Teologia Sistemática", count: "18", icon: "LOGOS", desc: "Dogmática e hermenêutica sacra." },
-                { area: "Psicanálise Clínica", count: "14", icon: "PSYCHE", desc: "Tradição freudiana e lacaniana." },
-                { area: "Literatura Universal", count: "56", icon: "NOMOS", desc: "Os grandes épicos da humanidade." }
+                { area: "Filosofia Clássica", count: "32", icon: "ALPHA", desc: "Do pré-socrático ao idealismo.", link: "/filosofia" },
+                { area: "Teologia Sistemática", count: "18", icon: "LOGOS", desc: "Dogmática e hermenêutica sacra.", link: "/teologia" },
+                { area: "Psicanálise Clínica", count: "14", icon: "PSYCHE", desc: "Tradição freudiana e lacaniana.", link: "/psicanalise" },
+                { area: "Literatura Universal", count: "56", icon: "NOMOS", desc: "Os grandes épicos da humanidade.", link: "/literatura" }
               ].map((item, idx) => (
-                <motion.div 
+                <motion.a 
                   key={idx}
+                  href={item.link}
                   whileHover={{ y: -4, borderColor: "#B48A3D" }}
-                  className="p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-6 group cursor-pointer transition-all"
+                  className="p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-6 group cursor-pointer transition-all hover:border-[#B48A3D]"
                 >
                   <div className="text-[10px] font-black accent-gold tracking-[0.3em]">{item.icon}</div>
                   <div>
@@ -182,7 +183,7 @@ export default function App() {
                     <p className="text-[10px] text-black/40 font-mono tracking-widest uppercase mb-4">{item.count} Obras</p>
                     <p className="text-xs text-black/60 leading-relaxed">{item.desc}</p>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </div>
@@ -209,7 +210,7 @@ export default function App() {
                       <p className="text-[10px] accent-gold font-bold uppercase tracking-widest text-[#C5A059]">Leitura Recomendada</p>
                       <p className="text-sm font-serif opacity-80 text-white">Baseado no eixo de {cat}</p>
                     </div>
-                    <button className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059]">Explorar Guia →</button>
+                    <a href={`/${cat.toLowerCase().replace(/\s+/g, '')}`} className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059]">Explorar Guia →</a>
                   </div>
                 </div>
               </div>
@@ -253,8 +254,8 @@ export default function App() {
           <span className="text-black">Cloud Sync: Ativo</span>
         </div>
         <div className="flex items-center gap-8">
-          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Biblioteca Privada</a>
-          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Studiologos.com.br</a>
+          <a href="/" className="hover:text-[#C5A059] transition-colors text-black">Biblioteca Privada</a>
+          <a href="https://studiologos.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A059] transition-colors text-black">Studiologos.com.br</a>
         </div>
       </footer>
 
@@ -310,6 +311,24 @@ export default function App() {
           />
         )}
       </AnimatePresence>
-    </div>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <div className="min-h-screen relative font-sans bg-white">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/filosofia" element={<CategoryPage category="Filosofia" />} />
+          <Route path="/teologia" element={<CategoryPage category="Teologia" />} />
+          <Route path="/psicanalise" element={<CategoryPage category="Psicanálise" />} />
+          <Route path="/literatura" element={<CategoryPage category="Literatura" />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }

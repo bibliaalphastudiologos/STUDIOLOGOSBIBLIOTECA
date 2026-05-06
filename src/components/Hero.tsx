@@ -34,13 +34,13 @@ export function Hero() {
         </p>
         
         <div className="pt-8 flex flex-col sm:flex-row gap-8 justify-center">
-          <button className="bg-[#1A1A1A] hover:bg-black text-white font-bold py-6 px-16 rounded-sm transition-all flex items-center justify-center gap-4 uppercase text-[10px] tracking-[0.3em] shadow-xl hover:-translate-y-1">
+          <a href="/filosofia" className="bg-[#1A1A1A] hover:bg-black text-white font-bold py-6 px-16 rounded-sm transition-all flex items-center justify-center gap-4 uppercase text-[10px] tracking-[0.3em] shadow-xl hover:-translate-y-1">
             Iniciar Estudo
             <ChevronRight className="w-4 h-4 text-accent-gold" />
-          </button>
-          <button className="border border-black/10 bg-white/50 backdrop-blur-sm hover:bg-white/80 py-6 px-16 rounded-sm transition-all uppercase text-[10px] tracking-[0.3em] font-bold text-[#1A1A1A] hover:-translate-y-1">
+          </a>
+          <a href="/" className="border border-black/10 bg-white/50 backdrop-blur-sm hover:bg-white/80 py-6 px-16 rounded-sm transition-all uppercase text-[10px] tracking-[0.3em] font-bold text-[#1A1A1A] hover:-translate-y-1">
             Explorar Acervo
-          </button>
+          </a>
         </div>
       </motion.div>
       
