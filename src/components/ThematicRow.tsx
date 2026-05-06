@@ -1,13 +1,36 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen } from 'lucide-react';
+import { EBOOKS } from '../data';
+import { Reader } from './Reader';
+import { useAuth } from './AuthProvider';
+import { PAYMENT_LINKS } from '../types';
 
 export function ThematicRow() {
+  const { user, hasAccess, login } = useAuth();
+  const [selectedEbook, setSelectedEbook] = useState<any>(null);
   const themes = [
-    { title: "Estética Transcendental", author: "Kant & Schiller", image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800", link: "/filosofia" },
-    { title: "Soberania e Poder", author: "Hobbes & Schmitt", image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800", link: "/filosofia" },
-    { title: "Mística e Oculto", author: "Eckhart & Jung", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800", link: "/teologia" }
+    { id: 'pd-kant-critica-razao-pura', title: "Estética Transcendental", author: "Immanuel Kant", image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800" },
+    { id: 'pd-hobbes-leviata', title: "Soberania e Poder", author: "Thomas Hobbes", image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800" },
+    { id: 'pd-agostinho-confissoes', title: "Mística e Oculto", author: "Santo Agostinho", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800" }
   ];
+
+  const handleRead = (ebookId: string) => {
+    const ebook = EBOOKS.find(e => e.id === ebookId);
+    if (!ebook) return;
+
+    if (!user && !ebook.isSpecial) {
+      login();
+      return;
+    }
+
+    if (!hasAccess && !ebook.isSpecial) {
+      window.location.href = PAYMENT_LINKS.studioLogosMonthly;
+      return;
+    }
+
+    setSelectedEbook(ebook);
+  };
 
   return (
     <section className="py-32 px-10 max-w-7xl mx-auto">
@@ -23,9 +46,9 @@ export function ThematicRow() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {themes.map((theme, idx) => (
-          <a
+          <div
             key={idx}
-            href={theme.link}
+            onClick={() => handleRead(theme.id)}
             className="group cursor-pointer block"
           >
           <motion.div 
@@ -52,9 +75,18 @@ export function ThematicRow() {
             </div>
             <p className="text-[10px] uppercase tracking-[0.3em] font-black text-black/30 group-hover:text-[#B48A3D] transition-colors">Referência: {theme.author}</p>
           </motion.div>
-          </a>
+          </div>
         ))}
       </div>
+
+      <AnimatePresence>
+        {selectedEbook && (
+          <Reader 
+            ebook={selectedEbook} 
+            onClose={() => setSelectedEbook(null)} 
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

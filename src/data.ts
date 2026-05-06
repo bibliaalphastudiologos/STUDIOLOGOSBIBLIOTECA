@@ -56,6 +56,7 @@ function buildContent(source: (typeof DEMO_EBOOKS)[number]): string {
 
 function toStudioEbook(source: (typeof DEMO_EBOOKS)[number]): Ebook {
   const category = categoryMap[source.category] || Category.LITERATURE;
+  const isPublicDomain = source.contentTypeLabel === 'public_domain' || source.fullTextAllowed === true;
 
   return {
     id: source.id,
@@ -65,6 +66,12 @@ function toStudioEbook(source: (typeof DEMO_EBOOKS)[number]): Ebook {
     language: 'Português',
     originalLanguage: source.originalLanguage || source.workReference || 'Português',
     content: buildContent(source),
+    chapters: source.chapters?.map(ch => ({
+      id: ch.id,
+      title: ch.title,
+      content: ch.content
+    })),
+    isPublicDomain,
     coverColor: coverColors[category],
     coverAccent: coverAccents[category],
     coverMark: coverMarks[category],

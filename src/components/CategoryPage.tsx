@@ -1,12 +1,13 @@
-import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, Shield, Crown, Brain, ChevronLeft } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, BookOpen, Shield, Crown, Brain, ChevronLeft, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { EbookCard } from './EbookCard';
 import { EBOOKS } from '../data';
 import { Category, type Ebook } from '../studioTypes';
 import { useAuth } from './AuthProvider';
 import { PAYMENT_LINKS } from '../types';
+import { Reader } from './Reader';
+import { safeStorage } from '../lib/safeStorage';
 
 interface CategoryPageProps {
   category: string;
@@ -19,7 +20,7 @@ const CATEGORY_CONFIG: Record<string, { title: string; subtitle: string; descrip
     description: 'De Platão a Nietzsche, de Kant a Heidegger: obras integrais que percorrem toda a história do pensamento ocidental. Para quem quer compreender o mundo em profundidade.',
     bgGradient: 'from-[#1a0a28] via-[#2d1a4a] to-[#1d0d36]',
     icon: <BookOpen className="w-8 h-8" />,
-    accentColor: '#7c3aed',
+    accentColor: '#C5A059',
     image: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=1400',
   },
   'Teologia': {
@@ -55,6 +56,7 @@ export function CategoryPage({ category }: CategoryPageProps) {
   const navigate = useNavigate();
   const { user, hasAccess, login, loading } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
+  const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const config = CATEGORY_CONFIG[category];
 
@@ -75,7 +77,7 @@ export function CategoryPage({ category }: CategoryPageProps) {
 
   const handleRead = (ebook: Ebook) => {
     if (!user && !ebook.isSpecial) {
-      login();
+      setLockedEbook(ebook);
       return;
     }
 
@@ -83,7 +85,16 @@ export function CategoryPage({ category }: CategoryPageProps) {
       window.location.href = PAYMENT_LINKS.studioLogosMonthly;
       return;
     }
+
+    setSelectedEbook(ebook);
+    safeStorage.setItem("last-read", JSON.stringify(ebook.id));
   };
+
+  useEffect(() => {
+    if (!lockedEbook || !user || !hasAccess) return;
+    setSelectedEbook(lockedEbook);
+    setLockedEbook(null);
+  }, [hasAccess, lockedEbook, user]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -146,8 +157,7 @@ export function CategoryPage({ category }: CategoryPageProps) {
 
       {/* Filters + Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* Filter bar */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-12 items-start sm:items-center justify-between">
+        <div className="flex flex-col sm:flex-row gap-4 mb-12 items-start sm:items-center justify-between border-b border-black/5 pb-8">
           <h2 className="font-serif text-3xl text-[#1A1A1A]">
             {filteredEbooks.length} {filteredEbooks.length === 1 ? 'obra' : 'obras'} em {category}
           </h2>
@@ -171,7 +181,7 @@ export function CategoryPage({ category }: CategoryPageProps) {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
             {filteredEbooks.map(ebook => (
               <motion.div 
                 key={ebook.id}
@@ -240,13 +250,58 @@ export function CategoryPage({ category }: CategoryPageProps) {
           </div>
         )}
       </section>
+
+      <AnimatePresence>
+        {lockedEbook && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-black/50 backdrop-blur-sm flex items-center justify-center px-6"
+          >
+            <div className="bg-[#F9F7F2] max-w-md w-full p-10 rounded-sm shadow-2xl border border-black/10 text-center">
+              <div className="w-14 h-14 rounded-full bg-[#1A1A1A] text-[#C5A059] flex items-center justify-center mx-auto mb-6">
+                <Lock className="w-6 h-6" />
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Login único Bíblia Alpha</p>
+              <h2 className="text-3xl font-serif mb-4">Entre para continuar a leitura</h2>
+              <p className="text-sm text-black/60 leading-relaxed mb-8">
+                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, entre uma vez na plataforma com o mesmo login Google da Bíblia Alpha.
+              </p>
+              <div className="space-y-3">
+                <button
+                  onClick={async () => {
+                    await login();
+                  }}
+                  disabled={loading}
+                  className="w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-black disabled:opacity-50"
+                >
+                  Entrar com Google
+                </button>
+                <button
+                  onClick={() => setLockedEbook(null)}
+                  className="w-full py-3 text-[10px] uppercase tracking-[0.24em] font-bold text-black/50 hover:text-black"
+                >
+                  Continuar vendo o catálogo
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+        {selectedEbook && (
+          <Reader 
+            ebook={selectedEbook} 
+            onClose={() => setSelectedEbook(null)} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 function Navigate({ to }: { to: string }) {
   const navigate = useNavigate();
-  React.useEffect(() => {
+  useEffect(() => {
     navigate(to);
   }, [navigate, to]);
   return null;
