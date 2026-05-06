@@ -18,6 +18,7 @@ export default function App() {
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [previewEbook, setPreviewEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
+  const [activeAxis, setActiveAxis] = useState<{ category: Category; term: string; label: string } | null>(null);
   const [lastRead, setLastRead] = useState<Ebook | null>(() => {
     const saved = safeStorage.getItem("last-read");
     try {
@@ -55,6 +56,13 @@ export default function App() {
     }
 
     setPreviewEbook(ebook);
+  };
+
+  const handleAxisOpen = (axis: { category: Category; term: string; label: string }) => {
+    setActiveAxis(axis);
+    window.setTimeout(() => {
+      document.getElementById(`shelf-${axis.category}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
   };
 
   useEffect(() => {
@@ -105,6 +113,12 @@ export default function App() {
         <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           <motion.div 
             whileHover={{ y: -5 }}
+            role="button"
+            tabIndex={0}
+            onClick={() => handleAxisOpen({ category: Category.PHILOSOPHY, term: 'metafísica', label: 'Metafísica & Existência' })}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: Category.PHILOSOPHY, term: 'metafísica', label: 'Metafísica & Existência' });
+            }}
             className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
             <div>
@@ -118,6 +132,12 @@ export default function App() {
 
           <motion.div 
             whileHover={{ y: -5 }}
+            role="button"
+            tabIndex={0}
+            onClick={() => handleAxisOpen({ category: Category.PSYCHOANALYSIS, term: 'inconsciente', label: 'O Despertar da Psique' })}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: Category.PSYCHOANALYSIS, term: 'inconsciente', label: 'O Despertar da Psique' });
+            }}
             className="p-10 border border-black/5 bg-[#1A1A1A] text-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
             <div>
@@ -131,6 +151,12 @@ export default function App() {
 
           <motion.div 
             whileHover={{ y: -5 }}
+            role="button"
+            tabIndex={0}
+            onClick={() => handleAxisOpen({ category: Category.THEOLOGY, term: 'dogma', label: 'Tradição & Dogma' })}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: Category.THEOLOGY, term: 'dogma', label: 'Tradição & Dogma' });
+            }}
             className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
             <div>
@@ -213,11 +239,35 @@ export default function App() {
           {categories.map(cat => {
             const ebooks = groupedEbooks[cat];
             if (!ebooks || ebooks.length === 0) return null;
+            const axisForCategory = activeAxis?.category === cat ? activeAxis : null;
+            const visibleEbooks = axisForCategory
+              ? ebooks.filter((ebook) => {
+                  const haystack = `${ebook.title} ${ebook.author} ${ebook.subcategory} ${ebook.collection} ${ebook.description} ${ebook.tags.join(' ')}`.toLowerCase();
+                  return haystack.includes(axisForCategory.term);
+                })
+              : ebooks;
+            const shelfEbooks = visibleEbooks.length > 0 ? visibleEbooks : ebooks.slice(0, Math.min(12, ebooks.length));
             return (
-              <div key={cat} className="space-y-4">
+              <div key={cat} id={`shelf-${cat}`} className="space-y-4 scroll-mt-28">
+                {axisForCategory && (
+                  <div className="px-10 max-w-7xl mx-auto">
+                    <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.3em] font-black accent-gold">Eixo selecionado</p>
+                        <p className="font-serif text-xl">{axisForCategory.label}</p>
+                      </div>
+                      <button
+                        onClick={() => setActiveAxis(null)}
+                        className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/50 hover:text-black"
+                      >
+                        Ver estante completa
+                      </button>
+                    </div>
+                  </div>
+                )}
                 <EbookShelf 
                   category={cat} 
-                  ebooks={ebooks} 
+                  ebooks={shelfEbooks} 
                   onRead={handlePreview}
                 />
                 
