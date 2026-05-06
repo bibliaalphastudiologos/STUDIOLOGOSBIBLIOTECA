@@ -6,7 +6,6 @@ import { EbookModal } from './EbookModal';
 import { DEMO_EBOOKS } from '../data/ebooks';
 import { Ebook } from '../types';
 import { useAuth } from '../lib/AuthContext';
-import { signInWithGoogle } from '../lib/firebase';
 
 type Category = 'Teologia' | 'Filosofia' | 'Psicanálise';
 
@@ -68,6 +67,7 @@ const CATEGORY_CONFIG: Record<Category, CategoryConfig> = {
       { label: 'Lacaniano', value: 'Sujeito & Gozo' },
       { label: 'Clínica', value: 'Neuroses & Psicoses' },
       { label: 'Cultura', value: 'Mal-estar & Desejo' },
+      { label: 'Cultura', value: 'Mal-estar & Desejo' },
     ],
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1400',
   },
@@ -78,7 +78,7 @@ interface CategoryPageProps {
 }
 
 export const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
-  const { user } = useAuth();
+  const { user, login } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [contentTypeFilter, setContentTypeFilter] = useState<'all' | 'public_domain' | 'synthesis'>('all');
@@ -101,7 +101,13 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
     if (user) {
       setSelectedEbook(ebook);
     } else {
-      try { await signInWithGoogle(); } catch {}
+      try { 
+        await login(); 
+        // Se o login for bem sucedido (o que não será agora), abre o modal
+        // Se falhar, o erro será tratado pelo contexto/header
+      } catch (err: any) {
+        console.error("Login failed:", err.message);
+      }
     }
   };
 
