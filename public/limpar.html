@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Logos - Limpeza de Cache</title>
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #0a192f; color: white; text-align: center; }
+    .container { padding: 40px; }
+    h1 { font-size: 24px; margin-bottom: 16px; }
+    p { color: #ccc; margin: 8px 0; }
+    .status { margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; }
+    .success { color: #4ade80; }
+    .error { color: #f87171; }
+    a { color: #d4af37; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔧 Limpando cache antigo...</h1>
+    <p>Aguarde alguns segundos.</p>
+    <div class="status" id="status">Processando...</div>
+  </div>
+  <script>
+    async function cleanAll() {
+      const status = document.getElementById('status');
+      let steps = [];
+
+      try {
+        // 1. Unregister all service workers
+        if ('serviceWorker' in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          for (const reg of registrations) {
+            await reg.unregister();
+            steps.push('✅ Service Worker removido: ' + reg.scope);
+          }
+          if (registrations.length === 0) {
+            steps.push('ℹ️ Nenhum Service Worker encontrado');
+          }
+        }
+
+        // 2. Clear all caches
+        if ('caches' in window) {
+          const names = await caches.keys();
+          for (const name of names) {
+            await caches.delete(name);
+            steps.push('✅ Cache removido: ' + name);
+          }
+          if (names.length === 0) {
+            steps.push('ℹ️ Nenhum cache encontrado');
+          }
+        }
+
+        // 3. Clear localStorage
+        localStorage.clear();
+        steps.push('✅ LocalStorage limpo');
+
+        // 4. Clear sessionStorage
+        sessionStorage.clear();
+        steps.push('✅ SessionStorage limpo');
+
+        steps.push('');
+        steps.push('<span class="success">✅ LIMPEZA COMPLETA!</span>');
+        steps.push('');
+        steps.push('<a href="/">👉 Clique aqui para acessar o site</a>');
+
+      } catch (err) {
+        steps.push('<span class="error">❌ Erro: ' + err.message + '</span>');
+        steps.push('<a href="/">Tentar acessar o site mesmo assim</a>');
+      }
+
+      status.innerHTML = steps.join('<br>');
+    }
+
+    cleanAll();
+  </script>
+</body>
+</html>

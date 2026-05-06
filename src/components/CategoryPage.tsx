@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen, Shield, Crown, Brain } from 'lucide-react';
 import { EbookCard } from './EbookCard';
 import { EbookModal } from './EbookModal';

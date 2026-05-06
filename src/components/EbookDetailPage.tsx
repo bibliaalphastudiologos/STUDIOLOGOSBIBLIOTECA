@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { DEMO_EBOOKS } from '../data/ebooks';
 import { useAuth } from '../lib/AuthContext';
 import { PAYMENT_LINKS } from '../types';

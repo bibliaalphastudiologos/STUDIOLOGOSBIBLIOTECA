@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Crown, BookOpen, Zap, ArrowRight, Shield, Sparkles } from 'lucide-react';
 import { useAuth } from '../lib/AuthContext';
 export const FeaturedSection: React.FC = () => {
