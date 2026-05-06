@@ -110,6 +110,8 @@ Gera `dist/` e faz commit forçado no branch `deploy`. Use se o Hostinger estive
 
 ## 🚨 Problemas Comuns
 
+## 🚨 Problemas Comuns
+
 ### Tela branca após deploy
 **Causa**: Arquivos foram para `/public_html/dist/` em vez de `/public_html/`.
 
@@ -117,6 +119,32 @@ Gera `dist/` e faz commit forçado no branch `deploy`. Use se o Hostinger estive
 - Se usar SFTP: `strip_components: 1` (já corrigido)
 - Se usar FTP: `local-dir: ./dist` (já correto)
 - Se usar Hostinger Git: **Build output directory** = `dist`
+
+### Erro MIME type - "Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of 'text/plain'"
+**Causa**: O servidor está servindo arquivos `.js` com Content-Type `text/plain` em vez de `application/javascript`. Isso geralmente ocorre porque o arquivo `.htaccess` não está presente ou não está sendo lido pelo Apache.
+
+**Solução**:
+1. **Verifique se o `.htaccess` está no servidor**:
+   - Acesse o File Manager do Hostinger (hPanel)
+   - Navegue até `public_html/`
+   - **Mostrar arquivos ocultos** (configuração do gerenciador)
+   - Confirme que existe o arquivo `.htaccess` na raiz de `public_html/`
+   
+2. **Se o arquivo não existir**:
+   - Faça download do `.htaccess` da raiz deste repositório
+   - Envie via FTP para `/public_html/` (garantindo que seja um arquivo oculto)
+   - Ou use a integração GitHub Actions (que já inclui `.htaccess` no deploy)
+
+3. **Se o arquivo existir mas o erro persistir**:
+   - O servidor pode ter `mod_headers` ou `mod_mime` desativados
+   - Contate o suporte do Hostinger para habilitar esses módulos
+   - Ou adicione no `.htaccess`:
+     ```
+     AddType application/javascript .js
+     AddType text/css .css
+     ```
+
+4. **Limpe o cache do navegador** após a correção (Ctrl+Shift+R ou Ctrl+F5)
 
 ### Erro 530 FTP
 Use SFTP (SSH) que é mais confiável, ou verifique usuário/senha.
