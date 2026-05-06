@@ -4,9 +4,9 @@ import { BookOpen } from 'lucide-react';
 
 export function ThematicRow() {
   const themes = [
-    { title: "Estética Transcendental", author: "Kant & Schiller", image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800" },
-    { title: "Soberania e Poder", author: "Hobbes & Schmitt", image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800" },
-    { title: "Mística e Oculto", author: "Eckhart & Jung", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800" }
+    { title: "Estética Transcendental", author: "Kant & Schiller", image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800", link: "/filosofia" },
+    { title: "Soberania e Poder", author: "Hobbes & Schmitt", image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800", link: "/filosofia" },
+    { title: "Mística e Oculto", author: "Eckhart & Jung", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800", link: "/teologia" }
   ];
 
   return (
@@ -23,13 +23,17 @@ export function ThematicRow() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {themes.map((theme, idx) => (
-          <motion.div 
+          <a
             key={idx}
+            href={theme.link}
+            className="group cursor-pointer block"
+          >
+          <motion.div 
             initial={{ scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.2 }}
             viewport={{ once: true }}
-            className="group cursor-pointer"
+            className=""
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm ebook-shadow mb-8">
               <img 
@@ -48,6 +52,7 @@ export function ThematicRow() {
             </div>
             <p className="text-[10px] uppercase tracking-[0.3em] font-black text-black/30 group-hover:text-[#B48A3D] transition-colors">Referência: {theme.author}</p>
           </motion.div>
+          </a>
         ))}
       </div>
     </section>

@@ -5,13 +5,23 @@
 
 @layer base {
   body {
-    @apply bg-[#F9F7F2] text-[#1A1A1A] antialiased selection:bg-[#C5A059] selection:text-white;
-    font-feature-settings: "kern" 1, "liga" 1;
+    @apply bg-white text-[#1A1A1A] antialiased selection:bg-[#C5A059] selection:text-white;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-[#0F0F0F] tracking-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  article, .prose {
+    @apply leading-[1.8] tracking-wide;
   }
 }
 
@@ -21,7 +31,7 @@
 
 .noble-gradient {
   background: radial-gradient(circle at 50% -20%, rgba(197, 160, 89, 0.08) 0%, transparent 70%),
-              linear-gradient(to bottom, #FFFFFF 0%, #F9F7F2 100%);
+              linear-gradient(to bottom, #FFFFFF 0%, #F2F0E9 100%);
 }
 
 .accent-gold {
@@ -78,6 +88,20 @@
   @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
 }
 
+/* Reader Typography Improvements */
+.reader-text {
+  @apply font-serif leading-[2] text-lg md:text-xl tracking-wide text-justify;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
+}
+
+.reader-paragraph {
+  @apply mb-6 text-[#2A2A2A];
+}
+
+.reader-paragraph:first-letter {
+  @apply text-6xl font-bold mr-3 float-left;
+}
+
 /* Emergency visibility guard:
    if animation observers fail, motion can leave content at opacity: 0. */
 #root [style*="opacity: 0"] {
@@ -95,4 +119,10 @@
 #root article,
 #root .group {
   visibility: visible !important;
+}
+
+/* Light theme as default */
+html, body, #root {
+  background-color: #ffffff !important;
+  color: #1A1A1A !important;
 }
