@@ -22,3 +22,22 @@
   .text-philosophy { color: #7c3aed; }
   .text-psicanalise { color: #dc2626; }
 }
+
+/* Emergency visibility guard:
+   if animation observers fail, Framer Motion can leave content at opacity: 0. */
+#root [style*="opacity: 0"] {
+  opacity: 1 !important;
+}
+
+#root [style*="scale(0.95)"],
+#root [style*="translateY(20px)"],
+#root [style*="translateY(19"] {
+  transform: none !important;
+}
+
+#root main,
+#root section,
+#root article,
+#root .group {
+  visibility: visible !important;
+}
