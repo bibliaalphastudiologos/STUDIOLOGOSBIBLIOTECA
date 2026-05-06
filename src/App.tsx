@@ -7,11 +7,14 @@ import { Reader } from "./components/Reader";
 import { EBOOKS } from "./data";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, ChevronRight } from "lucide-react";
+import { BookOpen, ChevronRight, Lock } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
+import { useAuth } from "./components/AuthProvider";
 
 export default function App() {
+  const { user, login, loading } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
+  const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
   const [lastRead, setLastRead] = useState<Ebook | null>(() => {
     const saved = safeStorage.getItem("last-read");
     try {
@@ -26,6 +29,11 @@ export default function App() {
   });
 
   const handleRead = (ebook: Ebook) => {
+    if (!user && !ebook.isSpecial) {
+      setLockedEbook(ebook);
+      return;
+    }
+
     setSelectedEbook(ebook);
     setLastRead(ebook);
     safeStorage.setItem("last-read", JSON.stringify(ebook.id));
@@ -119,7 +127,7 @@ export default function App() {
                 </div>
               </div>
               <button 
-                onClick={() => setSelectedEbook(lastRead)}
+                onClick={() => handleRead(lastRead)}
                 className="w-full py-3 bg-[#1A1A1A] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-black transition-all"
               >
                 Retomar Agora
@@ -231,6 +239,43 @@ export default function App() {
       </footer>
 
       <AnimatePresence>
+        {lockedEbook && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-black/50 backdrop-blur-sm flex items-center justify-center px-6"
+          >
+            <div className="bg-[#F9F7F2] max-w-md w-full p-10 rounded-sm shadow-2xl border border-black/10 text-center">
+              <div className="w-14 h-14 rounded-full bg-[#1A1A1A] text-[#C5A059] flex items-center justify-center mx-auto mb-6">
+                <Lock className="w-6 h-6" />
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Login único Bíblia Alpha</p>
+              <h2 className="text-3xl font-serif mb-4">Entre para continuar a leitura</h2>
+              <p className="text-sm text-black/60 leading-relaxed mb-8">
+                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, use o mesmo login Google da Bíblia Alpha.
+              </p>
+              <div className="space-y-3">
+                <button
+                  onClick={async () => {
+                    await login();
+                    setLockedEbook(null);
+                  }}
+                  disabled={loading}
+                  className="w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-black disabled:opacity-50"
+                >
+                  Entrar com Google
+                </button>
+                <button
+                  onClick={() => setLockedEbook(null)}
+                  className="w-full py-3 text-[10px] uppercase tracking-[0.24em] font-bold text-black/50 hover:text-black"
+                >
+                  Continuar vendo o catálogo
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
         {selectedEbook && (
           <Reader 
             ebook={selectedEbook} 

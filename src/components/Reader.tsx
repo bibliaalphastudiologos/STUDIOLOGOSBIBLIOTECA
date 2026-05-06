@@ -7,6 +7,8 @@ import {
 import { type Ebook } from "../studioTypes";
 import { translateToPortuguese } from "../services/gemini";
 import { safeStorage } from "../lib/safeStorage";
+import { useAuth } from "./AuthProvider";
+import { loadEbookProgress, saveEbookProgress } from "../services/ebookProgress";
 
 interface ReaderProps {
   ebook: Ebook;
@@ -14,15 +16,19 @@ interface ReaderProps {
 }
 
 export function Reader({ ebook, onClose }: ReaderProps) {
+  const { user } = useAuth();
   const [content, setContent] = useState(ebook.content);
   const [isTranslating, setIsTranslating] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [theme, setTheme] = useState<"dark" | "sepia" | "light">("dark");
   const [page, setPage] = useState(1);
   const [progress, setProgress] = useState(0);
+  const [cloudLoaded, setCloudLoaded] = useState(false);
 
-  // Load progress from localStorage
   useEffect(() => {
+    setCloudLoaded(false);
+    setContent(ebook.content);
+
     const saved = safeStorage.getItem(`reading-${ebook.id}`);
     try {
       if (saved) {
@@ -33,11 +39,51 @@ export function Reader({ ebook, onClose }: ReaderProps) {
     } catch {
       safeStorage.removeItem(`reading-${ebook.id}`);
     }
-  }, [ebook.id]);
+
+    if (!user) {
+      setCloudLoaded(true);
+      return;
+    }
+
+    loadEbookProgress(user, ebook.id)
+      .then((cloudProgress) => {
+        if (!cloudProgress) return;
+        setPage(cloudProgress.page || 1);
+        setProgress(cloudProgress.progress || 0);
+      })
+      .catch((error) => {
+        console.warn('[StudioLogos Reader] Falha ao carregar progresso:', error);
+      })
+      .finally(() => setCloudLoaded(true));
+  }, [ebook, user]);
+
+  useEffect(() => {
+    const nextProgress = Math.min(100, Math.max(10, Math.round((page / 10) * 100)));
+    setProgress(nextProgress);
+    safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({ page, progress: nextProgress }));
+
+    if (!user || !cloudLoaded) return;
+
+    const timer = window.setTimeout(() => {
+      saveEbookProgress(user, ebook.id, { page, progress: nextProgress }).catch((error) => {
+        console.warn('[StudioLogos Reader] Falha ao salvar progresso:', error);
+      });
+    }, 500);
+
+    return () => window.clearTimeout(timer);
+  }, [cloudLoaded, ebook.id, page, user]);
 
   const saveProgress = () => {
-    safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({ page, progress: 100 }));
-    window.alert("Progresso salvo neste navegador.");
+    const nextProgress = Math.min(100, Math.max(10, Math.round((page / 10) * 100)));
+    safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({ page, progress: nextProgress }));
+    if (!user) {
+      window.alert("Entre com Google para salvar seu progresso na conta.");
+      return;
+    }
+
+    saveEbookProgress(user, ebook.id, { page, progress: nextProgress })
+      .then(() => window.alert("Progresso salvo na sua conta."))
+      .catch(() => window.alert("Não foi possível salvar na nuvem agora."));
   };
 
   const handleTranslate = async () => {
@@ -156,7 +202,7 @@ export function Reader({ ebook, onClose }: ReaderProps) {
           <div className="w-64 md:w-96 h-0.5 bg-black/5 rounded-full overflow-hidden">
             <div className="h-full bg-[#C5A059]" style={{ width: `${(page/10)*100}%` }} />
           </div>
-          <span className="text-[9px] font-mono opacity-50 tracking-widest">{Math.round((page/10)*100)}% CONCLUÍDO</span>
+          <span className="text-[9px] font-mono opacity-50 tracking-widest">{progress}% CONCLUÍDO</span>
         </div>
 
         <button 

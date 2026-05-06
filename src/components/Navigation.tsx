@@ -1,7 +1,10 @@
 import { Library } from "lucide-react";
 import { motion } from "framer-motion";
+import { useAuth } from "./AuthProvider";
 
 export function Navigation() {
+  const { user, loading, login, logout } = useAuth();
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5 px-10 py-6 flex items-center justify-between">
       <motion.div 
@@ -25,12 +28,29 @@ export function Navigation() {
       
       <div className="flex items-center gap-6">
         <div className="hidden md:block text-right">
-          <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold">Biblioteca Curada</p>
-          <p className="text-sm font-serif text-[#1A1A1A]">Membros Studiologos</p>
+          <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold">
+            {user ? "Conta conectada" : "Login único"}
+          </p>
+          <p className="text-sm font-serif text-[#1A1A1A]">
+            {user?.displayName || user?.email || "Bíblia Alpha"}
+          </p>
         </div>
-        <div className="w-10 h-10 rounded-full border border-accent-gold/30 flex items-center justify-center bg-[#C5A059]/5">
-          <span className="accent-gold font-serif text-sm">S</span>
-        </div>
+        {user ? (
+          <button
+            onClick={logout}
+            className="h-10 px-4 border border-black/10 rounded-sm text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-black hover:text-white transition-colors"
+          >
+            Sair
+          </button>
+        ) : (
+          <button
+            onClick={login}
+            disabled={loading}
+            className="h-10 px-4 bg-[#1A1A1A] text-white rounded-sm text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-black disabled:opacity-50 transition-colors"
+          >
+            Entrar
+          </button>
+        )}
       </div>
     </nav>
   );
