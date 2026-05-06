@@ -4,6 +4,7 @@ import type { Ebook, StudioChapter } from '../studioTypes';
 const CACHE_PREFIX = 'sl_imported_ebook_v1_';
 const START_MARKER = '*** START OF';
 const END_MARKER = '*** END OF';
+const REQUEST_TIMEOUT_MS = 20000;
 
 function cacheKey(ebook: Ebook): string {
   return `${CACHE_PREFIX}${ebook.id}`;
@@ -133,6 +134,23 @@ function writeCache(ebook: Ebook, chapters: StudioChapter[]): void {
   }));
 }
 
+async function fetchText(url: string): Promise<{ ok: boolean; status: number; text: string }> {
+  const controller = new AbortController();
+  const timer = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(url, { signal: controller.signal });
+    const text = response.ok ? await response.text() : '';
+    return { ok: response.ok, status: response.status, text };
+  } finally {
+    window.clearTimeout(timer);
+  }
+}
+
+function proxyUrl(url: string): string {
+  return `https://r.jina.ai/http://r.jina.ai/http://${url}`;
+}
+
 export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[] | null> {
   if (!ebook.importSource?.textUrl && !ebook.importSource?.providerId) return null;
 
@@ -155,12 +173,20 @@ export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[
   let raw = '';
   let lastStatus = 0;
   for (const url of urls) {
-    const response = await fetch(url);
-    lastStatus = response.status;
-    if (response.ok) {
-      raw = await response.text();
-      break;
+    const attempts = [url, proxyUrl(url)];
+    for (const attempt of attempts) {
+      try {
+        const response = await fetchText(attempt);
+        lastStatus = response.status;
+        if (response.ok && response.text.length > 800) {
+          raw = response.text;
+          break;
+        }
+      } catch {
+        lastStatus = 0;
+      }
     }
+    if (raw) break;
   }
 
   if (!raw) throw new Error(`Falha ao importar texto técnico: ${lastStatus}`);

@@ -58,6 +58,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   const [cloudLoaded, setCloudLoaded] = useState(false);
   const [importedChapters, setImportedChapters] = useState<Ebook["chapters"] | null>(null);
   const [importingText, setImportingText] = useState(false);
+  const [importError, setImportError] = useState(false);
 
   const chapters = importedChapters || (ebook.chapters.length ? ebook.chapters : [{
     id: `${ebook.id}-chapter-1`,
@@ -91,6 +92,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
     setLanguageMode("original");
     setTranslatedContent({});
     setImportedChapters(null);
+    setImportError(false);
 
     if (ebook.importSource) {
       setImportingText(true);
@@ -98,7 +100,10 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
         .then((chaptersFromSource) => {
           if (chaptersFromSource?.length) setImportedChapters(chaptersFromSource);
         })
-        .catch((error) => console.warn("[StudioLogos Reader] Falha ao importar texto técnico:", error))
+        .catch((error) => {
+          console.warn("[StudioLogos Reader] Falha ao importar texto técnico:", error);
+          setImportError(true);
+        })
         .finally(() => setImportingText(false));
     }
 
@@ -320,6 +325,12 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
               {importingText && (
                 <div className="mb-8 border border-[#C5A059]/30 bg-[#C5A059]/10 px-5 py-4 text-sm">
                   Preparando texto integral no leitor Studio Logos...
+                </div>
+              )}
+
+              {importError && (
+                <div className="mb-8 border border-red-900/20 bg-red-900/5 px-5 py-4 text-sm leading-relaxed">
+                  Esta obra entrou em revisão técnica porque o texto integral não respondeu corretamente agora. Ela continua catalogada, mas não será apresentada como leitura vazia.
                 </div>
               )}
 

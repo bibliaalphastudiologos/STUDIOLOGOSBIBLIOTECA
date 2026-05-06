@@ -73,13 +73,13 @@ const CATEGORY_META = {
 };
 
 const TARGET_BY_CATEGORY = {
-  Filosofia: 130,
-  Teologia: 150,
-  Espiritualidade: 70,
-  'Literatura Brasileira': 80,
-  'Literatura Portuguesa': 80,
-  Literatura: 270,
-  História: 120,
+  Filosofia: 90,
+  Teologia: 90,
+  Espiritualidade: 40,
+  'Literatura Brasileira': 60,
+  'Literatura Portuguesa': 60,
+  Literatura: 410,
+  História: 150,
   Humanidades: 70,
   Psicanálise: 30,
 };
@@ -139,7 +139,13 @@ function parseCsv(csv) {
 function authorName(book) {
   const name = book.authorsText || 'Autor clássico';
   const firstAuthor = name.split(';')[0] || name;
-  const parts = firstAuthor.split(',').map((part) => part.trim());
+  const withoutDates = firstAuthor
+    .replace(/\b\d{3,4}\??\s*(BCE|BC|CE|AD)?\s*-\s*\d{1,4}\??\s*(BCE|BC|CE|AD)?\b/gi, '')
+    .replace(/\b\d{3,4}\??\s*-\s*\?\b/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/,\s*$/g, '')
+    .trim();
+  const parts = withoutDates.split(',').map((part) => part.trim()).filter(Boolean);
   return parts.length > 1 ? `${parts.slice(1).join(' ')} ${parts[0]}` : firstAuthor;
 }
 
@@ -162,7 +168,7 @@ function htmlUrl(book) {
 }
 
 function textHaystack(book) {
-  return [book.title, authorName(book), ...book.subjects, ...book.bookshelves].join(' ').toLowerCase();
+  return [book.title, authorName(book), book.locc, ...book.subjects, ...book.bookshelves].join(' ').toLowerCase();
 }
 
 function hasAny(value, terms) {
@@ -171,19 +177,22 @@ function hasAny(value, terms) {
 
 function classify(book) {
   const h = textHaystack(book);
+  const subjectsText = [book.title, book.locc, ...book.subjects].join(' ').toLowerCase();
   const author = authorName(book);
+  const locc = book.locc || '';
+  const literary = hasAny(h, ['fiction', 'novel', 'stories', 'drama', 'tragedies', 'poetry', 'poems', 'literature', 'romance']);
 
   if (hasAny(h, ['psychoanalysis', 'psychology', 'dreams', 'unconscious', 'mental'])) return 'Psicanálise';
-  if (hasAny(h, ['philosophy', 'ethics', 'metaphysics', 'logic', 'stoic', 'plato', 'aristotle', 'kant', 'spinoza', 'hume'])) return 'Filosofia';
-  if (hasAny(h, ['theology', 'christian', 'sermon', 'bible', 'church', 'religion', 'saint', 'puritan', 'devotional'])) {
-    return hasAny(h, ['devotional', 'mystic', 'meditation', 'prayer', 'spiritual']) ? 'Espiritualidade' : 'Teologia';
-  }
   if (book.language === 'pt' && BRAZILIAN_AUTHORS.some((part) => author.includes(part))) return 'Literatura Brasileira';
   if (book.language === 'pt' && PORTUGUESE_AUTHORS.some((part) => author.includes(part))) return 'Literatura Portuguesa';
-  if (hasAny(h, ['brazil', 'brazilian'])) return 'Literatura Brasileira';
-  if (hasAny(h, ['portuguese literature', 'portugal'])) return 'Literatura Portuguesa';
-  if (hasAny(h, ['history', 'civilization', 'biography', 'war', 'memoir', 'ancient', 'empire'])) return 'História';
-  if (hasAny(h, ['essay', 'criticism', 'education', 'politics', 'social', 'language', 'letters'])) return 'Humanidades';
+  if (hasAny(h, ['brazilian literature', 'brazil -- fiction', 'brazil -- poetry'])) return 'Literatura Brasileira';
+  if (hasAny(h, ['portuguese literature', 'portugal -- fiction', 'portugal -- poetry'])) return 'Literatura Portuguesa';
+  if (/^(BL|BR|BS|BT|BV|BX)/i.test(locc) || hasAny(h, ['theology', 'christian', 'sermon', 'bible', 'church', 'religion', 'saint', 'puritan', 'devotional'])) {
+    return hasAny(h, ['devotional', 'mystic', 'meditation', 'prayer', 'spiritual']) ? 'Espiritualidade' : 'Teologia';
+  }
+  if (/^[CDEF]/i.test(locc) || hasAny(h, ['history', 'civilization', 'biography', 'war', 'memoir', 'ancient', 'empire'])) return 'História';
+  if (hasAny(h, ['essay', 'criticism', 'education', 'politics', 'law', 'constitution', 'social', 'language', 'letters'])) return 'Humanidades';
+  if (!literary && (/^(B|BD|BF|BJ)/i.test(locc) || hasAny(subjectsText, ['philosophy', 'ethics', 'metaphysics', 'logic', 'stoic', 'plato', 'aristotle', 'kant', 'spinoza', 'hume']))) return 'Filosofia';
   return 'Literatura';
 }
 
@@ -317,6 +326,7 @@ async function main() {
       authorsText,
       authorDeathYears: extractDeathYears(authorsText),
       subjects: compact(row[index.Subjects]).split(';').map(compact).filter(Boolean),
+      locc: compact(row[index.LoCC]),
       bookshelves: compact(row[index.Bookshelves]).split(';').map(compact).filter(Boolean),
     };
 
