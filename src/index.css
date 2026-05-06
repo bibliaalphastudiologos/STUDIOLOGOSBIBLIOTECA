@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply font-sans text-navy bg-background;
+    @apply font-sans text-navy bg-white;
   }
 }
 
@@ -18,7 +18,7 @@
 }
 
 @layer components {
-  .text-theology { @apply text-theology; }
-  .text-philosophy { @apply text-philosophy; }
-  .text-psicanalise { @apply text-psicanalise; }
+  .text-theology { color: #2563eb; }
+  .text-philosophy { color: #7c3aed; }
+  .text-psicanalise { color: #dc2626; }
 }
