@@ -103,8 +103,11 @@ export default function App() {
               <h3 className="text-[10px] uppercase tracking-[0.3em] font-extrabold accent-gold mb-6">Retomar Leitura</h3>
               <div className="flex gap-4 mb-6">
                 <div className={`w-16 h-24 ${lastRead.coverColor} border border-black/10 shadow-lg flex-shrink-0 relative overflow-hidden`}>
-                  {lastRead.coverImage && <img src={lastRead.coverImage} className="w-full h-full object-cover grayscale opacity-50" />}
                   <div className="absolute inset-0 bg-black/10" />
+                  <div className="absolute inset-2 border border-white/10" />
+                  <span className="absolute inset-0 flex items-center justify-center font-serif text-xl" style={{ color: lastRead.coverAccent }}>
+                    {lastRead.coverMark}
+                  </span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-serif text-lg leading-tight mb-1 truncate text-[#0F0F0F]">{lastRead.title}</h4>

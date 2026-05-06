@@ -15,6 +15,9 @@ export interface Ebook {
   originalLanguage: string;
   content: string;
   coverColor: string;
+  coverAccent: string;
+  coverMark: string;
+  coverEdition: string;
   coverImage?: string;
   isSpecial?: boolean;
   link?: string;
