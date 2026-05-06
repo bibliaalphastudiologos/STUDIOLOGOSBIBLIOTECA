@@ -1,8 +1,12 @@
 import { Ebook } from '../types';
 import { GutendexService } from '../lib/gutendex';
+import { additionalWorks } from './additionalWorks';
+import { brazilianLiteratureWorks } from './brazilianLiterature';
+import { philosophyPublicDomainWorks } from './philosophyPublicDomain';
+import { publicDomainWorks } from './publicDomainWorks';
 
 // Dados demo como fallback e complemento
-export const DEMO_EBOOKS: Ebook[] = [
+const FEATURED_EBOOKS: Ebook[] = [
   {
     id: 'demo-1',
     title: 'A Ética a Nicômaco',
@@ -79,6 +83,28 @@ export const DEMO_EBOOKS: Ebook[] = [
     editorialNotice: 'Texto base domínio público, disponível gratuitamente.'
   },
 ];
+
+function dedupeEbooks(ebooks: Ebook[]): Ebook[] {
+  const seen = new Set<string>();
+  const unique: Ebook[] = [];
+
+  for (const ebook of ebooks) {
+    const key = ebook.id || `${ebook.title}-${ebook.authorReference}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(ebook);
+  }
+
+  return unique;
+}
+
+export const DEMO_EBOOKS: Ebook[] = dedupeEbooks([
+  ...FEATURED_EBOOKS,
+  ...publicDomainWorks,
+  ...additionalWorks,
+  ...philosophyPublicDomainWorks,
+  ...brazilianLiteratureWorks,
+]);
 
 /**
  * Obtém ebooks combinando Gutendex + DEMO
