@@ -3,21 +3,7 @@ import { useAuth } from '../lib/AuthContext';
 import { BookOpen, Brain, Heart, User, Loader2 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const { user, isAdmin, login, loading } = useAuth();
-  const [loginError, setLoginError] = useState<string | null>(null);
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
-
-  const handleLogin = async () => {
-    setIsLoggingIn(true);
-    setLoginError(null);
-    try {
-      await login();
-    } catch (err: any) {
-      setLoginError(err.message);
-    } finally {
-      setIsLoggingIn(false);
-    }
-  };
+  // Autenticação removida
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-navy via-navy/90 to-black grain">
@@ -31,22 +17,7 @@ export const Hero: React.FC = () => {
           Acesso a milhares de obras clássicas de Teologia, Filosofia e Psicanálise
         </p>
 
-        {loginError && (
-          <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 mb-6 max-w-md mx-auto">
-            <p className="text-red-200">{loginError}</p>
-          </div>
-        )}
-
-        {!user && (
-          <button
-            onClick={handleLogin}
-            disabled={isLoggingIn || loading}
-            className="inline-flex items-center space-x-3 bg-gold text-navy px-8 py-4 rounded-sm font-bold text-lg hover:bg-gold/90 transition-all disabled:opacity-50"
-          >
-            {isLoggingIn ? <Loader2 className="w-5 h-5 animate-spin" /> : <User className="w-5 h-5" />}
-            <span>Entrar com Google</span>
-          </button>
-        )}
+        {/* Autenticação removida */}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           <div className="flex flex-col items-center">

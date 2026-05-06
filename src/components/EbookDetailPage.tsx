@@ -26,8 +26,6 @@ function getCoverGradient(theme: string, category: string) {
 export default function EbookDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate  = useNavigate();
-  const { user, isApproved, isAdmin } = useAuth();
-
   const ebook = DEMO_EBOOKS.find(e => e.slug === slug || e.id === slug);
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
@@ -49,7 +47,7 @@ export default function EbookDetailPage() {
   }
 
   const gradient = getCoverGradient(ebook.coverTheme, ebook.category);
-  const canRead  = isAdmin || isApproved;
+  const canRead  = true; // Acesso liberado conforme solicitado
   const hasTranslation = ebook.originalLanguage && !ebook.originalLanguage.toLowerCase().includes('portugu');
 
   // Related books (same category, excluding current)
@@ -130,25 +128,14 @@ export default function EbookDetailPage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3">
-                {canRead ? (
-                  <button onClick={() => navigate(`/leitor/${ebook.id}`)}
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all hover:opacity-90"
-                    style={{ background: '#c9a227', color: '#fff' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                    </svg>
-                    Ler Agora
-                  </button>
-                ) : (
-                  <a href={PAYMENT_LINKS.studioLogosMonthly} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all hover:opacity-90"
-                    style={{ background: '#c9a227', color: '#fff' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
-                    </svg>
-                    Assinar para Ler
-                  </a>
-                )}
+                <button onClick={() => navigate(`/leitor/${ebook.id}`)}
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all hover:opacity-90"
+                  style={{ background: '#c9a227', color: '#fff' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                  </svg>
+                  Ler Agora
+                </button>
                 <button onClick={() => navigate('/biblioteca')}
                   className="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
                   style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.15)' }}>

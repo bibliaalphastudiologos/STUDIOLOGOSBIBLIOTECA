@@ -78,7 +78,6 @@ interface CategoryPageProps {
 }
 
 export const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
-  const { user, login } = useAuth();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [contentTypeFilter, setContentTypeFilter] = useState<'all' | 'public_domain' | 'synthesis'>('all');
@@ -98,17 +97,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ category }) => {
   }, [category, searchTerm, contentTypeFilter]);
 
   const handleEbookClick = async (ebook: Ebook) => {
-    if (user) {
-      setSelectedEbook(ebook);
-    } else {
-      try { 
-        await login(); 
-        // Se o login for bem sucedido (o que não será agora), abre o modal
-        // Se falhar, o erro será tratado pelo contexto/header
-      } catch (err: any) {
-        console.error("Login failed:", err.message);
-      }
-    }
+    setSelectedEbook(ebook);
   };
 
   return (

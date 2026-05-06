@@ -489,14 +489,7 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route
-            path="/admin"
-            element={
-              <RequireAdmin>
-                <AdminPanel />
-              </RequireAdmin>
-            }
-          />
+          <Route path="/admin" element={<AdminPanel />} />
           <Route path="/reader/:id" element={<OnlineReader />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -505,15 +498,8 @@ const App: React.FC = () => {
   );
 };
 
-// HOC para admin
+// Admin liberado
 function RequireAdmin({ children }: { children: React.ReactNode }) {
-  const { user, isAdmin } = useAuth();
-  const isAdminEmail = user?.email?.toLowerCase().trim() === 'analista.ericksilva@gmail.com';
-
-  if (!isAdmin && !isAdminEmail) {
-    return <Navigate to="/" replace />;
-  }
-
   return <>{children}</>;
 }
 

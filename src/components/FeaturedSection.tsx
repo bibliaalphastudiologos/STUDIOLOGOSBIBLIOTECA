@@ -2,23 +2,9 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Crown, BookOpen, Zap, ArrowRight, Shield, Sparkles } from 'lucide-react';
 import { useAuth } from '../lib/AuthContext';
-import { signInWithGoogle } from '../lib/firebase';
-
 export const FeaturedSection: React.FC = () => {
-  const { user, profile } = useAuth();
-  const [isLoggingIn, setIsLoggingIn] = React.useState(false);
-
   const handleSubscribe = async () => {
-    if (user && profile?.status !== 'approved') {
-      window.open('https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed', '_blank');
-    } else if (!user) {
-      setIsLoggingIn(true);
-      try {
-        await signInWithGoogle();
-      } finally {
-        setIsLoggingIn(false);
-      }
-    }
+    window.open('https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed', '_blank');
   };
 
   return (
@@ -117,16 +103,13 @@ export const FeaturedSection: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.button
                     onClick={handleSubscribe}
-                    disabled={isLoggingIn}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-10 py-4 bg-gold text-navy font-black text-sm uppercase tracking-[0.3em] rounded-lg hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl disabled:opacity-50 flex items-center justify-center gap-2 group"
                   >
                     <Crown className="w-5 h-5" />
-                    <span>
-                      {isLoggingIn ? 'Conectando...' : profile?.status === 'approved' ? 'Acessar Biblioteca' : 'Assinar Agora'}
-                    </span>
-                    {!isLoggingIn && <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />}
+                    <span>Assinar Agora</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                   </motion.button>
 
                   <motion.button

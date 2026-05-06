@@ -3,18 +3,7 @@ import { useAuth } from '../lib/AuthContext';
 import { BookOpen, Users, Settings, BarChart3 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
-  const { user, isAdmin } = useAuth();
-
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-serif text-navy mb-4">Acesso Negado</h2>
-          <p className="text-gray-600">Apenas administradores podem acessar este painel.</p>
-        </div>
-      </div>
-    );
-  }
+  // Admin liberado
 
   return (
     <div className="min-h-screen bg-background p-6">
