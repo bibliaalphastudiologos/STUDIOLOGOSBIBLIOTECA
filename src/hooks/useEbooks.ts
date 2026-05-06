@@ -53,7 +53,7 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
     author: '',
     yearFrom: null,
     yearTo: null,
-    onlyFree: true,
+    onlyFree: false,
     sortBy: 'relevance',
     sortOrder: 'desc',
   });
@@ -174,7 +174,15 @@ export function useEbooks(initialCategory: string = 'Todos'): UseEbooksResult {
 
     // Apenas gratuitos
     if (filters.onlyFree) {
-      result = result.filter(e => e.brand === 'Project Gutenberg' || (e.editorialNotice && e.editorialNotice.includes('gratuitamente')));
+      result = result.filter(e => 
+        e.brand === 'Project Gutenberg' || 
+        (e.editorialNotice && (
+          e.editorialNotice.includes('gratuitamente') ||
+          e.editorialNotice.includes('gratuito') ||
+          e.editorialNotice.includes('domínio público') ||
+          e.editorialNotice.includes('grátis')
+        ))
+      );
     }
 
     // Ordenação

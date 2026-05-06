@@ -26,7 +26,7 @@ export const DEMO_EBOOKS: Ebook[] = [
     ],
     recommendedFor: ['Estudantes de filosofhia', 'Pesquisadores', 'Professores'],
     chapters: [],
-    editorialNotice: 'Obra de domínio público. Baseada no texto do Project Gutenberg.',
+    editorialNotice: 'Obra de domínio público disponibilizada gratuitamente através do Project Gutenberg.',
   },
   {
     id: 'demo-2',
@@ -51,7 +51,7 @@ export const DEMO_EBOOKS: Ebook[] = [
     ],
     recommendedFor: ['Filósofos', 'Psicólogos', 'Sociólogos'],
     chapters: [],
-    editorialNotice: 'Baseado em texto de domínio público.',
+    editorialNotice: 'Baseado em texto de domínio público, disponibilizado gratuitamente.',
   },
   {
     id: 'demo-3',
@@ -76,7 +76,7 @@ export const DEMO_EBOOKS: Ebook[] = [
     ],
     recommendedFor: ['Psicanalistas', 'Literatos', 'Sociólogos'],
     chapters: [],
-    editorialNotice: 'Texto base domínio público.',
+    editorialNotice: 'Texto base domínio público, disponível gratuitamente.'
   },
 ];
 

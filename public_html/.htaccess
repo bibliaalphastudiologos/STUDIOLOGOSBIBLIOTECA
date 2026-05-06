@@ -1,5 +1,17 @@
 Options -MultiViews
 
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Não reescreve arquivos e diretórios reais
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Redireciona tudo para index.html para SPA routing
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
+
 <IfModule mod_headers.c>
   <FilesMatch "\.js$">
     Header set Content-Type "application/javascript; charset=utf-8"
