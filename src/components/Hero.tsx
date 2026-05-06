@@ -38,7 +38,7 @@ export function Hero() {
             Iniciar Estudo
             <ChevronRight className="w-4 h-4 text-accent-gold" />
           </a>
-          <a href="/" className="border border-black/10 bg-white/50 backdrop-blur-sm hover:bg-white/80 py-6 px-16 rounded-sm transition-all uppercase text-[10px] tracking-[0.3em] font-bold text-[#1A1A1A] hover:-translate-y-1">
+          <a href="#acervo" className="border border-black/10 bg-white/50 backdrop-blur-sm hover:bg-white/80 py-6 px-16 rounded-sm transition-all uppercase text-[10px] tracking-[0.3em] font-bold text-[#1A1A1A] hover:-translate-y-1">
             Explorar Acervo
           </a>
         </div>

@@ -84,7 +84,8 @@ function HomePage() {
 
         {/* Section: Recommended Axis */}
         <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          <motion.div 
+          <motion.a 
+            href="/filosofia"
             whileHover={{ y: -5 }}
             className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
@@ -95,9 +96,10 @@ function HomePage() {
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
               Explorar Conceitos <BookOpen className="w-3 h-3" />
             </div>
-          </motion.div>
+          </motion.a>
 
-          <motion.div 
+          <motion.a 
+            href="/psicanalise"
             whileHover={{ y: -5 }}
             className="p-10 border border-black/5 bg-[#1A1A1A] text-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
@@ -108,9 +110,10 @@ function HomePage() {
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
               Ver Coleção <ChevronRight className="w-3 h-3" />
             </div>
-          </motion.div>
+          </motion.a>
 
-          <motion.div 
+          <motion.a 
+            href="/teologia"
             whileHover={{ y: -5 }}
             className="p-10 border border-black/5 bg-white shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer"
           >
@@ -121,7 +124,7 @@ function HomePage() {
             <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
               Recomendações <BookOpen className="w-3 h-3" />
             </div>
-          </motion.div>
+          </motion.a>
         </section>
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
@@ -191,7 +194,7 @@ function HomePage() {
 
         <ThematicRow />
 
-        <div className="space-y-32 pb-40">
+        <div id="acervo" className="space-y-32 pb-40">
           {categories.map(cat => {
             const ebooks = groupedEbooks[cat];
             if (!ebooks || ebooks.length === 0) return null;
