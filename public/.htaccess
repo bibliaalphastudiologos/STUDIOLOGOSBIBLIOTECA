@@ -1,0 +1,12 @@
+Options -MultiViews
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.js$">
+    Header set Content-Type "application/javascript; charset=utf-8"
+  </FilesMatch>
+  <FilesMatch "\.css$">
+    Header set Content-Type "text/css; charset=utf-8"
+  </FilesMatch>
+</IfModule>
+
+ErrorDocument 404 /index.html
