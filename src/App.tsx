@@ -12,7 +12,7 @@ import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, ChevronRight, Lock, Search, X } from "lucide-react";
+import { BookOpen, Check, ChevronRight, CreditCard, Lock, Search, Sparkles, X } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { PAYMENT_LINKS } from "./types";
@@ -24,6 +24,48 @@ function normalizeSearch(value: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim();
+}
+
+function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
+  return (
+    <section className="px-4 sm:px-6 lg:px-10">
+      <div className={`max-w-7xl mx-auto border border-[#C5A059]/35 bg-[#111318] text-white shadow-xl ${compact ? "p-4 md:p-5" : "p-5 md:p-7"}`}>
+        <div className="grid lg:grid-cols-[1fr_auto] gap-4 md:gap-6 items-center">
+          <div>
+            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.26em] md:tracking-[0.34em] font-black text-[#C5A059]">
+              Acesso premium Studio Logos
+            </p>
+            <h2 className={`font-serif leading-tight mt-2 text-white ${compact ? "text-xl md:text-2xl" : "text-2xl md:text-4xl"}`}>
+              Entre e libere a biblioteca completa por R$ 19,00/mês.
+            </h2>
+            {!compact && (
+              <p className="mt-3 max-w-3xl text-sm md:text-base text-white/72 leading-relaxed">
+                Leia obras integrais, salve seu progresso, continue de onde parou e use uma experiência organizada para estudo sério.
+              </p>
+            )}
+            <div className="mt-4 flex flex-wrap gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold text-white/70">
+              <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#C5A059]" /> Leitura online</span>
+              <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#C5A059]" /> Progresso salvo</span>
+              <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#C5A059]" /> Trilhas de estudo</span>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-2 min-w-[220px]">
+            <a
+              href={PAYMENT_LINKS.studioLogosMonthly}
+              className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#C5A059] px-5 text-center text-[10px] uppercase tracking-[0.2em] font-black text-black transition-colors hover:bg-[#D8B76C]"
+            >
+              <CreditCard className="w-4 h-4" />
+              Assinar agora
+            </a>
+            <span className="inline-flex min-h-10 items-center justify-center gap-2 border border-white/10 px-4 text-center text-[9px] uppercase tracking-[0.18em] font-bold text-white/65">
+              <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+              Cancele quando quiser
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function App() {
@@ -189,6 +231,8 @@ export default function App() {
     return result;
   }, []);
 
+  const showGuestBanners = !loading && !user;
+
   const globalSearchResults = useMemo(() => {
     const query = normalizeSearch(globalSearch);
     if (!query) return [];
@@ -283,6 +327,8 @@ export default function App() {
           </div>
         </section>
 
+        {showGuestBanners && <GuestSubscriptionBanner />}
+
         {/* Section: Study Paths First */}
         <section id="trilhas-estudo" className="py-9 md:py-14 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[0.95fr_1.6fr] gap-5 md:gap-8 items-stretch">
@@ -336,6 +382,8 @@ export default function App() {
         </section>
 
         <BestsellerSyntheses />
+
+        {showGuestBanners && <GuestSubscriptionBanner compact />}
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
         {lastRead && !selectedEbook && !resumeHidden && (
@@ -410,6 +458,8 @@ export default function App() {
         </section>
 
         <ThematicRow />
+
+        {showGuestBanners && <GuestSubscriptionBanner compact />}
 
         <section className="px-4 sm:px-6 lg:px-10 pb-14 md:pb-24 max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-6 md:mb-10">
