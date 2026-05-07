@@ -9,7 +9,7 @@ import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, ChevronRight, Lock } from "lucide-react";
+import { BookOpen, ChevronRight, Lock, X } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { PAYMENT_LINKS } from "./types";
@@ -20,6 +20,7 @@ export default function App() {
   const [previewEbook, setPreviewEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
   const [activeAxis, setActiveAxis] = useState<{ category: Category; term: string; label: string } | null>(null);
+  const [resumeHidden, setResumeHidden] = useState(() => safeStorage.getItem("resume-card-hidden") === "true");
   const [lastRead, setLastRead] = useState<Ebook | null>(() => {
     const saved = safeStorage.getItem("last-read");
     try {
@@ -47,6 +48,8 @@ export default function App() {
     setSelectedEbook(ebook);
     setPreviewEbook(null);
     setLastRead(ebook);
+    setResumeHidden(false);
+    safeStorage.removeItem("resume-card-hidden");
     safeStorage.setItem("last-read", JSON.stringify(ebook.id));
   };
 
@@ -72,9 +75,16 @@ export default function App() {
     setSelectedEbook(lockedEbook);
     setPreviewEbook(null);
     setLastRead(lockedEbook);
+    setResumeHidden(false);
+    safeStorage.removeItem("resume-card-hidden");
     safeStorage.setItem("last-read", JSON.stringify(lockedEbook.id));
     setLockedEbook(null);
   }, [hasAccess, lockedEbook, user]);
+
+  const hideResumeCard = () => {
+    setResumeHidden(true);
+    safeStorage.setItem("resume-card-hidden", "true");
+  };
 
   useEffect(() => {
     if (!lockedEbook || !user || loading || hasAccess) return;
@@ -136,10 +146,18 @@ export default function App() {
         </section>
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
-        {lastRead && !selectedEbook && (
+        {lastRead && !selectedEbook && !resumeHidden && (
           <div className="fixed left-10 bottom-24 z-40 hidden xl:block w-[280px]">
-            <div className="bg-white p-8 rounded-sm border border-black/5 shadow-2xl">
-              <h3 className="text-[10px] uppercase tracking-[0.3em] font-extrabold accent-gold mb-6">Retomar Leitura</h3>
+            <div className="relative bg-white p-8 rounded-sm border border-black/5 shadow-2xl">
+              <button
+                onClick={hideResumeCard}
+                className="absolute right-4 top-4 p-2 text-black/35 hover:text-black hover:bg-black/5 rounded-sm transition-colors"
+                aria-label="Fechar retomar leitura"
+                title="Fechar"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <h3 className="text-[10px] uppercase tracking-[0.3em] font-extrabold accent-gold mb-6 pr-8">Retomar Leitura</h3>
               <div className="flex gap-4 mb-6">
                 <div className={`w-16 h-24 ${lastRead.coverColor} border border-black/10 shadow-lg flex-shrink-0 relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/10" />
