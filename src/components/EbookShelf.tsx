@@ -89,7 +89,7 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
         </div>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-3 gap-y-6 md:gap-8">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-3 gap-y-5 md:gap-x-4 md:gap-y-7">
         {visible.map((ebook) => (
           <div
             key={ebook.id}
@@ -127,7 +127,7 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
                   </div>
                   
                   <div className="flex flex-col gap-1 items-center">
-                    <h3 className="font-serif leading-[1.12] md:leading-[1.15] text-[11px] md:text-base text-white drop-shadow-md line-clamp-4">
+                    <h3 className="font-serif leading-[1.12] md:leading-[1.15] text-[11px] md:text-sm text-white drop-shadow-md line-clamp-4">
                       {ebook.title}
                     </h3>
                     <p className="text-[6px] md:text-[7px] text-white/35 uppercase tracking-[0.12em] md:tracking-[0.18em] line-clamp-2">
@@ -145,7 +145,7 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
               <div className="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
             </div>
 
-            <div className="mt-2 md:mt-4 space-y-0.5 md:space-y-1">
+            <div className="mt-2 md:mt-3 space-y-0.5 md:space-y-1">
               <p className={`text-[6px] md:text-[7px] uppercase font-black tracking-widest ${ebook.isSpecial ? 'accent-gold' : 'opacity-30'}`}>
                 {ebook.category}
               </p>

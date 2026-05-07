@@ -130,32 +130,59 @@ export default function App() {
       <main>
         <Hero />
 
-        <BestsellerSyntheses />
-
-        {/* Section: Recommended Axis */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
-          {STUDY_ROUTES.slice(0, 3).map((route, index) => (
-            <motion.div
-              key={route.id}
-              whileHover={{ y: -5 }}
-              role="button"
-              tabIndex={0}
-              onClick={() => handleAxisOpen({ category: route.category, term: route.term, label: route.title })}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: route.category, term: route.term, label: route.title });
-              }}
-              className={`p-5 md:p-10 border border-black/5 shadow-sm flex flex-col justify-between min-h-40 md:aspect-video rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#1A1A1A] text-white' : 'bg-white'}`}
-            >
+        {/* Section: Study Paths First */}
+        <section id="trilhas-estudo" className="py-9 md:py-14 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[0.95fr_1.6fr] gap-5 md:gap-8 items-stretch">
+            <div className="bg-[#1A1A1A] text-white p-5 md:p-7 rounded-sm border border-black/10 flex flex-col justify-between">
               <div>
-                <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.26em] md:tracking-[0.4em] font-black">{route.eyebrow}</span>
-                <h3 className="text-2xl md:text-3xl font-serif mt-3 md:mt-4">{route.title}</h3>
+                <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.28em] md:tracking-[0.45em] font-black">Plataforma completa</span>
+                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight">Obras integrais, trilhas e sínteses no mesmo lugar.</h2>
+                <p className="mt-4 text-sm md:text-base text-white/60 font-serif leading-relaxed">
+                  O Studio Logos é uma biblioteca de leitura online com acervo completo, roteiros de formação e sínteses editoriais para descoberta.
+                </p>
               </div>
-              <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-50 group-hover:opacity-100 transition-opacity">
-                Explorar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
+              <div className="grid grid-cols-3 gap-2 mt-6">
+                {[
+                  { value: `${EBOOKS.length}+`, label: "obras" },
+                  { value: String(categories.length), label: "áreas" },
+                  { value: String(STUDY_ROUTES.length), label: "trilhas" },
+                ].map((item) => (
+                  <div key={item.label} className="border border-white/10 bg-white/[0.04] p-3">
+                    <p className="font-serif text-2xl text-[#C5A059]">{item.value}</p>
+                    <p className="text-[9px] uppercase tracking-[0.18em] text-white/45 font-bold">{item.label}</p>
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+              {STUDY_ROUTES.slice(0, 3).map((route, index) => (
+                <motion.div
+                  key={route.id}
+                  whileHover={{ y: -4 }}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleAxisOpen({ category: route.category, term: route.term, label: route.title })}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: route.category, term: route.term, label: route.title });
+                  }}
+                  className={`p-4 md:p-5 border border-black/5 shadow-sm flex flex-col justify-between min-h-32 md:min-h-full rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#1A1A1A] text-white' : 'bg-white'}`}
+                >
+                  <div>
+                    <span className="accent-gold text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black">{route.eyebrow}</span>
+                    <h3 className="text-xl md:text-2xl font-serif mt-2 md:mt-3 leading-tight">{route.title}</h3>
+                    <p className={`mt-3 text-xs leading-relaxed line-clamp-3 ${index === 1 ? 'text-white/55' : 'text-black/45'}`}>{route.description}</p>
+                  </div>
+                  <div className="mt-4 flex items-center gap-2 text-[9px] uppercase tracking-widest font-bold opacity-55 group-hover:opacity-100 transition-opacity">
+                    Começar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </section>
+
+        <BestsellerSyntheses />
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
         {lastRead && !selectedEbook && !resumeHidden && (

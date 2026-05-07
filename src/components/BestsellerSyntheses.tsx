@@ -187,14 +187,14 @@ export function BestsellerSyntheses() {
   );
 
   return (
-    <section id="sinteses-mais-vendidos" className="py-14 md:py-28 px-4 sm:px-6 lg:px-10 bg-[#11100E] text-white border-y border-white/10">
-      <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+    <section id="sinteses-mais-vendidos" className="py-12 md:py-20 px-4 sm:px-6 lg:px-10 bg-[#11100E] text-white border-y border-white/10">
+      <div className="max-w-7xl mx-auto space-y-7 md:space-y-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 md:gap-8">
           <div className="max-w-3xl">
             <span className="text-[#C5A059] text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.55em] font-black">Vitrine editorial</span>
-            <h2 className="text-3xl md:text-6xl font-serif leading-tight mt-3 md:mt-5">Sínteses dos <span className="italic text-[#C5A059]">Mais Vendidos</span></h2>
+            <h2 className="text-3xl md:text-5xl font-serif leading-tight mt-3 md:mt-5">Sínteses dos <span className="italic text-[#C5A059]">Mais Vendidos</span></h2>
             <p className="mt-4 md:mt-6 text-white/60 font-serif text-base md:text-lg leading-relaxed">
-              Abra uma síntese, avance para a próxima ideia e descubra novas portas de leitura dentro do Studio Logos. Cada card é uma síntese, não o livro completo.
+              Uma vitrine complementar para descobrir temas atuais. A plataforma principal continua sendo a leitura de obras integrais, trilhas e estudo dentro do Studio Logos.
             </p>
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1 lg:flex-wrap lg:overflow-visible">
@@ -210,7 +210,7 @@ export function BestsellerSyntheses() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 md:gap-7">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-6 md:gap-5">
           {visible.map((item) => (
             <motion.button
               key={item.id}
@@ -220,11 +220,11 @@ export function BestsellerSyntheses() {
               className="group text-left min-w-0"
             >
               <Cover item={item} />
-              <div className="mt-3 md:mt-5 space-y-2 md:space-y-3">
+              <div className="mt-3 md:mt-4 space-y-1.5 md:space-y-2">
                 <p className="text-[8px] md:text-[9px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black text-[#C5A059] truncate">{sourceLabel(item)}</p>
-                <h3 className="font-serif text-lg md:text-2xl leading-tight text-white group-hover:text-[#C5A059] transition-colors line-clamp-2">{item.title}</h3>
+                <h3 className="font-serif text-base md:text-xl leading-tight text-white group-hover:text-[#C5A059] transition-colors line-clamp-2">{item.title}</h3>
                 <p className="text-[10px] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.16em] text-white/35 truncate">{item.author}</p>
-                <p className="text-xs md:text-sm leading-relaxed text-white/55 line-clamp-3">{synthesisNotice(item)}</p>
+                <p className="text-xs leading-relaxed text-white/55 line-clamp-2">{synthesisNotice(item)}</p>
                 <span className="inline-flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em] md:tracking-[0.2em] font-bold text-white/45 group-hover:text-white">
                   Abrir síntese <ArrowRight className="w-3 h-3" />
                 </span>
