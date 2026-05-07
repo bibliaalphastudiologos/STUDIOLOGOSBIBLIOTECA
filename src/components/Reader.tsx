@@ -20,6 +20,7 @@ import { loadEbookProgress, saveEbookProgress } from "../services/ebookProgress"
 import { isTranslationCached, translateChapter } from "../lib/translationService";
 import { PAYMENT_LINKS } from "../types";
 import { loadImportedChapters } from "../services/ebookImport";
+import { StudioEbookCover } from "./StudioEbookCover";
 
 interface ReaderProps {
   ebook: Ebook;
@@ -304,12 +305,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           <div className={`${focusMode ? "max-w-[46rem]" : "max-w-4xl"} mx-auto px-5 md:px-12 py-10 md:py-16`}>
             {!focusMode && (
               <section className="mb-10 grid md:grid-cols-[120px_1fr] gap-8 items-start">
-                <div className={`hidden md:block aspect-[2/3] ${ebook.coverColor} relative overflow-hidden shadow-2xl border border-black/10`}>
-                  <div className="absolute inset-3 border border-white/10" />
-                  <span className="absolute inset-0 flex items-center justify-center font-serif text-4xl" style={{ color: ebook.coverAccent }}>
-                    {ebook.coverMark}
-                  </span>
-                </div>
+                <StudioEbookCover ebook={ebook} compact showTitle={false} className="hidden md:block" />
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.32em] font-black accent-gold mb-3">{ebook.category} · {ebook.collection}</p>
                   <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{ebook.title}</h2>

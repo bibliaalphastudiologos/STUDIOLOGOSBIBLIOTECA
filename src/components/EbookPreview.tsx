@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Check, Languages, Library, Lock, Plus, X } from "lucide-react";
 import { type Ebook } from "../studioTypes";
 import { PAYMENT_LINKS } from "../types";
+import { StudioEbookCover } from "./StudioEbookCover";
 
 interface EbookPreviewProps {
   ebook: Ebook;
@@ -12,65 +13,7 @@ interface EbookPreviewProps {
   onRead: (ebook: Ebook) => void;
 }
 
-function isLightCover(coverColor: string): boolean {
-  const value = coverColor.toLowerCase();
-  const lightTokens = [
-    "white",
-    "yellow",
-    "amber",
-    "lime",
-    "stone-50",
-    "stone-100",
-    "neutral-50",
-    "neutral-100",
-    "zinc-50",
-    "zinc-100",
-    "slate-50",
-    "slate-100",
-    "rose-50",
-    "rose-100",
-    "pink-50",
-    "pink-100",
-    "orange-50",
-    "orange-100",
-    "emerald-50",
-    "emerald-100",
-    "green-50",
-    "green-100",
-    "sky-50",
-    "sky-100",
-    "cyan-50",
-    "cyan-100",
-    "blue-50",
-    "blue-100",
-    "purple-50",
-    "purple-100",
-    "violet-50",
-    "violet-100",
-  ];
-
-  return lightTokens.some((token) => value.includes(token));
-}
-
-function coverTone(coverColor: string) {
-  return isLightCover(coverColor)
-    ? {
-        title: "text-[#17130d] [text-shadow:0_1px_0_rgba(255,255,255,0.82),0_8px_18px_rgba(255,255,255,0.34)]",
-        frame: "border-black/12",
-        rule: "bg-black/14",
-        author: "text-black/62",
-      }
-    : {
-        title: "text-white drop-shadow-md",
-        frame: "border-white/10",
-        rule: "bg-white/15",
-        author: "text-white/45",
-      };
-}
-
 export function EbookPreview({ ebook, related, canRead, onClose, onRead }: EbookPreviewProps) {
-  const tone = coverTone(ebook.coverColor);
-
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -111,21 +54,7 @@ export function EbookPreview({ ebook, related, canRead, onClose, onRead }: Ebook
 
           <div className="grid lg:grid-cols-[260px_1fr] gap-8 p-5 md:p-10">
             <div>
-              <div className={`aspect-[2/3] ${ebook.coverColor} relative overflow-hidden shadow-2xl border border-black/10`}>
-                <div className={`absolute inset-4 border ${tone.frame}`} />
-                <div className={`absolute inset-x-8 top-10 h-px ${tone.rule}`} />
-                <div className={`absolute inset-x-8 bottom-10 h-px ${tone.rule}`} />
-                <span className="absolute inset-x-6 top-8 text-[9px] uppercase tracking-[0.28em] font-black text-center" style={{ color: ebook.coverAccent }}>
-                  {ebook.collection}
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center font-serif text-6xl" style={{ color: ebook.coverAccent }}>
-                  {ebook.coverMark}
-                </span>
-                <div className="absolute inset-x-6 bottom-16 text-center">
-                  <h3 className={`font-serif text-xl leading-tight ${tone.title}`}>{ebook.title}</h3>
-                  <p className={`mt-3 text-[10px] uppercase tracking-[0.18em] ${tone.author}`}>{ebook.author}</p>
-                </div>
-              </div>
+              <StudioEbookCover ebook={ebook} />
               <button
                 onClick={() => onRead(ebook)}
                 className="mt-6 w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold flex items-center justify-center gap-2"

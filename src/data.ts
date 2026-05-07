@@ -1,5 +1,6 @@
 import { DEMO_EBOOKS } from './data/ebooks';
 import { Category, type Ebook } from './studioTypes';
+import { getEditorialCoverImage } from './lib/coverArt';
 
 const categoryMap: Record<string, Category> = {
   Filosofia: Category.PHILOSOPHY,
@@ -158,6 +159,7 @@ function toStudioEbook(source: (typeof DEMO_EBOOKS)[number]): Ebook {
   const sourceName = source.sourceApi || source.sourceEdition || 'Arquivo técnico Studio Logos';
   const sourceUrl = source.sourceUrl || '';
   const fullTextAllowed = source.fullTextAllowed !== false && source.copyrightStatus !== 'summary_only';
+  const sourceCover = 'cover' in source ? source.cover : undefined;
 
   return {
     id: source.id,
@@ -190,6 +192,7 @@ function toStudioEbook(source: (typeof DEMO_EBOOKS)[number]): Ebook {
     coverAccent: coverAccents[category],
     coverMark: coverMarks[category],
     coverEdition: source.collection || source.subcategory || 'StudioLogos',
+    coverImage: sourceCover || getEditorialCoverImage(category, title, author),
   };
 }
 

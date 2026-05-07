@@ -1,90 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Filter, Search } from "lucide-react";
 import { type Ebook, Category } from "../studioTypes";
+import { StudioEbookCover } from "./StudioEbookCover";
 
 interface EbookShelfProps {
   category: Category;
   ebooks: Ebook[];
   onRead: (ebook: Ebook) => void;
-}
-
-function initials(value: string): string {
-  return value
-    .replace(/\([^)]*\)/g, '')
-    .split(/\s+/)
-    .filter((part) => part.length > 2)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase();
-}
-
-function coverTitleClass(title: string): string {
-  if (title.length > 48) return "text-[9px] sm:text-[10px] md:text-xs leading-[1.08] md:leading-[1.12]";
-  if (title.length > 32) return "text-[10px] sm:text-[11px] md:text-[13px] leading-[1.1] md:leading-[1.13]";
-  return "text-[11px] sm:text-xs md:text-sm leading-[1.12] md:leading-[1.15]";
-}
-
-function isLightCover(coverColor: string): boolean {
-  const value = coverColor.toLowerCase();
-  const lightTokens = [
-    "white",
-    "yellow",
-    "amber",
-    "lime",
-    "stone-50",
-    "stone-100",
-    "neutral-50",
-    "neutral-100",
-    "zinc-50",
-    "zinc-100",
-    "slate-50",
-    "slate-100",
-    "rose-50",
-    "rose-100",
-    "pink-50",
-    "pink-100",
-    "orange-50",
-    "orange-100",
-    "emerald-50",
-    "emerald-100",
-    "green-50",
-    "green-100",
-    "sky-50",
-    "sky-100",
-    "cyan-50",
-    "cyan-100",
-    "blue-50",
-    "blue-100",
-    "purple-50",
-    "purple-100",
-    "violet-50",
-    "violet-100",
-  ];
-
-  return lightTokens.some((token) => value.includes(token));
-}
-
-function coverTone(coverColor: string) {
-  return isLightCover(coverColor)
-    ? {
-        title: "text-[#17130d] [text-shadow:0_1px_0_rgba(255,255,255,0.82),0_8px_18px_rgba(255,255,255,0.34)]",
-        frame: "border-black/12",
-        rule: "bg-black/14",
-        seal: "border-black/12 bg-white/25",
-        meta: "text-black/60",
-        author: "text-black/62",
-        spine: "from-black/12",
-      }
-    : {
-        title: "text-white drop-shadow-md",
-        frame: "border-white/10",
-        rule: "bg-white/15",
-        seal: "border-white/10 bg-black/10",
-        meta: "text-white/40",
-        author: "text-white/48",
-        spine: "from-black/20",
-      };
 }
 
 export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead }) => {
@@ -158,63 +80,18 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
       </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-3 gap-y-5 md:gap-x-4 md:gap-y-7">
-        {visible.map((ebook) => {
-          const tone = coverTone(ebook.coverColor);
-
-          return (
+        {visible.map((ebook) => (
           <div
             key={ebook.id}
             className="group relative"
             onClick={() => onRead(ebook)}
           >
             {/* Book Cover Container */}
-            <div className={`aspect-[2/3] relative overflow-hidden paper-texture ebook-shadow transition-all duration-500 group-hover:-translate-y-2 cursor-pointer ${ebook.isSpecial ? 'border border-[#C5A059]' : 'border border-black/5'}`}>
-              <div className={`absolute inset-0 ${ebook.coverColor}`} />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.12),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.05),transparent_42%,rgba(0,0,0,0.28))]" />
-              <div className={`absolute inset-2 md:inset-3 border ${tone.frame}`} />
-              <div className={`absolute inset-x-4 md:inset-x-6 top-6 md:top-8 h-px ${tone.rule}`} />
-              <div className={`absolute inset-x-4 md:inset-x-6 bottom-6 md:bottom-8 h-px ${tone.rule}`} />
-              <div
-                className="absolute -right-6 top-8 font-serif text-[6rem] leading-none opacity-[0.06] select-none"
-                style={{ color: ebook.coverAccent }}
-              >
-                {ebook.coverMark}
-              </div>
-
-              {/* Cover Overlay Info */}
-              <div className="absolute inset-0 flex flex-col justify-between py-3.5 md:py-7 px-2.5 sm:px-3 md:px-5 text-center z-10">
-                <div className="space-y-2 md:space-y-5">
-                  <span
-                    className="text-[5.5px] sm:text-[6px] md:text-[7px] tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.26em] uppercase font-black line-clamp-1"
-                    style={{ color: ebook.coverAccent }}
-                  >
-                    {ebook.isSpecial ? "Premium" : ebook.category}
-                  </span>
-
-                  <div className={`hidden sm:flex mx-auto h-7 w-7 md:h-10 md:w-10 rounded-full border items-center justify-center ${tone.seal}`}>
-                    <span className="font-serif text-[10px] md:text-sm" style={{ color: ebook.coverAccent }}>
-                      {initials(ebook.author) || ebook.coverMark}
-                    </span>
-                  </div>
-                  
-                  <div className="flex min-h-[68px] sm:min-h-[74px] md:min-h-[92px] flex-col justify-center gap-1 items-center px-0.5">
-                    <h3 className={`font-serif line-clamp-5 break-words hyphens-auto ${tone.title} ${coverTitleClass(ebook.title)}`}>
-                      {ebook.title}
-                    </h3>
-                    <p className={`hidden sm:block text-[6px] md:text-[7px] uppercase tracking-[0.12em] md:tracking-[0.18em] line-clamp-2 ${tone.meta}`}>
-                      {ebook.coverEdition}
-                    </p>
-                  </div>
-                </div>
-                
-                <span className={`text-[5.5px] sm:text-[6px] md:text-[8px] font-mono tracking-[0.12em] md:tracking-widest uppercase line-clamp-2 px-1 ${tone.author}`}>
-                  {ebook.author}
-                </span>
-              </div>
-              
-              {/* Spine Effect */}
-              <div className={`absolute top-0 left-0 w-4 h-full bg-gradient-to-r ${tone.spine} to-transparent pointer-events-none`} />
-            </div>
+            <StudioEbookCover
+              ebook={ebook}
+              compact
+              className={`transition-all duration-500 group-hover:-translate-y-2 cursor-pointer ${ebook.isSpecial ? 'border-[#C5A059]' : ''}`}
+            />
 
             <div className="mt-2 md:mt-3 space-y-0.5 md:space-y-1">
               <p className={`text-[6px] md:text-[7px] uppercase font-black tracking-widest ${ebook.isSpecial ? 'accent-gold' : 'opacity-30'}`}>
@@ -228,8 +105,7 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
               </p>
             </div>
           </div>
-          );
-        })}
+        ))}
       </div>
 
       {filtered.length > visible.length && (
