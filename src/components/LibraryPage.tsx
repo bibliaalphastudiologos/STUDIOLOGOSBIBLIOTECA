@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { DEMO_EBOOKS } from '../data/ebooks';
 import { Ebook, PAYMENT_LINKS } from '../types';
+import { getEditorialCoverImageForText } from '../lib/coverArt';
 
 const CATEGORIES = ['Todas', 'Teologia', 'Filosofia', 'Psicanálise', 'Literatura Brasileira'];
 const LANGUAGES  = ['Todos', 'Português', 'Latim', 'Inglês', 'Grego', 'Francês', 'Alemão'];
@@ -35,6 +36,7 @@ function getCoverGradient(theme: string, category: string) {
 function BookCard({ ebook, index }: { ebook: Ebook; index: number }) {
   const navigate = useNavigate();
   const gradient = getCoverGradient(ebook.coverTheme, ebook.category);
+  const coverImage = ebook.cover || getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
 
   return (
     <motion.div
@@ -47,6 +49,14 @@ function BookCard({ ebook, index }: { ebook: Ebook; index: number }) {
       {/* Cover */}
       <div className="relative overflow-hidden rounded-lg mb-3 shadow-lg"
         style={{ aspectRatio: '2/3', background: gradient }}>
+        <img
+          src={coverImage}
+          alt=""
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          className="absolute inset-0 h-full w-full object-cover opacity-85 saturate-[0.92] contrast-[1.06] transition-transform duration-[1.5s] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.08)_38%,rgba(0,0,0,0.86)),radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.16),transparent_34%)]" />
         {/* Shine effect */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%)' }} />

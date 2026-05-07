@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { DEMO_EBOOKS } from '../data/ebooks';
 import { useAuth } from '../lib/AuthContext';
 import { PAYMENT_LINKS } from '../types';
+import { getEditorialCoverImageForText } from '../lib/coverArt';
 
 function getCoverGradient(theme: string, category: string) {
   const map: Record<string, string> = {
@@ -47,6 +48,7 @@ export default function EbookDetailPage() {
   }
 
   const gradient = getCoverGradient(ebook.coverTheme, ebook.category);
+  const coverImage = ebook.cover || getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
   const canRead  = true; // Acesso liberado conforme solicitado
   const hasTranslation = ebook.originalLanguage && !ebook.originalLanguage.toLowerCase().includes('portugu');
   const tags = ebook.tags ?? [];
@@ -78,10 +80,20 @@ export default function EbookDetailPage() {
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}
               className="shrink-0 w-36 md:w-48">
               <div className="rounded-xl shadow-2xl overflow-hidden" style={{ aspectRatio: '2/3', background: gradient }}>
-                <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center">
-                  <div className="text-white/20 text-5xl mb-3">📖</div>
-                  <p className="text-white text-xs font-bold leading-tight" style={{ fontFamily: 'Georgia, serif' }}>{ebook.title}</p>
-                  <p className="text-white/50 text-[10px] mt-1">{ebook.authorReference?.split('(')[0]?.trim()}</p>
+                <div className="relative h-full w-full">
+                  <img
+                    src={coverImage}
+                    alt=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 h-full w-full object-cover opacity-90 saturate-[0.92] contrast-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.04)_40%,rgba(0,0,0,0.86))]" />
+                  <div className="absolute inset-3 border border-white/20" />
+                  <div className="absolute inset-x-4 bottom-5 text-center">
+                    <p className="text-white text-xs font-bold leading-tight drop-shadow" style={{ fontFamily: 'Georgia, serif' }}>{ebook.title}</p>
+                    <p className="text-white/62 text-[10px] mt-1">{ebook.authorReference?.split('(')[0]?.trim()}</p>
+                  </div>
                 </div>
               </div>
               {/* Badges */}

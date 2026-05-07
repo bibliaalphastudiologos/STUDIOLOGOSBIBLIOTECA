@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Clock, BookOpen, ArrowRight, Heart } from 'lucide-react';
 import { Ebook } from '../types';
 import { Link, useNavigate } from 'react-router-dom';
+import { getEditorialCoverImageForText } from '../lib/coverArt';
 
 interface EbookCardProps {
   ebook: Ebook;
@@ -28,6 +29,8 @@ export const EbookCard: React.FC<EbookCardProps> = ({
     e.stopPropagation();
     onToggleFavorite?.(ebook.id);
   };
+
+  const coverImage = ebook.cover || getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -84,17 +87,15 @@ export const EbookCard: React.FC<EbookCardProps> = ({
       <div className={`h-[380px] relative overflow-hidden flex flex-col p-10 transition-all duration-1000 ${getCategoryBg(ebook.category)} border-b border-gray-100 grain`}>
         <div className={`absolute inset-4 border ${getCategoryBorder(ebook.category)} opacity-0 group-hover:opacity-40 transition-opacity duration-1000 pointer-events-none z-10`} />
 
-        {ebook.cover && (
-          <div className="absolute inset-0 z-0">
-            <img
-              src={ebook.cover}
-              alt=""
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover grayscale opacity-[0.05] group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[1.5s] ease-[0.22, 1, 0.36, 1]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-          </div>
-        )}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={coverImage}
+            alt=""
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover opacity-80 saturate-[0.9] contrast-[1.06] group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1.5s] ease-[0.22, 1, 0.36, 1]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/25 to-black/10 transition-opacity duration-1000" />
+        </div>
 
         {/* Badge Gutendex */}
         {ebook.isFromGutendex && (

@@ -83,6 +83,18 @@ function bankForCategory(category: Category): string[] {
   return imageBank.universal;
 }
 
+function bankForCategoryText(category: string): string[] {
+  if (/filosofia/i.test(category)) return imageBank.philosophy;
+  if (/teologia/i.test(category)) return imageBank.theology;
+  if (/espiritualidade/i.test(category)) return imageBank.spirituality;
+  if (/psican/i.test(category)) return imageBank.psychoanalysis;
+  if (/brasileira/i.test(category)) return imageBank.brazil;
+  if (/portuguesa/i.test(category)) return imageBank.portugal;
+  if (/hist/i.test(category)) return imageBank.history;
+  if (/human/i.test(category)) return imageBank.humanities;
+  return imageBank.universal;
+}
+
 export function getEditorialCoverImage(category: Category, title: string, author: string): string {
   const signal = `${title} ${author}`;
   const byAuthor = authorImages.find(([pattern]) => pattern.test(signal));
@@ -95,3 +107,14 @@ export function getEditorialCoverImage(category: Category, title: string, author
   return bank[Math.abs(hash(signal)) % bank.length];
 }
 
+export function getEditorialCoverImageForText(category: string, title: string, author: string): string {
+  const signal = `${title} ${author}`;
+  const byAuthor = authorImages.find(([pattern]) => pattern.test(signal));
+  if (byAuthor) return byAuthor[1];
+
+  const byTitle = titleImages.find(([pattern]) => pattern.test(signal));
+  if (byTitle) return byTitle[1];
+
+  const bank = bankForCategoryText(category);
+  return bank[Math.abs(hash(signal)) % bank.length];
+}
