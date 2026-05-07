@@ -5,6 +5,7 @@ import { EbookShelf } from "./components/EbookShelf";
 import { ThematicRow } from "./components/ThematicRow";
 import { Reader } from "./components/Reader";
 import { EbookPreview } from "./components/EbookPreview";
+import { BestsellerSyntheses } from "./components/BestsellerSyntheses";
 import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
@@ -119,6 +120,8 @@ export default function App() {
       
       <main>
         <Hero />
+
+        <BestsellerSyntheses />
 
         {/* Section: Recommended Axis */}
         <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
