@@ -1,11 +1,19 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, Layers, Sparkles, X } from "lucide-react";
-import { BESTSELLER_SYNTHESES, SYNTHESIS_NOTICE, type BestsellerSynthesis } from "../data/bestsellerSyntheses";
+import { BESTSELLER_SYNTHESES, type BestsellerSynthesis } from "../data/bestsellerSyntheses";
 import { PAYMENT_LINKS } from "../types";
 
 function sourceLabel(item: BestsellerSynthesis): string {
   return item.sources.join(" · ");
+}
+
+function synthesisNotice(item: BestsellerSynthesis): string {
+  return `Síntese editorial de ${item.title}, de ${item.author}, feita para estudo e compreensão dos temas principais. Não é o livro completo nem substitui a obra original.`;
+}
+
+function contextualBullet(item: BestsellerSynthesis, value: string): string {
+  return `${value} em ${item.title}`;
 }
 
 function visualMotif(title: string): string {
@@ -99,7 +107,7 @@ function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose:
                 <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{item.title}</h1>
                 <p className="text-black/55 uppercase tracking-[0.18em] text-[11px] font-bold mb-5">{item.author}</p>
                 <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 p-4 text-sm leading-relaxed text-black/70">
-                  {SYNTHESIS_NOTICE}
+                  {synthesisNotice(item)}
                 </div>
               </section>
 
@@ -109,7 +117,14 @@ function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose:
                   <p className="text-sm leading-relaxed text-black/65">{item.presentation}</p>
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl mb-3">Descrição curta</h3>
+                  <h3 className="font-serif text-2xl mb-3">Base editorial</h3>
+                  <p className="text-sm leading-relaxed text-black/65">{item.editorialBasis}</p>
+                </div>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-2xl mb-3">Descrição curta</h3>
+                <div className="border border-black/10 bg-white/45 p-5">
                   <p className="text-sm leading-relaxed text-black/65">{item.shortDescription}</p>
                 </div>
               </section>
@@ -128,19 +143,19 @@ function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose:
                 <section className="border border-black/10 bg-white/45 p-5">
                   <h3 className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-4">Principais ideias</h3>
                   <ul className="space-y-3">
-                    {item.mainIdeas.map((idea) => <li key={idea} className="text-sm text-black/65">{idea}</li>)}
+                    {item.mainIdeas.map((idea) => <li key={idea} className="text-sm text-black/65">{contextualBullet(item, idea)}</li>)}
                   </ul>
                 </section>
                 <section className="border border-black/10 bg-white/45 p-5">
                   <h3 className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-4">Insights</h3>
                   <ul className="space-y-3">
-                    {item.insights.map((insight) => <li key={insight} className="text-sm text-black/65">{insight}</li>)}
+                    {item.insights.map((insight) => <li key={insight} className="text-sm text-black/65">{contextualBullet(item, insight)}</li>)}
                   </ul>
                 </section>
                 <section className="border border-black/10 bg-white/45 p-5">
                   <h3 className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-4">Público indicado</h3>
                   <ul className="space-y-3">
-                    {item.audience.map((audience) => <li key={audience} className="text-sm text-black/65">{audience}</li>)}
+                    {item.audience.map((audience) => <li key={audience} className="text-sm text-black/65">{contextualBullet(item, audience)}</li>)}
                   </ul>
                 </section>
               </div>
@@ -199,7 +214,7 @@ export function BestsellerSyntheses() {
                 <p className="text-[9px] uppercase tracking-[0.24em] font-black text-[#C5A059]">{sourceLabel(item)}</p>
                 <h3 className="font-serif text-2xl leading-tight text-white group-hover:text-[#C5A059] transition-colors">{item.title}</h3>
                 <p className="text-xs uppercase tracking-[0.16em] text-white/35">{item.author}</p>
-                <p className="text-sm leading-relaxed text-white/55 line-clamp-3">{SYNTHESIS_NOTICE}</p>
+                <p className="text-sm leading-relaxed text-white/55 line-clamp-3">{synthesisNotice(item)}</p>
                 <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-white/45 group-hover:text-white">
                   Abrir síntese <ArrowRight className="w-3 h-3" />
                 </span>
