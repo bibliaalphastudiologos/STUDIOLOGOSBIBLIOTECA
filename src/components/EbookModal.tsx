@@ -42,7 +42,7 @@ export const EbookModal: React.FC<EbookModalProps> = ({
                   e.stopPropagation();
                   onClose();
                 }}
-                className="text-gray-400 hover:text-gray-600"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-black/15 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
                 aria-label="Fechar janela do eBook"
                 title="Fechar"
               >

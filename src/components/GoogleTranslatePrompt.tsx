@@ -43,7 +43,7 @@ export function GoogleTranslatePrompt() {
         <button
           type="button"
           onClick={() => setHidden(true)}
-          className="ml-1 p-2 text-black/45 hover:text-black hover:bg-black/5 rounded-sm"
+          className="ml-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-black/15 bg-white text-black shadow-sm transition-colors hover:bg-[#1A1A1A] hover:text-white"
           aria-label="Fechar convite de tradução"
           title="Fechar"
         >

@@ -219,7 +219,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
     >
       <header className={`h-auto md:h-20 px-4 md:px-8 py-3 md:py-0 border-b flex flex-col md:flex-row md:items-center justify-between gap-3 ${theme === "dark" ? "border-white/10 bg-black/50" : "border-black/10 bg-white/65"} backdrop-blur-xl`}>
         <div className="flex items-center gap-3 min-w-0">
-          <button onClick={onClose} className="p-2 hover:bg-black/10 rounded-sm" aria-label="Voltar à estante">
+          <button onClick={onClose} className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-black/15 bg-white/70 text-black shadow-sm transition-colors hover:bg-[#1A1A1A] hover:text-white" aria-label="Voltar à estante">
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div className="min-w-0">
@@ -266,8 +266,13 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           <button onClick={saveProgress} className="reader-icon-button text-[#B48A3D]" title="Salvar progresso">
             <Save className="w-4 h-4" />
           </button>
-          <button onClick={onClose} className="reader-icon-button" title="Fechar leitor">
-            <X className="w-4 h-4" />
+          <button
+            onClick={onClose}
+            className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-sm border border-black/20 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
+            title="Fechar leitor"
+            aria-label="Fechar leitor"
+          >
+            <X className="w-5 h-5" />
           </button>
         </div>
       </header>

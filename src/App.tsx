@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { EbookShelf } from "./components/EbookShelf";
@@ -21,6 +21,8 @@ import { useLocation } from "react-router-dom";
 export default function App() {
   const { user, hasAccess, login, loading } = useAuth();
   const location = useLocation();
+  const historyGuardReady = useRef(false);
+  const lastHistoryLayer = useRef<string | null>(null);
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [previewEbook, setPreviewEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
@@ -104,6 +106,57 @@ export default function App() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lockedEbook]);
+
+  useEffect(() => {
+    if (historyGuardReady.current) return;
+
+    window.history.replaceState(
+      { ...(window.history.state || {}), studioLogosHome: true },
+      "",
+      window.location.href,
+    );
+    window.history.pushState({ studioLogosGuard: true }, "", window.location.href);
+    historyGuardReady.current = true;
+  }, []);
+
+  useEffect(() => {
+    const layer = selectedEbook
+      ? `reader:${selectedEbook.id}`
+      : previewEbook
+        ? `preview:${previewEbook.id}`
+        : lockedEbook
+          ? `locked:${lockedEbook.id}`
+          : null;
+
+    if (!historyGuardReady.current || !layer || lastHistoryLayer.current === layer) return;
+    window.history.pushState({ studioLogosLayer: layer }, "", window.location.href);
+    lastHistoryLayer.current = layer;
+  }, [lockedEbook, previewEbook, selectedEbook]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedEbook) {
+        setSelectedEbook(null);
+        lastHistoryLayer.current = null;
+      } else if (previewEbook) {
+        setPreviewEbook(null);
+        lastHistoryLayer.current = null;
+      } else if (lockedEbook) {
+        setLockedEbook(null);
+        lastHistoryLayer.current = null;
+      } else if (activeAxis) {
+        setActiveAxis(null);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      window.history.pushState({ studioLogosGuard: true }, "", window.location.href);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [activeAxis, lockedEbook, previewEbook, selectedEbook]);
 
   const categories = [
     Category.SPECIAL,
@@ -206,7 +259,7 @@ export default function App() {
             <div className="relative bg-white p-8 rounded-sm border border-black/5 shadow-2xl">
               <button
                 onClick={hideResumeCard}
-                className="absolute right-4 top-4 p-2 text-black/35 hover:text-black hover:bg-black/5 rounded-sm transition-colors"
+                className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-sm border border-black/15 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
                 aria-label="Fechar retomar leitura"
                 title="Fechar"
               >
@@ -412,7 +465,7 @@ export default function App() {
             >
               <button
                 onClick={() => setLockedEbook(null)}
-                className="absolute right-4 top-4 p-2 text-black/35 hover:text-black hover:bg-black/5 rounded-sm transition-colors"
+                className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-sm border border-black/15 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
                 aria-label="Fechar janela de acesso"
                 title="Fechar"
               >

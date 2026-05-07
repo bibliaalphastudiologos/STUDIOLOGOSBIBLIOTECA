@@ -100,8 +100,13 @@ function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose:
               <p className="text-[9px] md:text-[10px] uppercase tracking-[0.24em] md:tracking-[0.34em] font-black accent-gold">Síntese editorial</p>
               <h2 className="text-xl md:text-3xl font-serif">{item.title}</h2>
             </div>
-            <button onClick={onClose} className="p-3 hover:bg-black/5 rounded-sm shrink-0" aria-label="Fechar síntese">
-              <X className="w-5 h-5" />
+            <button
+              onClick={onClose}
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-black/15 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
+              aria-label="Fechar síntese"
+              title="Fechar"
+            >
+              <X className="w-6 h-6" />
             </button>
           </header>
 
