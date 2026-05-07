@@ -34,26 +34,26 @@ function Cover({ item, large = false }: { item: BestsellerSynthesis; large?: boo
     <div className={`relative overflow-hidden rounded-sm border border-black/10 shadow-2xl bg-gradient-to-br ${item.palette} ${large ? "aspect-[2/3]" : "aspect-[3/4]"}`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.38),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.16),transparent_38%,rgba(0,0,0,0.42))]" />
       <div className="absolute inset-4 border border-white/25" />
-      <div className="absolute left-0 top-7 bg-[#111] text-white px-5 py-2 text-[10px] font-black uppercase tracking-[0.24em] shadow-xl">
+      <div className="absolute left-0 top-5 md:top-7 bg-[#111] text-white px-3 md:px-5 py-1.5 md:py-2 text-[8px] md:text-[10px] font-black uppercase tracking-[0.18em] md:tracking-[0.24em] shadow-xl">
         SÍNTESE
       </div>
-      <div className="absolute right-5 top-6 text-[8px] uppercase tracking-[0.26em] font-black text-black/45 text-right max-w-[55%]">
+      <div className="absolute right-4 md:right-5 top-5 md:top-6 text-[7px] md:text-[8px] uppercase tracking-[0.18em] md:tracking-[0.26em] font-black text-black/45 text-right max-w-[55%]">
         {sourceLabel(item)}
       </div>
-      <div className="absolute inset-x-7 top-24">
-        <p className="text-[9px] uppercase tracking-[0.3em] font-black mb-4" style={{ color: item.accent }}>
+      <div className="absolute inset-x-4 md:inset-x-7 top-20 md:top-24">
+        <p className="text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black mb-2 md:mb-4" style={{ color: item.accent }}>
           Studio Logos
         </p>
-        <h3 className={`${large ? "text-4xl" : "text-2xl"} font-serif leading-[1.04] text-white drop-shadow-xl`}>
+        <h3 className={`${large ? "text-3xl md:text-4xl" : "text-lg md:text-2xl"} font-serif leading-[1.06] text-white drop-shadow-xl`}>
           {item.title}
         </h3>
-        <p className="mt-4 text-[10px] uppercase tracking-[0.18em] text-white/65 line-clamp-2">
+        <p className="mt-3 md:mt-4 text-[8px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] text-white/65 line-clamp-2">
           {item.author}
         </p>
       </div>
-      <div className="absolute inset-x-7 bottom-8">
-        <div className="h-px bg-white/25 mb-4" />
-        <p className="text-[9px] uppercase tracking-[0.22em] font-bold text-white/60">
+      <div className="absolute inset-x-4 md:inset-x-7 bottom-5 md:bottom-8">
+        <div className="h-px bg-white/25 mb-3 md:mb-4" />
+        <p className="text-[7px] md:text-[9px] uppercase tracking-[0.16em] md:tracking-[0.22em] font-bold text-white/60">
           {visualMotif(item.title)}
         </p>
       </div>
@@ -72,66 +72,66 @@ function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose:
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[130] bg-black/60 backdrop-blur-sm overflow-auto"
     >
-      <div className="min-h-screen px-4 py-10 flex items-start justify-center">
+      <div className="min-h-screen px-3 md:px-4 py-4 md:py-10 flex items-start justify-center">
         <motion.article
           initial={{ y: 24 }}
           animate={{ y: 0 }}
           className="w-full max-w-6xl bg-[#F9F7F2] border border-black/10 shadow-2xl"
         >
-          <header className="p-5 md:p-8 border-b border-black/10 flex items-center justify-between gap-4">
+          <header className="p-4 md:p-8 border-b border-black/10 flex items-center justify-between gap-4">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.34em] font-black accent-gold">Síntese editorial</p>
-              <h2 className="text-2xl md:text-3xl font-serif">{item.title}</h2>
+              <p className="text-[9px] md:text-[10px] uppercase tracking-[0.24em] md:tracking-[0.34em] font-black accent-gold">Síntese editorial</p>
+              <h2 className="text-xl md:text-3xl font-serif">{item.title}</h2>
             </div>
-            <button onClick={onClose} className="p-3 hover:bg-black/5 rounded-sm" aria-label="Fechar síntese">
+            <button onClick={onClose} className="p-3 hover:bg-black/5 rounded-sm shrink-0" aria-label="Fechar síntese">
               <X className="w-5 h-5" />
             </button>
           </header>
 
-          <div className="grid lg:grid-cols-[300px_1fr] gap-10 p-5 md:p-10">
-            <div className="space-y-5">
+          <div className="grid lg:grid-cols-[300px_1fr] gap-6 md:gap-10 p-4 md:p-10">
+            <div className="grid grid-cols-[112px_1fr] lg:grid-cols-1 gap-4 md:gap-5 lg:space-y-5">
               <Cover item={item} large />
               <a
                 href={PAYMENT_LINKS.studioLogosMonthly}
-                className="block w-full py-4 bg-[#1A1A1A] text-white text-center text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-black"
+                className="flex min-h-24 lg:min-h-0 items-center justify-center w-full py-4 px-4 bg-[#1A1A1A] text-white text-center text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-bold hover:bg-black"
               >
                 Conhecer Studio Logos
               </a>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-5 md:space-y-8">
               <section>
-                <p className="text-[10px] uppercase tracking-[0.3em] font-black accent-gold mb-3">
+                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black accent-gold mb-3">
                   {sourceLabel(item)} · {item.tone}
                 </p>
-                <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{item.title}</h1>
+                <h1 className="text-3xl md:text-5xl font-serif leading-tight mb-3 md:mb-4">{item.title}</h1>
                 <p className="text-black/55 uppercase tracking-[0.18em] text-[11px] font-bold mb-5">{item.author}</p>
-                <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 p-4 text-sm leading-relaxed text-black/70">
+                <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 p-3 md:p-4 text-sm leading-relaxed text-black/70">
                   {synthesisNotice(item)}
                 </div>
               </section>
 
-              <section className="grid md:grid-cols-2 gap-8">
+              <section className="grid md:grid-cols-2 gap-5 md:gap-8">
                 <div>
-                  <h3 className="font-serif text-2xl mb-3">Apresentação da obra</h3>
+                  <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-3">Apresentação da obra</h3>
                   <p className="text-sm leading-relaxed text-black/65">{item.presentation}</p>
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl mb-3">Base editorial</h3>
+                  <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-3">Base editorial</h3>
                   <p className="text-sm leading-relaxed text-black/65">{item.editorialBasis}</p>
                 </div>
               </section>
 
               <section>
-                <h3 className="font-serif text-2xl mb-3">Descrição curta</h3>
-                <div className="border border-black/10 bg-white/45 p-5">
+                <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-3">Descrição curta</h3>
+                <div className="border border-black/10 bg-white/45 p-4 md:p-5">
                   <p className="text-sm leading-relaxed text-black/65">{item.shortDescription}</p>
                 </div>
               </section>
 
               <section>
-                <h3 className="font-serif text-3xl mb-4">Síntese profunda</h3>
-                <p className="text-base leading-[1.9] text-black/70 font-serif">{item.synthesis}</p>
+                <h3 className="font-serif text-2xl md:text-3xl mb-3 md:mb-4">Síntese profunda</h3>
+                <p className="text-base leading-[1.75] md:leading-[1.9] text-black/70 font-serif">{item.synthesis}</p>
                 {item.quote && (
                   <blockquote className="mt-6 border-l-2 border-[#C5A059] pl-5 text-sm italic text-black/55">
                     “{item.quote}”
@@ -139,22 +139,22 @@ function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose:
                 )}
               </section>
 
-              <div className="grid md:grid-cols-3 gap-5">
-                <section className="border border-black/10 bg-white/45 p-5">
-                  <h3 className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-4">Principais ideias</h3>
-                  <ul className="space-y-3">
+              <div className="grid md:grid-cols-3 gap-3 md:gap-5">
+                <section className="border border-black/10 bg-white/45 p-4 md:p-5">
+                  <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black accent-gold mb-3 md:mb-4">Principais ideias</h3>
+                  <ul className="space-y-2 md:space-y-3">
                     {item.mainIdeas.map((idea) => <li key={idea} className="text-sm text-black/65">{contextualBullet(item, idea)}</li>)}
                   </ul>
                 </section>
-                <section className="border border-black/10 bg-white/45 p-5">
-                  <h3 className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-4">Insights</h3>
-                  <ul className="space-y-3">
+                <section className="border border-black/10 bg-white/45 p-4 md:p-5">
+                  <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black accent-gold mb-3 md:mb-4">Insights</h3>
+                  <ul className="space-y-2 md:space-y-3">
                     {item.insights.map((insight) => <li key={insight} className="text-sm text-black/65">{contextualBullet(item, insight)}</li>)}
                   </ul>
                 </section>
-                <section className="border border-black/10 bg-white/45 p-5">
-                  <h3 className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-4">Público indicado</h3>
-                  <ul className="space-y-3">
+                <section className="border border-black/10 bg-white/45 p-4 md:p-5">
+                  <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black accent-gold mb-3 md:mb-4">Público indicado</h3>
+                  <ul className="space-y-2 md:space-y-3">
                     {item.audience.map((audience) => <li key={audience} className="text-sm text-black/65">{contextualBullet(item, audience)}</li>)}
                   </ul>
                 </section>
@@ -177,22 +177,22 @@ export function BestsellerSyntheses() {
   );
 
   return (
-    <section id="sinteses-mais-vendidos" className="py-28 px-10 bg-[#11100E] text-white border-y border-white/10">
-      <div className="max-w-7xl mx-auto space-y-12">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+    <section id="sinteses-mais-vendidos" className="py-14 md:py-28 px-4 sm:px-6 lg:px-10 bg-[#11100E] text-white border-y border-white/10">
+      <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 md:gap-8">
           <div className="max-w-3xl">
-            <span className="text-[#C5A059] text-[10px] uppercase tracking-[0.55em] font-black">Vitrine editorial</span>
-            <h2 className="text-4xl md:text-6xl font-serif leading-tight mt-5">Sínteses dos <span className="italic text-[#C5A059]">Mais Vendidos</span></h2>
-            <p className="mt-6 text-white/55 font-serif text-lg leading-relaxed">
-              Leituras editoriais profundas de obras muito procuradas, criadas para estudo, descoberta e apresentação. Cada card é uma síntese, não o livro completo.
+            <span className="text-[#C5A059] text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.55em] font-black">Vitrine editorial</span>
+            <h2 className="text-3xl md:text-6xl font-serif leading-tight mt-3 md:mt-5">Sínteses dos <span className="italic text-[#C5A059]">Mais Vendidos</span></h2>
+            <p className="mt-4 md:mt-6 text-white/60 font-serif text-base md:text-lg leading-relaxed">
+              Abra uma síntese, avance para a próxima ideia e descubra novas portas de leitura dentro do Studio Logos. Cada card é uma síntese, não o livro completo.
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto pb-1 lg:flex-wrap lg:overflow-visible">
             {sources.map((item) => (
               <button
                 key={item}
                 onClick={() => setSource(item)}
-                className={`px-4 h-10 border text-[10px] uppercase tracking-[0.18em] font-bold ${source === item ? "border-[#C5A059] bg-[#C5A059] text-black" : "border-white/15 text-white/55 hover:text-white"}`}
+                className={`shrink-0 px-3 md:px-4 h-9 md:h-10 border text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold ${source === item ? "border-[#C5A059] bg-[#C5A059] text-black" : "border-white/15 text-white/55 hover:text-white"}`}
               >
                 {item}
               </button>
@@ -200,22 +200,22 @@ export function BestsellerSyntheses() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 md:gap-7">
           {visible.map((item) => (
             <motion.button
               key={item.id}
               type="button"
               whileHover={{ y: -6 }}
               onClick={() => setSelected(item)}
-              className="group text-left"
+              className="group text-left min-w-0"
             >
               <Cover item={item} />
-              <div className="mt-5 space-y-3">
-                <p className="text-[9px] uppercase tracking-[0.24em] font-black text-[#C5A059]">{sourceLabel(item)}</p>
-                <h3 className="font-serif text-2xl leading-tight text-white group-hover:text-[#C5A059] transition-colors">{item.title}</h3>
-                <p className="text-xs uppercase tracking-[0.16em] text-white/35">{item.author}</p>
-                <p className="text-sm leading-relaxed text-white/55 line-clamp-3">{synthesisNotice(item)}</p>
-                <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-white/45 group-hover:text-white">
+              <div className="mt-3 md:mt-5 space-y-2 md:space-y-3">
+                <p className="text-[8px] md:text-[9px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black text-[#C5A059] truncate">{sourceLabel(item)}</p>
+                <h3 className="font-serif text-lg md:text-2xl leading-tight text-white group-hover:text-[#C5A059] transition-colors line-clamp-2">{item.title}</h3>
+                <p className="text-[10px] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.16em] text-white/35 truncate">{item.author}</p>
+                <p className="text-xs md:text-sm leading-relaxed text-white/55 line-clamp-3">{synthesisNotice(item)}</p>
+                <span className="inline-flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em] md:tracking-[0.2em] font-bold text-white/45 group-hover:text-white">
                   Abrir síntese <ArrowRight className="w-3 h-3" />
                 </span>
               </div>
@@ -223,15 +223,15 @@ export function BestsellerSyntheses() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 pt-3">
+        <div className="grid md:grid-cols-3 gap-3 md:gap-5 pt-1 md:pt-3">
           {[
             { icon: Layers, title: "Sem reproduzir capítulos", text: "Conteúdo autoral, interpretativo e editorial, sem substituir a obra original." },
             { icon: Sparkles, title: "Capas com memória visual", text: "Composição inspirada no posicionamento do título, com selo SÍNTESE em destaque." },
             { icon: BookOpen, title: "Conversão para interesse", text: "A vitrine apresenta ideias centrais e chama o leitor para conhecer a plataforma." },
           ].map(({ icon: Icon, title, text }) => (
-            <div key={title} className="border border-white/10 p-6 bg-white/[0.03]">
-              <Icon className="w-5 h-5 text-[#C5A059] mb-4" />
-              <h3 className="font-serif text-xl mb-2">{title}</h3>
+            <div key={title} className="border border-white/10 p-4 md:p-6 bg-white/[0.03]">
+              <Icon className="w-5 h-5 text-[#C5A059] mb-3 md:mb-4" />
+              <h3 className="font-serif text-lg md:text-xl mb-2">{title}</h3>
               <p className="text-sm text-white/45 leading-relaxed">{text}</p>
             </div>
           ))}

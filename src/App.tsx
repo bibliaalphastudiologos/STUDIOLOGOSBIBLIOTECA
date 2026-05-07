@@ -124,7 +124,7 @@ export default function App() {
         <BestsellerSyntheses />
 
         {/* Section: Recommended Axis */}
-        <section className="py-20 px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
           {STUDY_ROUTES.slice(0, 3).map((route, index) => (
             <motion.div
               key={route.id}
@@ -135,13 +135,13 @@ export default function App() {
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: route.category, term: route.term, label: route.title });
               }}
-              className={`p-10 border border-black/5 shadow-sm flex flex-col justify-between aspect-video rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#1A1A1A] text-white' : 'bg-white'}`}
+              className={`p-5 md:p-10 border border-black/5 shadow-sm flex flex-col justify-between min-h-40 md:aspect-video rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#1A1A1A] text-white' : 'bg-white'}`}
             >
               <div>
-                <span className="accent-gold text-[10px] uppercase tracking-[0.4em] font-black">{route.eyebrow}</span>
-                <h3 className="text-3xl font-serif mt-4">{route.title}</h3>
+                <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.26em] md:tracking-[0.4em] font-black">{route.eyebrow}</span>
+                <h3 className="text-2xl md:text-3xl font-serif mt-3 md:mt-4">{route.title}</h3>
               </div>
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity">
+              <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-50 group-hover:opacity-100 transition-opacity">
                 Explorar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
               </div>
             </motion.div>
@@ -189,14 +189,14 @@ export default function App() {
         )}
 
         {/* Axis of knowledge */}
-        <section className="py-24 px-10 bg-[#F2F0E9] border-y border-black/10">
-          <div className="max-w-7xl mx-auto space-y-16">
-            <div className="space-y-4">
-              <span className="accent-gold text-[10px] uppercase tracking-[0.5em] font-black">Navegação Curatorial</span>
-              <h2 className="text-4xl font-serif text-black leading-tight">Explorar por <br/> <span className="accent-gold">Dimensão de Conhecimento</span></h2>
+        <section className="py-14 md:py-24 px-4 sm:px-6 lg:px-10 bg-[#F2F0E9] border-y border-black/10">
+          <div className="max-w-7xl mx-auto space-y-8 md:space-y-16">
+            <div className="space-y-3 md:space-y-4">
+              <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Navegação Curatorial</span>
+              <h2 className="text-3xl md:text-4xl font-serif text-black leading-tight">Explorar por <br/> <span className="accent-gold">Dimensão de Conhecimento</span></h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
               {[
                 { area: "Filosofia", count: String(groupedEbooks[Category.PHILOSOPHY]?.length || 0), icon: "ALPHA", desc: "Clássicos essenciais do pensamento." },
                 { area: "Teologia", count: String(groupedEbooks[Category.THEOLOGY]?.length || 0), icon: "LOGOS", desc: "Patrística, Reforma e sermões." },
@@ -206,12 +206,12 @@ export default function App() {
                 <motion.div 
                   key={idx}
                   whileHover={{ y: -4, borderColor: "#B48A3D" }}
-                  className="p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-6 group cursor-pointer transition-all"
+                  className="p-4 md:p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-4 md:space-y-6 group cursor-pointer transition-all"
                 >
-                  <div className="text-[10px] font-black accent-gold tracking-[0.3em]">{item.icon}</div>
+                  <div className="text-[9px] md:text-[10px] font-black accent-gold tracking-[0.2em] md:tracking-[0.3em]">{item.icon}</div>
                   <div>
-                    <h4 className="font-serif text-xl mb-2">{item.area}</h4>
-                    <p className="text-[10px] text-black/40 font-mono tracking-widest uppercase mb-4">{item.count} Obras</p>
+                    <h4 className="font-serif text-lg md:text-xl mb-2 leading-tight">{item.area}</h4>
+                    <p className="text-[9px] md:text-[10px] text-black/40 font-mono tracking-widest uppercase mb-3 md:mb-4">{item.count} Obras</p>
                     <p className="text-xs text-black/60 leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>
@@ -222,30 +222,30 @@ export default function App() {
 
         <ThematicRow />
 
-        <section className="px-10 pb-24 max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <section className="px-4 sm:px-6 lg:px-10 pb-14 md:pb-24 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-6 md:mb-10">
             <div>
-              <span className="accent-gold text-[10px] uppercase tracking-[0.5em] font-black">Roteiros de estudo</span>
-              <h2 className="text-4xl font-serif text-[#1A1A1A] mt-4">Leitura por tema</h2>
+              <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Roteiros de estudo</span>
+              <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] mt-3 md:mt-4">Leitura por tema</h2>
             </div>
             <p className="max-w-xl text-sm text-black/50 font-serif leading-relaxed">
               Percursos para entrar no acervo por problema, tradição e área de formação, sem transformar a biblioteca em uma lista solta de arquivos.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-5">
             {STUDY_ROUTES.map((route) => (
               <button
                 key={route.id}
                 onClick={() => handleAxisOpen({ category: route.category, term: route.term, label: route.title })}
-                className="text-left p-6 bg-white border border-black/5 hover:border-[#C5A059] transition-colors rounded-sm"
+                className="text-left p-4 md:p-6 bg-white border border-black/5 hover:border-[#C5A059] transition-colors rounded-sm"
               >
-                <p className="text-[9px] uppercase tracking-[0.28em] font-black accent-gold mb-3">{route.eyebrow}</p>
-                <h3 className="font-serif text-2xl mb-3">{route.title}</h3>
-                <p className="text-xs leading-relaxed text-black/50 mb-5">{route.description}</p>
-                <div className="space-y-2">
+                <p className="text-[9px] uppercase tracking-[0.22em] md:tracking-[0.28em] font-black accent-gold mb-2 md:mb-3">{route.eyebrow}</p>
+                <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-3">{route.title}</h3>
+                <p className="text-xs leading-relaxed text-black/50 mb-4 md:mb-5">{route.description}</p>
+                <div className="space-y-1.5 md:space-y-2">
                   {route.steps.map((step) => (
-                    <p key={step} className="text-[10px] uppercase tracking-[0.18em] font-bold text-black/35">{step}</p>
+                    <p key={step} className="text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold text-black/35">{step}</p>
                   ))}
                 </div>
               </button>
@@ -253,7 +253,7 @@ export default function App() {
           </div>
         </section>
 
-        <div className="space-y-32 pb-40">
+        <div className="space-y-16 md:space-y-32 pb-20 md:pb-40">
           {categories.map(cat => {
             const ebooks = groupedEbooks[cat];
             if (!ebooks || ebooks.length === 0) return null;
@@ -268,8 +268,8 @@ export default function App() {
             return (
               <div key={cat} id={`shelf-${cat}`} className="space-y-4 scroll-mt-28">
                 {axisForCategory && (
-                  <div className="px-10 max-w-7xl mx-auto">
-                    <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                  <div className="px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+                    <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 px-4 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.3em] font-black accent-gold">Eixo selecionado</p>
                         <p className="font-serif text-xl">{axisForCategory.label}</p>
@@ -290,13 +290,13 @@ export default function App() {
                 />
                 
                 {/* Tactical Recommendation per category */}
-                <div className="px-10 max-w-7xl mx-auto">
-                  <div className="bg-[#1A1A1A] p-6 flex items-center justify-between">
+                <div className="px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+                  <div className="bg-[#1A1A1A] p-4 md:p-6 flex items-center justify-between gap-4">
                     <div>
                       <p className="text-[10px] accent-gold font-bold uppercase tracking-widest text-[#C5A059]">Leitura Recomendada</p>
                       <p className="text-sm font-serif opacity-80 text-white">Baseado no eixo de {cat}</p>
                     </div>
-                    <button className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059]">Explorar Guia →</button>
+                    <button className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059] shrink-0">Explorar Guia →</button>
                   </div>
                 </div>
               </div>
@@ -305,22 +305,22 @@ export default function App() {
         </div>
 
         {/* Engagement Section: Invitation to Depth */}
-        <section className="py-40 bg-[#1A1A1A] text-white text-center space-y-10 px-6">
+        <section className="py-20 md:py-40 bg-[#1A1A1A] text-white text-center space-y-8 md:space-y-10 px-4 sm:px-6">
           <motion.div
             initial={{ y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto space-y-6"
+            className="max-w-3xl mx-auto space-y-5 md:space-y-6"
           >
-            <span className="accent-gold text-[10px] uppercase tracking-[0.6em] font-black">Convite à Profundidade</span>
-            <h2 className="text-5xl md:text-6xl font-serif leading-tight text-white">
+            <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.6em] font-black">Convite à Profundidade</span>
+            <h2 className="text-4xl md:text-6xl font-serif leading-tight text-white">
               Sua busca pelo <span className="accent-gold italic">Ser</span> começa aqui.
             </h2>
-            <p className="text-white/50 text-lg md:text-xl font-serif font-light leading-relaxed">
+            <p className="text-white/55 text-base md:text-xl font-serif font-light leading-relaxed">
               Junte-se a uma comunidade de leitores que não se contentam com a superfície. Receba sínteses exclusivas e ensaios inéditos semanalmente.
             </p>
             
-            <div className="pt-10 max-w-md mx-auto">
+            <div className="pt-5 md:pt-10 max-w-md mx-auto">
               <div className="flex border-b border-white/20 pb-2 group focus-within:border-[#C5A059] transition-colors">
                 <input 
                   type="email" 
@@ -334,7 +334,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="px-10 py-12 bg-[#F2F0E9] border-t border-black/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.3em] opacity-50 uppercase font-extrabold gap-6">
+      <footer className="px-4 sm:px-6 lg:px-10 py-8 md:py-12 bg-[#F2F0E9] border-t border-black/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.18em] md:tracking-[0.3em] opacity-50 uppercase font-extrabold gap-5 md:gap-6">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <span className="accent-gold opacity-100">Curadoria Literária Superior</span>
           <span className="text-black">Cloud Sync: Ativo</span>
