@@ -33,3 +33,9 @@ export function getAnnualExpirationDate(from: Date = new Date()): Date {
   next.setFullYear(next.getFullYear() + 1);
   return next;
 }
+
+export function getMonthlyExpirationDate(from: Date = new Date()): Date {
+  const next = new Date(from);
+  next.setMonth(next.getMonth() + 1);
+  return next;
+}

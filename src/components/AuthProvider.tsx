@@ -3,7 +3,7 @@ import type { User } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Timestamp, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db, loginWithGoogle, logout, processRedirectLogin } from '../services/firebase';
-import { getAnnualExpirationDate, getBrasiliaDateString } from '../lib/brasiliaDate';
+import { getBrasiliaDateString, getMonthlyExpirationDate } from '../lib/brasiliaDate';
 
 interface AuthContextValue {
   user: User | null;
@@ -28,17 +28,17 @@ export interface StudioLogosProfile {
 }
 
 const ADMIN_EMAIL = 'analista.ericksilva@gmail.com';
-const ANNUAL_PLAN_PRICE = 'R$ 47,00';
-const ANNUAL_PLAN_PERIOD = '1 ano';
+const MONTHLY_PLAN_PRICE = 'R$ 19,00';
+const MONTHLY_PLAN_PERIOD = 'mensal';
 
 function approvalFields() {
   const now = new Date();
   return {
     approvedAt: serverTimestamp(),
     approvalDateBrasilia: getBrasiliaDateString(now),
-    subscriptionExpiresAt: Timestamp.fromDate(getAnnualExpirationDate(now)),
-    planPrice: ANNUAL_PLAN_PRICE,
-    planPeriod: ANNUAL_PLAN_PERIOD,
+    subscriptionExpiresAt: Timestamp.fromDate(getMonthlyExpirationDate(now)),
+    planPrice: MONTHLY_PLAN_PRICE,
+    planPeriod: MONTHLY_PLAN_PERIOD,
   };
 }
 
@@ -113,8 +113,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             ? {
                 ...nextProfile,
                 approvalDateBrasilia: getBrasiliaDateString(),
-                planPrice: ANNUAL_PLAN_PRICE,
-                planPeriod: ANNUAL_PLAN_PERIOD,
+                planPrice: MONTHLY_PLAN_PRICE,
+                planPeriod: MONTHLY_PLAN_PERIOD,
               }
             : nextProfile;
           setProfile(profileWithApproval);
@@ -143,8 +143,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           ? {
               ...newProfile,
               approvalDateBrasilia: getBrasiliaDateString(),
-              planPrice: ANNUAL_PLAN_PRICE,
-              planPeriod: ANNUAL_PLAN_PERIOD,
+              planPrice: MONTHLY_PLAN_PRICE,
+              planPeriod: MONTHLY_PLAN_PERIOD,
             }
           : newProfile);
         setHasAccess(newProfile.status === 'approved' || newProfile.isAdmin === true);

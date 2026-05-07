@@ -277,7 +277,7 @@ export default function EbookDetailPage() {
               <div className="rounded-xl p-5 text-center" style={{ background: 'linear-gradient(135deg, #0d1b2a 0%, #1a2e4a 100%)' }}>
                 <div className="text-xs uppercase tracking-widest font-black mb-2" style={{ color: '#c9a227' }}>Premium</div>
                 <div className="text-white text-sm font-bold mb-1">Acesso Completo</div>
-                <div className="text-white/50 text-xs mb-4">R$ 47,00 · 1 ano de acesso</div>
+                <div className="text-white/50 text-xs mb-4">R$ 19,00 · acesso mensal</div>
                 <a href={PAYMENT_LINKS.studioLogosMonthly} target="_blank" rel="noopener noreferrer"
                   className="block w-full py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:opacity-90"
                   style={{ background: '#c9a227', color: '#fff' }}>

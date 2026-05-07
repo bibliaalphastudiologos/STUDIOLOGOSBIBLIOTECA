@@ -140,10 +140,10 @@ export const FeaturedSection: React.FC = () => {
           className="mt-16 text-center"
         >
           <p className="text-muted/80 text-lg mb-4">
-            <span className="text-3xl font-black text-navy">R$ 47,00</span> por 1 ano
+            <span className="text-3xl font-black text-navy">R$ 19,00</span> por mês
           </p>
           <p className="text-sm text-muted/60">
-            Assinatura anual com acesso completo à plataforma.
+            Assinatura mensal com acesso completo à plataforma.
           </p>
         </motion.div>
       </div>

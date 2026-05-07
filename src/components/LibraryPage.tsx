@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { DEMO_EBOOKS } from '../data/ebooks';
-import { Ebook } from '../types';
+import { Ebook, PAYMENT_LINKS } from '../types';
 
 const CATEGORIES = ['Todas', 'Teologia', 'Filosofia', 'Psicanálise', 'Literatura Brasileira'];
 const LANGUAGES  = ['Todos', 'Português', 'Latim', 'Inglês', 'Grego', 'Francês', 'Alemão'];
@@ -319,15 +319,15 @@ export default function LibraryPage() {
             Acesso ilimitado a toda a biblioteca
           </h2>
           <p className="text-white/60 text-sm mb-6">
-            Por R$ 47,00 ao ano, leia quantas obras quiser, com marcadores, notas, destaques e tradução automática.
+            Por R$ 19,00 por mês, leia quantas obras quiser, com marcadores, notas, destaques e tradução automática.
           </p>
-          <a href="https://mpago.la/1cFocZN"
+          <a href={PAYMENT_LINKS.studioLogosMonthly}
             target="_blank" rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all hover:opacity-90"
             style={{ background: '#c9a227', color: '#fff' }}>
-            Assinar por R$ 47/ano
+            Assinar por R$ 19/mês
           </a>
-          <p className="text-white/30 text-xs mt-3">Acesso anual · Liberação após aprovação</p>
+          <p className="text-white/30 text-xs mt-3">Acesso mensal · Liberação após aprovação</p>
         </div>
       </section>
     </div>

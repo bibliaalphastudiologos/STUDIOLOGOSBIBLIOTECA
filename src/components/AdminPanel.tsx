@@ -17,7 +17,7 @@ export const AdminPanel: React.FC = () => {
             Controle de assinatura
           </p>
           <h2 className="font-serif text-2xl text-navy mb-3">
-            Plano anual Studio Logos · R$ 47,00 por 1 ano
+            Plano mensal Studio Logos · R$ 19,00 por mês
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-sm">
             <div className="border border-gray-100 p-3">
@@ -34,7 +34,7 @@ export const AdminPanel: React.FC = () => {
             </div>
             <div className="border border-gray-100 p-3">
               <p className="text-gray-400 text-xs uppercase font-bold">Validade</p>
-              <p className="font-serif text-lg">{hasAccess ? expirationDate : '1 ano após aprovação'}</p>
+              <p className="font-serif text-lg">{hasAccess ? expirationDate : '1 mês após aprovação'}</p>
             </div>
           </div>
         </div>
@@ -60,8 +60,8 @@ export const AdminPanel: React.FC = () => {
 
           <div className="bg-white p-6 rounded-sm shadow">
             <CalendarCheck className="w-8 h-8 text-navy mb-3" />
-            <h3 className="font-serif text-xl mb-2">Plano Anual</h3>
-            <p className="text-gray-600">R$ 47,00 · validade de 1 ano</p>
+            <h3 className="font-serif text-xl mb-2">Plano Mensal</h3>
+            <p className="text-gray-600">R$ 19,00 · validade mensal</p>
           </div>
         </div>
       </div>

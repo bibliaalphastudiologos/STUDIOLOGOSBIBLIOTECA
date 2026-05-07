@@ -153,7 +153,7 @@ export interface ReadingHistory {
 
 // Payment configuration
 export const PAYMENT_LINKS = {
-  studioLogosMonthly: 'https://mpago.la/1cFocZN',
+  studioLogosMonthly: 'https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=bcf17285bfd64b70b1892692538db1ed',
   bibliaAlpha: 'https://mpago.la/1cFocZN',
   suporte: 'mailto:contato@studiologos.com.br',
 } as const;
