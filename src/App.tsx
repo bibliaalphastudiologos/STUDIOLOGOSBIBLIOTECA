@@ -6,6 +6,7 @@ import { ThematicRow } from "./components/ThematicRow";
 import { Reader } from "./components/Reader";
 import { EbookPreview } from "./components/EbookPreview";
 import { BestsellerSyntheses } from "./components/BestsellerSyntheses";
+import { GoogleTranslatePrompt } from "./components/GoogleTranslatePrompt";
 import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
@@ -126,6 +127,7 @@ export default function App() {
   return (
     <div className="min-h-screen relative font-sans">
       <Navigation />
+      <GoogleTranslatePrompt />
       
       <main>
         <Hero />
