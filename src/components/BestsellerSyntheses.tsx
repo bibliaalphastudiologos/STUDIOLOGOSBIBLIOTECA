@@ -191,9 +191,9 @@ export function BestsellerSyntheses() {
       <div className="max-w-7xl mx-auto space-y-7 md:space-y-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 md:gap-8">
           <div className="max-w-3xl">
-            <span className="text-[#C5A059] text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.55em] font-black">Vitrine editorial</span>
-            <h2 className="text-3xl md:text-5xl font-serif leading-tight mt-3 md:mt-5">Sínteses dos <span className="italic text-[#C5A059]">Mais Vendidos</span></h2>
-            <p className="mt-4 md:mt-6 text-white/60 font-serif text-base md:text-lg leading-relaxed">
+            <span className="text-[#D8B76C] text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.55em] font-black">Vitrine editorial</span>
+            <h2 className="text-3xl md:text-5xl font-serif leading-tight mt-3 md:mt-5 text-white">Sínteses dos <span className="italic text-[#D8B76C]">Mais Vendidos</span></h2>
+            <p className="mt-4 md:mt-6 text-white/78 font-serif text-base md:text-lg leading-relaxed">
               Uma vitrine complementar para descobrir temas atuais. A plataforma principal continua sendo a leitura de obras integrais, trilhas e estudo dentro do Studio Logos.
             </p>
           </div>
@@ -202,7 +202,7 @@ export function BestsellerSyntheses() {
               <button
                 key={item}
                 onClick={() => setSource(item)}
-                className={`shrink-0 px-3 md:px-4 h-9 md:h-10 border text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold ${source === item ? "border-[#C5A059] bg-[#C5A059] text-black" : "border-white/15 text-white/55 hover:text-white"}`}
+                className={`shrink-0 px-3 md:px-4 h-9 md:h-10 border text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold ${source === item ? "border-[#D8B76C] bg-[#D8B76C] text-black" : "border-white/25 text-white/78 hover:text-white"}`}
               >
                 {item}
               </button>
@@ -223,9 +223,9 @@ export function BestsellerSyntheses() {
               <div className="mt-3 md:mt-4 space-y-1.5 md:space-y-2">
                 <p className="text-[8px] md:text-[9px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black text-[#C5A059] truncate">{sourceLabel(item)}</p>
                 <h3 className="font-serif text-base md:text-xl leading-tight text-white group-hover:text-[#C5A059] transition-colors line-clamp-2">{item.title}</h3>
-                <p className="text-[10px] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.16em] text-white/35 truncate">{item.author}</p>
-                <p className="text-xs leading-relaxed text-white/55 line-clamp-2">{synthesisNotice(item)}</p>
-                <span className="inline-flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em] md:tracking-[0.2em] font-bold text-white/45 group-hover:text-white">
+                <p className="text-[10px] md:text-xs uppercase tracking-[0.12em] md:tracking-[0.16em] text-white/58 truncate">{item.author}</p>
+                <p className="text-xs leading-relaxed text-white/72 line-clamp-2">{synthesisNotice(item)}</p>
+                <span className="inline-flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em] md:tracking-[0.2em] font-bold text-white/70 group-hover:text-white">
                   Abrir síntese <ArrowRight className="w-3 h-3" />
                 </span>
               </div>
@@ -242,7 +242,7 @@ export function BestsellerSyntheses() {
             <div key={title} className="border border-white/10 p-4 md:p-6 bg-white/[0.03]">
               <Icon className="w-5 h-5 text-[#C5A059] mb-3 md:mb-4" />
               <h3 className="font-serif text-lg md:text-xl mb-2">{title}</h3>
-              <p className="text-sm text-white/45 leading-relaxed">{text}</p>
+              <p className="text-sm text-white/68 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>

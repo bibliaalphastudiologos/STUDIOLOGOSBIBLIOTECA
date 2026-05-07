@@ -136,8 +136,8 @@ export default function App() {
             <div className="bg-[#1A1A1A] text-white p-5 md:p-7 rounded-sm border border-black/10 flex flex-col justify-between">
               <div>
                 <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.28em] md:tracking-[0.45em] font-black">Plataforma completa</span>
-                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight">Obras integrais, trilhas e sínteses no mesmo lugar.</h2>
-                <p className="mt-4 text-sm md:text-base text-white/60 font-serif leading-relaxed">
+                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight text-white">Obras integrais, trilhas e sínteses no mesmo lugar.</h2>
+                <p className="mt-4 text-sm md:text-base text-white/82 font-serif leading-relaxed">
                   O Studio Logos é uma biblioteca de leitura online com acervo completo, roteiros de formação e sínteses editoriais para descoberta.
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function App() {
                 ].map((item) => (
                   <div key={item.label} className="border border-white/10 bg-white/[0.04] p-3">
                     <p className="font-serif text-2xl text-[#C5A059]">{item.value}</p>
-                    <p className="text-[9px] uppercase tracking-[0.18em] text-white/45 font-bold">{item.label}</p>
+                    <p className="text-[9px] uppercase tracking-[0.18em] text-white/70 font-bold">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -170,10 +170,10 @@ export default function App() {
                 >
                   <div>
                     <span className="accent-gold text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black">{route.eyebrow}</span>
-                    <h3 className="text-xl md:text-2xl font-serif mt-2 md:mt-3 leading-tight">{route.title}</h3>
-                    <p className={`mt-3 text-xs leading-relaxed line-clamp-3 ${index === 1 ? 'text-white/55' : 'text-black/45'}`}>{route.description}</p>
+                    <h3 className={`text-xl md:text-2xl font-serif mt-2 md:mt-3 leading-tight ${index === 1 ? 'text-white' : 'text-[#111]'}`}>{route.title}</h3>
+                    <p className={`mt-3 text-xs leading-relaxed line-clamp-3 ${index === 1 ? 'text-white/78' : 'text-black/68'}`}>{route.description}</p>
                   </div>
-                  <div className="mt-4 flex items-center gap-2 text-[9px] uppercase tracking-widest font-bold opacity-55 group-hover:opacity-100 transition-opacity">
+                  <div className={`mt-4 flex items-center gap-2 text-[9px] uppercase tracking-widest font-bold transition-opacity ${index === 1 ? 'text-white/75 group-hover:text-white' : 'text-black/60 group-hover:text-black'}`}>
                     Começar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
                   </div>
                 </motion.div>
@@ -264,7 +264,7 @@ export default function App() {
               <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Roteiros de estudo</span>
               <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] mt-3 md:mt-4">Leitura por tema</h2>
             </div>
-            <p className="max-w-xl text-sm text-black/50 font-serif leading-relaxed">
+            <p className="max-w-xl text-sm text-black/68 font-serif leading-relaxed">
               Percursos para entrar no acervo por problema, tradição e área de formação, sem transformar a biblioteca em uma lista solta de arquivos.
             </p>
           </div>
@@ -278,10 +278,10 @@ export default function App() {
               >
                 <p className="text-[9px] uppercase tracking-[0.22em] md:tracking-[0.28em] font-black accent-gold mb-2 md:mb-3">{route.eyebrow}</p>
                 <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-3">{route.title}</h3>
-                <p className="text-xs leading-relaxed text-black/50 mb-4 md:mb-5">{route.description}</p>
+                <p className="text-xs leading-relaxed text-black/68 mb-4 md:mb-5">{route.description}</p>
                 <div className="space-y-1.5 md:space-y-2">
                   {route.steps.map((step) => (
-                    <p key={step} className="text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold text-black/35">{step}</p>
+                    <p key={step} className="text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold text-black/55">{step}</p>
                   ))}
                 </div>
               </button>
