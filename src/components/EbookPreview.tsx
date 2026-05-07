@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { BookOpen, Check, Languages, Library, Lock, Plus, X } from "lucide-react";
 import { type Ebook } from "../studioTypes";
@@ -13,18 +13,28 @@ interface EbookPreviewProps {
 }
 
 export function EbookPreview({ ebook, related, canRead, onClose, onRead }: EbookPreviewProps) {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[90] bg-black/55 backdrop-blur-sm overflow-auto"
+      onClick={onClose}
     >
       <div className="min-h-screen px-4 py-10 flex items-start justify-center">
         <motion.section
           initial={{ y: 24 }}
           animate={{ y: 0 }}
           className="w-full max-w-6xl bg-[#F9F7F2] shadow-2xl border border-black/10"
+          onClick={(event) => event.stopPropagation()}
         >
           <div className="p-5 md:p-8 border-b border-black/10 flex items-center justify-between">
             <div>

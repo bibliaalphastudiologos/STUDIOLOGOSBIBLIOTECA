@@ -38,11 +38,13 @@ export const EbookModal: React.FC<EbookModalProps> = ({
             <div className="flex justify-between items-start mb-4">
               <h2 className="font-serif text-2xl text-navy">{ebook.title}</h2>
               <button
-onClick={(e: React.MouseEvent) => {
-              e.stopPropagation();
-              onClose();
-            }}
+                onClick={(e: React.MouseEvent) => {
+                  e.stopPropagation();
+                  onClose();
+                }}
                 className="text-gray-400 hover:text-gray-600"
+                aria-label="Fechar janela do eBook"
+                title="Fechar"
               >
                 <X className="w-6 h-6" />
               </button>

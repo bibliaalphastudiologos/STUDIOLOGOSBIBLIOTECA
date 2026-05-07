@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, BookOpen, Layers, Sparkles, X } from "lucide-react";
 import { BESTSELLER_SYNTHESES, type BestsellerSynthesis } from "../data/bestsellerSyntheses";
@@ -65,18 +65,28 @@ function Cover({ item, large = false }: { item: BestsellerSynthesis; large?: boo
 }
 
 function SynthesisModal({ item, onClose }: { item: BestsellerSynthesis; onClose: () => void }) {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[130] bg-black/60 backdrop-blur-sm overflow-auto"
+      onClick={onClose}
     >
       <div className="min-h-screen px-3 md:px-4 py-4 md:py-10 flex items-start justify-center">
         <motion.article
           initial={{ y: 24 }}
           animate={{ y: 0 }}
           className="w-full max-w-6xl bg-[#F9F7F2] border border-black/10 shadow-2xl"
+          onClick={(event) => event.stopPropagation()}
         >
           <header className="p-4 md:p-8 border-b border-black/10 flex items-center justify-between gap-4">
             <div>

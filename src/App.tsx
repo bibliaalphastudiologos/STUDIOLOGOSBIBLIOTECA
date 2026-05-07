@@ -92,6 +92,15 @@ export default function App() {
     window.location.href = PAYMENT_LINKS.studioLogosMonthly;
   }, [hasAccess, loading, lockedEbook, user]);
 
+  useEffect(() => {
+    if (!lockedEbook) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLockedEbook(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lockedEbook]);
+
   const categories = [
     Category.SPECIAL,
     Category.PHILOSOPHY,
@@ -352,8 +361,20 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[120] bg-black/50 backdrop-blur-sm flex items-center justify-center px-6"
+            onClick={() => setLockedEbook(null)}
           >
-            <div className="bg-[#F9F7F2] max-w-md w-full p-10 rounded-sm shadow-2xl border border-black/10 text-center">
+            <div
+              className="relative bg-[#F9F7F2] max-w-md w-full p-10 rounded-sm shadow-2xl border border-black/10 text-center"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                onClick={() => setLockedEbook(null)}
+                className="absolute right-4 top-4 p-2 text-black/35 hover:text-black hover:bg-black/5 rounded-sm transition-colors"
+                aria-label="Fechar janela de acesso"
+                title="Fechar"
+              >
+                <X className="w-4 h-4" />
+              </button>
               <div className="w-14 h-14 rounded-full bg-[#1A1A1A] text-[#C5A059] flex items-center justify-center mx-auto mb-6">
                 <Lock className="w-6 h-6" />
               </div>

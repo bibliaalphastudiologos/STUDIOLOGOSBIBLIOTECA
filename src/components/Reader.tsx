@@ -153,6 +153,14 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
     return () => window.clearTimeout(timer);
   }, [chapterIndex, cloudLoaded, currentChapter.id, ebook.id, progress, user]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   const handleTranslate = async () => {
     if (!hasTranslation) return;
     setIsTranslating(true);
