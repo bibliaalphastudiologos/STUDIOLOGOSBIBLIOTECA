@@ -36,7 +36,7 @@ function getCoverGradient(theme: string, category: string) {
 function BookCard({ ebook, index }: { ebook: Ebook; index: number }) {
   const navigate = useNavigate();
   const gradient = getCoverGradient(ebook.coverTheme, ebook.category);
-  const coverImage = ebook.cover || getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
+  const coverImage = getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
 
   return (
     <motion.div

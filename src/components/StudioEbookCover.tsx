@@ -31,26 +31,7 @@ function coverTitleClass(title: string, compact: boolean): string {
   return "text-xl md:text-2xl leading-[1.08]";
 }
 
-function sourceCoverLooksOfficial(url?: string): boolean {
-  return Boolean(url && /gutenberg\.org\/covers|archive\.org|covers\//i.test(url));
-}
-
 export function StudioEbookCover({ ebook, className = "", compact = false, showTitle = true }: StudioEbookCoverProps) {
-  const officialCover = sourceCoverLooksOfficial(ebook.coverImage);
-
-  if (officialCover) {
-    return (
-      <div className={`aspect-[2/3] relative overflow-hidden paper-texture ebook-shadow border border-black/10 bg-[#171512] ${className}`}>
-        <img
-          src={ebook.coverImage}
-          alt={`Capa de ${ebook.title}`}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-    );
-  }
-
   return (
     <div className={`aspect-[2/3] relative overflow-hidden paper-texture ebook-shadow border border-black/5 bg-[#171512] ${className}`}>
       <div className={`absolute inset-0 ${ebook.coverColor}`} />
@@ -59,10 +40,10 @@ export function StudioEbookCover({ ebook, className = "", compact = false, showT
           src={ebook.coverImage}
           alt=""
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover opacity-70 saturate-[0.88] contrast-[1.08]"
+          className="absolute inset-0 h-full w-full object-cover opacity-95 saturate-[0.95] contrast-[1.08]"
         />
       )}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.42),rgba(0,0,0,0.16)_38%,rgba(0,0,0,0.82)),radial-gradient(circle_at_50%_22%,rgba(255,255,255,0.20),transparent_34%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.06)_38%,rgba(0,0,0,0.86)),radial-gradient(circle_at_50%_22%,rgba(255,255,255,0.20),transparent_34%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%,rgba(0,0,0,0.32))]" />
       <div className="absolute inset-2 md:inset-3 border border-white/20" />
       <div className="absolute inset-x-4 md:inset-x-6 top-6 md:top-8 h-px bg-white/24" />
@@ -109,4 +90,3 @@ export function StudioEbookCover({ ebook, className = "", compact = false, showT
     </div>
   );
 }
-

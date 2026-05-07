@@ -30,7 +30,7 @@ export const EbookCard: React.FC<EbookCardProps> = ({
     onToggleFavorite?.(ebook.id);
   };
 
-  const coverImage = ebook.cover || getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
+  const coverImage = getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
 
   const getCategoryColor = (category: string) => {
     switch (category) {

@@ -48,7 +48,7 @@ export default function EbookDetailPage() {
   }
 
   const gradient = getCoverGradient(ebook.coverTheme, ebook.category);
-  const coverImage = ebook.cover || getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
+  const coverImage = getEditorialCoverImageForText(ebook.category, ebook.title, ebook.authorReference || '');
   const canRead  = true; // Acesso liberado conforme solicitado
   const hasTranslation = ebook.originalLanguage && !ebook.originalLanguage.toLowerCase().includes('portugu');
   const tags = ebook.tags ?? [];
