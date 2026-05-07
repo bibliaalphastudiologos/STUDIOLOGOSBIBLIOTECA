@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
                 Acesse a biblioteca completa e comece a explorar as grandes obras clássicas hoje mesmo.
               </p>
               <p className="text-gold font-black text-xl">
-                R$ 11,00 por mês · Cancele quando quiser
+                R$ 47,00 por 1 ano de acesso
               </p>
             </div>
 

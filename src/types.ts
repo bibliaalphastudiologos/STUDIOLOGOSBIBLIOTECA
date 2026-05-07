@@ -46,6 +46,10 @@ export interface UserProfile {
   status: UserStatus;
   createdAt: any;
   approvedAt?: any;
+  approvalDateBrasilia?: string;
+  subscriptionExpiresAt?: any;
+  planPrice?: string;
+  planPeriod?: string;
   lastLoginAt: any;
 }
 

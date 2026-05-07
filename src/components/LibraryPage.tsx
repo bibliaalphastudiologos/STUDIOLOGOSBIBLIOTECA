@@ -319,15 +319,15 @@ export default function LibraryPage() {
             Acesso ilimitado a toda a biblioteca
           </h2>
           <p className="text-white/60 text-sm mb-6">
-            Por apenas R$ 11/mês, leia quantas obras quiser, com marcadores, notas, destaques e tradução automática.
+            Por R$ 47,00 ao ano, leia quantas obras quiser, com marcadores, notas, destaques e tradução automática.
           </p>
           <a href="https://mpago.la/1cFocZN"
             target="_blank" rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all hover:opacity-90"
             style={{ background: '#c9a227', color: '#fff' }}>
-            Assinar por R$ 11/mês
+            Assinar por R$ 47/ano
           </a>
-          <p className="text-white/30 text-xs mt-3">Cancele quando quiser · Acesso imediato</p>
+          <p className="text-white/30 text-xs mt-3">Acesso anual · Liberação após aprovação</p>
         </div>
       </section>
     </div>

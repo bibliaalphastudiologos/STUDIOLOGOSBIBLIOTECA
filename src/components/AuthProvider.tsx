@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { User } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { Timestamp, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db, loginWithGoogle, logout, processRedirectLogin } from '../services/firebase';
+import { getAnnualExpirationDate, getBrasiliaDateString } from '../lib/brasiliaDate';
 
 interface AuthContextValue {
   user: User | null;
@@ -13,15 +14,33 @@ interface AuthContextValue {
   logout: () => Promise<void>;
 }
 
-interface StudioLogosProfile {
+export interface StudioLogosProfile {
   email: string;
   nome: string;
   foto: string;
   status: 'pending' | 'approved' | 'blocked';
   isAdmin?: boolean;
+  approvedAt?: unknown;
+  approvalDateBrasilia?: string;
+  subscriptionExpiresAt?: unknown;
+  planPrice?: string;
+  planPeriod?: string;
 }
 
 const ADMIN_EMAIL = 'analista.ericksilva@gmail.com';
+const ANNUAL_PLAN_PRICE = 'R$ 47,00';
+const ANNUAL_PLAN_PERIOD = '1 ano';
+
+function approvalFields() {
+  const now = new Date();
+  return {
+    approvedAt: serverTimestamp(),
+    approvalDateBrasilia: getBrasiliaDateString(now),
+    subscriptionExpiresAt: Timestamp.fromDate(getAnnualExpirationDate(now)),
+    planPrice: ANNUAL_PLAN_PRICE,
+    planPeriod: ANNUAL_PLAN_PERIOD,
+  };
+}
 
 const AuthContext = createContext<AuthContextValue>({
   user: null,
@@ -68,19 +87,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             foto: firebaseUser.photoURL || existingProfile.foto || '',
             status: isAdmin ? 'approved' : existingProfile.status || 'pending',
             isAdmin: existingProfile.isAdmin === true || isAdmin,
+            approvedAt: existingProfile.approvedAt,
+            approvalDateBrasilia: existingProfile.approvalDateBrasilia,
+            subscriptionExpiresAt: existingProfile.subscriptionExpiresAt,
+            planPrice: existingProfile.planPrice,
+            planPeriod: existingProfile.planPeriod,
           };
+          const isApproved = nextProfile.status === 'approved' || nextProfile.isAdmin === true;
+          const missingApprovalRecord = isApproved && !existingProfile.approvedAt;
 
           await setDoc(
             userRef,
             {
               nome: nextProfile.nome,
               foto: nextProfile.foto,
+              email: nextProfile.email,
+              status: nextProfile.status,
+              isAdmin: nextProfile.isAdmin,
+              ...(missingApprovalRecord ? approvalFields() : {}),
               updatedAt: serverTimestamp(),
             },
             { merge: true },
           );
-          setProfile(nextProfile);
-          setHasAccess(nextProfile.status === 'approved' || nextProfile.isAdmin === true);
+          const profileWithApproval = missingApprovalRecord
+            ? {
+                ...nextProfile,
+                approvalDateBrasilia: getBrasiliaDateString(),
+                planPrice: ANNUAL_PLAN_PRICE,
+                planPeriod: ANNUAL_PLAN_PERIOD,
+              }
+            : nextProfile;
+          setProfile(profileWithApproval);
+          setHasAccess(isApproved);
           return;
         }
 
@@ -97,10 +135,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           {
             ...newProfile,
             createdAt: serverTimestamp(),
+            ...(newProfile.status === 'approved' ? approvalFields() : {}),
             updatedAt: serverTimestamp(),
           },
         );
-        setProfile(newProfile);
+        setProfile(newProfile.status === 'approved'
+          ? {
+              ...newProfile,
+              approvalDateBrasilia: getBrasiliaDateString(),
+              planPrice: ANNUAL_PLAN_PRICE,
+              planPeriod: ANNUAL_PLAN_PERIOD,
+            }
+          : newProfile);
         setHasAccess(newProfile.status === 'approved' || newProfile.isAdmin === true);
       } catch (error) {
         console.warn('[StudioLogos Auth] Não foi possível sincronizar o perfil:', error);

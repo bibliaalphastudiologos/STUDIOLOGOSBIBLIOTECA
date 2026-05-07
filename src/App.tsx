@@ -7,6 +7,7 @@ import { Reader } from "./components/Reader";
 import { EbookPreview } from "./components/EbookPreview";
 import { BestsellerSyntheses } from "./components/BestsellerSyntheses";
 import { GoogleTranslatePrompt } from "./components/GoogleTranslatePrompt";
+import { AdminPanel } from "./components/AdminPanel";
 import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
@@ -15,9 +16,11 @@ import { BookOpen, ChevronRight, Lock, X } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { PAYMENT_LINKS } from "./types";
+import { useLocation } from "react-router-dom";
 
 export default function App() {
   const { user, hasAccess, login, loading } = useAuth();
+  const location = useLocation();
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
   const [previewEbook, setPreviewEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
@@ -123,6 +126,17 @@ export default function App() {
     });
     return result;
   }, []);
+
+  if (location.pathname === "/admin") {
+    return (
+      <div className="min-h-screen relative font-sans">
+        <Navigation />
+        <main className="pt-24">
+          <AdminPanel />
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen relative font-sans">

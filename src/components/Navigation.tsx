@@ -2,6 +2,7 @@ import { Library } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from "./AuthProvider";
 import { useLocation } from "react-router-dom";
+import { formatBrasiliaDate } from "../lib/brasiliaDate";
 
 export function Navigation() {
   const { user, profile, hasAccess, loading, login, logout } = useAuth();
@@ -26,6 +27,9 @@ export function Navigation() {
           <a href="/teologia" className={`transition-colors ${location.pathname === '/teologia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Teologia</a>
           <a href="/psicanalise" className={`transition-colors ${location.pathname === '/psicanalise' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Psicanálise</a>
           <a href="/literatura" className={`transition-colors ${location.pathname === '/literatura' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Literatura</a>
+          {profile?.isAdmin && (
+            <a href="/admin" className={`transition-colors ${location.pathname === '/admin' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Admin</a>
+          )}
         </div>
       </motion.div>
       
@@ -37,6 +41,11 @@ export function Navigation() {
           <p className="text-sm font-serif text-[#1A1A1A]">
             {profile?.nome || user?.displayName || user?.email || "Bíblia Alpha"}
           </p>
+          {user && hasAccess && (
+            <p className="text-[9px] uppercase tracking-[0.14em] text-black/55 font-bold">
+              Aprovado em {profile?.approvalDateBrasilia || formatBrasiliaDate(profile?.approvedAt)}
+            </p>
+          )}
         </div>
         {user ? (
           <button
