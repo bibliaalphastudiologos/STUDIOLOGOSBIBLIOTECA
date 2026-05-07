@@ -19,6 +19,12 @@ function initials(value: string): string {
     .toUpperCase();
 }
 
+function coverTitleClass(title: string): string {
+  if (title.length > 48) return "text-[9px] sm:text-[10px] md:text-xs leading-[1.08] md:leading-[1.12]";
+  if (title.length > 32) return "text-[10px] sm:text-[11px] md:text-[13px] leading-[1.1] md:leading-[1.13]";
+  return "text-[11px] sm:text-xs md:text-sm leading-[1.12] md:leading-[1.15]";
+}
+
 export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead }) => {
   const [search, setSearch] = useState("");
   const [language, setLanguage] = useState("Todos");
@@ -111,32 +117,32 @@ export const EbookShelf: React.FC<EbookShelfProps> = ({ category, ebooks, onRead
               </div>
 
               {/* Cover Overlay Info */}
-              <div className="absolute inset-0 flex flex-col justify-between py-4 md:py-7 px-3 md:px-5 text-center z-10">
-                <div className="space-y-3 md:space-y-5">
+              <div className="absolute inset-0 flex flex-col justify-between py-3.5 md:py-7 px-2.5 sm:px-3 md:px-5 text-center z-10">
+                <div className="space-y-2 md:space-y-5">
                   <span
-                    className="text-[6px] md:text-[7px] tracking-[0.16em] md:tracking-[0.26em] uppercase font-black"
+                    className="text-[5.5px] sm:text-[6px] md:text-[7px] tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.26em] uppercase font-black line-clamp-1"
                     style={{ color: ebook.coverAccent }}
                   >
                     {ebook.isSpecial ? "Premium" : ebook.category}
                   </span>
 
-                  <div className="mx-auto h-7 w-7 md:h-10 md:w-10 rounded-full border border-white/10 flex items-center justify-center bg-black/10">
+                  <div className="hidden sm:flex mx-auto h-7 w-7 md:h-10 md:w-10 rounded-full border border-white/10 items-center justify-center bg-black/10">
                     <span className="font-serif text-[10px] md:text-sm" style={{ color: ebook.coverAccent }}>
                       {initials(ebook.author) || ebook.coverMark}
                     </span>
                   </div>
                   
-                  <div className="flex flex-col gap-1 items-center">
-                    <h3 className="font-serif leading-[1.12] md:leading-[1.15] text-[11px] md:text-sm text-white drop-shadow-md line-clamp-4">
+                  <div className="flex min-h-[68px] sm:min-h-[74px] md:min-h-[92px] flex-col justify-center gap-1 items-center px-0.5">
+                    <h3 className={`font-serif text-white drop-shadow-md line-clamp-5 break-words hyphens-auto ${coverTitleClass(ebook.title)}`}>
                       {ebook.title}
                     </h3>
-                    <p className="text-[6px] md:text-[7px] text-white/35 uppercase tracking-[0.12em] md:tracking-[0.18em] line-clamp-2">
+                    <p className="hidden sm:block text-[6px] md:text-[7px] text-white/40 uppercase tracking-[0.12em] md:tracking-[0.18em] line-clamp-2">
                       {ebook.coverEdition}
                     </p>
                   </div>
                 </div>
                 
-                <span className="text-[6px] md:text-[8px] text-white/38 font-mono tracking-widest uppercase line-clamp-2">
+                <span className="text-[5.5px] sm:text-[6px] md:text-[8px] text-white/48 font-mono tracking-[0.12em] md:tracking-widest uppercase line-clamp-2 px-1">
                   {ebook.author}
                 </span>
               </div>

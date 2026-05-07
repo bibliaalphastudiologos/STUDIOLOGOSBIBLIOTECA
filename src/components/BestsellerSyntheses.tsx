@@ -29,31 +29,38 @@ function visualMotif(title: string): string {
   return "síntese · leitura · curadoria";
 }
 
+function coverTitleClass(title: string, large: boolean): string {
+  if (large) return title.length > 34 ? "text-2xl md:text-4xl leading-[1.03]" : "text-3xl md:text-4xl leading-[1.04]";
+  if (title.length > 34) return "text-[15px] sm:text-base md:text-xl leading-[1.04]";
+  if (title.length > 22) return "text-base sm:text-lg md:text-2xl leading-[1.05]";
+  return "text-lg md:text-2xl leading-[1.06]";
+}
+
 function Cover({ item, large = false }: { item: BestsellerSynthesis; large?: boolean }) {
   return (
     <div className={`relative overflow-hidden rounded-sm border border-black/10 shadow-2xl bg-gradient-to-br ${item.palette} ${large ? "aspect-[2/3]" : "aspect-[3/4]"}`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.38),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.16),transparent_38%,rgba(0,0,0,0.42))]" />
-      <div className="absolute inset-4 border border-white/25" />
+      <div className="absolute inset-3 md:inset-4 border border-white/25" />
       <div className="absolute left-0 top-5 md:top-7 bg-[#111] text-white px-3 md:px-5 py-1.5 md:py-2 text-[8px] md:text-[10px] font-black uppercase tracking-[0.18em] md:tracking-[0.24em] shadow-xl">
         SÍNTESE
       </div>
-      <div className="absolute right-4 md:right-5 top-5 md:top-6 text-[7px] md:text-[8px] uppercase tracking-[0.18em] md:tracking-[0.26em] font-black text-black/45 text-right max-w-[55%]">
+      <div className="absolute right-3 md:right-5 top-5 md:top-6 text-[6px] sm:text-[7px] md:text-[8px] uppercase tracking-[0.14em] md:tracking-[0.26em] font-black text-black/55 text-right max-w-[50%] line-clamp-2">
         {sourceLabel(item)}
       </div>
-      <div className="absolute inset-x-4 md:inset-x-7 top-20 md:top-24">
-        <p className="text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black mb-2 md:mb-4" style={{ color: item.accent }}>
+      <div className="absolute inset-x-4 md:inset-x-7 top-16 sm:top-18 md:top-24">
+        <p className="text-[7px] md:text-[9px] uppercase tracking-[0.16em] md:tracking-[0.3em] font-black mb-2 md:mb-4" style={{ color: item.accent }}>
           Studio Logos
         </p>
-        <h3 className={`${large ? "text-3xl md:text-4xl" : "text-lg md:text-2xl"} font-serif leading-[1.06] text-white drop-shadow-xl`}>
+        <h3 className={`${coverTitleClass(item.title, large)} font-serif text-white drop-shadow-xl line-clamp-5 break-words hyphens-auto`}>
           {item.title}
         </h3>
-        <p className="mt-3 md:mt-4 text-[8px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] text-white/65 line-clamp-2">
+        <p className="mt-2 md:mt-4 text-[7px] sm:text-[8px] md:text-[10px] uppercase tracking-[0.12em] md:tracking-[0.18em] text-white/72 line-clamp-2">
           {item.author}
         </p>
       </div>
-      <div className="absolute inset-x-4 md:inset-x-7 bottom-5 md:bottom-8">
-        <div className="h-px bg-white/25 mb-3 md:mb-4" />
-        <p className="text-[7px] md:text-[9px] uppercase tracking-[0.16em] md:tracking-[0.22em] font-bold text-white/60">
+      <div className="absolute inset-x-4 md:inset-x-7 bottom-4 md:bottom-8">
+        <div className="h-px bg-white/25 mb-2 md:mb-4" />
+        <p className="text-[6px] sm:text-[7px] md:text-[9px] uppercase tracking-[0.12em] md:tracking-[0.22em] font-bold text-white/68 line-clamp-1">
           {visualMotif(item.title)}
         </p>
       </div>
