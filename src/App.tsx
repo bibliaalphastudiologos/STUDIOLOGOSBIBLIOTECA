@@ -12,11 +12,19 @@ import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, ChevronRight, Lock, X } from "lucide-react";
+import { BookOpen, ChevronRight, Lock, Search, X } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { PAYMENT_LINKS } from "./types";
 import { useLocation } from "react-router-dom";
+
+function normalizeSearch(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
 
 export default function App() {
   const { user, hasAccess, login, loading } = useAuth();
@@ -27,6 +35,7 @@ export default function App() {
   const [previewEbook, setPreviewEbook] = useState<Ebook | null>(null);
   const [lockedEbook, setLockedEbook] = useState<Ebook | null>(null);
   const [activeAxis, setActiveAxis] = useState<{ category: Category; term: string; label: string } | null>(null);
+  const [globalSearch, setGlobalSearch] = useState("");
   const [resumeHidden, setResumeHidden] = useState(() => safeStorage.getItem("resume-card-hidden") === "true");
   const [lastRead, setLastRead] = useState<Ebook | null>(() => {
     const saved = safeStorage.getItem("last-read");
@@ -180,6 +189,26 @@ export default function App() {
     return result;
   }, []);
 
+  const globalSearchResults = useMemo(() => {
+    const query = normalizeSearch(globalSearch);
+    if (!query) return [];
+
+    return EBOOKS.filter((ebook) => {
+      const haystack = normalizeSearch([
+        ebook.title,
+        ebook.author,
+        ebook.category,
+        ebook.subcategory,
+        ebook.collection,
+        ebook.originalLanguage,
+        ebook.description,
+        ebook.longDescription,
+        ebook.tags.join(" "),
+      ].join(" "));
+      return haystack.includes(query);
+    }).slice(0, 12);
+  }, [globalSearch]);
+
   if (location.pathname === "/admin") {
     return (
       <div className="min-h-screen relative font-sans">
@@ -198,6 +227,61 @@ export default function App() {
       
       <main>
         <Hero />
+
+        <section className="px-4 sm:px-6 lg:px-10 -mt-4 md:-mt-8 relative z-20">
+          <div className="max-w-5xl mx-auto bg-[#F9F7F2] border border-black/10 shadow-2xl p-4 md:p-6">
+            <div className="grid lg:grid-cols-[1fr_auto] gap-4 items-center">
+              <label className="relative block">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-black/35" />
+                <input
+                  value={globalSearch}
+                  onChange={(event) => setGlobalSearch(event.target.value)}
+                  placeholder="Buscar eBook por nome da obra, autor ou tema..."
+                  className="h-12 md:h-14 w-full border border-black/10 bg-white pl-12 pr-4 text-sm md:text-base font-serif outline-none transition-colors placeholder:text-black/35 focus:border-[#C5A059]"
+                />
+              </label>
+              <div className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black text-black/45">
+                {globalSearch.trim()
+                  ? `${globalSearchResults.length} resultado${globalSearchResults.length === 1 ? "" : "s"}`
+                  : "Título, autor ou tema"}
+              </div>
+            </div>
+
+            {globalSearch.trim() && (
+              <div className="mt-4 border-t border-black/10 pt-4">
+                {globalSearchResults.length > 0 ? (
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
+                    {globalSearchResults.map((ebook) => (
+                      <button
+                        key={ebook.id}
+                        onClick={() => {
+                          setGlobalSearch("");
+                          handlePreview(ebook);
+                        }}
+                        className="group text-left border border-black/10 bg-white p-3 md:p-4 transition-colors hover:border-[#C5A059]"
+                      >
+                        <p className="text-[8px] md:text-[9px] uppercase tracking-[0.18em] font-black text-[#8A682B] line-clamp-1">
+                          {ebook.category} · {ebook.collection}
+                        </p>
+                        <h3 className="mt-2 font-serif text-base md:text-lg leading-tight text-[#111] line-clamp-2 group-hover:text-[#8A682B]">
+                          {ebook.title}
+                        </h3>
+                        <p className="mt-1 text-xs text-black/55 line-clamp-1">{ebook.author}</p>
+                        <p className="mt-2 text-[10px] text-black/40 line-clamp-2">
+                          {ebook.tags.slice(0, 4).join(" · ")}
+                        </p>
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-white border border-black/10 p-4 text-sm text-black/55">
+                    Nenhuma obra encontrada. Tente outro título, autor ou tema.
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
 
         {/* Section: Study Paths First */}
         <section id="trilhas-estudo" className="py-9 md:py-14 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
