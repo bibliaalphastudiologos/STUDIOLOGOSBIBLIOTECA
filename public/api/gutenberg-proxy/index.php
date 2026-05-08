@@ -51,7 +51,13 @@ function candidate_urls(string $id, ?string $preferred): array {
         "https://www.gutenberg.org/files/{$id}/{$id}.txt",
     ]);
 
-    return array_values(array_unique($urls));
+    $urls = array_values(array_unique($urls));
+    $fallbacks = array_map(
+        fn (string $url): string => 'https://r.jina.ai/http://' . preg_replace('#^https?://#', '', $url),
+        $urls
+    );
+
+    return array_values(array_unique(array_merge($urls, $fallbacks)));
 }
 
 function fetch_text(string $url): ?string {
