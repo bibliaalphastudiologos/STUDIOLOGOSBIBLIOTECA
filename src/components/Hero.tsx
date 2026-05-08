@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Hero() {
   return (
@@ -34,10 +35,10 @@ export function Hero() {
         </p>
         
         <div className="pt-2 md:pt-8 flex flex-col sm:flex-row gap-3 md:gap-8 justify-center">
-          <a href="/filosofia" className="bg-[#1A1A1A] hover:bg-black text-white font-bold py-4 md:py-6 px-8 md:px-16 rounded-sm transition-all flex items-center justify-center gap-3 md:gap-4 uppercase text-[10px] tracking-[0.22em] md:tracking-[0.3em] shadow-xl hover:-translate-y-1">
+          <Link to="/filosofia" className="bg-[#1A1A1A] hover:bg-black text-white font-bold py-4 md:py-6 px-8 md:px-16 rounded-sm transition-all flex items-center justify-center gap-3 md:gap-4 uppercase text-[10px] tracking-[0.22em] md:tracking-[0.3em] shadow-xl hover:-translate-y-1">
             Iniciar Estudo
             <ChevronRight className="w-4 h-4 text-accent-gold" />
-          </a>
+          </Link>
           <a href="#trilhas-estudo" className="border border-black/10 bg-white/50 backdrop-blur-sm hover:bg-white/80 py-4 md:py-6 px-8 md:px-16 rounded-sm transition-all uppercase text-[10px] tracking-[0.22em] md:tracking-[0.3em] font-bold text-[#1A1A1A] hover:-translate-y-1">
             Explorar Acervo
           </a>

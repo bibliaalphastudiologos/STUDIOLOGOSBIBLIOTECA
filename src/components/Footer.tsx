@@ -2,6 +2,7 @@ import React from 'react';
 import { PAYMENT_LINKS } from '../types';
 import { motion } from 'framer-motion';
 import { Mail, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -71,10 +72,10 @@ export const Footer: React.FC = () => {
             >
               <h5 className="text-sm font-black uppercase tracking-[0.3em] text-gold mb-6">Categorias</h5>
               <ul className="space-y-3 text-sm text-white/70">
-                <li><a href="/teologia" className="hover:text-gold transition-colors">Teologia</a></li>
-                <li><a href="/filosofia" className="hover:text-gold transition-colors">Filosofia</a></li>
-                <li><a href="/psicanalise" className="hover:text-gold transition-colors">Psicanálise</a></li>
-                <li><a href="/" className="hover:text-gold transition-colors">Todas as Obras</a></li>
+                <li><Link to="/teologia" className="hover:text-gold transition-colors">Teologia</Link></li>
+                <li><Link to="/filosofia" className="hover:text-gold transition-colors">Filosofia</Link></li>
+                <li><Link to="/psicanalise" className="hover:text-gold transition-colors">Psicanálise</Link></li>
+                <li><Link to="/" className="hover:text-gold transition-colors">Todas as Obras</Link></li>
               </ul>
             </motion.div>
 
@@ -87,7 +88,7 @@ export const Footer: React.FC = () => {
             >
               <h5 className="text-sm font-black uppercase tracking-[0.3em] text-gold mb-6">Recursos</h5>
               <ul className="space-y-3 text-sm text-white/70">
-                <li><a href="/" className="hover:text-gold transition-colors">Home</a></li>
+                <li><Link to="/" className="hover:text-gold transition-colors">Home</Link></li>
                 <li><a href="#" className="hover:text-gold transition-colors">Sobre Nós</a></li>
                 <li><a href="#" className="hover:text-gold transition-colors">FAQ</a></li>
                 <li><a href="#" className="hover:text-gold transition-colors">Contato</a></li>
