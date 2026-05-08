@@ -1,5 +1,8 @@
 Options -MultiViews
 RewriteEngine On
+RewriteBase /
+RewriteRule ^api/mercadopago-webhook/?$ /api/mercadopago-webhook/index.php [L]
+RewriteRule ^api/gutenberg-proxy/?$ /api/gutenberg-proxy/index.php [L]
 
 <IfModule mod_headers.c>
   # Prevent caching of HTML
