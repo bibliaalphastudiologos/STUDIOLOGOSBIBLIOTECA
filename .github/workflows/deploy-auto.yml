@@ -54,11 +54,7 @@ jobs:
         sleep 3
 
 
-        JS=$(ls dist/assets/*.js | head -1)
-
-        CSS=$(ls dist/assets/*.css | head -1)
-
-        echo "Subindo: $(basename $JS) + $(basename $CSS)"
+        echo "Subindo build completo gerado pelo Vite"
 
 
         up dist/.htaccess  "$H/.htaccess"
@@ -67,9 +63,15 @@ jobs:
 
         up dist/404.html   "$H/404.html"
 
-        up "$CSS"          "$H/assets/$(basename $CSS)"
+        find dist/assets -type f | while read file; do
+          up "$file" "$H/${file#dist/}"
+        done
 
-        up "$JS"           "$H/assets/$(basename $JS)"
+        if [ -d dist/api ]; then
+          find dist/api -type f | while read file; do
+            up "$file" "$H/${file#dist/}"
+          done
+        fi
 
 
         echo ""
