@@ -33,7 +33,7 @@ function coverTitleClass(title: string, compact: boolean): string {
 
 export function StudioEbookCover({ ebook, className = "", compact = false, showTitle = true }: StudioEbookCoverProps) {
   return (
-    <div className={`aspect-[2/3] relative overflow-hidden paper-texture ebook-shadow border border-black/5 bg-[#171512] ${className}`}>
+    <div className={`aspect-[2/3] relative overflow-hidden paper-texture ebook-shadow border border-black/10 bg-[#171512] ring-1 ring-white/30 ${className}`}>
       <div className={`absolute inset-0 ${ebook.coverColor}`} />
       {ebook.coverImage && (
         <img
@@ -43,9 +43,10 @@ export function StudioEbookCover({ ebook, className = "", compact = false, showT
           className="absolute inset-0 h-full w-full object-cover opacity-95 saturate-[0.95] contrast-[1.08]"
         />
       )}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.06)_38%,rgba(0,0,0,0.86)),radial-gradient(circle_at_50%_22%,rgba(255,255,255,0.20),transparent_34%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%,rgba(0,0,0,0.32))]" />
-      <div className="absolute inset-2 md:inset-3 border border-white/20" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.08)_34%,rgba(0,0,0,0.88)),radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.24),transparent_32%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.10),transparent_42%,rgba(0,0,0,0.36))]" />
+      <div className="absolute inset-2 md:inset-3 border border-white/24" />
+      <div className="absolute inset-[9px] md:inset-[13px] border border-black/18" />
       <div className="absolute inset-x-4 md:inset-x-6 top-6 md:top-8 h-px bg-white/24" />
       <div className="absolute inset-x-4 md:inset-x-6 bottom-6 md:bottom-8 h-px bg-white/18" />
       <div className="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-black/35 to-transparent pointer-events-none" />
@@ -60,7 +61,7 @@ export function StudioEbookCover({ ebook, className = "", compact = false, showT
         <div className="absolute inset-0 flex flex-col justify-between py-3.5 md:py-7 px-2.5 sm:px-3 md:px-5 text-center z-10">
           <div className="space-y-2 md:space-y-5">
             <span
-              className="text-[5.5px] sm:text-[6px] md:text-[7px] tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.26em] uppercase font-black line-clamp-1 drop-shadow"
+              className="mx-auto inline-flex max-w-full justify-center bg-black/22 px-2 py-1 text-[5.5px] sm:text-[6px] md:text-[7px] tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.26em] uppercase font-black line-clamp-1 drop-shadow backdrop-blur-[1px]"
               style={{ color: ebook.coverAccent }}
             >
               {ebook.isSpecial ? "Premium" : ebook.category}

@@ -341,8 +341,8 @@ export default function App() {
       <main>
         <Hero />
 
-        <section className="px-4 sm:px-6 lg:px-10 -mt-4 md:-mt-8 relative z-20">
-          <div className="max-w-5xl mx-auto bg-[#F9F7F2] border border-black/10 shadow-2xl p-4 md:p-6">
+        <section className="px-4 sm:px-6 lg:px-10 -mt-4 md:-mt-10 relative z-20">
+          <div className="max-w-5xl mx-auto premium-shell p-4 md:p-6 backdrop-blur-xl">
             <div className="grid lg:grid-cols-[1fr_auto] gap-4 items-center">
               <label className="relative block">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-black/35" />
@@ -350,7 +350,7 @@ export default function App() {
                   value={globalSearch}
                   onChange={(event) => setGlobalSearch(event.target.value)}
                   placeholder="Buscar eBook por nome da obra, autor ou tema..."
-                  className="h-12 md:h-14 w-full border border-black/10 bg-white pl-12 pr-4 text-sm md:text-base font-serif outline-none transition-colors placeholder:text-black/35 focus:border-[#C5A059]"
+                  className="h-12 md:h-14 w-full border border-black/10 bg-white/82 pl-12 pr-4 text-sm md:text-base font-serif outline-none transition-colors placeholder:text-black/35 focus:border-[#C5A059]"
                 />
               </label>
               <div className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black text-black/45">
@@ -401,7 +401,7 @@ export default function App() {
         {/* Section: Study Paths First */}
         <section id="trilhas-estudo" className="py-9 md:py-14 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[0.95fr_1.6fr] gap-5 md:gap-8 items-stretch">
-            <div className="bg-[#1A1A1A] text-white p-5 md:p-7 rounded-sm border border-black/10 flex flex-col justify-between">
+            <div className="bg-[#151411] text-white p-5 md:p-7 rounded-sm border border-black/10 shadow-2xl flex flex-col justify-between">
               <div>
                 <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.28em] md:tracking-[0.45em] font-black">Plataforma completa</span>
                 <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight text-white">Obras integrais, trilhas e sínteses no mesmo lugar.</h2>
@@ -434,7 +434,7 @@ export default function App() {
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' || event.key === ' ') handleAxisOpen({ category: route.category, term: route.term, label: route.title });
                   }}
-                  className={`p-4 md:p-5 border border-black/5 shadow-sm flex flex-col justify-between min-h-32 md:min-h-full rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#1A1A1A] text-white' : 'bg-white'}`}
+                  className={`p-4 md:p-5 border border-black/5 shadow-sm flex flex-col justify-between min-h-32 md:min-h-full rounded-sm group cursor-pointer ${index === 1 ? 'bg-[#151411] text-white' : 'premium-card'}`}
                 >
                   <div>
                     <span className="accent-gold text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-black">{route.eyebrow}</span>
@@ -489,7 +489,7 @@ export default function App() {
         )}
 
         {/* Axis of knowledge */}
-        <section className="py-14 md:py-24 px-4 sm:px-6 lg:px-10 bg-[#F2F0E9] border-y border-black/10">
+        <section className="py-14 md:py-24 px-4 sm:px-6 lg:px-10 bg-[#EEE4D2]/70 border-y border-black/10">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-16">
             <div className="space-y-3 md:space-y-4">
               <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Navegação Curatorial</span>
@@ -512,7 +512,7 @@ export default function App() {
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") goToCategory(item.category);
                   }}
-                  className="p-4 md:p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-4 md:space-y-6 group cursor-pointer transition-all"
+                  className="p-4 md:p-8 premium-card backdrop-blur-sm rounded-sm space-y-4 md:space-y-6 group cursor-pointer transition-all"
                 >
                   <div className="text-[9px] md:text-[10px] font-black accent-gold tracking-[0.2em] md:tracking-[0.3em]">{item.icon}</div>
                   <div>
@@ -546,7 +546,7 @@ export default function App() {
               <button
                 key={route.id}
                 onClick={() => handleAxisOpen({ category: route.category, term: route.term, label: route.title })}
-                className="text-left p-4 md:p-6 bg-white border border-black/5 hover:border-[#C5A059] transition-colors rounded-sm"
+                className="text-left p-4 md:p-6 premium-card hover:border-[#C5A059] transition-colors rounded-sm"
               >
                 <p className="text-[9px] uppercase tracking-[0.22em] md:tracking-[0.28em] font-black accent-gold mb-2 md:mb-3">{route.eyebrow}</p>
                 <h3 className="font-serif text-xl md:text-2xl mb-2 md:mb-3">{route.title}</h3>
@@ -602,7 +602,7 @@ export default function App() {
                 
                 {/* Tactical Recommendation per category */}
                 <div className="px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-                  <div className="bg-[#1A1A1A] p-4 md:p-6 flex items-center justify-between gap-4">
+                    <div className="bg-[#151411] p-4 md:p-6 flex items-center justify-between gap-4 shadow-xl">
                     <div>
                       <p className="text-[10px] accent-gold font-bold uppercase tracking-widest text-[#C5A059]">Leitura Recomendada</p>
                       <p className="text-sm font-serif opacity-80 text-white">Baseado no eixo de {cat}</p>
@@ -616,7 +616,7 @@ export default function App() {
         </div>
 
         {/* Engagement Section: Invitation to Depth */}
-        <section className="py-20 md:py-40 bg-[#1A1A1A] text-white text-center space-y-8 md:space-y-10 px-4 sm:px-6">
+        <section className="py-20 md:py-36 bg-[#151411] text-white text-center space-y-8 md:space-y-10 px-4 sm:px-6">
           <motion.div
             initial={{ y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -645,7 +645,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="px-4 sm:px-6 lg:px-10 py-8 md:py-12 bg-[#F2F0E9] border-t border-black/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.18em] md:tracking-[0.3em] opacity-50 uppercase font-extrabold gap-5 md:gap-6">
+      <footer className="px-4 sm:px-6 lg:px-10 py-8 md:py-12 bg-[#EEE4D2] border-t border-black/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.18em] md:tracking-[0.3em] opacity-60 uppercase font-extrabold gap-5 md:gap-6">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <span className="accent-gold opacity-100">Curadoria Literária Superior</span>
           <span className="text-black">Cloud Sync: Ativo</span>

@@ -4,8 +4,22 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --sl-ink: #151411;
+    --sl-ink-soft: #2c2923;
+    --sl-paper: #f7f2e8;
+    --sl-paper-deep: #eee4d2;
+    --sl-gold: #b88a3b;
+    --sl-gold-soft: #d7bc75;
+    --sl-line: rgba(31, 28, 23, 0.1);
+  }
+
   body {
-    @apply bg-[#F9F7F2] text-[#1A1A1A] antialiased selection:bg-[#C5A059] selection:text-white;
+    @apply text-[#1A1A1A] antialiased selection:bg-[#C5A059] selection:text-white;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent 340px),
+      radial-gradient(circle at 50% -10%, rgba(184, 138, 59, 0.12), transparent 28rem),
+      var(--sl-paper);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -18,8 +32,9 @@
 }
 
 .noble-gradient {
-  background: radial-gradient(circle at 50% -20%, rgba(197, 160, 89, 0.08) 0%, transparent 70%),
-              linear-gradient(to bottom, #FFFFFF 0%, #F9F7F2 100%);
+  background:
+    radial-gradient(circle at 50% -18%, rgba(184, 138, 59, 0.18) 0%, transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(247, 242, 232, 0.94) 62%, #F7F2E8 100%);
 }
 
 .accent-gold {
@@ -35,7 +50,66 @@
 }
 
 .ebook-shadow {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04);
+  box-shadow: 0 24px 42px rgba(21,20,17,0.14), 0 8px 18px rgba(21,20,17,0.08);
+}
+
+.premium-shell {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.86), rgba(255,255,255,0.5)),
+    linear-gradient(180deg, rgba(184,138,59,0.08), transparent);
+  border: 1px solid rgba(35, 30, 22, 0.08);
+  box-shadow: 0 22px 60px rgba(31, 28, 23, 0.08);
+}
+
+.premium-card {
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(35, 30, 22, 0.08);
+  box-shadow: 0 18px 44px rgba(31, 28, 23, 0.07);
+}
+
+.premium-button-dark {
+  background: linear-gradient(180deg, #23211d 0%, #11100e 100%);
+  box-shadow: 0 16px 34px rgba(17, 16, 14, 0.22);
+}
+
+.premium-button-dark:hover {
+  background: linear-gradient(180deg, #11100e 0%, #050504 100%);
+}
+
+.premium-button-light {
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(35, 30, 22, 0.12);
+  box-shadow: 0 12px 28px rgba(31, 28, 23, 0.08);
+}
+
+.premium-logo-mark {
+  filter: drop-shadow(0 8px 18px rgba(31, 28, 23, 0.12));
+}
+
+.premium-nav {
+  background: rgba(250, 247, 240, 0.88);
+  box-shadow: 0 14px 40px rgba(31, 28, 23, 0.08);
+}
+
+.premium-nav-link {
+  position: relative;
+}
+
+.premium-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.45rem;
+  height: 1px;
+  background: #B48A3D;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.premium-nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 .paper-texture {
