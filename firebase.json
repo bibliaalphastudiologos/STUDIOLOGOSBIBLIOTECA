@@ -1,8 +1,11 @@
 {
-  "firestore": {
-    "rules": "firestore.studiologos.rules",
-    "indexes": "firestore.indexes.json"
-  },
+  "firestore": [
+    {
+      "database": "ai-studio-d00d75cd-ea9b-4bf1-9db1-7ac14eff586f",
+      "rules": "firestore.studiologos.rules",
+      "indexes": "firestore.indexes.json"
+    }
+  ],
   "hosting": {
     "public": "dist",
     "ignore": [
