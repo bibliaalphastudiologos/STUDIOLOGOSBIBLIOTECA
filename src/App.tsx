@@ -27,6 +27,14 @@ function normalizeSearch(value: string): string {
     .trim();
 }
 
+const ROUTE_CATEGORY_MAP: Record<string, Category> = {
+  "/filosofia": Category.PHILOSOPHY,
+  "/teologia": Category.THEOLOGY,
+  "/psicanalise": Category.PSYCHOANALYSIS,
+  "/psicanálise": Category.PSYCHOANALYSIS,
+  "/literatura": Category.LITERATURE,
+};
+
 function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
   return (
     <section className="px-4 sm:px-6 lg:px-10">
@@ -128,6 +136,13 @@ export default function App() {
     }, 50);
   };
 
+  const goToCategory = (category: Category) => {
+    setActiveAxis(null);
+    window.setTimeout(() => {
+      document.getElementById(`shelf-${category}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  };
+
   useEffect(() => {
     if (!lockedEbook || !user || !hasAccess) return;
 
@@ -139,6 +154,12 @@ export default function App() {
     safeStorage.setItem("last-read", JSON.stringify(lockedEbook.id));
     setLockedEbook(null);
   }, [hasAccess, lockedEbook, user]);
+
+  useEffect(() => {
+    const category = ROUTE_CATEGORY_MAP[location.pathname.toLowerCase()];
+    if (!category) return;
+    goToCategory(category);
+  }, [location.pathname]);
 
   const hideResumeCard = () => {
     setResumeHidden(true);
@@ -425,14 +446,20 @@ export default function App() {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
               {[
-                { area: "Filosofia", count: String(groupedEbooks[Category.PHILOSOPHY]?.length || 0), icon: "ALPHA", desc: "Clássicos essenciais do pensamento." },
-                { area: "Teologia", count: String(groupedEbooks[Category.THEOLOGY]?.length || 0), icon: "LOGOS", desc: "Patrística, Reforma e sermões." },
-                { area: "Literatura Brasileira", count: String(groupedEbooks[Category.BRAZILIAN_LITERATURE]?.length || 0), icon: "BR", desc: "Obras fundamentais em português." },
-                { area: "História & Humanidades", count: String((groupedEbooks[Category.HISTORY]?.length || 0) + (groupedEbooks[Category.HUMANITIES]?.length || 0)), icon: "NOMOS", desc: "Formação histórica e ensaística." }
+                { area: "Filosofia", category: Category.PHILOSOPHY, count: String(groupedEbooks[Category.PHILOSOPHY]?.length || 0), icon: "ALPHA", desc: "Clássicos essenciais do pensamento." },
+                { area: "Teologia", category: Category.THEOLOGY, count: String(groupedEbooks[Category.THEOLOGY]?.length || 0), icon: "LOGOS", desc: "Patrística, Reforma e sermões." },
+                { area: "Psicanálise", category: Category.PSYCHOANALYSIS, count: String(groupedEbooks[Category.PSYCHOANALYSIS]?.length || 0), icon: "PSIQUE", desc: "Freud, psicologia clássica e cultura." },
+                { area: "Literatura", category: Category.LITERATURE, count: String(groupedEbooks[Category.LITERATURE]?.length || 0), icon: "LITTERA", desc: "Clássicos universais e roteiros literários." }
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}
                   whileHover={{ y: -4, borderColor: "#B48A3D" }}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => goToCategory(item.category)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") goToCategory(item.category);
+                  }}
                   className="p-4 md:p-8 border border-black/5 bg-white/50 backdrop-blur-sm rounded-sm space-y-4 md:space-y-6 group cursor-pointer transition-all"
                 >
                   <div className="text-[9px] md:text-[10px] font-black accent-gold tracking-[0.2em] md:tracking-[0.3em]">{item.icon}</div>

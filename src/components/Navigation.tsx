@@ -1,7 +1,6 @@
-import { Library } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from "./AuthProvider";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { formatBrasiliaDate } from "../lib/brasiliaDate";
 
 export function Navigation() {
@@ -16,19 +15,19 @@ export function Navigation() {
         animate={{ opacity: 1, x: 0 }}
         className="flex items-center gap-12"
       >
-        <a href="/" className="flex items-center hover:opacity-70 transition-opacity">
+        <Link to="/" className="flex items-center hover:opacity-70 transition-opacity">
           <span className="font-serif text-2xl tracking-widest font-bold text-[#0F0F0F] uppercase">
             STUDIOLOGOS<span className="accent-gold">.</span>
           </span>
-        </a>
+        </Link>
         
         <div className="hidden lg:flex gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
-          <a href="/filosofia" className={`pb-1 transition-colors ${location.pathname === '/filosofia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Filosofia</a>
-          <a href="/teologia" className={`transition-colors ${location.pathname === '/teologia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Teologia</a>
-          <a href="/psicanalise" className={`transition-colors ${location.pathname === '/psicanalise' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Psicanálise</a>
-          <a href="/literatura" className={`transition-colors ${location.pathname === '/literatura' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Literatura</a>
+          <Link to="/filosofia" className={`pb-1 transition-colors ${location.pathname === '/filosofia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Filosofia</Link>
+          <Link to="/teologia" className={`transition-colors ${location.pathname === '/teologia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Teologia</Link>
+          <Link to="/psicanalise" className={`transition-colors ${location.pathname === '/psicanalise' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Psicanálise</Link>
+          <Link to="/literatura" className={`transition-colors ${location.pathname === '/literatura' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Literatura</Link>
           {profile?.isAdmin && (
-            <a href="/admin" className={`transition-colors ${location.pathname === '/admin' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Admin</a>
+            <Link to="/admin" className={`transition-colors ${location.pathname === '/admin' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Admin</Link>
           )}
         </div>
       </motion.div>
