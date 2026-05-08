@@ -29,6 +29,48 @@ service cloud.firestore {
         && (!('manual_access' in request.resource.data) || request.resource.data.manual_access == false);
     }
 
+    function isValidLeadInterest(value) {
+      return value in [
+        'Bíblia Alpha',
+        'E-books de Teologia',
+        'Filosofia',
+        'Psicanálise',
+        'Biblioteca completa',
+        'Assinatura Studio Logos'
+      ];
+    }
+
+    function isValidLeadStatus(value) {
+      return value in ['Novo lead', 'Em conversa', 'Interessado', 'Pagou', 'Aprovado'];
+    }
+
+    function isValidPublicLeadCreate() {
+      return request.resource.data.keys().hasOnly([
+          'nome',
+          'email',
+          'whatsapp',
+          'interesse',
+          'lgpdConsent',
+          'source',
+          'status',
+          'paymentLink',
+          'whatsappUrl',
+          'emailFunnelStatus',
+          'whatsappFunnelStatus',
+          'emailFunnel',
+          'whatsappSequence',
+          'createdAt',
+          'updatedAt'
+        ])
+        && request.resource.data.nome is string
+        && request.resource.data.email is string
+        && request.resource.data.whatsapp is string
+        && request.resource.data.source is string
+        && request.resource.data.lgpdConsent == true
+        && request.resource.data.status == 'Novo lead'
+        && isValidLeadInterest(request.resource.data.interesse);
+    }
+
     match /studio_users/{userId} {
       allow read: if isOwnStudioUser(userId) || isStudioAdmin();
       allow create: if (isOwnStudioUser(userId) && isSelfPendingProfile()) || isStudioAdmin();
@@ -52,6 +94,13 @@ service cloud.firestore {
     match /studio_payments/{paymentId} {
       allow read: if isStudioAdmin();
       allow write: if false;
+    }
+
+    match /studio_leads/{leadId} {
+      allow create: if isValidPublicLeadCreate();
+      allow read, delete: if isStudioAdmin();
+      allow update: if isStudioAdmin()
+        && (!('status' in request.resource.data) || isValidLeadStatus(request.resource.data.status));
     }
 
     match /{document=**} {

@@ -8,6 +8,8 @@ import { EbookPreview } from "./components/EbookPreview";
 import { BestsellerSyntheses } from "./components/BestsellerSyntheses";
 import { GoogleTranslatePrompt } from "./components/GoogleTranslatePrompt";
 import { AdminPanel } from "./components/AdminPanel";
+import { GrowthMarketing } from "./components/GrowthMarketing";
+import { LeadCapture } from "./components/LeadCapture";
 import { StudioEbookCover } from "./components/StudioEbookCover";
 import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
@@ -398,6 +400,8 @@ export default function App() {
 
         {showGuestBanners && <GuestSubscriptionBanner />}
 
+        <GrowthMarketing showLeadTools={showGuestBanners} />
+
         {/* Section: Study Paths First */}
         <section id="trilhas-estudo" className="py-9 md:py-14 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[0.95fr_1.6fr] gap-5 md:gap-8 items-stretch">
@@ -631,15 +635,13 @@ export default function App() {
               Junte-se a uma comunidade de leitores que não se contentam com a superfície. Receba sínteses exclusivas e ensaios inéditos semanalmente.
             </p>
             
-            <div className="pt-5 md:pt-10 max-w-md mx-auto">
-              <div className="flex border-b border-white/20 pb-2 group focus-within:border-[#C5A059] transition-colors">
-                <input 
-                  type="email" 
-                  placeholder="Seu melhor e-mail literário" 
-                  className="bg-transparent flex-1 outline-none text-sm font-serif text-white placeholder:text-white/20"
-                />
-                <button className="accent-gold text-[10px] font-black uppercase tracking-widest hover:opacity-80 transition-opacity">Inscrever-se</button>
-              </div>
+            <div className="pt-5 md:pt-10 max-w-4xl mx-auto text-left">
+              <LeadCapture
+                source="home-final"
+                dark
+                title="Receba conteúdos gratuitos e uma rota de entrada no Studio Logos."
+                subtitle="Cadastre seu interesse para receber uma curadoria inicial por e-mail e WhatsApp."
+              />
             </div>
           </motion.div>
         </section>

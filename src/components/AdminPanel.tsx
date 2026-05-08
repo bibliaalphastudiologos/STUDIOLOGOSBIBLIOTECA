@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { collection, doc, getDocs, orderBy, query, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
-import { BookOpen, CalendarCheck, RefreshCw, Shield, Users } from 'lucide-react';
+import { BookOpen, CalendarCheck, Mail, RefreshCw, Shield, Users } from 'lucide-react';
 import { useAuth, type StudioLogosProfile } from './AuthProvider';
 import { db } from '../services/firebase';
 import { formatBrasiliaDate, getBrasiliaDateString } from '../lib/brasiliaDate';
+import type { LeadStatus } from '../services/leads';
 
 type AdminUser = StudioLogosProfile & {
   uid: string;
@@ -13,6 +14,18 @@ type AdminUser = StudioLogosProfile & {
 
 const USERS_COLLECTION = 'studio_users';
 const PAYMENT_ACCESS_COLLECTION = 'studio_payment_access';
+const LEADS_COLLECTION = 'studio_leads';
+
+type StudioLead = {
+  id: string;
+  nome?: string;
+  email?: string;
+  whatsapp?: string;
+  interesse?: string;
+  source?: string;
+  status?: LeadStatus;
+  createdAt?: unknown;
+};
 
 function statusBadge(value?: string) {
   if (value === 'approved' || value === 'active') return 'bg-emerald-900 text-emerald-100 border-emerald-700';
@@ -24,6 +37,7 @@ function statusBadge(value?: string) {
 export const AdminPanel: React.FC = () => {
   const { user, profile, hasAccess } = useAuth();
   const [users, setUsers] = useState<AdminUser[]>([]);
+  const [leads, setLeads] = useState<StudioLead[]>([]);
   const [loading, setLoading] = useState(false);
   const isAdmin = profile?.isAdmin === true;
   const approvalDate = profile?.approvalDateBrasilia || formatBrasiliaDate(profile?.approvedAt);
@@ -33,17 +47,29 @@ export const AdminPanel: React.FC = () => {
     approved: users.filter((item) => item.payment_status === 'approved').length,
     active: users.filter((item) => item.access_status === 'active').length,
     blocked: users.filter((item) => item.access_status === 'blocked').length,
-  }), [users]);
+    leads: leads.length,
+    hotLeads: leads.filter((item) => item.status === 'Interessado' || item.status === 'Pagou' || item.status === 'Aprovado').length,
+  }), [leads, users]);
 
   async function loadUsers() {
     if (!isAdmin) return;
     setLoading(true);
     try {
       const snapshot = await getDocs(query(collection(db, USERS_COLLECTION), orderBy('updatedAt', 'desc')));
+      const leadSnapshot = await getDocs(query(collection(db, LEADS_COLLECTION), orderBy('createdAt', 'desc')));
       setUsers(snapshot.docs.map((item) => ({ uid: item.id, ...(item.data() as StudioLogosProfile) })));
+      setLeads(leadSnapshot.docs.map((item) => ({ id: item.id, ...(item.data() as Omit<StudioLead, 'id'>) })));
     } finally {
       setLoading(false);
     }
+  }
+
+  async function setLeadStatus(id: string, status: LeadStatus) {
+    await updateDoc(doc(db, LEADS_COLLECTION, id), {
+      status,
+      updatedAt: serverTimestamp(),
+    });
+    await loadUsers();
   }
 
   async function setAccess(uid: string, access_status: 'active' | 'blocked') {
@@ -138,6 +164,8 @@ export const AdminPanel: React.FC = () => {
             { icon: CalendarCheck, label: 'Pagamentos aprovados', value: totals.approved },
             { icon: Shield, label: 'Acessos ativos', value: totals.active },
             { icon: BookOpen, label: 'Bloqueados', value: totals.blocked },
+            { icon: Mail, label: 'Leads captados', value: totals.leads },
+            { icon: CalendarCheck, label: 'Leads quentes', value: totals.hotLeads },
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="bg-white p-4 md:p-6 border border-black/10 shadow-sm">
               <Icon className="w-6 h-6 text-[#C5A059] mb-3" />
@@ -185,6 +213,58 @@ export const AdminPanel: React.FC = () => {
                 {!users.length && (
                   <tr>
                     <td className="p-6 text-center text-black/50" colSpan={7}>Nenhum usuário encontrado.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-black/10 shadow-sm overflow-hidden">
+          <div className="p-4 md:p-5 border-b border-black/10">
+            <h2 className="font-serif text-2xl">Leads e captação</h2>
+            <p className="text-sm text-black/55">Visitantes cadastrados pelos banners, formulários e popup de saída.</p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[920px] text-left text-sm">
+              <thead className="bg-black text-white">
+                <tr className="text-[10px] uppercase tracking-[0.18em]">
+                  <th className="p-3">Nome</th>
+                  <th className="p-3">E-mail</th>
+                  <th className="p-3">WhatsApp</th>
+                  <th className="p-3">Interesse</th>
+                  <th className="p-3">Origem</th>
+                  <th className="p-3">Cadastro</th>
+                  <th className="p-3">Status</th>
+                  <th className="p-3">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leads.map((lead) => (
+                  <tr key={lead.id} className="border-b border-black/5">
+                    <td className="p-3 font-serif">{lead.nome || 'Sem nome'}</td>
+                    <td className="p-3">{lead.email || '-'}</td>
+                    <td className="p-3">{lead.whatsapp || '-'}</td>
+                    <td className="p-3">{lead.interesse || '-'}</td>
+                    <td className="p-3">{lead.source || '-'}</td>
+                    <td className="p-3">{formatBrasiliaDate(lead.createdAt) || '-'}</td>
+                    <td className="p-3"><span className={`border px-2 py-1 text-[10px] uppercase font-bold ${lead.status === 'Aprovado' || lead.status === 'Pagou' ? 'bg-emerald-900 text-emerald-100 border-emerald-700' : 'bg-black text-white border-black'}`}>{lead.status || 'Novo lead'}</span></td>
+                    <td className="p-3">
+                      <select
+                        value={lead.status || 'Novo lead'}
+                        onChange={(event) => setLeadStatus(lead.id, event.target.value as LeadStatus)}
+                        className="h-9 border border-black/10 bg-white px-2 text-xs"
+                      >
+                        {(['Novo lead', 'Em conversa', 'Interessado', 'Pagou', 'Aprovado'] as LeadStatus[]).map((status) => (
+                          <option key={status} value={status}>{status}</option>
+                        ))}
+                      </select>
+                    </td>
+                  </tr>
+                ))}
+                {!leads.length && (
+                  <tr>
+                    <td className="p-6 text-center text-black/50" colSpan={8}>Nenhum lead encontrado.</td>
                   </tr>
                 )}
               </tbody>
