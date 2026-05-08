@@ -3,6 +3,7 @@ import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from './firebase';
 
 const PROGRESS_DOC = 'studiologos-ebook-progress';
+const USERS_COLLECTION = 'studio_users';
 
 export interface EbookProgressState {
   page?: number;
@@ -14,7 +15,7 @@ export interface EbookProgressState {
 }
 
 export async function loadEbookProgress(user: User, ebookId: string): Promise<EbookProgressState | null> {
-  const ref = doc(db, 'users', user.uid, 'notes', PROGRESS_DOC);
+  const ref = doc(db, USERS_COLLECTION, user.uid, 'notes', PROGRESS_DOC);
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
 
@@ -27,7 +28,7 @@ export async function saveEbookProgress(
   ebookId: string,
   progress: EbookProgressState,
 ): Promise<void> {
-  const ref = doc(db, 'users', user.uid, 'notes', PROGRESS_DOC);
+  const ref = doc(db, USERS_COLLECTION, user.uid, 'notes', PROGRESS_DOC);
   await setDoc(
     ref,
     {

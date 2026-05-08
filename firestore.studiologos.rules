@@ -1,0 +1,53 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc() {
+      return get(/databases/$(database)/documents/studio_users/$(request.auth.uid));
+    }
+
+    function isStudioAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/studio_users/$(request.auth.uid))
+        && userDoc().data.isAdmin == true;
+    }
+
+    function isOwnStudioUser(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    match /studio_users/{userId} {
+      allow read: if isOwnStudioUser(userId) || isStudioAdmin();
+      allow create: if isOwnStudioUser(userId)
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.status in ['pending', 'approved', 'blocked'];
+      allow update: if isOwnStudioUser(userId)
+        && request.resource.data.diff(resource.data).changedKeys()
+          .hasOnly(['nome', 'foto', 'email', 'updatedAt'])
+        || isStudioAdmin();
+      allow delete: if isStudioAdmin();
+
+      match /notes/{noteId} {
+        allow read, write: if isOwnStudioUser(userId) || isStudioAdmin();
+      }
+    }
+
+    match /studio_payment_access/{email} {
+      allow read: if signedIn() && request.auth.token.email == email || isStudioAdmin();
+      allow write: if isStudioAdmin();
+    }
+
+    match /studio_payments/{paymentId} {
+      allow read: if isStudioAdmin();
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

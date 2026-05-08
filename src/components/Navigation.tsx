@@ -36,10 +36,10 @@ export function Navigation() {
       <div className="flex items-center gap-6">
         <div className="hidden md:block text-right">
           <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold">
-            {user ? (hasAccess ? "Acesso liberado" : "Aguardando aprovação") : "Login único"}
+            {user ? (hasAccess ? "Acesso liberado" : "Aguardando aprovação") : "Login Studio Logos"}
           </p>
           <p className="text-sm font-serif text-[#1A1A1A]">
-            {profile?.nome || user?.displayName || user?.email || "Bíblia Alpha"}
+            {profile?.nome || user?.displayName || user?.email || "Studio Logos"}
           </p>
           {user && hasAccess && (
             <p className="text-[9px] uppercase tracking-[0.14em] text-black/55 font-bold">

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { collection, doc, getDocs, orderBy, query, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, orderBy, query, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import { BookOpen, CalendarCheck, RefreshCw, Shield, Users } from 'lucide-react';
 import { useAuth, type StudioLogosProfile } from './AuthProvider';
 import { db } from '../services/firebase';
@@ -10,6 +10,9 @@ type AdminUser = StudioLogosProfile & {
   createdAt?: unknown;
   updatedAt?: unknown;
 };
+
+const USERS_COLLECTION = 'studio_users';
+const PAYMENT_ACCESS_COLLECTION = 'studio_payment_access';
 
 function statusBadge(value?: string) {
   if (value === 'approved' || value === 'active') return 'bg-emerald-900 text-emerald-100 border-emerald-700';
@@ -36,7 +39,7 @@ export const AdminPanel: React.FC = () => {
     if (!isAdmin) return;
     setLoading(true);
     try {
-      const snapshot = await getDocs(query(collection(db, 'users'), orderBy('updatedAt', 'desc')));
+      const snapshot = await getDocs(query(collection(db, USERS_COLLECTION), orderBy('updatedAt', 'desc')));
       setUsers(snapshot.docs.map((item) => ({ uid: item.id, ...(item.data() as StudioLogosProfile) })));
     } finally {
       setLoading(false);
@@ -44,12 +47,32 @@ export const AdminPanel: React.FC = () => {
   }
 
   async function setAccess(uid: string, access_status: 'active' | 'blocked') {
-    await updateDoc(doc(db, 'users', uid), {
+    const target = users.find((item) => item.uid === uid);
+    await updateDoc(doc(db, USERS_COLLECTION, uid), {
       access_status,
       status: access_status === 'active' ? 'approved' : 'blocked',
+      payment_status: access_status === 'active' ? 'approved' : 'cancelled',
       manual_access: access_status === 'active',
       updatedAt: serverTimestamp(),
     });
+    if (target?.email) {
+      await setDoc(doc(db, PAYMENT_ACCESS_COLLECTION, target.email.trim().toLowerCase()), {
+        nome: target.nome || target.email,
+        email: target.email.trim().toLowerCase(),
+        payment_status: access_status === 'active' ? 'approved' : 'cancelled',
+        access_status,
+        manual_access: access_status === 'active',
+        paymentId: `admin_${access_status}_${Date.now()}`,
+        rawStatus: 'manual',
+        planPrice: 'R$ 19,00',
+        planPeriod: 'mensal',
+        ...(access_status === 'active' ? {
+          approvedAt: serverTimestamp(),
+          approvalDateBrasilia: getBrasiliaDateString(),
+        } : {}),
+        updatedAt: serverTimestamp(),
+      }, { merge: true });
+    }
     await loadUsers();
   }
 

@@ -4,6 +4,9 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 
 const MP_API = 'https://api.mercadopago.com';
+const PAYMENTS_COLLECTION = 'studio_payments';
+const PAYMENT_ACCESS_COLLECTION = 'studio_payment_access';
+const USERS_COLLECTION = 'studio_users';
 
 function fail(int $status, string $message): void {
     http_response_code($status);
@@ -188,7 +191,7 @@ function firestore_patch(string $token, string $url, array $record): void {
 function firestore_query_user_docs(string $token, string $base, string $email): array {
     $payload = [
         'structuredQuery' => [
-            'from' => [['collectionId' => 'users']],
+            'from' => [['collectionId' => USERS_COLLECTION]],
             'where' => [
                 'fieldFilter' => [
                     'field' => ['fieldPath' => 'email'],
@@ -237,11 +240,11 @@ function upsert_access(array $payment): void {
         $record['approvalDateBrasilia'] = brasilia_date();
     }
 
-    firestore_patch($token, $base . '/payments/' . rawurlencode($payment['paymentId']), $record + [
+    firestore_patch($token, $base . '/' . PAYMENTS_COLLECTION . '/' . rawurlencode($payment['paymentId']), $record + [
         'raw' => $payment['raw'],
         'receivedAtIso' => gmdate('c'),
     ]);
-    firestore_patch($token, $base . '/payment_access/' . rawurlencode($payment['email']), $record);
+    firestore_patch($token, $base . '/' . PAYMENT_ACCESS_COLLECTION . '/' . rawurlencode($payment['email']), $record);
 
     foreach (firestore_query_user_docs($token, $base, $payment['email']) as $docUrl) {
         firestore_patch($token, $docUrl, $record + [

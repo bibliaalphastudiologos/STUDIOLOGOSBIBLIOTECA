@@ -3,6 +3,9 @@ import admin from 'firebase-admin';
 import { getFirestore } from 'firebase-admin/firestore';
 
 const MP_API = 'https://api.mercadopago.com';
+const PAYMENTS_COLLECTION = 'studio_payments';
+const PAYMENT_ACCESS_COLLECTION = 'studio_payment_access';
+const USERS_COLLECTION = 'studio_users';
 
 function getEnv(name) {
   const value = process.env[name];
@@ -149,15 +152,15 @@ async function upsertAccess(payment) {
     ...approvalFields,
   };
 
-  await firestore.collection('payments').doc(payment.paymentId).set({
+  await firestore.collection(PAYMENTS_COLLECTION).doc(payment.paymentId).set({
     ...record,
     raw: payment.raw,
     receivedAt: now,
   }, { merge: true });
 
-  await firestore.collection('payment_access').doc(payment.email).set(record, { merge: true });
+  await firestore.collection(PAYMENT_ACCESS_COLLECTION).doc(payment.email).set(record, { merge: true });
 
-  const matchingUsers = await firestore.collection('users').where('email', '==', payment.email).get();
+  const matchingUsers = await firestore.collection(USERS_COLLECTION).where('email', '==', payment.email).get();
   await Promise.all(matchingUsers.docs.map((userDoc) => userDoc.ref.set({
     nome: userDoc.data().nome || payment.nome,
     email: payment.email,

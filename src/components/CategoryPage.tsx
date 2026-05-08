@@ -239,10 +239,10 @@ export function CategoryPage({ category }: CategoryPageProps) {
               <div className="w-14 h-14 rounded-full bg-[#1A1A1A] text-[#C5A059] flex items-center justify-center mx-auto mb-6">
                 <Lock className="w-6 h-6" />
               </div>
-              <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Login único Bíblia Alpha</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Acesso Studio Logos</p>
               <h2 className="text-3xl font-serif mb-4">Entre para continuar a leitura</h2>
               <p className="text-sm text-black/60 leading-relaxed mb-8">
-                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, entre uma vez na plataforma com o mesmo login Google da Bíblia Alpha.
+                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, entre com seu Google no Studio Logos ou assine a plataforma.
               </p>
               <div className="space-y-3">
                 <button

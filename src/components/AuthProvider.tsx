@@ -34,6 +34,8 @@ export interface StudioLogosProfile {
 const ADMIN_EMAIL = 'analista.ericksilva@gmail.com';
 const MONTHLY_PLAN_PRICE = 'R$ 19,00';
 const MONTHLY_PLAN_PERIOD = 'mensal';
+const USERS_COLLECTION = 'studio_users';
+const PAYMENT_ACCESS_COLLECTION = 'studio_payment_access';
 
 function approvalFields() {
   const now = new Date();
@@ -54,18 +56,8 @@ function hasPaidAccess(profile: Partial<StudioLogosProfile> | null | undefined):
   return profile?.payment_status === 'approved' && profile?.access_status === 'active';
 }
 
-function hasLegacyApprovedAccess(profile: Partial<StudioLogosProfile> | null | undefined): boolean {
-  if (!profile || profile.status === 'blocked') return false;
-  return (
-    profile.status === 'approved' ||
-    Boolean(profile.approvedAt) ||
-    Boolean(profile.approvalDateBrasilia) ||
-    Boolean(profile.subscriptionExpiresAt)
-  );
-}
-
 function hasEffectiveAccess(profile: Partial<StudioLogosProfile> | null | undefined): boolean {
-  return hasPaidAccess(profile) || (profile?.manual_access === true && profile?.access_status === 'active') || hasLegacyApprovedAccess(profile);
+  return hasPaidAccess(profile) || (profile?.manual_access === true && profile?.access_status === 'active');
 }
 
 const AuthContext = createContext<AuthContextValue>({
@@ -104,15 +96,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         const isAdmin = firebaseUser.email?.toLowerCase() === ADMIN_EMAIL;
         const normalizedEmail = normalizeEmail(firebaseUser.email);
-        const userRef = doc(db, 'users', firebaseUser.uid);
-        const paymentRef = doc(db, 'payment_access', normalizedEmail || '_missing_email');
+        const userRef = doc(db, USERS_COLLECTION, firebaseUser.uid);
+        const paymentRef = doc(db, PAYMENT_ACCESS_COLLECTION, normalizedEmail || '_missing_email');
         const existing = await getDoc(userRef);
         const paymentSnapshot = normalizedEmail ? await getDoc(paymentRef) : null;
         const paymentRecord = paymentSnapshot?.exists() ? paymentSnapshot.data() as Partial<StudioLogosProfile> : null;
         if (existing.exists()) {
           const existingProfile = existing.data() as StudioLogosProfile;
           const manualBlocked = !isAdmin && existingProfile.status === 'blocked';
-          const paymentApproved = hasPaidAccess(paymentRecord) || hasEffectiveAccess(existingProfile);
+          const paymentApproved = hasPaidAccess(paymentRecord) || hasEffectiveAccess(existingProfile) || isAdmin;
           const nextAccessStatus = manualBlocked ? 'blocked' : paymentApproved || isAdmin ? 'active' : existingProfile.access_status || 'blocked';
           const nextPaymentStatus = paymentRecord?.payment_status || existingProfile.payment_status || (paymentApproved || isAdmin ? 'approved' : 'pending');
           const nextProfile: StudioLogosProfile = {
@@ -126,9 +118,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             isAdmin: existingProfile.isAdmin === true || isAdmin,
             approvedAt: paymentRecord?.approvedAt || existingProfile.approvedAt,
             approvalDateBrasilia: paymentRecord?.approvalDateBrasilia || existingProfile.approvalDateBrasilia,
-            subscriptionExpiresAt: existingProfile.subscriptionExpiresAt,
-            planPrice: existingProfile.planPrice,
-            planPeriod: existingProfile.planPeriod,
+            subscriptionExpiresAt: paymentRecord?.subscriptionExpiresAt || existingProfile.subscriptionExpiresAt,
+            planPrice: paymentRecord?.planPrice || existingProfile.planPrice,
+            planPeriod: paymentRecord?.planPeriod || existingProfile.planPeriod,
             paymentId: paymentRecord?.paymentId || existingProfile.paymentId,
           };
           const isApproved = nextProfile.isAdmin === true || hasEffectiveAccess(nextProfile);
