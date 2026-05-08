@@ -22,6 +22,9 @@ export function Hero() {
         className="max-w-4xl space-y-6 md:space-y-10 z-10"
       >
         <div className="space-y-3 md:space-y-4">
+          <div className="flex justify-center mb-6">
+            <img src="/logo.png" alt="StudioLogos" className="h-24 md:h-32 w-auto" />
+          </div>
           <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.32em] md:tracking-[0.5em] font-black border-b border-accent-gold/20 pb-2">Curadoria Literária Superior</span>
           <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif leading-[1.08] md:leading-[1.1] text-[#0F0F0F]">
             Conhecimento para a <br/>

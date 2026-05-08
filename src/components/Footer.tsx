@@ -57,7 +57,9 @@ export const Footer: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-2xl font-serif font-bold text-gold mb-4">Studio Logos</h4>
+              <div className="mb-4">
+                <img src="/logo.png" alt="StudioLogos" className="h-12 w-auto" />
+              </div>
               <p className="text-white/60 text-sm leading-relaxed">
                 Plataforma premium de leitura online. Grandes obras clássicas para quem deseja estudar, pesquisar e crescer intelectualmente.
               </p>
