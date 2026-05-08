@@ -28,7 +28,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          cp .htaccess dist/.htaccess
+          cp 404-spa.html dist/404.html
 
       - name: Commit dist to deploy branch
         run: |
