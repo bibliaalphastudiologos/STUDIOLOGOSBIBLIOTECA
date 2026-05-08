@@ -166,6 +166,22 @@ export default function App() {
   }, [hasAccess, lockedEbook, user]);
 
   useEffect(() => {
+    const section = new URLSearchParams(location.search).get("section");
+    if (section) {
+      const targetId = {
+        filosofia: `shelf-${Category.PHILOSOPHY}`,
+        teologia: `shelf-${Category.THEOLOGY}`,
+        psicanalise: `shelf-${Category.PSYCHOANALYSIS}`,
+        literatura: "shelf-literatura-geral",
+      }[section.toLowerCase()];
+
+      if (targetId) {
+        setActiveAxis(null);
+        scrollToSection(targetId);
+        return;
+      }
+    }
+
     if (location.pathname === "/") {
       setActiveAxis(null);
       window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
@@ -176,7 +192,7 @@ export default function App() {
     if (!targetId) return;
     setActiveAxis(null);
     scrollToSection(targetId);
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   useEffect(() => {
     const handleScrollRequest = (event: Event) => {
