@@ -24,9 +24,6 @@ export function Hero() {
         className="max-w-5xl space-y-6 md:space-y-9 z-10"
       >
         <div className="space-y-3 md:space-y-4">
-          <div className="flex justify-center mb-5 md:mb-7">
-            <img src="/logo.png" alt="StudioLogos" className="h-20 md:h-28 w-auto premium-logo-mark" />
-          </div>
           <span className="inline-flex border-y border-[#B48A3D]/25 py-2 accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.32em] md:tracking-[0.5em] font-black">Curadoria Literária Superior</span>
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.08] md:leading-[1.07] text-[#11100E]">
             Conhecimento para a <br/>
