@@ -15,8 +15,8 @@ export function Navigation() {
         animate={{ opacity: 1, x: 0 }}
         className="flex items-center gap-12"
       >
-        <Link to="/" className="flex items-center hover:opacity-70 transition-opacity">
-          <span className="font-serif text-2xl tracking-widest font-bold text-[#0F0F0F] uppercase">
+        <Link to="/" className="flex items-center hover:opacity-70 transition-opacity cursor-pointer active:scale-95">
+          <span className="font-serif text-2xl tracking-widest font-bold text-[#0F0F0F] uppercase hover:text-[#C5A059] transition-colors">
             STUDIOLOGOS<span className="accent-gold">.</span>
           </span>
         </Link>

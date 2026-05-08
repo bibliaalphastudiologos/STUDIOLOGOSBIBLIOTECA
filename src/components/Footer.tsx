@@ -89,9 +89,9 @@ export const Footer: React.FC = () => {
               <h5 className="text-sm font-black uppercase tracking-[0.3em] text-gold mb-6">Recursos</h5>
               <ul className="space-y-3 text-sm text-white/70">
                 <li><Link to="/" className="hover:text-gold transition-colors">Home</Link></li>
-                <li><a href="#" className="hover:text-gold transition-colors">Sobre Nós</a></li>
-                <li><a href="#" className="hover:text-gold transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-gold transition-colors">Contato</a></li>
+                <li><a href="#sobre" className="hover:text-gold transition-colors">Sobre Nós</a></li>
+                <li><a href="#faq" className="hover:text-gold transition-colors">FAQ</a></li>
+                <li><a href="mailto:contato@studiologos.com.br" className="hover:text-gold transition-colors">Contato</a></li>
               </ul>
             </motion.div>
 
@@ -110,10 +110,10 @@ export const Footer: React.FC = () => {
                 </a>
                 <div className="flex gap-4 pt-4">
                   {[
-                    { icon: Facebook, href: '#' },
-                    { icon: Twitter, href: '#' },
-                    { icon: Instagram, href: '#' },
-                    { icon: Linkedin, href: '#' }
+                    { icon: Facebook, href: 'https://facebook.com/studiologos' },
+                    { icon: Twitter, href: 'https://twitter.com/studiologos' },
+                    { icon: Instagram, href: 'https://instagram.com/studiologos' },
+                    { icon: Linkedin, href: 'https://linkedin.com/company/studiologos' }
                   ].map((social, idx) => (
                     <a
                       key={idx}
@@ -135,9 +135,9 @@ export const Footer: React.FC = () => {
                 © {currentYear} Studio Logos. Todos os direitos reservados.
               </p>
               <div className="flex gap-6 text-sm text-white/60">
-                <a href="#" className="hover:text-gold transition-colors">Privacidade</a>
-                <a href="#" className="hover:text-gold transition-colors">Termos de Uso</a>
-                <a href="#" className="hover:text-gold transition-colors">Cookies</a>
+                <a href="#privacidade" className="hover:text-gold transition-colors">Privacidade</a>
+                <a href="#termos" className="hover:text-gold transition-colors">Termos de Uso</a>
+                <a href="#cookies" className="hover:text-gold transition-colors">Cookies</a>
               </div>
             </div>
           </div>
