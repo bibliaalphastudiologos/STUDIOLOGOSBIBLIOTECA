@@ -33,34 +33,34 @@ export function Navigation() {
         </Link>
         
         <div className="hidden lg:flex gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
-          <Link
-            to="/filosofia"
+          <button
+            type="button"
             onClick={() => requestScroll({ targetId: "shelf-Filosofia" })}
-            className={`pb-1 transition-colors ${location.pathname === '/filosofia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}
+            className="pb-1 text-black/60 transition-colors hover:text-black"
           >
             Filosofia
-          </Link>
-          <Link
-            to="/teologia"
+          </button>
+          <button
+            type="button"
             onClick={() => requestScroll({ targetId: "shelf-Teologia" })}
-            className={`transition-colors ${location.pathname === '/teologia' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}
+            className="text-black/60 transition-colors hover:text-black"
           >
             Teologia
-          </Link>
-          <Link
-            to="/psicanalise"
+          </button>
+          <button
+            type="button"
             onClick={() => requestScroll({ targetId: "shelf-Psicanálise" })}
-            className={`transition-colors ${location.pathname === '/psicanalise' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}
+            className="text-black/60 transition-colors hover:text-black"
           >
             Psicanálise
-          </Link>
-          <Link
-            to="/literatura"
+          </button>
+          <button
+            type="button"
             onClick={() => requestScroll({ targetId: "shelf-literatura-geral" })}
-            className={`transition-colors ${location.pathname === '/literatura' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}
+            className="text-black/60 transition-colors hover:text-black"
           >
             Literatura
-          </Link>
+          </button>
           {profile?.isAdmin && (
             <Link to="/admin" className={`transition-colors ${location.pathname === '/admin' ? 'accent-gold border-b border-[#C5A059]' : 'text-black/60 hover:text-black'}`}>Admin</Link>
           )}
