@@ -1,0 +1,32 @@
+# HTAccess para StudioLogos Biblioteca
+# Garante MIME types corretos para JS e CSS
+
+Options -MultiViews
+
+<IfModule mod_headers.c>
+  # JavaScript modules - tipo correto para import/export
+  <FilesMatch "\.js$">
+    Header set Content-Type "application/javascript; charset=utf-8"
+    Header set X-Content-Type-Options "nosniff"
+  </FilesMatch>
+  
+  # CSS
+  <FilesMatch "\.css$">
+    Header set Content-Type "text/css; charset=utf-8"
+    Header set X-Content-Type-Options "nosniff"
+  </FilesMatch>
+  
+  # HTML
+  <FilesMatch "\.html$">
+    Header set Content-Type "text/html; charset=utf-8"
+  </FilesMatch>
+</IfModule>
+
+# Fallback para SPA - todas as rotas vão para index.html
+ErrorDocument 404 /index.html
+
+# Garantir que arquivos .js sejam tratados como módulos
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
