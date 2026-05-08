@@ -36,10 +36,33 @@ function coverTitleClass(title: string, large: boolean): string {
   return "text-lg md:text-2xl leading-[1.06]";
 }
 
+function synthesisCoverImage(item: BestsellerSynthesis): string {
+  const signal = `${item.title} ${item.author}`.toLowerCase();
+  if (signal.includes("bobbie")) return "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("café") || signal.includes("cafe")) return "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("verity") || signal.includes("empregada") || signal.includes("minta")) return "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("psicologia financeira") || signal.includes("babilônia")) return "https://images.unsplash.com/photo-1605792657660-596af9009e82?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("metamorfose") || signal.includes("kafka")) return "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Kafka%2C%201923.jpg";
+  if (signal.includes("hora da estrela") || signal.includes("clarice")) return "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("hábitos") || signal.includes("habitos")) return "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("bíblia") || signal.includes("biblia") || signal.includes("deus") || signal.includes("oração") || signal.includes("ora")) return "https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("amor") || signal.includes("esposa") || signal.includes("corajosas")) return "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("murdoku")) return "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=900";
+  if (signal.includes("enaldinho")) return "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&q=80&w=900";
+  if (item.sources.includes("CPAD") || item.sources.includes("Mundo Cristão")) return "https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&q=80&w=900";
+  return "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=900";
+}
+
 function Cover({ item, large = false }: { item: BestsellerSynthesis; large?: boolean }) {
   return (
     <div className={`relative overflow-hidden rounded-sm border border-black/10 shadow-2xl bg-gradient-to-br ${item.palette} ${large ? "aspect-[2/3]" : "aspect-[3/4]"}`}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.38),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.16),transparent_38%,rgba(0,0,0,0.42))]" />
+      <img
+        src={synthesisCoverImage(item)}
+        alt=""
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.92] saturate-[0.92] contrast-[1.08]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.22),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.18)_40%,rgba(0,0,0,0.86)),linear-gradient(135deg,rgba(255,255,255,0.10),transparent_38%,rgba(0,0,0,0.42))]" />
       <div className="absolute inset-3 md:inset-4 border border-white/25" />
       <div className="absolute left-0 top-5 md:top-7 bg-[#111] text-white px-3 md:px-5 py-1.5 md:py-2 text-[8px] md:text-[10px] font-black uppercase tracking-[0.18em] md:tracking-[0.24em] shadow-xl">
         SÍNTESE

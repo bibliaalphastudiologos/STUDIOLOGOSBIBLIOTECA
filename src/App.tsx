@@ -100,7 +100,7 @@ export default function App() {
     }
 
     if (!hasAccess && !ebook.isSpecial) {
-      window.location.href = PAYMENT_LINKS.studioLogosMonthly;
+      setLockedEbook(ebook);
       return;
     }
 
@@ -144,11 +144,6 @@ export default function App() {
     setResumeHidden(true);
     safeStorage.setItem("resume-card-hidden", "true");
   };
-
-  useEffect(() => {
-    if (!lockedEbook || !user || loading || hasAccess) return;
-    window.location.href = PAYMENT_LINKS.studioLogosMonthly;
-  }, [hasAccess, loading, lockedEbook, user]);
 
   useEffect(() => {
     if (!lockedEbook) return;
@@ -603,21 +598,25 @@ export default function App() {
               <div className="w-14 h-14 rounded-full bg-[#1A1A1A] text-[#C5A059] flex items-center justify-center mx-auto mb-6">
                 <Lock className="w-6 h-6" />
               </div>
-              <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Login único Bíblia Alpha</p>
-              <h2 className="text-3xl font-serif mb-4">Entre para continuar a leitura</h2>
+              <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Acesso Studio Logos</p>
+              <h2 className="text-3xl font-serif mb-4">{user ? 'Assinatura necessária' : 'Entre para continuar a leitura'}</h2>
               <p className="text-sm text-black/60 leading-relaxed mb-8">
-                Você pode explorar o acervo livremente. Para abrir o conteúdo de {lockedEbook.title}, entre uma vez na plataforma com o mesmo login Google da Bíblia Alpha.
+                {user
+                  ? `Seu login Google (${user.email || 'e-mail atual'}) ainda não possui pagamento aprovado no Mercado Pago para abrir ${lockedEbook.title}.`
+                  : `Você pode explorar o acervo livremente. Para abrir o conteúdo de ${lockedEbook.title}, entre com o mesmo Gmail usado no pagamento.`}
               </p>
               <div className="space-y-3">
-                <button
-                  onClick={async () => {
-                    await login();
-                  }}
-                  disabled={loading}
-                  className="w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-black disabled:opacity-50"
-                >
-                  Entrar com Google
-                </button>
+                {!user && (
+                  <button
+                    onClick={async () => {
+                      await login();
+                    }}
+                    disabled={loading}
+                    className="w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-black disabled:opacity-50"
+                  >
+                    Entrar com Google
+                  </button>
+                )}
                 {user && !hasAccess && (
                   <a
                     href={PAYMENT_LINKS.studioLogosMonthly}
