@@ -4,7 +4,6 @@ import { BookOpen } from 'lucide-react';
 import { EBOOKS } from '../data';
 import { Reader } from './Reader';
 import { useAuth } from './AuthProvider';
-import { PAYMENT_LINKS } from '../types';
 
 export function ThematicRow() {
   const { user, hasAccess, login } = useAuth();
@@ -25,7 +24,7 @@ export function ThematicRow() {
     }
 
     if (!hasAccess && !ebook.isSpecial) {
-      window.location.href = PAYMENT_LINKS.studioLogosMonthly;
+      login();
       return;
     }
 

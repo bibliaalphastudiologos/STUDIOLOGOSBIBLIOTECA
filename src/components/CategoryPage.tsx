@@ -83,7 +83,7 @@ export function CategoryPage({ category }: CategoryPageProps) {
     }
 
     if (!hasAccess && !ebook.isSpecial) {
-      window.location.href = PAYMENT_LINKS.studioLogosMonthly;
+      setLockedEbook(ebook);
       return;
     }
 

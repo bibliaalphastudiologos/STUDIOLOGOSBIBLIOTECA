@@ -54,8 +54,18 @@ function hasPaidAccess(profile: Partial<StudioLogosProfile> | null | undefined):
   return profile?.payment_status === 'approved' && profile?.access_status === 'active';
 }
 
+function hasLegacyApprovedAccess(profile: Partial<StudioLogosProfile> | null | undefined): boolean {
+  if (!profile || profile.status === 'blocked') return false;
+  return (
+    profile.status === 'approved' ||
+    Boolean(profile.approvedAt) ||
+    Boolean(profile.approvalDateBrasilia) ||
+    Boolean(profile.subscriptionExpiresAt)
+  );
+}
+
 function hasEffectiveAccess(profile: Partial<StudioLogosProfile> | null | undefined): boolean {
-  return hasPaidAccess(profile) || (profile?.manual_access === true && profile?.access_status === 'active');
+  return hasPaidAccess(profile) || (profile?.manual_access === true && profile?.access_status === 'active') || hasLegacyApprovedAccess(profile);
 }
 
 const AuthContext = createContext<AuthContextValue>({
@@ -101,10 +111,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const paymentRecord = paymentSnapshot?.exists() ? paymentSnapshot.data() as Partial<StudioLogosProfile> : null;
         if (existing.exists()) {
           const existingProfile = existing.data() as StudioLogosProfile;
-          const manualBlocked = existingProfile.access_status === 'blocked' || existingProfile.status === 'blocked';
+          const manualBlocked = !isAdmin && existingProfile.status === 'blocked';
           const paymentApproved = hasPaidAccess(paymentRecord) || hasEffectiveAccess(existingProfile);
           const nextAccessStatus = manualBlocked ? 'blocked' : paymentApproved || isAdmin ? 'active' : existingProfile.access_status || 'blocked';
-          const nextPaymentStatus = paymentRecord?.payment_status || existingProfile.payment_status || 'pending';
+          const nextPaymentStatus = paymentRecord?.payment_status || existingProfile.payment_status || (paymentApproved || isAdmin ? 'approved' : 'pending');
           const nextProfile: StudioLogosProfile = {
             email: existingProfile.email || firebaseUser.email || '',
             nome: firebaseUser.displayName || existingProfile.nome || 'Leitor StudioLogos',
