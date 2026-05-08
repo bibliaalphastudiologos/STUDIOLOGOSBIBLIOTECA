@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+function requestScroll(targetId: string) {
+  window.dispatchEvent(new CustomEvent("studiologos:scroll-to", { detail: { targetId } }));
+}
+
 export function Hero() {
   return (
     <section className="relative min-h-[58svh] md:min-h-[70vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 md:pt-32 pb-10 md:pb-16 overflow-hidden bg-[#F9F7F2]">
@@ -38,7 +42,11 @@ export function Hero() {
         </p>
         
         <div className="pt-2 md:pt-8 flex flex-col sm:flex-row gap-3 md:gap-8 justify-center">
-          <Link to="/filosofia" className="bg-[#1A1A1A] hover:bg-black text-white font-bold py-4 md:py-6 px-8 md:px-16 rounded-sm transition-all flex items-center justify-center gap-3 md:gap-4 uppercase text-[10px] tracking-[0.22em] md:tracking-[0.3em] shadow-xl hover:-translate-y-1">
+          <Link
+            to="/filosofia"
+            onClick={() => requestScroll("shelf-Filosofia")}
+            className="bg-[#1A1A1A] hover:bg-black text-white font-bold py-4 md:py-6 px-8 md:px-16 rounded-sm transition-all flex items-center justify-center gap-3 md:gap-4 uppercase text-[10px] tracking-[0.22em] md:tracking-[0.3em] shadow-xl hover:-translate-y-1"
+          >
             Iniciar Estudo
             <ChevronRight className="w-4 h-4 text-accent-gold" />
           </Link>

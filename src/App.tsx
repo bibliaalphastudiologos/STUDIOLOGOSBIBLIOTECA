@@ -27,12 +27,12 @@ function normalizeSearch(value: string): string {
     .trim();
 }
 
-const ROUTE_CATEGORY_MAP: Record<string, Category> = {
-  "/filosofia": Category.PHILOSOPHY,
-  "/teologia": Category.THEOLOGY,
-  "/psicanalise": Category.PSYCHOANALYSIS,
-  "/psicanálise": Category.PSYCHOANALYSIS,
-  "/literatura": Category.LITERATURE,
+const ROUTE_SECTION_MAP: Record<string, string> = {
+  "/filosofia": `shelf-${Category.PHILOSOPHY}`,
+  "/teologia": `shelf-${Category.THEOLOGY}`,
+  "/psicanalise": `shelf-${Category.PSYCHOANALYSIS}`,
+  "/psicanálise": `shelf-${Category.PSYCHOANALYSIS}`,
+  "/literatura": "shelf-literatura-geral",
 };
 
 function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
@@ -136,11 +136,21 @@ export default function App() {
     }, 50);
   };
 
+  const scrollToSection = (targetId: string, attempts = 0) => {
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    if (attempts < 20) {
+      window.setTimeout(() => scrollToSection(targetId, attempts + 1), 100);
+    }
+  };
+
   const goToCategory = (category: Category) => {
     setActiveAxis(null);
-    window.setTimeout(() => {
-      document.getElementById(`shelf-${category}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 80);
+    scrollToSection(`shelf-${category}`);
   };
 
   useEffect(() => {
@@ -156,10 +166,36 @@ export default function App() {
   }, [hasAccess, lockedEbook, user]);
 
   useEffect(() => {
-    const category = ROUTE_CATEGORY_MAP[location.pathname.toLowerCase()];
-    if (!category) return;
-    goToCategory(category);
+    if (location.pathname === "/") {
+      setActiveAxis(null);
+      window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
+      return;
+    }
+
+    const targetId = ROUTE_SECTION_MAP[location.pathname.toLowerCase()];
+    if (!targetId) return;
+    setActiveAxis(null);
+    scrollToSection(targetId);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScrollRequest = (event: Event) => {
+      const detail = (event as CustomEvent<{ targetId?: string; top?: boolean }>).detail;
+      if (detail?.top) {
+        setActiveAxis(null);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      if (detail?.targetId) {
+        setActiveAxis(null);
+        scrollToSection(detail.targetId);
+      }
+    };
+
+    window.addEventListener("studiologos:scroll-to", handleScrollRequest);
+    return () => window.removeEventListener("studiologos:scroll-to", handleScrollRequest);
+  }, []);
 
   const hideResumeCard = () => {
     setResumeHidden(true);
@@ -523,6 +559,9 @@ export default function App() {
             const shelfEbooks = visibleEbooks.length > 0 ? visibleEbooks : ebooks.slice(0, Math.min(12, ebooks.length));
             return (
               <div key={cat} id={`shelf-${cat}`} className="space-y-4 scroll-mt-28">
+                {cat === Category.BRAZILIAN_LITERATURE && (
+                  <span id="shelf-literatura-geral" className="block scroll-mt-28" aria-hidden="true" />
+                )}
                 {axisForCategory && (
                   <div className="px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
                     <div className="border border-[#C5A059]/30 bg-[#C5A059]/10 px-4 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">

@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 import { Mail, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+function requestScroll(detail: { targetId?: string; top?: boolean }) {
+  window.dispatchEvent(new CustomEvent('studiologos:scroll-to', { detail }));
+}
+
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -74,10 +78,10 @@ export const Footer: React.FC = () => {
             >
               <h5 className="text-sm font-black uppercase tracking-[0.3em] text-gold mb-6">Categorias</h5>
               <ul className="space-y-3 text-sm text-white/70">
-                <li><Link to="/teologia" className="hover:text-gold transition-colors">Teologia</Link></li>
-                <li><Link to="/filosofia" className="hover:text-gold transition-colors">Filosofia</Link></li>
-                <li><Link to="/psicanalise" className="hover:text-gold transition-colors">Psicanálise</Link></li>
-                <li><Link to="/" className="hover:text-gold transition-colors">Todas as Obras</Link></li>
+                <li><Link to="/teologia" onClick={() => requestScroll({ targetId: 'shelf-Teologia' })} className="hover:text-gold transition-colors">Teologia</Link></li>
+                <li><Link to="/filosofia" onClick={() => requestScroll({ targetId: 'shelf-Filosofia' })} className="hover:text-gold transition-colors">Filosofia</Link></li>
+                <li><Link to="/psicanalise" onClick={() => requestScroll({ targetId: 'shelf-Psicanálise' })} className="hover:text-gold transition-colors">Psicanálise</Link></li>
+                <li><Link to="/" onClick={() => requestScroll({ top: true })} className="hover:text-gold transition-colors">Todas as Obras</Link></li>
               </ul>
             </motion.div>
 
@@ -90,7 +94,7 @@ export const Footer: React.FC = () => {
             >
               <h5 className="text-sm font-black uppercase tracking-[0.3em] text-gold mb-6">Recursos</h5>
               <ul className="space-y-3 text-sm text-white/70">
-                <li><Link to="/" className="hover:text-gold transition-colors">Home</Link></li>
+                <li><Link to="/" onClick={() => requestScroll({ top: true })} className="hover:text-gold transition-colors">Home</Link></li>
                 <li><a href="#sobre" className="hover:text-gold transition-colors">Sobre Nós</a></li>
                 <li><a href="#faq" className="hover:text-gold transition-colors">FAQ</a></li>
                 <li><a href="mailto:contato@studiologos.com.br" className="hover:text-gold transition-colors">Contato</a></li>
