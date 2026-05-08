@@ -31,6 +31,24 @@ access_status = active
 
 O administrador também pode liberar manualmente no painel admin, que grava nas coleções próprias do Studio Logos.
 
+Para aplicar as regras por CLI:
+
+```powershell
+firebase login:add
+firebase use sentinela-ai-489015
+firebase deploy --only firestore:rules --project sentinela-ai-489015
+```
+
+Para criar/liberar o administrador depois de obter o UID do usuário no Authentication:
+
+```powershell
+$env:FIREBASE_SERVICE_ACCOUNT_JSON='<json-da-service-account>'
+$env:FIRESTORE_DATABASE_ID='ai-studio-d00d75cd-ea9b-4bf1-9db1-7ac14eff586f'
+$env:STUDIO_ADMIN_UID='<uid-do-usuario>'
+$env:STUDIO_ADMIN_EMAIL='analista.ericksilva@gmail.com'
+node scripts/seed-studio-admin.mjs
+```
+
 ## Mercado Pago
 
 Configure no servidor:
