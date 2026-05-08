@@ -3,6 +3,11 @@
 
 Options -MultiViews
 
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^api/mercadopago-webhook/?$ /api/mercadopago-webhook/index.php [L]
+</IfModule>
+
 <IfModule mod_headers.c>
   # JavaScript modules - tipo correto para import/export
   <FilesMatch "\.js$">
