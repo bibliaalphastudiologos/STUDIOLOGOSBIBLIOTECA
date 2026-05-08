@@ -31,7 +31,6 @@ export interface StudioLogosProfile {
   paymentId?: string;
 }
 
-const ADMIN_EMAIL = 'analista.ericksilva@gmail.com';
 const MONTHLY_PLAN_PRICE = 'R$ 19,00';
 const MONTHLY_PLAN_PERIOD = 'mensal';
 const USERS_COLLECTION = 'studio_users';
@@ -94,7 +93,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       try {
-        const isAdmin = firebaseUser.email?.toLowerCase() === ADMIN_EMAIL;
         const normalizedEmail = normalizeEmail(firebaseUser.email);
         const userRef = doc(db, USERS_COLLECTION, firebaseUser.uid);
         const paymentRef = doc(db, PAYMENT_ACCESS_COLLECTION, normalizedEmail || '_missing_email');
@@ -103,19 +101,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const paymentRecord = paymentSnapshot?.exists() ? paymentSnapshot.data() as Partial<StudioLogosProfile> : null;
         if (existing.exists()) {
           const existingProfile = existing.data() as StudioLogosProfile;
-          const manualBlocked = !isAdmin && existingProfile.status === 'blocked';
-          const paymentApproved = hasPaidAccess(paymentRecord) || hasEffectiveAccess(existingProfile) || isAdmin;
-          const nextAccessStatus = manualBlocked ? 'blocked' : paymentApproved || isAdmin ? 'active' : existingProfile.access_status || 'blocked';
-          const nextPaymentStatus = paymentRecord?.payment_status || existingProfile.payment_status || (paymentApproved || isAdmin ? 'approved' : 'pending');
+          const existingAdmin = existingProfile.isAdmin === true;
+          const manualBlocked = !existingAdmin && existingProfile.status === 'blocked';
+          const paymentApproved = hasPaidAccess(paymentRecord) || hasEffectiveAccess(existingProfile) || existingAdmin;
+          const nextAccessStatus = manualBlocked ? 'blocked' : paymentApproved ? 'active' : existingProfile.access_status || 'blocked';
+          const nextPaymentStatus = paymentRecord?.payment_status || existingProfile.payment_status || (paymentApproved ? 'approved' : 'pending');
           const nextProfile: StudioLogosProfile = {
             email: existingProfile.email || firebaseUser.email || '',
             nome: firebaseUser.displayName || existingProfile.nome || 'Leitor StudioLogos',
             foto: firebaseUser.photoURL || existingProfile.foto || '',
-            status: isAdmin || (nextPaymentStatus === 'approved' && nextAccessStatus === 'active') || existingProfile.manual_access === true ? 'approved' : manualBlocked ? 'blocked' : 'pending',
+            status: existingAdmin || (nextPaymentStatus === 'approved' && nextAccessStatus === 'active') || existingProfile.manual_access === true ? 'approved' : manualBlocked ? 'blocked' : 'pending',
             payment_status: nextPaymentStatus,
             access_status: nextAccessStatus,
             manual_access: existingProfile.manual_access === true,
-            isAdmin: existingProfile.isAdmin === true || isAdmin,
+            isAdmin: existingAdmin,
             approvedAt: paymentRecord?.approvedAt || existingProfile.approvedAt,
             approvalDateBrasilia: paymentRecord?.approvalDateBrasilia || existingProfile.approvalDateBrasilia,
             subscriptionExpiresAt: paymentRecord?.subscriptionExpiresAt || existingProfile.subscriptionExpiresAt,
@@ -156,14 +155,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           return;
         }
 
-        const newProfile: StudioLogosProfile = {
+          const newProfile: StudioLogosProfile = {
           email: firebaseUser.email || '',
           nome: firebaseUser.displayName || 'Leitor StudioLogos',
           foto: firebaseUser.photoURL || '',
-          status: isAdmin || hasPaidAccess(paymentRecord) ? 'approved' : 'pending',
+          status: hasPaidAccess(paymentRecord) ? 'approved' : 'pending',
           payment_status: paymentRecord?.payment_status || 'pending',
-          access_status: isAdmin || hasPaidAccess(paymentRecord) ? 'active' : 'blocked',
-          isAdmin,
+          access_status: hasPaidAccess(paymentRecord) ? 'active' : 'blocked',
+          isAdmin: false,
           approvedAt: paymentRecord?.approvedAt,
           approvalDateBrasilia: paymentRecord?.approvalDateBrasilia,
           paymentId: paymentRecord?.paymentId,

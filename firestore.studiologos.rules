@@ -20,15 +20,23 @@ service cloud.firestore {
       return signedIn() && request.auth.uid == userId;
     }
 
+    function isSelfPendingProfile() {
+      return request.resource.data.email == request.auth.token.email
+        && request.resource.data.status == 'pending'
+        && request.resource.data.payment_status == 'pending'
+        && request.resource.data.access_status == 'blocked'
+        && request.resource.data.isAdmin == false
+        && (!('manual_access' in request.resource.data) || request.resource.data.manual_access == false);
+    }
+
     match /studio_users/{userId} {
       allow read: if isOwnStudioUser(userId) || isStudioAdmin();
-      allow create: if isOwnStudioUser(userId)
-        && request.resource.data.email == request.auth.token.email
-        && request.resource.data.status in ['pending', 'approved', 'blocked'];
-      allow update: if isOwnStudioUser(userId)
-        && request.resource.data.diff(resource.data).changedKeys()
-          .hasOnly(['nome', 'foto', 'email', 'updatedAt'])
-        || isStudioAdmin();
+      allow create: if (isOwnStudioUser(userId) && isSelfPendingProfile()) || isStudioAdmin();
+      allow update: if (
+          isOwnStudioUser(userId)
+          && request.resource.data.diff(resource.data).changedKeys()
+            .hasOnly(['nome', 'foto', 'email', 'updatedAt'])
+        ) || isStudioAdmin();
       allow delete: if isStudioAdmin();
 
       match /notes/{noteId} {
@@ -37,7 +45,7 @@ service cloud.firestore {
     }
 
     match /studio_payment_access/{email} {
-      allow read: if signedIn() && request.auth.token.email == email || isStudioAdmin();
+      allow read: if (signedIn() && request.auth.token.email == email) || isStudioAdmin();
       allow write: if isStudioAdmin();
     }
 

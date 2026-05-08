@@ -261,6 +261,11 @@ try {
     $body = json_decode(file_get_contents('php://input') ?: '{}', true);
     if (!is_array($body)) $body = [];
 
+    if (!get_data_id($_GET, $body)) {
+        echo json_encode(['ok' => true, 'ignored' => true, 'reason' => 'missing_payment_id'], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+
     if (!validate_signature($_GET, $body)) {
         fail(401, 'Invalid Mercado Pago signature');
     }

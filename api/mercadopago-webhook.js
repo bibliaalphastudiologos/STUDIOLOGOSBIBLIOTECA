@@ -59,6 +59,10 @@ function getDataId(req, body) {
   );
 }
 
+function hasWebhookId(req, body) {
+  return Boolean(getDataId(req, body));
+}
+
 function validateMercadoPagoSignature(req, body) {
   const secret = process.env.MERCADO_PAGO_WEBHOOK_SECRET;
   if (!secret) return true;
@@ -181,6 +185,10 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    if (!hasWebhookId(req, body)) {
+      return res.status(200).json({ ok: true, ignored: true, reason: 'missing_payment_id' });
+    }
+
     if (!validateMercadoPagoSignature(req, body)) {
       return res.status(401).json({ error: 'Invalid Mercado Pago signature' });
     }
