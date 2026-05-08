@@ -35,6 +35,7 @@ Options -MultiViews
 </IfModule>
 
 # Fallback final para SPA caso mod_rewrite esteja indisponível
+FallbackResource /index.html
 ErrorDocument 404 /index.html
 
 # Garantir que arquivos .js sejam tratados como módulos

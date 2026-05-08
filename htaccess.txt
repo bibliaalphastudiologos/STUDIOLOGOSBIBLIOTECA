@@ -1,8 +1,17 @@
 Options -MultiViews
-RewriteEngine On
-RewriteBase /
-RewriteRule ^api/mercadopago-webhook/?$ /api/mercadopago-webhook/index.php [L]
-RewriteRule ^api/gutenberg-proxy/?$ /api/gutenberg-proxy/index.php [L]
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^api/mercadopago-webhook/?$ /api/mercadopago-webhook/index.php [L]
+  RewriteRule ^api/gutenberg-proxy/?$ /api/gutenberg-proxy/index.php [L]
+  RewriteRule ^index\.html$ - [L]
+  RewriteRule ^sw\.js$ - [L]
+  RewriteRule ^limpar\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
 
 <IfModule mod_headers.c>
   # Prevent caching of HTML
@@ -19,11 +28,11 @@ RewriteRule ^api/gutenberg-proxy/?$ /api/gutenberg-proxy/index.php [L]
   </FilesMatch>
 </IfModule>
 
-# SPA fallback
-RewriteBase /
-RewriteRule ^index\.html$ - [L]
-RewriteRule ^sw\.js$ - [L]
-RewriteRule ^limpar\.html$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
+
+# SPA fallback. FallbackResource costuma devolver 200; ErrorDocument cobre hosts sem mod_rewrite.
+FallbackResource /index.html
+ErrorDocument 404 /index.html
