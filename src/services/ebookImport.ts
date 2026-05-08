@@ -1,10 +1,11 @@
 import { safeStorage } from '../lib/safeStorage';
 import type { Ebook, StudioChapter } from '../studioTypes';
 
-const CACHE_PREFIX = 'sl_imported_ebook_v1_';
+const CACHE_PREFIX = 'sl_imported_ebook_v2_';
 const START_MARKER = '*** START OF';
 const END_MARKER = '*** END OF';
 const REQUEST_TIMEOUT_MS = 20000;
+const MIN_IMPORTED_TEXT_LENGTH = 2500;
 
 function cacheKey(ebook: Ebook): string {
   return `${CACHE_PREFIX}${ebook.id}`;
@@ -90,14 +91,13 @@ function splitIntoChapters(text: string, fallbackTitle: string): StudioChapter[]
   chapters.push(current);
 
   const meaningful = chapters
-    .filter((chapter) => chapter.blocks.join(' ').length > 500)
-    .slice(0, 80);
+    .filter((chapter) => chapter.blocks.join(' ').length > 500);
 
   if (!meaningful.length) {
     return [{
       id: 'imported-1',
       title: fallbackTitle,
-      content: paragraphHtml(text.slice(0, 50000)),
+      content: paragraphHtml(text),
       estimatedMinutes: estimateMinutes(text),
     }];
   }
@@ -147,8 +147,22 @@ async function fetchText(url: string): Promise<{ ok: boolean; status: number; te
   }
 }
 
-function proxyUrl(url: string): string {
-  return `https://r.jina.ai/http://r.jina.ai/http://${url}`;
+function readableProxyUrl(url: string): string {
+  const withoutProtocol = url.replace(/^https?:\/\//i, '');
+  return `https://r.jina.ai/http://${withoutProtocol}`;
+}
+
+function localProxyUrl(providerId: string, url?: string): string {
+  const params = new URLSearchParams({ id: providerId });
+  if (url) params.set('url', url);
+  return `/api/gutenberg-proxy/index.php?${params.toString()}`;
+}
+
+function isUsableImportedText(text: string): boolean {
+  const clean = stripProjectGutenbergBoilerplate(text);
+  if (clean.length < MIN_IMPORTED_TEXT_LENGTH) return false;
+  const words = clean.split(/\s+/).filter(Boolean).length;
+  return words > 350;
 }
 
 export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[] | null> {
@@ -157,28 +171,43 @@ export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[
   const cached = readCache(ebook);
   if (cached) return cached;
 
+  const providerId = ebook.importSource.providerId;
   const urls = [
     ebook.importSource.textUrl,
-    ebook.importSource.providerId
-      ? `https://www.gutenberg.org/cache/epub/${ebook.importSource.providerId}/pg${ebook.importSource.providerId}-0.txt`
+    providerId
+      ? `https://www.gutenberg.org/cache/epub/${providerId}/pg${providerId}.txt`
       : null,
-    ebook.importSource.providerId
-      ? `https://www.gutenberg.org/cache/epub/${ebook.importSource.providerId}/${ebook.importSource.providerId}-0.txt`
+    providerId
+      ? `https://www.gutenberg.org/cache/epub/${providerId}/pg${providerId}-0.txt`
       : null,
-    ebook.importSource.providerId
-      ? `https://www.gutenberg.org/cache/epub/${ebook.importSource.providerId}/${ebook.importSource.providerId}.txt`
+    providerId
+      ? `https://www.gutenberg.org/cache/epub/${providerId}/${providerId}-0.txt`
+      : null,
+    providerId
+      ? `https://www.gutenberg.org/cache/epub/${providerId}/${providerId}.txt`
+      : null,
+    providerId
+      ? `https://www.gutenberg.org/files/${providerId}/${providerId}-0.txt`
+      : null,
+    providerId
+      ? `https://www.gutenberg.org/files/${providerId}/${providerId}.txt`
       : null,
   ].filter(Boolean) as string[];
 
   let raw = '';
   let lastStatus = 0;
   for (const url of urls) {
-    const attempts = [url, proxyUrl(url)];
+    const attempts = [
+      providerId ? localProxyUrl(providerId, url) : null,
+      url,
+      readableProxyUrl(url),
+    ].filter(Boolean) as string[];
+
     for (const attempt of attempts) {
       try {
         const response = await fetchText(attempt);
         lastStatus = response.status;
-        if (response.ok && response.text.length > 800) {
+        if (response.ok && isUsableImportedText(response.text)) {
           raw = response.text;
           break;
         }
