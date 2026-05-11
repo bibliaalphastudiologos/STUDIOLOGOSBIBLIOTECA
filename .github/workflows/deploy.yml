@@ -1,4 +1,4 @@
-name: Deploy Studio Logos - Final
+name: Deploy StudioLogos - Firebase Hosting
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,32 +15,68 @@ jobs:
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
-      - name: Install
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SENTINELA_AI_489015 }}
+
+      - name: Install dependencies
         run: npm ci
 
       - name: Build
         run: npm run build
 
-      - name: Verificar arquivos gerados
-        run: ls -la dist/
+      - name: Deploy Firestore Rules via REST API
+        continue-on-error: true
+        run: |
+          python3 - << 'PYEOF'
+          import json, urllib.request, subprocess, sys
 
-      - name: Garantir .htaccess na dist
-        run: cp .htaccess dist/.htaccess && echo ".htaccess copiado para dist/"
+          project = "sentinela-ai-489015"
+          database = "ai-studio-d00d75cd-ea9b-4bf1-9db1-7ac14eff586f"
+          token = subprocess.check_output(["gcloud", "auth", "print-access-token"]).decode().strip()
+          rules = open("firestore.studiologos.rules").read()
 
-      - name: Deploy via FTP to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+          headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+          # 1. Criar novo ruleset
+          payload = json.dumps({"source": {"files": [{"content": rules, "name": "firestore.rules"}]}}).encode()
+          req = urllib.request.Request(
+              f"https://firebaserules.googleapis.com/v1/projects/{project}/rulesets",
+              data=payload, headers=headers, method="POST"
+          )
+          with urllib.request.urlopen(req) as r:
+              ruleset = json.load(r)
+          ruleset_name = ruleset["name"]
+          print(f"Ruleset criado: {ruleset_name}")
+
+          # 2. Atualizar release para o banco nomeado
+          release_name = f"projects/{project}/releases/cloud.firestore/databases/{database}"
+          rel_payload = json.dumps({"release": {"name": release_name, "rulesetName": ruleset_name}}).encode()
+          for method in ["PATCH", "POST"]:
+              url = f"https://firebaserules.googleapis.com/v1/{release_name}"
+              if method == "POST":
+                  url = f"https://firebaserules.googleapis.com/v1/projects/{project}/releases"
+              req2 = urllib.request.Request(url, data=rel_payload, headers=headers, method=method)
+              try:
+                  with urllib.request.urlopen(req2) as r2:
+                      result = json.load(r2)
+                  print(f"Release atualizado ({method}): {result.get('name', 'ok')}")
+                  break
+              except urllib.error.HTTPError as e:
+                  print(f"{method} falhou: {e.code} {e.read().decode()[:200]}")
+          PYEOF
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
+
+      - name: Deploy Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/node_modules/**
-            **/*.md
-          log-level: standard
-          dry-run: false
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SENTINELA_AI_489015 }}
+          projectId: sentinela-ai-489015
+          channelId: live
