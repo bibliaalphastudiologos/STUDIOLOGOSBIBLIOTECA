@@ -1,0 +1,23 @@
+{
+  "name": "StudioLogos Biblioteca Premium",
+  "short_name": "StudioLogos",
+  "description": "Alta curadoria em Filosofia, Teologia, Psicanálise e Literatura.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9f7f2",
+  "theme_color": "#b48a3d",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
