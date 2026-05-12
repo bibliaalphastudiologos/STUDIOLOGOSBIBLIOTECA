@@ -1,17 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import legacy from '@vitejs/plugin-legacy';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    legacy({
-      targets: ['defaults', 'safari >= 11', 'ios >= 11'],
-      modernPolyfills: true,
-    }),
-  ],
+  plugins: [react()],
   build: {
-    outDir: 'dist',
+    outDir: 'public_html',
     emptyOutDir: true,
     target: 'es2017',
     rollupOptions: {
@@ -20,11 +13,11 @@ export default defineConfig({
           react: ['react', 'react-dom'],
           motion: ['framer-motion'],
           firebase: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
+          theology: ['./src/data/theologyPublicDomain'],
+          gutenberg: ['./src/data/gutenbergMegaCatalog'],
         },
       },
     },
   },
-  server: {
-    port: 3000,
-  },
+  server: { port: 3000 },
 });
