@@ -19,7 +19,6 @@ function stripProjectGutenbergBoilerplate(text: string): string {
     : normalized;
   const endIndex = afterStart.indexOf(END_MARKER);
   const body = endIndex >= 0 ? afterStart.slice(0, endIndex) : afterStart;
-
   return body
     .replace(/\n{4,}/g, '\n\n\n')
     .replace(/[ \t]+\n/g, '\n')
@@ -35,33 +34,60 @@ function escapeHtml(value: string): string {
     .replace(/'/g, '&#39;');
 }
 
+/**
+ * Detects chapter / section headings.
+ *
+ * Intentionally conservative: only recognises patterns that are
+ * unambiguously chapter markers, NOT generic all-caps lines (which
+ * also appear on title pages, dedications, publisher info, etc.).
+ */
 function isLikelyHeading(line: string): boolean {
   const clean = line.trim();
-  if (clean.length < 3 || clean.length > 90) return false;
-  if (/^(chapter|lecture|part|book|section|preface|introduction|cap[ií]tulo|livro|canto|acto|ato)\b/i.test(clean)) return true;
-  if (/^[IVXLCDM]+[.\s\-–—]+[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean)) return true;
-  if (/^\d{1,2}[.\s\-–]+[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean)) return true;
-  return clean === clean.toUpperCase() && /[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean) && clean.split(/\s+/).length <= 10;
+  if (!clean || clean.length > 90) return false;
+
+  // Standalone Roman numeral (I, II, IV, VIII, XLII, CXLVIII …) with optional period
+  if (/^[IVXLCDM]{1,8}\.?$/.test(clean)) return true;
+
+  // Keyword-led patterns: "Capítulo I", "Chapter 3", "Parte II", "Livro III", "Canto IV" …
+  if (/^(cap[ií]tulo|chapter|lecture|parte?|livro|canto|acto?|cena|pr[oó]logo|ep[ií]logo|preface|introduction|epilogue)\b/i.test(clean)) return true;
+
+  // Roman numeral followed by separator: "IV." / "IV—" / "IV — Título"
+  if (/^[IVXLCDM]{1,8}[.\-–—\s]/.test(clean)) return true;
+
+  // Numeric: "12." / "12 —" / "12 - Título"
+  if (/^\d{1,3}[.\-–—\s]+[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean)) return true;
+
+  return false;
 }
 
 function estimateMinutes(text: string): number {
   const words = text.split(/\s+/).filter(Boolean).length;
-  return Math.max(4, Math.ceil(words / 210));
+  return Math.max(1, Math.ceil(words / 210));
 }
 
 function paragraphHtml(block: string): string {
-  const lines = block
+  return block
     .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  return lines.map((line) => `<p>${escapeHtml(line)}</p>`).join('\n');
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .map((l) => `<p>${escapeHtml(l)}</p>`)
+    .join('\n');
 }
 
+/**
+ * Splits plain text into chapters.
+ *
+ * Strategy:
+ * 1. Accumulate content into the current chapter.
+ * 2. When a heading is detected AND the current chapter already has
+ *    content (blocks > 0), flush and start a new chapter.
+ * 3. Peek at the line after the heading: if it is a short non-heading
+ *    subtitle, absorb it into the chapter title ("I — Do título.").
+ */
 function splitIntoChapters(text: string, fallbackTitle: string): StudioChapter[] {
   const lines = text.split('\n');
   const chapters: Array<{ title: string; blocks: string[] }> = [];
-  let current = { title: 'Abertura editorial', blocks: [] as string[] };
+  let current = { title: fallbackTitle, blocks: [] as string[] };
   let paragraph: string[] = [];
 
   const flushParagraph = () => {
@@ -70,28 +96,52 @@ function splitIntoChapters(text: string, fallbackTitle: string): StudioChapter[]
     paragraph = [];
   };
 
-  for (const line of lines) {
-    const clean = line.trim();
+  let i = 0;
+  while (i < lines.length) {
+    const clean = lines[i].trim();
+
     if (!clean) {
       flushParagraph();
+      i++;
       continue;
     }
 
-    if (isLikelyHeading(clean) && current.blocks.length > 2) {
-      flushParagraph();
-      chapters.push(current);
-      current = { title: clean, blocks: [] };
+    if (isLikelyHeading(clean)) {
+      if (current.blocks.length > 0) {
+        // Save current chapter
+        flushParagraph();
+        chapters.push(current);
+
+        // Peek at next non-blank line for subtitle
+        let j = i + 1;
+        while (j < lines.length && !lines[j].trim()) j++;
+        const nextLine = lines[j]?.trim() ?? '';
+        let subtitle = '';
+        if (nextLine && !isLikelyHeading(nextLine) && nextLine.length < 80) {
+          subtitle = nextLine;
+          i = j; // consume subtitle line
+        }
+
+        current = { title: subtitle ? `${clean} — ${subtitle}` : clean, blocks: [] };
+      } else {
+        // No content yet — heading is part of front-matter, treat as text
+        paragraph.push(clean);
+      }
+      i++;
       continue;
     }
 
     paragraph.push(clean);
+    i++;
   }
 
   flushParagraph();
   chapters.push(current);
 
-  const meaningful = chapters
-    .filter((chapter) => chapter.blocks.join(' ').length > 500);
+  // Filter out near-empty front-matter fragments
+  const meaningful = chapters.filter(
+    (ch) => ch.blocks.join(' ').trim().length > 80,
+  );
 
   if (!meaningful.length) {
     return [{
@@ -102,21 +152,17 @@ function splitIntoChapters(text: string, fallbackTitle: string): StudioChapter[]
     }];
   }
 
-  return meaningful.map((chapter, index) => {
-    const plain = chapter.blocks.join('\n\n');
-    return {
-      id: `imported-${index + 1}`,
-      title: chapter.title,
-      content: paragraphHtml(plain),
-      estimatedMinutes: estimateMinutes(plain),
-    };
-  });
+  return meaningful.map((ch, index) => ({
+    id: `imported-${index + 1}`,
+    title: ch.title,
+    content: paragraphHtml(ch.blocks.join('\n\n')),
+    estimatedMinutes: estimateMinutes(ch.blocks.join(' ')),
+  }));
 }
 
 function readCache(ebook: Ebook): StudioChapter[] | null {
   const raw = safeStorage.getItem(cacheKey(ebook));
   if (!raw) return null;
-
   try {
     const parsed = JSON.parse(raw) as { chapters?: StudioChapter[]; timestamp?: number };
     if (!parsed.chapters?.length) return null;
@@ -128,16 +174,12 @@ function readCache(ebook: Ebook): StudioChapter[] | null {
 }
 
 function writeCache(ebook: Ebook, chapters: StudioChapter[]): void {
-  safeStorage.setItem(cacheKey(ebook), JSON.stringify({
-    chapters,
-    timestamp: Date.now(),
-  }));
+  safeStorage.setItem(cacheKey(ebook), JSON.stringify({ chapters, timestamp: Date.now() }));
 }
 
 async function fetchText(url: string): Promise<{ ok: boolean; status: number; text: string }> {
   const controller = new AbortController();
   const timer = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-
   try {
     const response = await fetch(url, { signal: controller.signal });
     const text = response.ok ? await response.text() : '';
@@ -148,7 +190,6 @@ async function fetchText(url: string): Promise<{ ok: boolean; status: number; te
 }
 
 function readableProxyUrl(url: string): string {
-  // Jina.ai reader — strips HTML navigation, returns clean markdown/text
   return `https://r.jina.ai/${url}`;
 }
 
@@ -161,20 +202,14 @@ function localProxyUrl(gutenbergId: string, url?: string): string {
 function isUsableImportedText(text: string): boolean {
   const clean = stripProjectGutenbergBoilerplate(text);
   if (clean.length < MIN_IMPORTED_TEXT_LENGTH) return false;
-  const words = clean.split(/\s+/).filter(Boolean).length;
-  return words > 350;
+  return clean.split(/\s+/).filter(Boolean).length > 350;
 }
 
-function buildUrlList(
-  provider: string,
-  providerId: string,
-  textUrl: string | undefined,
-): string[] {
+function buildUrlList(provider: string, providerId: string, textUrl?: string): string[] {
   const urls: string[] = [];
-
   if (textUrl) urls.push(textUrl);
 
-  // Only generate Gutenberg URL patterns when the ID is numeric
+  // Only generate Gutenberg URL patterns for numeric IDs
   if (provider === 'project_gutenberg' && /^\d+$/.test(providerId)) {
     const id = providerId;
     urls.push(
@@ -187,7 +222,6 @@ function buildUrlList(
     );
   }
 
-  // Deduplicate
   return [...new Set(urls)];
 }
 
@@ -199,17 +233,12 @@ export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[
 
   const { provider = 'project_gutenberg', providerId, textUrl } = ebook.importSource;
   const isGutenberg = provider === 'project_gutenberg' && /^\d+$/.test(providerId);
-
   const urls = buildUrlList(provider, providerId, textUrl);
 
   let raw = '';
   let lastStatus = 0;
 
   for (const url of urls) {
-    // For each candidate URL, build fetch attempts in order of preference:
-    // 1. Local PHP proxy (only for real Gutenberg numeric IDs)
-    // 2. Direct URL
-    // 3. Jina.ai reader proxy (best for Wikisource HTML pages)
     const attempts: string[] = [];
     if (isGutenberg) attempts.push(localProxyUrl(providerId, url));
     attempts.push(url);
