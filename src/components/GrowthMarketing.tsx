@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BookOpen, Brain, ChevronRight, Mail, MessageCircle, Sparkles, X } from 'lucide-react';
 import { PAYMENT_LINKS } from '../types';
-import { EMAIL_FUNNEL, WHATSAPP_QUICK_REPLIES } from '../data/growthFunnels';
 import { buildWhatsAppUrl } from '../lib/whatsapp';
 import { safeStorage } from '../lib/safeStorage';
 import { LeadCapture } from './LeadCapture';
@@ -87,7 +86,7 @@ export const GrowthMarketing: React.FC<{ showLeadTools: boolean }> = ({ showLead
           <ProductCard icon={BookOpen} title="Biblioteca completa" text="Grandes obras, trilhas e leitura online em uma experiência organizada para estudo sério." />
           <ProductCard icon={Sparkles} title="Bíblia Alpha" text="Produto exclusivo do ecossistema Studio Logos para estudo bíblico com profundidade e fluidez." />
           <ProductCard icon={Brain} title="Psicanálise e filosofia" text="Roteiros de leitura para compreender ideias, cultura, mente, desejo e formação humana." />
-          <ProductCard icon={Mail} title="Relacionamento guiado" text="E-mails e WhatsApp conduzem o visitante do primeiro contato até a assinatura." />
+          <ProductCard icon={Mail} title="Relacionamento guiado" text="Atendimento por e-mail e WhatsApp para tirar dúvidas e ajudar em sua jornada na plataforma." />
         </div>
       </section>
 
@@ -116,33 +115,6 @@ export const GrowthMarketing: React.FC<{ showLeadTools: boolean }> = ({ showLead
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-10 pb-10 md:pb-16">
-        <div className="mx-auto max-w-7xl border border-black/10 bg-white p-5 md:p-7">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#C5A059]">Funil de relacionamento</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight">Do primeiro interesse à assinatura.</h2>
-              <p className="mt-4 text-sm leading-relaxed text-black/62">
-                O cadastro entra no banco, recebe uma jornada editorial por e-mail e abre conversa no WhatsApp com respostas rápidas para acelerar a decisão.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {WHATSAPP_QUICK_REPLIES.map((reply) => (
-                  <span key={reply} className="border border-black/10 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-black/62">{reply}</span>
-                ))}
-              </div>
-            </div>
-            <div className="grid gap-2 sm:grid-cols-5">
-              {EMAIL_FUNNEL.map((email) => (
-                <div key={email.subject} className="border border-black/10 bg-[#F9F7F2] p-3">
-                  <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#8A682B]">E-mail {email.day === 0 ? '1' : email.day + 1}</p>
-                  <h3 className="mt-2 font-serif text-base leading-tight">{email.theme}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-black/58">{email.objective}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {showLeadTools && !footerHidden && (
         <div className="fixed inset-x-0 bottom-0 z-[95] border-t border-[#C5A059]/25 bg-[#111318]/96 px-4 py-3 text-white shadow-2xl backdrop-blur-md">
