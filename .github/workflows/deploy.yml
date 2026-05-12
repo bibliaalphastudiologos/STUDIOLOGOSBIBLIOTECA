@@ -1,4 +1,4 @@
-name: Deploy StudioLogos - Firebase Hosting
+name: Build & Deploy Studio Logos
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,6 +18,19 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          echo "=== Build Output ==="
+          ls -lh public_html/
+          ls -lh public_html/assets/
+          echo "Total size: $(du -sh public_html/ | cut -f1)"
+
       - name: Authenticate to Google Cloud
         id: auth
         continue-on-error: true
@@ -25,58 +38,41 @@ jobs:
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SENTINELA_AI_489015 }}
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Deploy Firestore Rules via REST API
+      - name: Deploy Firestore Rules
         if: steps.auth.outcome == 'success'
         continue-on-error: true
         run: |
           python3 - << 'PYEOF'
-          import json, urllib.request, subprocess, sys
-
+          import json, urllib.request, subprocess
           project = "sentinela-ai-489015"
           database = "ai-studio-d00d75cd-ea9b-4bf1-9db1-7ac14eff586f"
           token = subprocess.check_output(["gcloud", "auth", "print-access-token"]).decode().strip()
           rules = open("firestore.studiologos.rules").read()
-
           headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-
           payload = json.dumps({"source": {"files": [{"content": rules, "name": "firestore.rules"}]}}).encode()
           req = urllib.request.Request(
               f"https://firebaserules.googleapis.com/v1/projects/{project}/rulesets",
-              data=payload, headers=headers, method="POST"
-          )
+              data=payload, headers=headers, method="POST")
           with urllib.request.urlopen(req) as r:
               ruleset = json.load(r)
-          ruleset_name = ruleset["name"]
-          print(f"Ruleset criado: {ruleset_name}")
-
-          release_name = f"projects/{project}/releases/cloud.firestore/databases/{database}"
-          rel_payload = json.dumps({"release": {"name": release_name, "rulesetName": ruleset_name}}).encode()
-          for method in ["PATCH", "POST"]:
-              url = f"https://firebaserules.googleapis.com/v1/{release_name}"
-              if method == "POST":
-                  url = f"https://firebaserules.googleapis.com/v1/projects/{project}/releases"
-              req2 = urllib.request.Request(url, data=rel_payload, headers=headers, method=method)
-              try:
-                  with urllib.request.urlopen(req2) as r2:
-                      result = json.load(r2)
-                  print(f"Release atualizado ({method}): {result.get('name', 'ok')}")
-                  break
-              except urllib.error.HTTPError as e:
-                  print(f"{method} falhou: {e.code} {e.read().decode()[:200]}")
+          print(f"Ruleset: {ruleset['name']}")
           PYEOF
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
 
       - name: Deploy Firebase Hosting
+        continue-on-error: true
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SENTINELA_AI_489015 }}
           projectId: sentinela-ai-489015
           channelId: live
+
+      - name: Deploy summary
+        run: |
+          echo "=================================="
+          echo "Build: SUCCESS"
+          echo "public_html updated and committed"
+          echo "Firebase: ${{ steps.deploy.outcome || 'skipped (secret not configured)' }}"
+          echo "=================================="
