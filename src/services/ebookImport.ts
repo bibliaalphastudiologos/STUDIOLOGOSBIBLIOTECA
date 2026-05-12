@@ -38,10 +38,10 @@ function escapeHtml(value: string): string {
 function isLikelyHeading(line: string): boolean {
   const clean = line.trim();
   if (clean.length < 3 || clean.length > 90) return false;
-  if (/^(chapter|lecture|part|book|section|preface|introduction|cap[ií]tulo|livro)\b/i.test(clean)) return true;
-  if (/^[IVXLCDM]+[.\s-]+[A-Z]/.test(clean)) return true;
-  if (/^\d{1,2}[.\s-]+[A-Z]/.test(clean)) return true;
-  return clean === clean.toUpperCase() && /[A-Z]/.test(clean) && clean.split(/\s+/).length <= 10;
+  if (/^(chapter|lecture|part|book|section|preface|introduction|cap[ií]tulo|livro|canto|acto|ato)\b/i.test(clean)) return true;
+  if (/^[IVXLCDM]+[.\s\-–—]+[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean)) return true;
+  if (/^\d{1,2}[.\s\-–]+[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean)) return true;
+  return clean === clean.toUpperCase() && /[A-ZÁÉÍÓÚÀÂÊÔÃÕÇ]/u.test(clean) && clean.split(/\s+/).length <= 10;
 }
 
 function estimateMinutes(text: string): number {
@@ -148,12 +148,12 @@ async function fetchText(url: string): Promise<{ ok: boolean; status: number; te
 }
 
 function readableProxyUrl(url: string): string {
-  const withoutProtocol = url.replace(/^https?:\/\//i, '');
-  return `https://r.jina.ai/http://${withoutProtocol}`;
+  // Jina.ai reader — strips HTML navigation, returns clean markdown/text
+  return `https://r.jina.ai/${url}`;
 }
 
-function localProxyUrl(providerId: string, url?: string): string {
-  const params = new URLSearchParams({ id: providerId });
+function localProxyUrl(gutenbergId: string, url?: string): string {
+  const params = new URLSearchParams({ id: gutenbergId });
   if (url) params.set('url', url);
   return `/api/gutenberg-proxy/index.php?${params.toString()}`;
 }
@@ -165,43 +165,55 @@ function isUsableImportedText(text: string): boolean {
   return words > 350;
 }
 
+function buildUrlList(
+  provider: string,
+  providerId: string,
+  textUrl: string | undefined,
+): string[] {
+  const urls: string[] = [];
+
+  if (textUrl) urls.push(textUrl);
+
+  // Only generate Gutenberg URL patterns when the ID is numeric
+  if (provider === 'project_gutenberg' && /^\d+$/.test(providerId)) {
+    const id = providerId;
+    urls.push(
+      `https://www.gutenberg.org/cache/epub/${id}/pg${id}.txt`,
+      `https://www.gutenberg.org/cache/epub/${id}/pg${id}-0.txt`,
+      `https://www.gutenberg.org/cache/epub/${id}/${id}-0.txt`,
+      `https://www.gutenberg.org/cache/epub/${id}/${id}.txt`,
+      `https://www.gutenberg.org/files/${id}/${id}-0.txt`,
+      `https://www.gutenberg.org/files/${id}/${id}.txt`,
+    );
+  }
+
+  // Deduplicate
+  return [...new Set(urls)];
+}
+
 export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[] | null> {
   if (!ebook.importSource?.textUrl && !ebook.importSource?.providerId) return null;
 
   const cached = readCache(ebook);
   if (cached) return cached;
 
-  const providerId = ebook.importSource.providerId;
-  const urls = [
-    ebook.importSource.textUrl,
-    providerId
-      ? `https://www.gutenberg.org/cache/epub/${providerId}/pg${providerId}.txt`
-      : null,
-    providerId
-      ? `https://www.gutenberg.org/cache/epub/${providerId}/pg${providerId}-0.txt`
-      : null,
-    providerId
-      ? `https://www.gutenberg.org/cache/epub/${providerId}/${providerId}-0.txt`
-      : null,
-    providerId
-      ? `https://www.gutenberg.org/cache/epub/${providerId}/${providerId}.txt`
-      : null,
-    providerId
-      ? `https://www.gutenberg.org/files/${providerId}/${providerId}-0.txt`
-      : null,
-    providerId
-      ? `https://www.gutenberg.org/files/${providerId}/${providerId}.txt`
-      : null,
-  ].filter(Boolean) as string[];
+  const { provider = 'project_gutenberg', providerId, textUrl } = ebook.importSource;
+  const isGutenberg = provider === 'project_gutenberg' && /^\d+$/.test(providerId);
+
+  const urls = buildUrlList(provider, providerId, textUrl);
 
   let raw = '';
   let lastStatus = 0;
+
   for (const url of urls) {
-    const attempts = [
-      providerId ? localProxyUrl(providerId, url) : null,
-      url,
-      readableProxyUrl(url),
-    ].filter(Boolean) as string[];
+    // For each candidate URL, build fetch attempts in order of preference:
+    // 1. Local PHP proxy (only for real Gutenberg numeric IDs)
+    // 2. Direct URL
+    // 3. Jina.ai reader proxy (best for Wikisource HTML pages)
+    const attempts: string[] = [];
+    if (isGutenberg) attempts.push(localProxyUrl(providerId, url));
+    attempts.push(url);
+    attempts.push(readableProxyUrl(url));
 
     for (const attempt of attempts) {
       try {
@@ -218,7 +230,7 @@ export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[
     if (raw) break;
   }
 
-  if (!raw) throw new Error(`Falha ao importar texto técnico: ${lastStatus}`);
+  if (!raw) throw new Error(`Falha ao importar texto: ${lastStatus}`);
 
   const clean = stripProjectGutenbergBoilerplate(raw);
   const chapters = splitIntoChapters(clean, ebook.title);

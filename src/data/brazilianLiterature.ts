@@ -5,7 +5,8 @@ function bl(
   author: string, originalWork: string, year: string, lang: string, deathYear: number,
   category: Ebook['category'], level: Ebook['level'], readTime: string, description: string,
   cover: string, chapters: { title: string; estimatedMinutes: number; content: string }[],
-  tags: string[]
+  tags: string[],
+  importSource?: { provider: string; providerId: string; textUrl?: string; htmlUrl?: string; validatedAt: string }
 ): Ebook {
   return {
     id, title, fullTitle, subtitle, authorReference: author,
@@ -32,6 +33,7 @@ function bl(
     isFree: false, isPremium: true, isNew: false, isFeatured: true,
     chapterCount: chapters.length, pageCount: chapters.length * 25,
     readerFeatures: { bookmarks: true, notes: true, highlights: true, search: true, fontControl: true, focusMode: true },
+    ...(importSource ? { importSource } : {}),
   };
 }
 
@@ -98,7 +100,11 @@ bl('machado-dom-casmurro', 'Dom Casmurro', 'Dom Casmurro',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Dom Casmurro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'romance', 'realismo', 'capitu']),
+   ['machado de assis', 'romance', 'realismo', 'capitu'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '55752',
+     textUrl: 'https://www.gutenberg.org/cache/epub/55752/pg55752.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-memorias-postumas', 'Memórias Póstumas de Brás Cubas', 'Memórias Póstumas de Brás Cubas',
    'O defunto-autor inaugura o Realismo brasileiro com ironia implacável.',
@@ -161,7 +167,11 @@ bl('machado-memorias-postumas', 'Memórias Póstumas de Brás Cubas', 'Memórias
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Memórias Póstumas de Brás Cubas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'defunto autor', 'realismo']),
+   ['machado de assis', 'defunto autor', 'realismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '54829',
+     textUrl: 'https://www.gutenberg.org/cache/epub/54829/pg54829.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-alienista', 'O Alienista', 'O Alienista',
    'Bacamarte interna metade de Itaguaí. Sátira magistral da razão e do poder.',
@@ -224,7 +234,11 @@ bl('machado-alienista', 'O Alienista', 'O Alienista',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Alienista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'loucura', 'sátira']),
+   ['machado de assis', 'loucura', 'sátira'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '19510',
+     textUrl: 'https://www.gutenberg.org/cache/epub/19510/pg19510.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-quincas-borba', 'Quincas Borba', 'Quincas Borba',
    'Rubião herda fortuna e cachorro. O Humanitismo devora os ingênuos.',
@@ -287,7 +301,11 @@ bl('machado-quincas-borba', 'Quincas Borba', 'Quincas Borba',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Quincas Borba</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'humanitismo', 'realismo']),
+   ['machado de assis', 'humanitismo', 'realismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '28352',
+     textUrl: 'https://www.gutenberg.org/cache/epub/28352/pg28352.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-esau-jaco', 'Esaú e Jacó', 'Esaú e Jacó',
    'Gêmeos opostos disputam política e amor no Brasil da Proclamação.',
@@ -350,7 +368,11 @@ bl('machado-esau-jaco', 'Esaú e Jacó', 'Esaú e Jacó',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Esaú e Jacó</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'república', 'gêmeos']),
+   ['machado de assis', 'república', 'gêmeos'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '31022',
+     textUrl: 'https://www.gutenberg.org/cache/epub/31022/pg31022.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-memorial-aires', 'Memorial de Aires', 'Memorial de Aires',
    'Último romance de Machado. O conselheiro Aires observa o amor tardio.',
@@ -413,7 +435,11 @@ bl('machado-memorial-aires', 'Memorial de Aires', 'Memorial de Aires',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Memorial de Aires</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'velhice', 'amor']),
+   ['machado de assis', 'velhice', 'amor'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '55393',
+     textUrl: 'https://www.gutenberg.org/cache/epub/55393/pg55393.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-ressurreicao', 'Ressurreição', 'Ressurreição',
    'Félix tem medo de amar. Primeiro romance de Machado.',
@@ -476,7 +502,11 @@ bl('machado-ressurreicao', 'Ressurreição', 'Ressurreição',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Ressurreição</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'medo', 'amor']),
+   ['machado de assis', 'medo', 'amor'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '35929',
+     textUrl: 'https://www.gutenberg.org/cache/epub/35929/pg35929.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-helena', 'Helena', 'Helena',
    'Moça de origem obscura é acolhida por família rica. Identidade e sacrifício.',
@@ -539,7 +569,11 @@ bl('machado-helena', 'Helena', 'Helena',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Helena</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'identidade', 'família']),
+   ['machado de assis', 'identidade', 'família'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '33940',
+     textUrl: 'https://www.gutenberg.org/cache/epub/33940/pg33940.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-papeis-avulsos', 'Papéis Avulsos', 'Papéis Avulsos',
    'O Espelho, A Cartomante, Teoria do Medalhão — joias do conto realista.',
@@ -602,7 +636,11 @@ bl('machado-papeis-avulsos', 'Papéis Avulsos', 'Papéis Avulsos',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Papéis Avulsos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'contos', 'realismo']),
+   ['machado de assis', 'contos', 'realismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '32339',
+     textUrl: 'https://www.gutenberg.org/cache/epub/32339/pg32339.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('machado-iaia-garcia', 'Iaiá Garcia', 'Iaiá Garcia',
    'Iaiá Garcia, filha de agregado, salva o amor que não é seu.',
@@ -665,7 +703,11 @@ bl('machado-iaia-garcia', 'Iaiá Garcia', 'Iaiá Garcia',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Iaiá Garcia</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-   ['machado de assis', 'guerra', 'sacrifício']),
+   ['machado de assis', 'guerra', 'sacrifício'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '32947',
+     textUrl: 'https://www.gutenberg.org/cache/epub/32947/pg32947.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-guarani', 'O Guarani', 'O Guarani',
    'Peri dedica a vida à proteção de Ceci. Mito fundador do Brasil.',
@@ -728,7 +770,11 @@ bl('alencar-guarani', 'O Guarani', 'O Guarani',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Guarani</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'indianismo', 'peri', 'ceci']),
+   ['josé de alencar', 'indianismo', 'peri', 'ceci'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '44396',
+     textUrl: 'https://www.gutenberg.org/cache/epub/44396/pg44396.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-iracema', 'Iracema', 'Iracema',
    'Da união de Iracema e Martim nasce Moacir — primeiro cearense.',
@@ -791,7 +837,11 @@ bl('alencar-iracema', 'Iracema', 'Iracema',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Iracema</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'indianismo', 'ceará']),
+   ['josé de alencar', 'indianismo', 'ceará'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '25472',
+     textUrl: 'https://www.gutenberg.org/cache/epub/25472/pg25472.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-ubirajara', 'Ubirajara', 'Ubirajara',
    'Ubirajara conquista o respeito das tribos inimigas com bravura.',
@@ -854,7 +904,11 @@ bl('alencar-ubirajara', 'Ubirajara', 'Ubirajara',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Ubirajara</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'indianismo', 'guerreiro']),
+   ['josé de alencar', 'indianismo', 'guerreiro'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '25473',
+     textUrl: 'https://www.gutenberg.org/cache/epub/25473/pg25473.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-senhora', 'Senhora', 'Senhora',
    'Aurélia compra o próprio marido para se vingar. Pioneiro romance feminino.',
@@ -917,7 +971,11 @@ bl('alencar-senhora', 'Senhora', 'Senhora',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Senhora</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'feminismo', 'casamento']),
+   ['josé de alencar', 'feminismo', 'casamento'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '25489',
+     textUrl: 'https://www.gutenberg.org/cache/epub/25489/pg25489.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-luciola', 'Lucíola', 'Lucíola',
    'Lúcia é uma cortesã que ama sem esperança. Rio de 1860.',
@@ -980,7 +1038,11 @@ bl('alencar-luciola', 'Lucíola', 'Lucíola',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Lucíola</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'cortesã', 'amor']),
+   ['josé de alencar', 'cortesã', 'amor'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '25508',
+     textUrl: 'https://www.gutenberg.org/cache/epub/25508/pg25508.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-o-sertanejo', 'O Sertanejo', 'O Sertanejo',
    'Arnaldo, sertanejo do Ceará, é herói à margem da civilização.',
@@ -1043,7 +1105,11 @@ bl('alencar-o-sertanejo', 'O Sertanejo', 'O Sertanejo',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Sertanejo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'sertão', 'ceará']),
+   ['josé de alencar', 'sertão', 'ceará'],
+   { provider: 'wikisource' as const,
+     providerId: 'alencar-o-sertanejo',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Sertanejo',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-o-gaucho', 'O Gaúcho', 'O Gaúcho',
    'Manuel Canho, gaúcho das pampas, entre cavalos e amor impossível.',
@@ -1106,7 +1172,11 @@ bl('alencar-o-gaucho', 'O Gaúcho', 'O Gaúcho',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Gaúcho</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'gaúcho', 'pampa']),
+   ['josé de alencar', 'gaúcho', 'pampa'],
+   { provider: 'wikisource' as const,
+     providerId: 'alencar-o-gaucho',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Ga%C3%BAcho',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-til', 'Til', 'Til',
    'Berta, a louca, e as paixões rurais do interior paulista.',
@@ -1169,7 +1239,11 @@ bl('alencar-til', 'Til', 'Til',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Til</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'interior', 'rural']),
+   ['josé de alencar', 'interior', 'rural'],
+   { provider: 'wikisource' as const,
+     providerId: 'alencar-til',
+     textUrl: 'https://pt.wikisource.org/wiki/Til',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-o-tronco-ipe', 'O Tronco do Ipê', 'O Tronco do Ipê',
    'Mário descobre o segredo que envolve sua origem na fazenda fluminense.',
@@ -1232,7 +1306,11 @@ bl('alencar-o-tronco-ipe', 'O Tronco do Ipê', 'O Tronco do Ipê',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Tronco do Ipê</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'fazenda', 'segredo']),
+   ['josé de alencar', 'fazenda', 'segredo'],
+   { provider: 'wikisource' as const,
+     providerId: 'alencar-o-tronco-ipe',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Tronco_do_Ip%C3%AA',
+     validatedAt: '2026-05-12' }),
 
 bl('alencar-diva', 'Diva', 'Diva',
    'Augusto ama a caprichosa Ema/Diva. Psicologia do feminino em Alencar.',
@@ -1295,7 +1373,11 @@ bl('alencar-diva', 'Diva', 'Diva',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Diva</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-   ['josé de alencar', 'amor', 'psicologia']),
+   ['josé de alencar', 'amor', 'psicologia'],
+   { provider: 'wikisource' as const,
+     providerId: 'alencar-diva',
+     textUrl: 'https://pt.wikisource.org/wiki/Diva',
+     validatedAt: '2026-05-12' }),
 
 bl('azevedo-o-cortico', 'O Cortiço', 'O Cortiço',
    'João Romão constrói fortuna sobre o suor dos miseráveis. Naturalismo.',
@@ -1358,7 +1440,11 @@ bl('azevedo-o-cortico', 'O Cortiço', 'O Cortiço',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Cortiço</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Aluísio Azevedo.</p>` }
   ],
-   ['aluísio azevedo', 'naturalismo', 'cortiço', 'pobreza']),
+   ['aluísio azevedo', 'naturalismo', 'cortiço', 'pobreza'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '28390',
+     textUrl: 'https://www.gutenberg.org/cache/epub/28390/pg28390.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('azevedo-o-mulato', 'O Mulato', 'O Mulato',
    'Raimundo enfrenta o racismo do Maranhão oitocentista.',
@@ -1421,7 +1507,11 @@ bl('azevedo-o-mulato', 'O Mulato', 'O Mulato',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Mulato</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Aluísio Azevedo.</p>` }
   ],
-   ['aluísio azevedo', 'racismo', 'naturalismo']),
+   ['aluísio azevedo', 'racismo', 'naturalismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '33375',
+     textUrl: 'https://www.gutenberg.org/cache/epub/33375/pg33375.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('azevedo-casa-de-pensao', 'Casa de Pensão', 'Casa de Pensão',
    'Amâncio é destruído pelo ambiente corrompido da pensão carioca.',
@@ -1484,7 +1574,11 @@ bl('azevedo-casa-de-pensao', 'Casa de Pensão', 'Casa de Pensão',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Casa de Pensão</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Aluísio Azevedo.</p>` }
   ],
-   ['aluísio azevedo', 'naturalismo', 'rio de janeiro']),
+   ['aluísio azevedo', 'naturalismo', 'rio de janeiro'],
+   { provider: 'wikisource' as const,
+     providerId: 'azevedo-casa-de-pensao',
+     textUrl: 'https://pt.wikisource.org/wiki/Casa_de_Pens%C3%A3o',
+     validatedAt: '2026-05-12' }),
 
 bl('pompeia-o-ateneu', 'O Ateneu', 'O Ateneu',
    'Sérgio enfrenta a crueldade do internato. Prosa poética de memória.',
@@ -1547,7 +1641,11 @@ bl('pompeia-o-ateneu', 'O Ateneu', 'O Ateneu',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Ateneu</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Raul Pompéia.</p>` }
   ],
-   ['raul pompéia', 'internato', 'memória']),
+   ['raul pompéia', 'internato', 'memória'],
+   { provider: 'wikisource' as const,
+     providerId: 'pompeia-o-ateneu',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Aten%C3%A9u',
+     validatedAt: '2026-05-12' }),
 
 bl('caminha-bom-crioulo', 'Bom-Crioulo', 'Bom-Crioulo',
    'Amaro, marinheiro negro, ama o grumete Aleixo. Primeiro romance homossexual.',
@@ -1610,7 +1708,11 @@ bl('caminha-bom-crioulo', 'Bom-Crioulo', 'Bom-Crioulo',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Bom-Crioulo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Adolfo Caminha.</p>` }
   ],
-   ['adolfo caminha', 'racismo', 'homossexualidade']),
+   ['adolfo caminha', 'racismo', 'homossexualidade'],
+   { provider: 'wikisource' as const,
+     providerId: 'caminha-bom-crioulo',
+     textUrl: 'https://pt.wikisource.org/wiki/Bom-Crioulo',
+     validatedAt: '2026-05-12' }),
 
 bl('caminha-a-normalista', 'A Normalista', 'A Normalista',
    'Maria do Carmo é vítima da hipocrisia social e do desejo masculino.',
@@ -1673,7 +1775,11 @@ bl('caminha-a-normalista', 'A Normalista', 'A Normalista',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Normalista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Adolfo Caminha.</p>` }
   ],
-   ['adolfo caminha', 'feminismo', 'naturalismo']),
+   ['adolfo caminha', 'feminismo', 'naturalismo'],
+   { provider: 'wikisource' as const,
+     providerId: 'caminha-a-normalista',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Normalista',
+     validatedAt: '2026-05-12' }),
 
 bl('guimaraes-escrava-isaura', 'A Escrava Isaura', 'A Escrava Isaura',
    'Isaura, escrava branca e culta, busca a liberdade.',
@@ -1736,7 +1842,11 @@ bl('guimaraes-escrava-isaura', 'A Escrava Isaura', 'A Escrava Isaura',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Escrava Isaura</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Bernardo Guimarães.</p>` }
   ],
-   ['bernardo guimarães', 'escravidão', 'romantismo']),
+   ['bernardo guimarães', 'escravidão', 'romantismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '28396',
+     textUrl: 'https://www.gutenberg.org/cache/epub/28396/pg28396.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('guimaraes-o-seminarista', 'O Seminarista', 'O Seminarista',
    'Amor proibido entre seminarista e moça do sertão.',
@@ -1799,7 +1909,11 @@ bl('guimaraes-o-seminarista', 'O Seminarista', 'O Seminarista',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Seminarista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Bernardo Guimarães.</p>` }
   ],
-   ['bernardo guimarães', 'amor proibido', 'religião']),
+   ['bernardo guimarães', 'amor proibido', 'religião'],
+   { provider: 'wikisource' as const,
+     providerId: 'guimaraes-o-seminarista',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Seminarista',
+     validatedAt: '2026-05-12' }),
 
 bl('guimaraes-o-ermitao', 'O Ermitão de Muquém', 'O Ermitão de Muquém',
    'O ermitão do Goiás e o Brasil profundo. Romantismo sertanejo.',
@@ -1862,7 +1976,11 @@ bl('guimaraes-o-ermitao', 'O Ermitão de Muquém', 'O Ermitão de Muquém',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Ermitão de Muquém</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Bernardo Guimarães.</p>` }
   ],
-   ['bernardo guimarães', 'sertão', 'goiás']),
+   ['bernardo guimarães', 'sertão', 'goiás'],
+   { provider: 'wikisource' as const,
+     providerId: 'guimaraes-o-ermitao',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Ermit%C3%A3o_de_Muquem',
+     validatedAt: '2026-05-12' }),
 
 bl('taunay-inocencia', 'Inocência', 'Inocência',
    'Cirino apaixona-se por Inocência no sertão do Mato Grosso.',
@@ -1925,7 +2043,11 @@ bl('taunay-inocencia', 'Inocência', 'Inocência',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Inocência</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Visconde de Taunay.</p>` }
   ],
-   ['visconde de taunay', 'sertão', 'amor']),
+   ['visconde de taunay', 'sertão', 'amor'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '24824',
+     textUrl: 'https://www.gutenberg.org/cache/epub/24824/pg24824.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('franklin-o-cabeleira', 'O Cabeleira', 'O Cabeleira',
    'José Gomes, o Cabeleira, o mais temido cangaceiro de Pernambuco.',
@@ -1988,7 +2110,11 @@ bl('franklin-o-cabeleira', 'O Cabeleira', 'O Cabeleira',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Cabeleira</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Franklin Távora.</p>` }
   ],
-   ['franklin távora', 'cangaço', 'nordeste']),
+   ['franklin távora', 'cangaço', 'nordeste'],
+   { provider: 'wikisource' as const,
+     providerId: 'franklin-o-cabeleira',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Cabeleira',
+     validatedAt: '2026-05-12' }),
 
 bl('franklin-o-matuto', 'O Matuto', 'O Matuto',
    'Vida e costumes no sertão pernambucano. Romance regionalista.',
@@ -2051,7 +2177,11 @@ bl('franklin-o-matuto', 'O Matuto', 'O Matuto',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Matuto</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Franklin Távora.</p>` }
   ],
-   ['franklin távora', 'sertão', 'pernambuco']),
+   ['franklin távora', 'sertão', 'pernambuco'],
+   { provider: 'wikisource' as const,
+     providerId: 'franklin-o-matuto',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Matuto',
+     validatedAt: '2026-05-12' }),
 
 bl('euclides-os-sertoes', 'Os Sertões', 'Os Sertões',
    'Canudos: a guerra que revelou o Brasil ao Brasil. Terra, Homem e Luta.',
@@ -2114,7 +2244,11 @@ bl('euclides-os-sertoes', 'Os Sertões', 'Os Sertões',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Os Sertões</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Euclides da Cunha.</p>` }
   ],
-   ['euclides da cunha', 'sertão', 'canudos', 'guerra']),
+   ['euclides da cunha', 'sertão', 'canudos', 'guerra'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '28896',
+     textUrl: 'https://www.gutenberg.org/cache/epub/28896/pg28896.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('lima-policarpo', 'Triste Fim de Policarpo Quaresma', 'Triste Fim de Policarpo Quaresma',
    'O major patriota que amou o Brasil mais do que o Brasil quis ser amado.',
@@ -2177,7 +2311,11 @@ bl('lima-policarpo', 'Triste Fim de Policarpo Quaresma', 'Triste Fim de Policarp
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Triste Fim de Policarpo Quaresma</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
   ],
-   ['lima barreto', 'patriotismo', 'república']),
+   ['lima barreto', 'patriotismo', 'república'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '28399',
+     textUrl: 'https://www.gutenberg.org/cache/epub/28399/pg28399.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('lima-isaias', 'Recordações do Escrivão Isaías Caminha', 'Recordações do Escrivão Isaías Caminha',
    'Isaías, mulato inteligente, enfrenta o racismo da imprensa carioca.',
@@ -2240,7 +2378,11 @@ bl('lima-isaias', 'Recordações do Escrivão Isaías Caminha', 'Recordações d
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Recordações do Escrivão Isaías Caminha</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
   ],
-   ['lima barreto', 'racismo', 'jornalismo']),
+   ['lima barreto', 'racismo', 'jornalismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '28398',
+     textUrl: 'https://www.gutenberg.org/cache/epub/28398/pg28398.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('lima-clara-dos-anjos', 'Clara dos Anjos', 'Clara dos Anjos',
    'Clara é seduzida por rapaz da classe alta. Racismo e gênero no subúrbio.',
@@ -2303,7 +2445,11 @@ bl('lima-clara-dos-anjos', 'Clara dos Anjos', 'Clara dos Anjos',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Clara dos Anjos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
   ],
-   ['lima barreto', 'racismo', 'gênero']),
+   ['lima barreto', 'racismo', 'gênero'],
+   { provider: 'wikisource' as const,
+     providerId: 'lima-clara-dos-anjos',
+     textUrl: 'https://pt.wikisource.org/wiki/Clara_dos_Anjos',
+     validatedAt: '2026-05-12' }),
 
 bl('lima-numa-ninfa', 'Numa e a Ninfa', 'Numa e a Ninfa',
    'Sátira política feroz. Numa, deputado ignorante, é manipulado.',
@@ -2366,7 +2512,11 @@ bl('lima-numa-ninfa', 'Numa e a Ninfa', 'Numa e a Ninfa',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Numa e a Ninfa</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
   ],
-   ['lima barreto', 'política', 'sátira']),
+   ['lima barreto', 'política', 'sátira'],
+   { provider: 'wikisource' as const,
+     providerId: 'lima-numa-ninfa',
+     textUrl: 'https://pt.wikisource.org/wiki/Numa_e_a_Ninfa',
+     validatedAt: '2026-05-12' }),
 
 bl('lima-barreto-gonzaga-sa', 'Vida e Morte de M. J. Gonzaga de Sá', 'Vida e Morte de M. J. Gonzaga de Sá',
    'Gonzaga de Sá contempla o Rio e o Brasil com ironia doce.',
@@ -2429,7 +2579,11 @@ bl('lima-barreto-gonzaga-sa', 'Vida e Morte de M. J. Gonzaga de Sá', 'Vida e Mo
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Vida e Morte de M. J. Gonzaga de Sá</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
   ],
-   ['lima barreto', 'filosofia', 'burocracia']),
+   ['lima barreto', 'filosofia', 'burocracia'],
+   { provider: 'wikisource' as const,
+     providerId: 'lima-barreto-gonzaga-sa',
+     textUrl: 'https://pt.wikisource.org/wiki/Vida_e_Morte_de_M._J._Gonzaga_de_S%C3%A1',
+     validatedAt: '2026-05-12' }),
 
 bl('joao-do-rio-alma', 'A Alma Encantadora das Ruas', 'A Alma Encantadora das Ruas',
    'Crônicas da vida urbana carioca. O flâneur brasileiro.',
@@ -2492,7 +2646,11 @@ bl('joao-do-rio-alma', 'A Alma Encantadora das Ruas', 'A Alma Encantadora das Ru
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Alma Encantadora das Ruas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de João do Rio.</p>` }
   ],
-   ['joão do rio', 'carioca', 'crônica']),
+   ['joão do rio', 'carioca', 'crônica'],
+   { provider: 'wikisource' as const,
+     providerId: 'joao-do-rio-alma',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Alma_Encantadora_das_Ruas',
+     validatedAt: '2026-05-12' }),
 
 bl('joao-do-rio-dentro-noite', 'Dentro da Noite', 'Dentro da Noite',
    'O lado obscuro do Rio. Crime, perversão e decadência urbana.',
@@ -2555,7 +2713,11 @@ bl('joao-do-rio-dentro-noite', 'Dentro da Noite', 'Dentro da Noite',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Dentro da Noite</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de João do Rio.</p>` }
   ],
-   ['joão do rio', 'crime', 'decadência']),
+   ['joão do rio', 'crime', 'decadência'],
+   { provider: 'wikisource' as const,
+     providerId: 'joao-do-rio-dentro-noite',
+     textUrl: 'https://pt.wikisource.org/wiki/Dentro_da_Noite',
+     validatedAt: '2026-05-12' }),
 
 bl('joao-do-rio-vida-vertiginosa', 'Vida Vertiginosa', 'Vida Vertiginosa',
    'Crônicas da Belle Époque carioca. A elegância e o vício.',
@@ -2618,7 +2780,11 @@ bl('joao-do-rio-vida-vertiginosa', 'Vida Vertiginosa', 'Vida Vertiginosa',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Vida Vertiginosa</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de João do Rio.</p>` }
   ],
-   ['joão do rio', 'belle époque', 'modernidade']),
+   ['joão do rio', 'belle époque', 'modernidade'],
+   { provider: 'wikisource' as const,
+     providerId: 'joao-do-rio-vida-vertiginosa',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Vida_Vertiginosa',
+     validatedAt: '2026-05-12' }),
 
 bl('graca-aranha-canaa', 'Canaã', 'Canaã',
    'Imigrantes alemães debatem o destino da raça e da nação brasileira.',
@@ -2681,7 +2847,11 @@ bl('graca-aranha-canaa', 'Canaã', 'Canaã',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Canaã</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graça Aranha.</p>` }
   ],
-   ['graça aranha', 'imigração', 'identidade']),
+   ['graça aranha', 'imigração', 'identidade'],
+   { provider: 'wikisource' as const,
+     providerId: 'graca-aranha-canaa',
+     textUrl: 'https://pt.wikisource.org/wiki/Cana%C3%A3',
+     validatedAt: '2026-05-12' }),
 
 bl('monteiro-urupees', 'Urupês', 'Urupês',
    'Jeca Tatu e o Brasil que não chegou à modernidade.',
@@ -2744,7 +2914,11 @@ bl('monteiro-urupees', 'Urupês', 'Urupês',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Urupês</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
   ],
-   ['monteiro lobato', 'caipira', 'interior']),
+   ['monteiro lobato', 'caipira', 'interior'],
+   { provider: 'wikisource' as const,
+     providerId: 'monteiro-urupees',
+     textUrl: 'https://pt.wikisource.org/wiki/Urupes',
+     validatedAt: '2026-05-12' }),
 
 bl('monteiro-cidades-mortas', 'Cidades Mortas', 'Cidades Mortas',
    'O Vale do Paraíba decadente. Fazendas de café em crepúsculo.',
@@ -2807,7 +2981,11 @@ bl('monteiro-cidades-mortas', 'Cidades Mortas', 'Cidades Mortas',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Cidades Mortas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
   ],
-   ['monteiro lobato', 'café', 'decadência']),
+   ['monteiro lobato', 'café', 'decadência'],
+   { provider: 'wikisource' as const,
+     providerId: 'monteiro-cidades-mortas',
+     textUrl: 'https://pt.wikisource.org/wiki/Cidades_Mortas',
+     validatedAt: '2026-05-12' }),
 
 bl('monteiro-negrinha', 'Negrinha', 'Negrinha',
    'Negrinha, menina escravizada após a abolição. Racismo pós-1888.',
@@ -2870,7 +3048,11 @@ bl('monteiro-negrinha', 'Negrinha', 'Negrinha',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Negrinha</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
   ],
-   ['monteiro lobato', 'racismo', 'pós-abolição']),
+   ['monteiro lobato', 'racismo', 'pós-abolição'],
+   { provider: 'wikisource' as const,
+     providerId: 'monteiro-negrinha',
+     textUrl: 'https://pt.wikisource.org/wiki/Negrinha',
+     validatedAt: '2026-05-12' }),
 
 bl('monteiro-reinacoes-narizinho', 'Reinações de Narizinho', 'Reinações de Narizinho',
    'Narizinho, Pedrinho e Emília no Sítio do Picapau Amarelo.',
@@ -2933,7 +3115,11 @@ bl('monteiro-reinacoes-narizinho', 'Reinações de Narizinho', 'Reinações de N
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Reinações de Narizinho</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
   ],
-   ['monteiro lobato', 'infantil', 'fantasia']),
+   ['monteiro lobato', 'infantil', 'fantasia'],
+   { provider: 'wikisource' as const,
+     providerId: 'monteiro-reinacoes-narizinho',
+     textUrl: 'https://pt.wikisource.org/wiki/Reina%C3%A7%C3%B5es_de_Narizinho',
+     validatedAt: '2026-05-12' }),
 
 bl('castro-alves-espumas', 'Espumas Flutuantes', 'Espumas Flutuantes',
    'O Navio Negreiro. O poeta dos escravos com vinte e três anos.',
@@ -2996,7 +3182,11 @@ bl('castro-alves-espumas', 'Espumas Flutuantes', 'Espumas Flutuantes',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Espumas Flutuantes</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Castro Alves.</p>` }
   ],
-   ['castro alves', 'abolicionismo', 'poesia']),
+   ['castro alves', 'abolicionismo', 'poesia'],
+   { provider: 'wikisource' as const,
+     providerId: 'castro-alves-espumas',
+     textUrl: 'https://pt.wikisource.org/wiki/Espumas_Flutuantes',
+     validatedAt: '2026-05-12' }),
 
 bl('castro-alves-os-escravos', 'Os Escravos', 'Os Escravos',
    'Obra póstuma. O canto mais radical de Castro Alves contra a escravidão.',
@@ -3059,7 +3249,11 @@ bl('castro-alves-os-escravos', 'Os Escravos', 'Os Escravos',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Os Escravos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Castro Alves.</p>` }
   ],
-   ['castro alves', 'escravidão', 'poesia']),
+   ['castro alves', 'escravidão', 'poesia'],
+   { provider: 'wikisource' as const,
+     providerId: 'castro-alves-os-escravos',
+     textUrl: 'https://pt.wikisource.org/wiki/Os_Escravos',
+     validatedAt: '2026-05-12' }),
 
 bl('goncalves-dias-primeiros', 'Primeiros Cantos', 'Primeiros Cantos',
    'Canção do Exílio e poemas indianistas. Fundação do Romantismo.',
@@ -3122,7 +3316,11 @@ bl('goncalves-dias-primeiros', 'Primeiros Cantos', 'Primeiros Cantos',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Primeiros Cantos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Gonçalves Dias.</p>` }
   ],
-   ['gonçalves dias', 'romantismo', 'exílio']),
+   ['gonçalves dias', 'romantismo', 'exílio'],
+   { provider: 'wikisource' as const,
+     providerId: 'goncalves-dias-primeiros',
+     textUrl: 'https://pt.wikisource.org/wiki/Primeiros_Cantos',
+     validatedAt: '2026-05-12' }),
 
 bl('goncalves-dias-ultimos', 'Últimos Cantos', 'Últimos Cantos',
    'O amadurecimento de Gonçalves Dias. Saudade, natureza e morte.',
@@ -3185,7 +3383,11 @@ bl('goncalves-dias-ultimos', 'Últimos Cantos', 'Últimos Cantos',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Últimos Cantos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Gonçalves Dias.</p>` }
   ],
-   ['gonçalves dias', 'saudade', 'natureza']),
+   ['gonçalves dias', 'saudade', 'natureza'],
+   { provider: 'wikisource' as const,
+     providerId: 'goncalves-dias-ultimos',
+     textUrl: 'https://pt.wikisource.org/wiki/%C3%9Altimos_Cantos',
+     validatedAt: '2026-05-12' }),
 
 bl('alvares-azevedo-noite-taverna', 'Noite na Taverna', 'Noite na Taverna',
    'Histórias de horror e amor numa taverna. Ultra-romantismo.',
@@ -3248,7 +3450,11 @@ bl('alvares-azevedo-noite-taverna', 'Noite na Taverna', 'Noite na Taverna',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Noite na Taverna</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Álvares de Azevedo.</p>` }
   ],
-   ['álvares de azevedo', 'ultra-romantismo', 'horror']),
+   ['álvares de azevedo', 'ultra-romantismo', 'horror'],
+   { provider: 'wikisource' as const,
+     providerId: 'alvares-azevedo-noite-taverna',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Noite_na_Taverna',
+     validatedAt: '2026-05-12' }),
 
 bl('alvares-azevedo-lira', 'Lira dos Vinte Anos', 'Lira dos Vinte Anos',
    'Poemas do estudante que morreu aos vinte anos. Romantismo puro.',
@@ -3311,7 +3517,11 @@ bl('alvares-azevedo-lira', 'Lira dos Vinte Anos', 'Lira dos Vinte Anos',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Lira dos Vinte Anos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Álvares de Azevedo.</p>` }
   ],
-   ['álvares de azevedo', 'juventude', 'morte']),
+   ['álvares de azevedo', 'juventude', 'morte'],
+   { provider: 'wikisource' as const,
+     providerId: 'alvares-azevedo-lira',
+     textUrl: 'https://pt.wikisource.org/wiki/Lira_dos_Vinte_Anos',
+     validatedAt: '2026-05-12' }),
 
 bl('alvares-azevedo-macario', 'Macário', 'Macário',
    'Macário e o Mefisto debatem amor, morte e sentido da vida.',
@@ -3374,7 +3584,11 @@ bl('alvares-azevedo-macario', 'Macário', 'Macário',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Macário</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Álvares de Azevedo.</p>` }
   ],
-   ['álvares de azevedo', 'fausto', 'filosofia']),
+   ['álvares de azevedo', 'fausto', 'filosofia'],
+   { provider: 'wikisource' as const,
+     providerId: 'alvares-azevedo-macario',
+     textUrl: 'https://pt.wikisource.org/wiki/Mac%C3%A1rio',
+     validatedAt: '2026-05-12' }),
 
 bl('casimiro-abreu-primaveras', 'As Primaveras', 'As Primaveras',
    'Minha Terra, Meus Oito Anos — saudade da infância e da pátria.',
@@ -3437,7 +3651,11 @@ bl('casimiro-abreu-primaveras', 'As Primaveras', 'As Primaveras',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>As Primaveras</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Casimiro de Abreu.</p>` }
   ],
-   ['casimiro de abreu', 'saudade', 'infância']),
+   ['casimiro de abreu', 'saudade', 'infância'],
+   { provider: 'wikisource' as const,
+     providerId: 'casimiro-abreu-primaveras',
+     textUrl: 'https://pt.wikisource.org/wiki/As_Primaveras',
+     validatedAt: '2026-05-12' }),
 
 bl('fagundes-varela-noturnas', 'Noturnas', 'Noturnas',
    'Poesia do exílio interior. Entre a boêmia, a fé e a dor.',
@@ -3500,7 +3718,11 @@ bl('fagundes-varela-noturnas', 'Noturnas', 'Noturnas',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Noturnas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fagundes Varela.</p>` }
   ],
-   ['fagundes varela', 'exílio', 'fé']),
+   ['fagundes varela', 'exílio', 'fé'],
+   { provider: 'wikisource' as const,
+     providerId: 'fagundes-varela-noturnas',
+     textUrl: 'https://pt.wikisource.org/wiki/Noturnas',
+     validatedAt: '2026-05-12' }),
 
 bl('olavo-bilac-poesias', 'Poesias', 'Poesias',
    'Via Láctea, Panóplias, Sarças de Fogo. Parnasianismo em seu ápice.',
@@ -3563,7 +3785,11 @@ bl('olavo-bilac-poesias', 'Poesias', 'Poesias',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poesias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Olavo Bilac.</p>` }
   ],
-   ['olavo bilac', 'parnasianismo', 'forma']),
+   ['olavo bilac', 'parnasianismo', 'forma'],
+   { provider: 'wikisource' as const,
+     providerId: 'olavo-bilac-poesias',
+     textUrl: 'https://pt.wikisource.org/wiki/Poesias_(Olavo_Bilac)',
+     validatedAt: '2026-05-12' }),
 
 bl('raimundo-correia-sinfonias', 'Sinfonias', 'Sinfonias',
    'As Pombas, Mal Secreto. Parnasianismo com traço de melancolia.',
@@ -3626,7 +3852,11 @@ bl('raimundo-correia-sinfonias', 'Sinfonias', 'Sinfonias',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Sinfonias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Raimundo Correia.</p>` }
   ],
-   ['raimundo correia', 'parnasianismo', 'melancolia']),
+   ['raimundo correia', 'parnasianismo', 'melancolia'],
+   { provider: 'wikisource' as const,
+     providerId: 'raimundo-correia-sinfonias',
+     textUrl: 'https://pt.wikisource.org/wiki/Sinfonias',
+     validatedAt: '2026-05-12' }),
 
 bl('alberto-de-oliveira-poesias', 'Poesias', 'Poesias',
    'O chefe do Parnasianismo. Perfeição formal e a beleza como fim.',
@@ -3689,7 +3919,11 @@ bl('alberto-de-oliveira-poesias', 'Poesias', 'Poesias',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poesias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Alberto de Oliveira.</p>` }
   ],
-   ['alberto de oliveira', 'parnasianismo', 'beleza']),
+   ['alberto de oliveira', 'parnasianismo', 'beleza'],
+   { provider: 'wikisource' as const,
+     providerId: 'alberto-de-oliveira-poesias',
+     textUrl: 'https://pt.wikisource.org/wiki/Poesias_(Alberto_de_Oliveira)',
+     validatedAt: '2026-05-12' }),
 
 bl('augusto-dos-anjos-eu', 'Eu', 'Eu',
    'Ciência, morte e desespero num soneto. O mais singular dos poetas.',
@@ -3752,7 +3986,11 @@ bl('augusto-dos-anjos-eu', 'Eu', 'Eu',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Eu</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Augusto dos Anjos.</p>` }
   ],
-   ['augusto dos anjos', 'morte', 'ciência']),
+   ['augusto dos anjos', 'morte', 'ciência'],
+   { provider: 'wikisource' as const,
+     providerId: 'augusto-dos-anjos-eu',
+     textUrl: 'https://pt.wikisource.org/wiki/Eu_(Augusto_dos_Anjos)',
+     validatedAt: '2026-05-12' }),
 
 bl('cruz-e-sousa-broqueis', 'Broquéis', 'Broquéis',
    'O Simbolismo negro. Dor, misticismo e a beleza do sofrimento.',
@@ -3815,7 +4053,11 @@ bl('cruz-e-sousa-broqueis', 'Broquéis', 'Broquéis',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Broquéis</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Cruz e Sousa.</p>` }
   ],
-   ['cruz e sousa', 'simbolismo', 'sofrimento']),
+   ['cruz e sousa', 'simbolismo', 'sofrimento'],
+   { provider: 'wikisource' as const,
+     providerId: 'cruz-e-sousa-broqueis',
+     textUrl: 'https://pt.wikisource.org/wiki/Broqu%C3%A9is',
+     validatedAt: '2026-05-12' }),
 
 bl('cruz-sousa-evocacoes', 'Evocações', 'Evocações',
    'Prosa poética do Simbolismo. Misticismo e sofrimento racial.',
@@ -3878,7 +4120,11 @@ bl('cruz-sousa-evocacoes', 'Evocações', 'Evocações',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Evocações</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Cruz e Sousa.</p>` }
   ],
-   ['cruz e sousa', 'simbolismo', 'raça']),
+   ['cruz e sousa', 'simbolismo', 'raça'],
+   { provider: 'wikisource' as const,
+     providerId: 'cruz-sousa-evocacoes',
+     textUrl: 'https://pt.wikisource.org/wiki/Evoca%C3%A7%C3%B5es',
+     validatedAt: '2026-05-12' }),
 
 bl('alphonsus-cancoes', 'Câncio do Destino', 'Câncio do Destino',
    'Ismália e outros poemas. Misticismo e amor impossível.',
@@ -3941,7 +4187,11 @@ bl('alphonsus-cancoes', 'Câncio do Destino', 'Câncio do Destino',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Câncio do Destino</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Alphonsus de Guimaraens.</p>` }
   ],
-   ['alphonsus de guimaraens', 'simbolismo', 'morte']),
+   ['alphonsus de guimaraens', 'simbolismo', 'morte'],
+   { provider: 'wikisource' as const,
+     providerId: 'alphonsus-cancoes',
+     textUrl: 'https://pt.wikisource.org/wiki/C%C3%A2n%C3%A7%C3%B5es_(Alphonsus_de_Guimaraens)',
+     validatedAt: '2026-05-12' }),
 
 bl('macedo-a-moreninha', 'A Moreninha', 'A Moreninha',
    'O primeiro romance brasileiro. Estudantes de medicina e amores.',
@@ -4004,7 +4254,11 @@ bl('macedo-a-moreninha', 'A Moreninha', 'A Moreninha',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Moreninha</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Joaquim Manuel de Macedo.</p>` }
   ],
-   ['joaquim manuel de macedo', 'primeiro romance', 'amor']),
+   ['joaquim manuel de macedo', 'primeiro romance', 'amor'],
+   { provider: 'wikisource' as const,
+     providerId: 'macedo-a-moreninha',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Moreninha',
+     validatedAt: '2026-05-12' }),
 
 bl('macedo-o-moco-loiro', 'O Moço Loiro', 'O Moço Loiro',
    'Romance sentimental do Romantismo carioca.',
@@ -4067,7 +4321,11 @@ bl('macedo-o-moco-loiro', 'O Moço Loiro', 'O Moço Loiro',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Moço Loiro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Joaquim Manuel de Macedo.</p>` }
   ],
-   ['joaquim manuel de macedo', 'romantismo', 'rio de janeiro']),
+   ['joaquim manuel de macedo', 'romantismo', 'rio de janeiro'],
+   { provider: 'wikisource' as const,
+     providerId: 'macedo-o-moco-loiro',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Mo%C3%A7o_Loiro',
+     validatedAt: '2026-05-12' }),
 
 bl('almeida-sargento-milicias', 'Memórias de um Sargento de Milícias', 'Memórias de um Sargento de Milícias',
    'Leonardo navega a malandragem carioca. O pícaro brasileiro definitivo.',
@@ -4130,7 +4388,11 @@ bl('almeida-sargento-milicias', 'Memórias de um Sargento de Milícias', 'Memór
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Memórias de um Sargento de Milícias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Manuel Antônio de Almeida.</p>` }
   ],
-   ['manuel antônio de almeida', 'malandragem', 'pícaro']),
+   ['manuel antônio de almeida', 'malandragem', 'pícaro'],
+   { provider: 'wikisource' as const,
+     providerId: 'almeida-sargento-milicias',
+     textUrl: 'https://pt.wikisource.org/wiki/Mem%C3%B3rias_de_um_Sargento_de_Mil%C3%ADcias',
+     validatedAt: '2026-05-12' }),
 
 bl('graciliano-vidas-secas', 'Vidas Secas', 'Vidas Secas',
    'Fabiano e família fogem da seca. A prosa mais dura e limpa do Brasil.',
@@ -4193,7 +4455,11 @@ bl('graciliano-vidas-secas', 'Vidas Secas', 'Vidas Secas',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Vidas Secas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
   ],
-   ['graciliano ramos', 'seca', 'nordeste']),
+   ['graciliano ramos', 'seca', 'nordeste'],
+   { provider: 'wikisource' as const,
+     providerId: 'graciliano-vidas-secas',
+     textUrl: 'https://pt.wikisource.org/wiki/Vidas_Secas',
+     validatedAt: '2026-05-12' }),
 
 bl('graciliano-sao-bernardo', 'São Bernardo', 'São Bernardo',
    'Paulo Honório constrói fazenda e destrói a mulher. Narrador culpado.',
@@ -4256,7 +4522,11 @@ bl('graciliano-sao-bernardo', 'São Bernardo', 'São Bernardo',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>São Bernardo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
   ],
-   ['graciliano ramos', 'culpa', 'poder']),
+   ['graciliano ramos', 'culpa', 'poder'],
+   { provider: 'wikisource' as const,
+     providerId: 'graciliano-sao-bernardo',
+     textUrl: 'https://pt.wikisource.org/wiki/S%C3%A3o_Bernardo',
+     validatedAt: '2026-05-12' }),
 
 bl('graciliano-angustia', 'Angústia', 'Angústia',
    'Luís da Silva planeja e comete um crime. Fluxo de consciência nordestino.',
@@ -4319,7 +4589,11 @@ bl('graciliano-angustia', 'Angústia', 'Angústia',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Angústia</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
   ],
-   ['graciliano ramos', 'crime', 'consciência']),
+   ['graciliano ramos', 'crime', 'consciência'],
+   { provider: 'wikisource' as const,
+     providerId: 'graciliano-angustia',
+     textUrl: 'https://pt.wikisource.org/wiki/Ang%C3%BAstia',
+     validatedAt: '2026-05-12' }),
 
 bl('graciliano-infancia', 'Infância', 'Infância',
    'Memórias de menino em Alagoas. A seca, a violência, a descoberta da leitura.',
@@ -4382,7 +4656,11 @@ bl('graciliano-infancia', 'Infância', 'Infância',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Infância</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
   ],
-   ['graciliano ramos', 'infância', 'memória']),
+   ['graciliano ramos', 'infância', 'memória'],
+   { provider: 'wikisource' as const,
+     providerId: 'graciliano-infancia',
+     textUrl: 'https://pt.wikisource.org/wiki/Inf%C3%A2ncia_(Graciliano_Ramos)',
+     validatedAt: '2026-05-12' }),
 
 bl('coelho-neto-a-conquista', 'A Conquista', 'A Conquista',
    'Jovens artistas boêmios no Rio dos anos 1880. O Naturalismo tropical.',
@@ -4445,7 +4723,11 @@ bl('coelho-neto-a-conquista', 'A Conquista', 'A Conquista',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Conquista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Coelho Neto.</p>` }
   ],
-   ['coelho neto', 'boêmia', 'naturalismo']),
+   ['coelho neto', 'boêmia', 'naturalismo'],
+   { provider: 'wikisource' as const,
+     providerId: 'coelho-neto-a-conquista',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Conquista',
+     validatedAt: '2026-05-12' }),
 
 bl('afonso-arinos-pelo-sertao', 'Pelo Sertão', 'Pelo Sertão',
    'Contos do sertão mineiro. O Brasil que o litoral não via.',
@@ -4508,7 +4790,11 @@ bl('afonso-arinos-pelo-sertao', 'Pelo Sertão', 'Pelo Sertão',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Pelo Sertão</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Afonso Arinos.</p>` }
   ],
-   ['afonso arinos', 'sertão', 'minas gerais']),
+   ['afonso arinos', 'sertão', 'minas gerais'],
+   { provider: 'wikisource' as const,
+     providerId: 'afonso-arinos-pelo-sertao',
+     textUrl: 'https://pt.wikisource.org/wiki/Pelo_Sert%C3%A3o',
+     validatedAt: '2026-05-12' }),
 
 bl('humberto-campos-poeira', 'Poeira', 'Poeira',
    'Crônicas e perfis. O olhar irônico e terno sobre a vida brasileira.',
@@ -4571,7 +4857,11 @@ bl('humberto-campos-poeira', 'Poeira', 'Poeira',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poeira</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Humberto de Campos.</p>` }
   ],
-   ['humberto de campos', 'crônica', 'ironia']),
+   ['humberto de campos', 'crônica', 'ironia'],
+   { provider: 'wikisource' as const,
+     providerId: 'humberto-campos-poeira',
+     textUrl: 'https://pt.wikisource.org/wiki/Poeira',
+     validatedAt: '2026-05-12' }),
 
 bl('domingos-olimpio-luzia-homem', 'Luzia-Homem', 'Luzia-Homem',
    'Luzia, forte como um homem, trabalha nas obras do açude na seca.',
@@ -4634,7 +4924,11 @@ bl('domingos-olimpio-luzia-homem', 'Luzia-Homem', 'Luzia-Homem',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Luzia-Homem</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Domingos Olímpio.</p>` }
   ],
-   ['domingos olímpio', 'sertão', 'mulher forte']),
+   ['domingos olímpio', 'sertão', 'mulher forte'],
+   { provider: 'wikisource' as const,
+     providerId: 'domingos-olimpio-luzia-homem',
+     textUrl: 'https://pt.wikisource.org/wiki/Luzia-Homem',
+     validatedAt: '2026-05-12' }),
 
 bl('martins-pena-juiz-de-paz', 'O Juiz de Paz da Roça', 'O Juiz de Paz da Roça',
    'Comédia de costumes. O juiz ignorante e a vida rural brasileira.',
@@ -4697,7 +4991,11 @@ bl('martins-pena-juiz-de-paz', 'O Juiz de Paz da Roça', 'O Juiz de Paz da Roça
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Juiz de Paz da Roça</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Martins Pena.</p>` }
   ],
-   ['martins pena', 'teatro', 'comédia']),
+   ['martins pena', 'teatro', 'comédia'],
+   { provider: 'wikisource' as const,
+     providerId: 'martins-pena-juiz-de-paz',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Juiz_de_Paz_na_Ro%C3%A7a',
+     validatedAt: '2026-05-12' }),
 
 bl('martins-pena-o-novico', 'O Noviço', 'O Noviço',
    'Farsa sobre falsa devoção religiosa e dinheiro. Comédia clássica.',
@@ -4760,7 +5058,11 @@ bl('martins-pena-o-novico', 'O Noviço', 'O Noviço',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Noviço</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Martins Pena.</p>` }
   ],
-   ['martins pena', 'teatro', 'religião']),
+   ['martins pena', 'teatro', 'religião'],
+   { provider: 'wikisource' as const,
+     providerId: 'martins-pena-o-novico',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Nov%C3%A7o',
+     validatedAt: '2026-05-12' }),
 
 bl('sousandrade-guesa', 'O Guesa Errante', 'O Guesa Errante',
    'O índio Guesa viaja pelo mundo moderno. Vanguarda no século XIX.',
@@ -4823,7 +5125,11 @@ bl('sousandrade-guesa', 'O Guesa Errante', 'O Guesa Errante',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Guesa Errante</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Sousândrade.</p>` }
   ],
-   ['sousândrade', 'épico', 'modernismo']),
+   ['sousândrade', 'épico', 'modernismo'],
+   { provider: 'wikisource' as const,
+     providerId: 'sousandrade-guesa',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Guesa',
+     validatedAt: '2026-05-12' }),
 
 bl('tobias-barreto-dias-noites', 'Dias e Noites', 'Dias e Noites',
    'O introdutor do pensamento alemão. Poesia e filosofia do Recife.',
@@ -4886,7 +5192,11 @@ bl('tobias-barreto-dias-noites', 'Dias e Noites', 'Dias e Noites',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Dias e Noites</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Tobias Barreto.</p>` }
   ],
-   ['tobias barreto', 'filosofia', 'recife']),
+   ['tobias barreto', 'filosofia', 'recife'],
+   { provider: 'wikisource' as const,
+     providerId: 'tobias-barreto-dias-noites',
+     textUrl: 'https://pt.wikisource.org/wiki/Dias_e_Noites',
+     validatedAt: '2026-05-12' }),
 
 bl('pessoa-mensagem', 'Mensagem', 'Mensagem',
    'Único livro em português publicado em vida. Portugal como destino místico.',
@@ -4949,7 +5259,11 @@ bl('pessoa-mensagem', 'Mensagem', 'Mensagem',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Mensagem</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
   ],
-   ['fernando pessoa', 'portugal', 'misticismo']),
+   ['fernando pessoa', 'portugal', 'misticismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '29090',
+     textUrl: 'https://www.gutenberg.org/cache/epub/29090/pg29090.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('pessoa-alberto-caeiro', 'Poemas de Alberto Caeiro', 'Poemas de Alberto Caeiro',
    'O heterônimo que desaprendeu a pensar. Filosofia do olhar puro.',
@@ -5012,7 +5326,11 @@ bl('pessoa-alberto-caeiro', 'Poemas de Alberto Caeiro', 'Poemas de Alberto Caeir
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poemas de Alberto Caeiro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
   ],
-   ['fernando pessoa', 'heterônimo', 'natureza']),
+   ['fernando pessoa', 'heterônimo', 'natureza'],
+   { provider: 'wikisource' as const,
+     providerId: 'pessoa-alberto-caeiro',
+     textUrl: 'https://pt.wikisource.org/wiki/O_Guardador_de_Rebanhos',
+     validatedAt: '2026-05-12' }),
 
 bl('pessoa-ricardo-reis', 'Odes de Ricardo Reis', 'Odes de Ricardo Reis',
    'O estoicismo pagão. Ricardo Reis contempla o destino com serenidade.',
@@ -5075,7 +5393,11 @@ bl('pessoa-ricardo-reis', 'Odes de Ricardo Reis', 'Odes de Ricardo Reis',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Odes de Ricardo Reis</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
   ],
-   ['fernando pessoa', 'heterônimo', 'estoicismo']),
+   ['fernando pessoa', 'heterônimo', 'estoicismo'],
+   { provider: 'wikisource' as const,
+     providerId: 'pessoa-ricardo-reis',
+     textUrl: 'https://pt.wikisource.org/wiki/Odes_(Ricardo_Reis)',
+     validatedAt: '2026-05-12' }),
 
 bl('pessoa-alvaro-campos', 'Odes de Álvaro de Campos', 'Odes de Álvaro de Campos',
    'Ode Triunfal, Tabacaria. O grito da modernidade industrial.',
@@ -5138,7 +5460,11 @@ bl('pessoa-alvaro-campos', 'Odes de Álvaro de Campos', 'Odes de Álvaro de Camp
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Odes de Álvaro de Campos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
   ],
-   ['fernando pessoa', 'heterônimo', 'modernidade']),
+   ['fernando pessoa', 'heterônimo', 'modernidade'],
+   { provider: 'wikisource' as const,
+     providerId: 'pessoa-alvaro-campos',
+     textUrl: 'https://pt.wikisource.org/wiki/Odes_de_%C3%81lvaro_de_Campos',
+     validatedAt: '2026-05-12' }),
 
 bl('pessoa-livro-do-desassossego', 'Livro do Desassossego', 'Livro do Desassossego',
    'Bernardo Soares registra a vida interior. Fragmentos do maior livro português.',
@@ -5201,7 +5527,11 @@ bl('pessoa-livro-do-desassossego', 'Livro do Desassossego', 'Livro do Desassosse
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Livro do Desassossego</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
   ],
-   ['fernando pessoa', 'heterônimo', 'existencialismo']),
+   ['fernando pessoa', 'heterônimo', 'existencialismo'],
+   { provider: 'wikisource' as const,
+     providerId: 'pessoa-livro-do-desassossego',
+     textUrl: 'https://pt.wikisource.org/wiki/Livro_do_Desassossego',
+     validatedAt: '2026-05-12' }),
 
 bl('eca-crime-padre-amaro', 'O Crime do Padre Amaro', 'O Crime do Padre Amaro',
    'O padre seduz Amélia. O Realismo português e o escândalo clerical.',
@@ -5264,7 +5594,11 @@ bl('eca-crime-padre-amaro', 'O Crime do Padre Amaro', 'O Crime do Padre Amaro',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Crime do Padre Amaro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
   ],
-   ['eça de queirós', 'clericalismo', 'realismo']),
+   ['eça de queirós', 'clericalismo', 'realismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '31981',
+     textUrl: 'https://www.gutenberg.org/cache/epub/31981/pg31981.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('eca-primo-basilio', 'O Primo Basílio', 'O Primo Basílio',
    'Luísa cede ao primo. Chantagem, vergonha e morte. Realismo burguês.',
@@ -5327,7 +5661,11 @@ bl('eca-primo-basilio', 'O Primo Basílio', 'O Primo Basílio',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Primo Basílio</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
   ],
-   ['eça de queirós', 'adultério', 'realismo']),
+   ['eça de queirós', 'adultério', 'realismo'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '36897',
+     textUrl: 'https://www.gutenberg.org/cache/epub/36897/pg36897.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('eca-os-maias', 'Os Maias', 'Os Maias',
    'Decadência de uma família portuguesa em três gerações. O maior romance de Eça.',
@@ -5390,7 +5728,11 @@ bl('eca-os-maias', 'Os Maias', 'Os Maias',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Os Maias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
   ],
-   ['eça de queirós', 'família', 'decadência']),
+   ['eça de queirós', 'família', 'decadência'],
+   { provider: 'wikisource' as const,
+     providerId: 'eca-os-maias',
+     textUrl: 'https://pt.wikisource.org/wiki/Os_Maias',
+     validatedAt: '2026-05-12' }),
 
 bl('eca-a-reliquia', 'A Relíquia', 'A Relíquia',
    'Teodorico vai à Palestina buscar relíquia para a tia beata. Sátira e ironia.',
@@ -5453,7 +5795,11 @@ bl('eca-a-reliquia', 'A Relíquia', 'A Relíquia',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Relíquia</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
   ],
-   ['eça de queirós', 'sátira', 'religião']),
+   ['eça de queirós', 'sátira', 'religião'],
+   { provider: 'wikisource' as const,
+     providerId: 'eca-a-reliquia',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Rel%C3%ADquia',
+     validatedAt: '2026-05-12' }),
 
 bl('eca-a-cidade-serras', 'A Cidade e as Serras', 'A Cidade e as Serras',
    'Jacinto descobre a felicidade na aldeia portuguesa. Crítica à modernidade.',
@@ -5516,7 +5862,11 @@ bl('eca-a-cidade-serras', 'A Cidade e as Serras', 'A Cidade e as Serras',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Cidade e as Serras</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
   ],
-   ['eça de queirós', 'modernidade', 'natureza']),
+   ['eça de queirós', 'modernidade', 'natureza'],
+   { provider: 'wikisource' as const,
+     providerId: 'eca-a-cidade-serras',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Cidade_e_as_Serras',
+     validatedAt: '2026-05-12' }),
 
 bl('eca-correspondencia-fradique', 'A Correspondência de Fradique Mendes', 'A Correspondência de Fradique Mendes',
    'Fradique Mendes satiriza a Europa e Portugal em cartas.',
@@ -5579,7 +5929,11 @@ bl('eca-correspondencia-fradique', 'A Correspondência de Fradique Mendes', 'A C
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Correspondência de Fradique Mendes</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
   ],
-   ['eça de queirós', 'sátira', 'epistolar']),
+   ['eça de queirós', 'sátira', 'epistolar'],
+   { provider: 'wikisource' as const,
+     providerId: 'eca-correspondencia-fradique',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Correspond%C3%AAncia_de_Fradique_Mendes',
+     validatedAt: '2026-05-12' }),
 
 bl('camilo-amor-perdicao', 'Amor de Perdição', 'Amor de Perdição',
    'Simão ama Teresa. Prisão, exílio e morte. O Romantismo português.',
@@ -5642,7 +5996,11 @@ bl('camilo-amor-perdicao', 'Amor de Perdição', 'Amor de Perdição',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Amor de Perdição</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Camilo Castelo Branco.</p>` }
   ],
-   ['camilo castelo branco', 'amor', 'tragédia']),
+   ['camilo castelo branco', 'amor', 'tragédia'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '26017',
+     textUrl: 'https://www.gutenberg.org/cache/epub/26017/pg26017.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('camilo-queda-anjo', 'A Queda dum Anjo', 'A Queda dum Anjo',
    'Senador provinciano é corrompido pela civilização. Comédia de costumes.',
@@ -5705,7 +6063,11 @@ bl('camilo-queda-anjo', 'A Queda dum Anjo', 'A Queda dum Anjo',
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Queda dum Anjo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Camilo Castelo Branco.</p>` }
   ],
-   ['camilo castelo branco', 'sátira', 'civilização']),
+   ['camilo castelo branco', 'sátira', 'civilização'],
+   { provider: 'wikisource' as const,
+     providerId: 'camilo-queda-anjo',
+     textUrl: 'https://pt.wikisource.org/wiki/A_Queda_dum_Anjo',
+     validatedAt: '2026-05-12' }),
 
 bl('garrett-viagens-minha-terra', 'Viagens na Minha Terra', 'Viagens na Minha Terra',
    'O Romantismo português mistura viagem, política e romance.',
@@ -5768,7 +6130,11 @@ bl('garrett-viagens-minha-terra', 'Viagens na Minha Terra', 'Viagens na Minha Te
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Viagens na Minha Terra</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Almeida Garrett.</p>` }
   ],
-   ['almeida garrett', 'romantismo', 'portugal']),
+   ['almeida garrett', 'romantismo', 'portugal'],
+   { provider: 'project_gutenberg' as const,
+     providerId: '21685',
+     textUrl: 'https://www.gutenberg.org/cache/epub/21685/pg21685.txt',
+     validatedAt: '2026-05-12' }),
 
 bl('herculano-eurico-o-presbitero', 'Eurico, o Presbítero', 'Eurico, o Presbítero',
    'Sacerdote visigodo ama uma mulher proibida. A queda da Hispânia.',
@@ -5831,6 +6197,10 @@ bl('herculano-eurico-o-presbitero', 'Eurico, o Presbítero', 'Eurico, o Presbít
 <h3>Para Continuar Lendo</h3>
 <p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Eurico, o Presbítero</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Alexandre Herculano.</p>` }
   ],
-   ['alexandre herculano', 'história', 'visigodos']),
+   ['alexandre herculano', 'história', 'visigodos'],
+   { provider: 'wikisource' as const,
+     providerId: 'herculano-eurico-o-presbitero',
+     textUrl: 'https://pt.wikisource.org/wiki/Eurico%2C_o_Presb%C3%ADtero',
+     validatedAt: '2026-05-12' }),
 
 ];

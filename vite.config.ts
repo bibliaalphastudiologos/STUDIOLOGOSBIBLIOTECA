@@ -15,6 +15,7 @@ export default defineConfig({
           firebase: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
           theology: ['./src/data/theologyPublicDomain'],
           gutenberg: ['./src/data/gutenbergMegaCatalog'],
+          brazilian: ['./src/data/brazilianLiterature'],
         },
       },
     },
