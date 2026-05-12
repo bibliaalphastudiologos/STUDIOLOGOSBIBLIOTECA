@@ -6,6 +6,7 @@ import { philosophyPublicDomainWorks } from './philosophyPublicDomain';
 import { psychoanalysisWorks } from './psychoanalysisWorks';
 import { publicDomainWorks } from './publicDomainWorks';
 import { gutenbergMegaCatalogWorks } from './gutenbergMegaCatalog';
+import { theologyPublicDomainWorks } from './theologyPublicDomain';
 
 // Dados demo como fallback e complemento
 const FEATURED_EBOOKS: Ebook[] = [
@@ -30,7 +31,7 @@ const FEATURED_EBOOKS: Ebook[] = [
       'Analisar a relação entre ética e política',
       'Dominar a noção de eudaimonia',
     ],
-    recommendedFor: ['Estudantes de filosofhia', 'Pesquisadores', 'Professores'],
+    recommendedFor: ['Estudantes de filosofia', 'Pesquisadores', 'Professores'],
     chapters: [],
     editorialNotice: 'Obra de domínio público disponibilizada gratuitamente através do Project Gutenberg.',
   },
@@ -89,14 +90,12 @@ const FEATURED_EBOOKS: Ebook[] = [
 function dedupeEbooks(ebooks: Ebook[]): Ebook[] {
   const seen = new Set<string>();
   const unique: Ebook[] = [];
-
   for (const ebook of ebooks) {
     const key = ebook.id || `${ebook.title}-${ebook.authorReference}`;
     if (seen.has(key)) continue;
     seen.add(key);
     unique.push(ebook);
   }
-
   return unique;
 }
 
@@ -107,47 +106,33 @@ export const DEMO_EBOOKS: Ebook[] = dedupeEbooks([
   ...philosophyPublicDomainWorks,
   ...psychoanalysisWorks,
   ...brazilianLiteratureWorks,
+  ...theologyPublicDomainWorks,
   ...gutenbergMegaCatalogWorks,
 ]);
 
-/**
- * Obtém ebooks combinando Gutendex + DEMO
- */
 export async function getAllEbooks(
   category?: 'Filosofia' | 'Psicanálise' | 'Teologia'
 ): Promise<Ebook[]> {
   try {
-    // Tenta buscar da Gutendex
     if (category) {
       const response = await GutendexService.fetchByCategory(category);
       const converted = response.results.map(book =>
         GutendexService.convertToEbook(book, category)
       ) as Ebook[];
-
-      // Mescla com DEMO (evita duplicatas por título+autor)
       const demoFiltered = DEMO_EBOOKS.filter(e => e.category === category);
       const all = [...converted, ...demoFiltered];
-
-      // Deduplica (mantém Gutendex se houver conflito)
       const seen = new Set<string>();
       const unique: Ebook[] = [];
       for (const ebook of all) {
         const key = `${ebook.title.toLowerCase().trim()}-${ebook.authorReference.toLowerCase().trim()}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          unique.push(ebook);
-        }
+        if (!seen.has(key)) { seen.add(key); unique.push(ebook); }
       }
-
       return unique;
     }
-
-    // Sem categoria: busca todos
     const response = await GutendexService.searchBooks('');
     const converted = response.results.map(book =>
-      GutendexService.convertToEbook(book, 'Filosofia') // categoria padrão, será ajustada
+      GutendexService.convertToEbook(book, 'Filosofia')
     ) as Ebook[];
-
     return [...converted, ...DEMO_EBOOKS];
   } catch (error) {
     console.warn('Falha ao buscar Gutendex, usando apenas DEMO:', error);
@@ -155,24 +140,15 @@ export async function getAllEbooks(
   }
 }
 
-/**
- * Busca ebooks com filtros
- */
-export async function searchEbooks(
-  query: string,
-  category?: string
-): Promise<Ebook[]> {
+export async function searchEbooks(query: string, category?: string): Promise<Ebook[]> {
   try {
     const response = await GutendexService.searchBooks(query);
     const converted = response.results.map(book =>
       GutendexService.convertToEbook(book, 'Filosofia')
     ) as Ebook[];
-
-    // Filtra por categoria se especificada
     if (category && category !== 'Todos') {
       return converted.filter(e => e.category === category);
     }
-
     return converted;
   } catch (error) {
     console.warn('Erro na busca Gutendex:', error);
@@ -182,41 +158,23 @@ export async function searchEbooks(
   }
 }
 
-/**
- * Obtém um ebook específico por ID (pode ser Gutendex ou demo)
- */
 export async function getEbookById(id: string): Promise<Ebook | null> {
-  // Verifica se é Gutendex
   if (id.startsWith('gutendex-')) {
     const gutendexId = Number(id.replace('gutendex-', ''));
     const book = await GutendexService.getBook(gutendexId);
     if (book) {
-      // Inferir categoria a partir dos subjects
       const category = inferCategory(book.subjects);
       return GutendexService.convertToEbook(book, category) as Ebook;
     }
     return null;
   }
-
-  // Demo
   return DEMO_EBOOKS.find(e => e.id === id) || null;
 }
 
-/**
- * Infere categoria a partir dos subjects do Gutendex
- */
 function inferCategory(subjects: string[]): 'Filosofia' | 'Psicanálise' | 'Teologia' {
   const text = subjects.join(' ').toLowerCase();
-
-  if (text.includes('philosophy') || text.includes('metaphysic') || text.includes('ethics')) {
-    return 'Filosofia';
-  }
-  if (text.includes('psychoanalysis') || text.includes('psychology') || text.includes('consciousness')) {
-    return 'Psicanálise';
-  }
-  if (text.includes('theology') || text.includes('religion') || text.includes('church')) {
-    return 'Teologia';
-  }
-
-  return 'Filosofia'; // padrão
+  if (text.includes('theology') || text.includes('religion') || text.includes('church')) return 'Teologia';
+  if (text.includes('philosophy') || text.includes('metaphysic') || text.includes('ethics')) return 'Filosofia';
+  if (text.includes('psychoanalysis') || text.includes('psychology')) return 'Psicanálise';
+  return 'Filosofia';
 }
