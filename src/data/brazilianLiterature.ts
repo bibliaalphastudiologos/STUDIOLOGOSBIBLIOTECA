@@ -37,313 +37,5800 @@ function bl(
 
 export const brazilianLiteratureWorks: Ebook[] = [
 
-bl('machado-dom-casmurro', 'Dom Casmurro', 'Dom Casmurro — Machado de Assis', 'Capitu traiu Bentinho? O grande enigma da literatura brasileira',
-  'Machado de Assis (1839–1908)', 'Dom Casmurro, 1899', '1899', 'Português', 1908,
-  'Literatura', 'Intermediário', '5–6 horas',
-  'Dom Casmurro é o romance mais célebre de Machado de Assis. Bentinho, narrador não-confiável, conta a história de seu amor por Capitu e a suspeita de traição que destruiu seu casamento.',
-  'navy',
-  [
-    { title: 'Capítulo I — Dom Casmurro', estimatedMinutes: 8, content: `<h2>Dom Casmurro</h2>
-<p class="dropcap">Uma noite destas, vindo da cidade para o Engenho Novo, encontrei no trem da Central um rapaz aqui do bairro, que eu conheço de vista e de chapéu. Cumprimentou-me, sentou-se ao meu lado, falou da lua e dos ministros, e acabou recitando-me versos. A viagem era curta, e os versos pode ser que não fossem inteiramente maus. Sucedeu, porém, que, como eu estava cansado, fechei os olhos três ou quatro vezes; tanto bastou para que ele interrompesse a leitura e metesse os versos no bolso.</p>
-<p>— Continue, disse eu acordando.</p>
-<p>— Já acabei, murmurou ele.</p>
-<p>— São bonitos os versos.</p>
-<p>Vi-lhe fazer um gesto para tirá-los outra vez do bolso, mas não passou do gesto; estava amuado. No dia seguinte entrou a dizer de mim nomes que aqui não transcrevo. Conto-vos isto para que a minha história não comece pelo nascimento de um personagem, mas do meu próprio título. Dom Casmurro não está no dicionário; casmurro, sim, e quer dizer o homem calado e metido consigo. Dom foi ironia.</p>
-<p>Não consultes dicionários. Casmurro não está lá com o sentido que lhe dou. O título é do moço do trem. Entretanto, há quem diga que o meu título é do latim, de <em>casmurrus</em>, que quer dizer teimoso ou obstinado. Pode ser.</p>` },
-    { title: 'Capítulo IX — Os Olhos de Ressaca', estimatedMinutes: 10, content: `<h2>Os Olhos de Ressaca</h2>
-<p>Vivíamos em Mata-cavalos, eu, minha mãe, meu tio Cosme e a agregada Capitu. Capitu tinha então quinze anos, dois a menos que eu. Era morena, olhos de ressaca.</p>
-<p>Capitu era Capitu, isto é, uma criatura mui particular, mais mulher do que eu era homem. Se não, vejam. Quando notou que eu estava parado, pregou em mim os olhos, e eu disse que me dolía a cabeça.</p>
-<blockquote><em>"Era uma daquelas criaturas que cresciam às escondidas, e eu não era nada mais do que um menino diante dela."</em></blockquote>
-<p>Os olhos de ressaca eram uns olhos que me puxavam para dentro. Dona Glória, minha mãe, queria que eu fosse padre; Capitu queria que eu fosse homem. E a verdade é que Capitu conseguiu o que quis, com aqueles olhos oblíquos e dissimulados que o agregado José Dias chamava de "olhos de ressaca".</p>
-<p>Nunca vi olhos assim em outra pessoa. Eram verdes, mas pareciam pretos às vezes. Olhavam de soslaio, e quando você percebia, já estava dentro deles, sem poder sair, como a vaga que vai da praia e não volta mais.</p>` },
-    { title: 'Capítulo LV — O Seminário', estimatedMinutes: 9, content: `<h2>O Seminário</h2>
-<p>Minha mãe queria que eu fosse padre. Era uma promessa que fizera ao céu antes de eu nascer. Fiz o possível para não cumpri-la; Capitu fez o necessário para que eu tivesse forças de resistir.</p>
-<p>No seminário conheci Escobar. Era um rapaz delgado, olhos claros, um pouco fugitivos, mas a fisionomia boa e aberta. Fomos amigos desde os primeiros dias. Escobar tinha o gênio vivo e penetrante; eu, mais lento, mais sentimental.</p>
-<p>A amizade cresceu. Saindo do seminário, Escobar foi para o comércio e prosperou muito. Casou com Sancha, amiga de Capitu. Os quatro nos víamos com frequência — almoços, jantares, passeios. Escobar tornara-se, além de amigo, cunhado do coração.</p>
-<p>Quantas vezes, naquele tempo, não olhei para ele com os olhos da gratidão! Quantas vezes, depois, não o encarei com outros olhos — olhos que eu preferiria não ter tido.</p>` },
-    { title: 'Capítulo CXXXV — A Tempestade', estimatedMinutes: 12, content: `<h2>A Tempestade</h2>
-<p>Escobar morreu afogado. A ressaca era grande naquela manhã. Ele foi ao mar, como fazia às vezes, e a ressaca levou-o. Toda a vila choraria a sua morte. Capitu também chorou.</p>
-<p>Mas o choro de Capitu tinha umas reticências que eu não conseguia interpretar. Quando olhei para ela ao pé do caixão, vi que seus olhos não choravam como os olhos de viúva — choravam como os olhos de uma mulher que perdia algo mais do que um amigo do marido.</p>
-<blockquote><em>"Fitou o defunto por um momento; depois não viu mais nada, estava tão cheia de lágrimas."</em></blockquote>
-<p>Foi então que a dúvida entrou em mim como uma faca. Não saiu mais. Olhei para o filho que Capitu me dera — Ezequiel — e vi os olhos de Escobar. Vi o sorriso de Escobar. Vi os gestos de Escobar.</p>
-<p>Mandei Capitu para a Europa com o filho. Não tornei a vê-la. Ela morreu lá fora, e o filho cresceu longe de mim. Fiquei só, nesta casa de Matacavalos, refazendo a vida de menino para ver se havia de lhe dar o mesmo desfecho.</p>
-<p>Agora, casmurro, conto a história a quem a quiser ouvir. Capitu traiu-me? Não sei. Não sei mais. Os olhos de ressaca levaram tudo.</p>` },
+bl('machado-dom-casmurro', 'Dom Casmurro', 'Dom Casmurro',
+   'O narrador não-confiável Bentinho e o eterno enigma: Capitu traiu?',
+   'Machado de Assis (1899–)',
+   'Dom Casmurro, 1899', '1899', 'Português', 1908,
+   'Literatura', 'Avançado', '6–8h',
+   'O narrador não-confiável Bentinho e o eterno enigma: Capitu traiu?',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Dom Casmurro</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1899, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O narrador não-confiável Bentinho e o eterno enigma: Capitu traiu?</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Dom Casmurro</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Dom Casmurro</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1899</h3>
+<p>O ano de publicação, 1899, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Dom Casmurro</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Dom Casmurro</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Dom Casmurro</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Dom Casmurro</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Dom Casmurro</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o narrador não-confiável bentinho e o eterno enigma: capitu traiu?. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Dom Casmurro</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Dom Casmurro</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Dom Casmurro</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Dom Casmurro</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Dom Casmurro</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Dom Casmurro</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Dom Casmurro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['machado de assis', 'romance', 'narrativa', 'capitu', 'realismo']),
+   ['machado de assis', 'romance', 'realismo', 'capitu']),
 
-bl('machado-memorias-postumas', 'Memórias Póstumas de Brás Cubas', 'Memórias Póstumas de Brás Cubas', 'O defunto autor mais irônico da literatura brasileira',
-  'Machado de Assis (1839–1908)', 'Memórias Póstumas de Brás Cubas, 1881', '1881', 'Português', 1908,
-  'Literatura', 'Avançado', '4–5 horas',
-  'Narrado por um defunto, este romance fundador do Realismo brasileiro subverte todas as convenções narrativas com ironia, pessimismo e genialidade.',
-  'crimson',
-  [
-    { title: 'Ao Leitor', estimatedMinutes: 5, content: `<h2>Ao Leitor</h2>
-<p>Que Stendhal confessasse haver escrito um de seus livros para cem leitores, coisa é que admira e consterna. O que não admira, nem provavelmente consternará, é se este livro não tiver os cem leitores de Stendhal, nem cinquenta, nem vinte, e quando muito, dez. Dez? Talvez cinco. Trata-se, na verdade, de uma obra difusa, na qual eu, Brás Cubas, se adotei a forma livre de um Sterne ou de um Xavier de Maistre, não sei se lhe meti algumas rabugens de pessimismo.</p>
-<p>Ao meu amigo Virgília — que assim me chamou — devo a publicação desta obra. No momento em que a redigia, estava eu morto; e ainda estava morto quando a dei a ler. Tudo isso se passa muito devagar, porque os mortos não têm pressa.</p>
-<blockquote><em>"Nasci em 1805. Morri em 1869. Neste livro conto o que vi e o que fui. Estou morto, e escrevo."</em></blockquote>` },
-    { title: 'Capítulo I — Óbito do Autor', estimatedMinutes: 7, content: `<h2>Óbito do Autor</h2>
-<p>Algum tempo hesitei se devia abrir estas memórias pelo princípio ou pelo fim, isto é, se poria em primeiro lugar o meu nascimento ou a minha morte. Suposto o uso vulgar seja começar pelo nascimento, duas considerações me levaram a adotar diferente método: a primeira é que eu não sou propriamente um autor defunto, mas um defunto autor, para quem a campa foi outro berço; a segunda é que o escrito ficaria assim mais galante e mais novo.</p>
-<p>Morri de uma pneumonia; mas se lhes disser que foi menos a pneumonia do que uma ideia grandiosa e útil, a causa da minha morte, é possível que me não acreditem, e todavia é verdade. Vou expor-lhes sumariamente o caso. Julgue-o quem quiser.</p>
-<p>Com efeito, um dia de manhã, estando a passear na chácara, pensei em escrever um livro filosófico. Nunca escribi filosofia; mas tinha umas notas e citações, e a ideia era grande, abrangente, humana. Chamei-a: o Emplasto Brás Cubas. Saí para tomar ar, molhei-me, pneumonia, e cá estou.</p>` },
-    { title: 'Capítulo XI — O Menino é Pai do Homem', estimatedMinutes: 8, content: `<h2>O Menino é Pai do Homem</h2>
-<p>Sou, disse eu, uma criança prodígio. Tinha-me dado na cabeça que era um daqueles espíritos superiores, nascidos para mudar a face do mundo. Era filho único, e a família toda me apontava como a maravilha do século. Meu pai era o homem mais orgulhoso do Rio de Janeiro.</p>
-<p>Lembra-me uma ocasião em que me bateram, não sei por quê. Fugi de casa, fui até o Campo de Santana, chorei muito, e voltei à noite. Minha mãe me esperava na porta, trêmula e chorosa.</p>
-<p>Fui crescendo. Aos dezoito anos, meu pai mandou-me para Coimbra. Lá estudei, namorei, endividei-me. Voltei doutor. O grau de bacharel fez de mim o que eu já era: um homem inútil, com verniz de cultura.</p>` },
-    { title: 'Epílogo — Das Negativas', estimatedMinutes: 6, content: `<h2>Das Negativas</h2>
-<p>Chegado este ponto, tomo a pena e concluo.</p>
-<p>Ao fazer o balanço da minha existência, chego a uma conclusão que é o resultado natural de tudo o que narrei: não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria. Esta é a última das minhas negativas.</p>
-<blockquote><em>"Não fui grande, não fui santo, não fui útil — mas tampouco transmiti a outrem o peso de existir."</em></blockquote>
-<p>É tudo. O defunto autor abre mão da pena. Viveu bastante para saber que a vida é um defeito no nada. Mas como o nada não se sente, e a vida às vezes se sente, prefiro ter vivido a não ter vivido. E com esta conclusão — que não é conclusão — encerro o livro.</p>` },
+bl('machado-memorias-postumas', 'Memórias Póstumas de Brás Cubas', 'Memórias Póstumas de Brás Cubas',
+   'O defunto-autor inaugura o Realismo brasileiro com ironia implacável.',
+   'Machado de Assis (1881–)',
+   'Memórias Póstumas de Brás Cubas, 1881', '1881', 'Português', 1908,
+   'Literatura', 'Avançado', '5–6h',
+   'O defunto-autor inaugura o Realismo brasileiro com ironia implacável.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Memórias Póstumas de Brás Cubas</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1881, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O defunto-autor inaugura o Realismo brasileiro com ironia implacável.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Memórias Póstumas de Brás Cubas</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Memórias Póstumas de Brás Cubas</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1881</h3>
+<p>O ano de publicação, 1881, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Memórias Póstumas de Brás Cubas</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Memórias Póstumas de Brás Cubas</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Memórias Póstumas de Brás Cubas</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Memórias Póstumas de Brás Cubas</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Memórias Póstumas de Brás Cubas</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o defunto-autor inaugura o realismo brasileiro com ironia implacável. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Memórias Póstumas de Brás Cubas</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Memórias Póstumas de Brás Cubas</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Memórias Póstumas de Brás Cubas</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Memórias Póstumas de Brás Cubas</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Memórias Póstumas de Brás Cubas</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Memórias Póstumas de Brás Cubas</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Memórias Póstumas de Brás Cubas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['machado de assis', 'defunto autor', 'realismo', 'romance']),
+   ['machado de assis', 'defunto autor', 'realismo']),
 
-bl('machado-alienista', 'O Alienista', 'O Alienista', 'A razão ou a loucura — quem define os limites?',
-  'Machado de Assis (1839–1908)', 'O Alienista, 1882', '1882', 'Português', 1908,
-  'Literatura', 'Intermediário', '2–3 horas',
-  'Conto longo em que o Dr. Simão Bacamarte cria o primeiro hospício de Itaguaí, internando metade da cidade. Uma sátira magistral sobre ciência, poder e loucura.',
-  'deep-purple',
-  [
-    { title: 'I — De como Itaguaí ganhou um hospício', estimatedMinutes: 8, content: `<h2>De como Itaguaí ganhou um hospício</h2>
-<p>A câmara municipal de Itaguaí, numa das suas mais memoráveis sessões, deliberou construir uma Casa Verde para recolhimento e tratamento dos alienados do município. Em verdade, era tempo. A loucura vagava pelas ruas, sem método nem disciplina.</p>
-<p>O Dr. Simão Bacamarte, filho da nobreza da terra e o maior dos médicos do Brasil, de Portugal e das Espanhas, foi o promotor da ideia e o homem destinado a dirigi-la. Era solteiro, e ninguém tinha conseguido arrancá-lo à ciência, ao contrário do que tentou uma dama de Itaguaí, que o amava muito, e em cujo amor ele via claro sinal de loucura.</p>
-<blockquote><em>"A saúde da alma é como a do corpo: quem não a guarda não a merece."</em> — Dr. Simão Bacamarte</blockquote>
-<p>Em 1762 casou com D. Evarista da Costa e Mascarenhas, senhora de vinte e cinco anos, viúva de um juiz de fora, e não bonita. O casamento escandalizou o povo. Mas Bacamarte explicou a escolha com rigor científico: D. Evarista reunia condições físicas e morais que garantiriam a procriação de filhos sãos e equilibrados.</p>` },
-    { title: 'II — A Casa Verde se expande', estimatedMinutes: 10, content: `<h2>A Casa Verde se expande</h2>
-<p>O hospício abriu, e Bacamarte começou a trabalhar. Nos primeiros meses, internava um ou dois por semana. À medida que seus estudos avançavam, porém, a teoria do alienista se aperfeiçoava — e com ela, o número de doentes.</p>
-<p>Bacamarte percebeu que a loucura era muito mais ampla do que se supunha. Não era apenas o furioso e o melancólico — era também o orgulhoso, o covarde, o avarento, o mentiroso habitual. Cada vício era uma forma de alienação. E se cada vício era loucura, a Casa Verde devia expandir-se.</p>
-<p>Em dois meses, a população de Itaguaí havia diminuído de um terço. Maridos, mulheres, filhos — todos com alguma forma de desvio da razão pura. A cidade ficou em silêncio. Os que restavam fora olhavam uns aos outros com desconfiança.</p>
-<p>— Quem será o próximo? — perguntavam baixo.</p>
-<p>Mas Bacamarte não parava. A ciência exigia sacrifício. A razão exigia clareza. E a Casa Verde era o templo da razão.</p>` },
-    { title: 'III — A Reviravolta Final', estimatedMinutes: 9, content: `<h2>A Reviravolta Final</h2>
-<p>Chegou o dia em que o próprio Bacamarte reviu suas teorias. Depois de anos classificando todos os desvios como loucura, o alienista chegou a uma conclusão nova e assombrosa: os verdadeiramente sãos eram exatamente os que ele havia internado. A sanidade estava nos chamados loucos — criaturas sinceras, espontâneas, sem máscara.</p>
-<p>Os doentes, afinal, eram os que ficaram fora da Casa Verde — os normais, os contidos, os hipócritas, os calculistas.</p>
-<p>Bacamarte libertou todos os internados e, sem hesitar, trancou-se no hospício. Ele próprio era o único doente verdadeiro: o homem que acreditara poder definir a loucura com critérios científicos.</p>
-<blockquote><em>"A razão que classifica tudo e não se classifica a si mesma é a mais perigosa forma de loucura."</em></blockquote>
-<p>Morreu dezoito meses depois, vítima da mais obstinada ciência. A Casa Verde ficou vazia. Itaguaí voltou à sua desordem alegre. E ninguém mais soube, por muito tempo, onde terminava a razão e começava a loucura.</p>` },
+bl('machado-alienista', 'O Alienista', 'O Alienista',
+   'Bacamarte interna metade de Itaguaí. Sátira magistral da razão e do poder.',
+   'Machado de Assis (1882–)',
+   'O Alienista, 1882', '1882', 'Português', 1908,
+   'Literatura', 'Intermediário', '2–3h',
+   'Bacamarte interna metade de Itaguaí. Sátira magistral da razão e do poder.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Alienista</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1882, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Bacamarte interna metade de Itaguaí. Sátira magistral da razão e do poder.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Alienista</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>conto</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Alienista</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1882</h3>
+<p>O ano de publicação, 1882, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Alienista</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Alienista</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Alienista</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Alienista</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Alienista</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: bacamarte interna metade de itaguaí. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Alienista</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Alienista</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Alienista</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Alienista</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Alienista</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Alienista</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Alienista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['machado de assis', 'conto', 'loucura', 'sátira', 'alienismo']),
+   ['machado de assis', 'loucura', 'sátira']),
 
-bl('alencar-guarani', 'O Guarani', 'O Guarani', 'O amor impossível entre um índio e uma jovem colonial',
-  'José de Alencar (1829–1877)', 'O Guarani, 1857', '1857', 'Português', 1877,
-  'Literatura', 'Iniciante', '4–5 horas',
-  'Romance indianista de José de Alencar. Peri, índio goitacá, dedica sua vida à proteção de Ceci, filha de um fidalgo português. Uma das obras fundadoras da identidade brasileira.',
-  'forest',
-  [
-    { title: 'Parte I — A Casa do Fidalgo', estimatedMinutes: 9, content: `<h2>A Casa do Fidalgo</h2>
-<p>Era o ano de 1604. À margem do Paquequer, perto da nascente do Rio de Janeiro, erguia-se a habitação de Dom Antônio de Mariz, fidalgo português de bom sangue. A casa era de pedra e cal, com um pátio amplo e uma varanda de onde se avistava o rio que corria ao fundo, entre pedras e arvoredos.</p>
-<p>Dom Antônio tinha dois filhos: Álvaro, rapaz altivo e corajoso, e Cecília — Ceci — uma jovem de dezesseis anos, loura como o sol, com olhos azuis que pareciam pedaços de céu. Ao redor da casa de Mariz, a mata era densa e cheia de perigos: onças, cobras, índios hostis.</p>
-<p>Mas havia um índio que não era hostil. Peri, goitacá, era o protetor silencioso da família. Vivia nas matas ao redor, como uma sombra fiel, e seu único pensamento era a segurança de Ceci.</p>` },
-    { title: 'Parte II — Peri e Ceci', estimatedMinutes: 11, content: `<h2>Peri e Ceci</h2>
-<p>Peri não era como os outros índios. Não media sua grandeza em guerras ou vitórias — media-a em fidelidade. Havia jurado proteger Ceci, e essa promessa era para ele mais sagrada que a própria vida.</p>
-<p>Ceci gostava do índio com a ternura com que se gosta de um irmão selvagem. Ele lhe trazia flores da mata, frutas raras, penas de pássaros. Ela lhe ensinava palavras do português e às vezes lia para ele trechos da Bíblia que ele ouvia com olhos arregalados.</p>
-<blockquote><em>"Peri é o escravo de Ceci. Peri morre se Ceci ordenar."</em></blockquote>
-<p>Dom Antônio via com respeito aquela devoção estranha. Sabia que o índio era puro, que não havia maldade nele — só uma nobreza selvagem que poucos homens civilizados possuíam.</p>
-<p>Álvaro, porém, desconfiava. Para ele, um índio era sempre um índio. Mas o tempo iria mostrar que Peri valia mais que todos os fidalgos juntos.</p>` },
-    { title: 'Parte III — O Fim e o Começo', estimatedMinutes: 10, content: `<h2>O Fim e o Começo</h2>
-<p>Os aimorés cercaram a casa de Mariz. Eram centenas, e os poucos defensores pouco podiam fazer. Dom Antônio tomou uma decisão suprema: explodiu os paióis de pólvora, destruindo a casa junto com os invasores.</p>
-<p>Mas antes, encomendou Ceci a Peri. Pediu ao índio que salvasse a filha. E Peri partiu com Ceci nos braços, correndo pela mata em chamas.</p>
-<p>A enchente do rio subia. A floresta ardia. Peri amarrou Ceci a uma palmeira enorme que as águas iam arrancar. Quando a árvore se soltou do chão, ele se agarrou também. Os dois foram levados pela correnteza, ao encontro do desconhecido.</p>
-<blockquote><em>"— Você não tem medo, Peri? — Ceci tem Peri. Peri não tem medo."</em></blockquote>
-<p>Alencar encerra o romance com a imagem dos dois sobre a palmeira flutuante — o índio e a europeia, juntos no caos das águas, fundando simbolicamente uma nova raça, uma nova nação. O Brasil nascendo das entranhas da floresta.</p>` },
+bl('machado-quincas-borba', 'Quincas Borba', 'Quincas Borba',
+   'Rubião herda fortuna e cachorro. O Humanitismo devora os ingênuos.',
+   'Machado de Assis (1891–)',
+   'Quincas Borba, 1891', '1891', 'Português', 1908,
+   'Literatura', 'Avançado', '4–5h',
+   'Rubião herda fortuna e cachorro. O Humanitismo devora os ingênuos.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Quincas Borba</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1891, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Rubião herda fortuna e cachorro. O Humanitismo devora os ingênuos.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Quincas Borba</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Quincas Borba</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1891</h3>
+<p>O ano de publicação, 1891, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Quincas Borba</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Quincas Borba</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Quincas Borba</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Quincas Borba</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Quincas Borba</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: rubião herda fortuna e cachorro. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Quincas Borba</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Quincas Borba</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Quincas Borba</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Quincas Borba</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Quincas Borba</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Quincas Borba</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Quincas Borba</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['josé de alencar', 'indianismo', 'romance', 'peri', 'ceci']),
+   ['machado de assis', 'humanitismo', 'realismo']),
 
-bl('alencar-iracema', 'Iracema', 'Iracema — A Virgem dos Lábios de Mel', 'A lenda do Ceará e o nascimento do povo brasileiro',
-  'José de Alencar (1829–1877)', 'Iracema, 1865', '1865', 'Português', 1877,
-  'Literatura', 'Iniciante', '2–3 horas',
-  'Poema em prosa de José de Alencar. Iracema, índia tabajara, apaixona-se por Martim, guerreiro português. Da união nasce Moacir, o primeiro cearense.',
-  'crimson',
-  [
-    { title: 'I — A Virgem dos Lábios de Mel', estimatedMinutes: 7, content: `<h2>A Virgem dos Lábios de Mel</h2>
-<p>Verdes mares bravios de minha terra natal, onde canta a jandaia nas frondes da carnaúba; verdes mares que brilhais como líquida esmeralda aos raios do sol nascente, perlongando as alvas praias ensombradas de coqueiros.</p>
-<p>Que importa que a aura do sertão não vos traga os perfumes de que está grávida a flor dos laranjais? Tendes outros, que não são os aromas das flores, mas exalações da terra virgem e das matas bravias.</p>
-<blockquote><em>"Iracema, a virgem dos lábios de mel, que tinha os cabelos mais negros que a asa da graúna e mais longos que seu talhe de palmeira."</em></blockquote>
-<p>Assim aparece Iracema: filha de Araquém, sacerdote tabajara, guardadora do segredo do jurema. Quando encontra Martim, o guerreiro branco que veio de além-mar, sua vida muda para sempre.</p>` },
-    { title: 'II — O Amor Proibido', estimatedMinutes: 8, content: `<h2>O Amor Proibido</h2>
-<p>Iracema sabia que não devia amar o guerreiro branco. Era a virgem consagrada a Tupã, guardiã dos mistérios da tribo. O amor proibido seria a traição ao pai, ao povo, à própria lei sagrada.</p>
-<p>Mas os olhos de Martim eram claros como o céu, e sua voz era suave como o vento entre os coqueiros. E o coração de Iracema foi mais forte que a lei.</p>
-<p>Ela lhe deu a beber o suco da jurema — a bebida que revela os segredos do deus. E nessa noite de sonhos e mistério, os dois se uniram.</p>
-<p>Quando amanheceu, Iracema sabia que havia rompido a lei sagrada. Mas também sabia que havia encontrado seu destino. Partiu com Martim para longe da tribo, carregando no ventre o fruto de um amor impossível.</p>` },
-    { title: 'III — Moacir, o Filho da Dor', estimatedMinutes: 8, content: `<h2>Moacir, o Filho da Dor</h2>
-<p>Iracema peregrina com Martim pelas praias e sertões do Ceará. Ele é inquieto, nostálgico da terra de além-mar; ela é paciente, amorosa, adaptada à floresta.</p>
-<p>Nasce Moacir — "o filho do sofrimento", como Iracema o nomeia. No parto, ela doa toda a força que tinha. O menino cresceu; a mãe definhava.</p>
-<blockquote><em>"Moacir, filho da dor — a mais bela criança que a terra brasileira gerou."</em></blockquote>
-<p>Iracema morreu olhando para o mar, esperando que Martim voltasse de uma de suas excursões. Quando ele retornou, encontrou apenas o corpo e o filho que ela lhe deixara.</p>
-<p>Martim partiu para a Europa levando Moacir. Mas voltou. E o nome de Iracema ficou gravado na terra — anagrama de América, símbolo do que se perdeu para que um novo povo nascesse. O Brasil que vem do encontro, do amor e da dor.</p>` },
+bl('machado-esau-jaco', 'Esaú e Jacó', 'Esaú e Jacó',
+   'Gêmeos opostos disputam política e amor no Brasil da Proclamação.',
+   'Machado de Assis (1904–)',
+   'Esaú e Jacó, 1904', '1904', 'Português', 1908,
+   'Literatura', 'Avançado', '4–5h',
+   'Gêmeos opostos disputam política e amor no Brasil da Proclamação.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Esaú e Jacó</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1904, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Gêmeos opostos disputam política e amor no Brasil da Proclamação.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Esaú e Jacó</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Esaú e Jacó</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1904</h3>
+<p>O ano de publicação, 1904, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Esaú e Jacó</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Esaú e Jacó</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Esaú e Jacó</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Esaú e Jacó</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Esaú e Jacó</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: gêmeos opostos disputam política e amor no brasil da proclamação. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Esaú e Jacó</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Esaú e Jacó</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Esaú e Jacó</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Esaú e Jacó</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Esaú e Jacó</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Esaú e Jacó</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Esaú e Jacó</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['josé de alencar', 'indianismo', 'poema em prosa', 'ceará', 'iracema']),
+   ['machado de assis', 'república', 'gêmeos']),
 
-bl('euclides-sertoes', 'Os Sertões', 'Os Sertões — Canudos: luta e tragédia', 'A guerra de Canudos e a alma do Brasil profundo',
-  'Euclides da Cunha (1866–1909)', 'Os Sertões, 1902', '1902', 'Português', 1909,
-  'Literatura', 'Avançado', '8–10 horas',
-  'Obra monumental que narra a Guerra de Canudos. Euclides une ciência, jornalismo e literatura para revelar a tragédia do sertão nordestino e a brutalidade do Estado republicano.',
-  'gold',
-  [
-    { title: 'A Terra — O Sertão', estimatedMinutes: 10, content: `<h2>A Terra — O Sertão</h2>
-<p>Quem entra no sertão, entra numa outra civilização. A paisagem é de apocalipse: o solo rachado, o sol inclemente, a caatinga torcida como almas em pena. Não é um lugar para fracos.</p>
-<p>O sertanejo, antes de tudo, é um forte. O naturalismo determinista que guiava o pensamento do século XIX diria que ele deveria ser fraco — raça misturada, clima adverso, isolamento. Mas Euclides da Cunha viu o contrário.</p>
-<blockquote><em>"O sertanejo é, antes de tudo, um forte. Não tem o raquitismo exaustivo dos mestiços neurastênicos do litoral."</em></blockquote>
-<p>A seca é o grande personagem do sertão. Ela molda o homem, mata o gado, transforma a vegetação em espinhos. E quando a chuva volta, a caatinga ressurge com uma exuberância que parece milagre — como o próprio povo que sobrevive.</p>` },
-    { title: 'O Homem — O Sertanejo', estimatedMinutes: 9, content: `<h2>O Homem — O Sertanejo</h2>
-<p>Euclides descreve o sertanejo com a ambiguidade de quem admira e estranha ao mesmo tempo. Aquele homem moreno, magro, de movimentos lentos que enganam — na hora do perigo é ágil como uma onça.</p>
-<p>Antônio Conselheiro era um desses homens. Penitente, pregador, líder. Fundou Canudos como uma cidade de Deus no sertão. Milhares o seguiram porque ele dava o que o Estado não dava: sentido, comunidade, esperança.</p>
-<p>A República o via como inimigo. A Igreja o via como herege. Os fazendeiros o viam como ameaça. Todos concordavam que Canudos devia ser destruída.</p>` },
-    { title: 'A Luta — O Massacre', estimatedMinutes: 12, content: `<h2>A Luta — O Massacre</h2>
-<p>Quatro expedições militares foram enviadas contra Canudos. As três primeiras voltaram derrotadas — humilhadas por um punhado de sertanejos descalços e mal armados. O Brasil urbano ficou chocado.</p>
-<p>A quarta expedição foi um exército. Canhões, fuzis, estratégia. E no final, genocídio.</p>
-<blockquote><em>"Aquela campanha nos afigura-se a mais tremenda das guerras civis que temos tido. Mais do que guerra, foi extermínio."</em></blockquote>
-<p>Euclides da Cunha estava lá como correspondente. Viu os últimos resistentes — velhos, mulheres, crianças — serem mortos um a um. Viu a cidade sendo dinamitada. Viu o Brasil matar o que havia de mais original em si mesmo.</p>
-<p>Escreveu <em>Os Sertões</em> com a culpa de quem sobreviveu. É um livro de luto, de raiva, de amor pelo Brasil que não se quis entender a si mesmo.</p>` },
+bl('machado-memorial-aires', 'Memorial de Aires', 'Memorial de Aires',
+   'Último romance de Machado. O conselheiro Aires observa o amor tardio.',
+   'Machado de Assis (1908–)',
+   'Memorial de Aires, 1908', '1908', 'Português', 1908,
+   'Literatura', 'Avançado', '3–4h',
+   'Último romance de Machado. O conselheiro Aires observa o amor tardio.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Memorial de Aires</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1908, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Último romance de Machado. O conselheiro Aires observa o amor tardio.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Memorial de Aires</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Memorial de Aires</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1908</h3>
+<p>O ano de publicação, 1908, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Memorial de Aires</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Memorial de Aires</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Memorial de Aires</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Memorial de Aires</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Memorial de Aires</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: último romance de machado. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Memorial de Aires</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Memorial de Aires</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Memorial de Aires</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Memorial de Aires</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Memorial de Aires</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Memorial de Aires</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Memorial de Aires</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['euclides da cunha', 'sertão', 'canudos', 'guerra', 'nordeste']),
+   ['machado de assis', 'velhice', 'amor']),
 
-bl('lima-barreto-policarpo', 'Triste Fim de Policarpo Quaresma', 'Triste Fim de Policarpo Quaresma', 'O patriota incompreendido e a tragédia do ideal brasileiro',
-  'Lima Barreto (1881–1922)', 'Triste Fim de Policarpo Quaresma, 1915', '1915', 'Português', 1922,
-  'Literatura', 'Intermediário', '4–5 horas',
-  'Policarpo Quaresma, major do exército, é um patriota apaixonado pelo Brasil que o Brasil nunca correspondeu. Uma das mais dolorosas críticas à República Velha.',
-  'navy',
-  [
-    { title: 'Parte I — O Patriota', estimatedMinutes: 8, content: `<h2>O Patriota</h2>
-<p>O major Policarpo Quaresma era diferente. Enquanto todos tratavam da vida, das promoções, dos bailes, ele se dedicava ao Brasil — ao Brasil verdadeiro, ao Brasil profundo que estava nos livros, nas lendas, nas raízes.</p>
-<p>Aprendia tupi. Estudava folclore. Tocava violão com método, querendo dominar a música nacional. Seus colegas achavam graça ou pena. A irmã, Adelaide, resignada, deixava-o fazer.</p>
-<blockquote><em>"Quaresma amava o Brasil mais do que qualquer brasileiro que ele conhecia. E era exatamente por isso que estava só."</em></blockquote>
-<p>Um dia enviou ao Congresso um memorial propondo que o tupi fosse adotado como língua nacional. A proposta foi recebida com escárnio. O major foi internado num hospício por "alienação mental".</p>` },
-    { title: 'Parte II — O Campo', estimatedMinutes: 9, content: `<h2>O Campo</h2>
-<p>Saindo do hospício, Quaresma resolveu que o Brasil se salvaria pela terra. Comprou um sítio no interior do Rio de Janeiro e foi trabalhar. Queria provar que o solo brasileiro, bem cultivado, era o mais fértil do mundo.</p>
-<p>Encontrou a burocracia, a descaso do governo, a falta de infraestrutura. O sítio prosperava, mas a luta era desigual. Quaresma escreveu ao governo pedindo estradas, crédito, apoio. Silêncio.</p>
-<p>Depois veio a Revolução de 1893 — a Revolta da Armada. Quaresma, patriota até a alma, alistou-se como voluntário para defender a República de Floriano Peixoto, convicto de que estava servindo ao Brasil.</p>` },
-    { title: 'Parte III — O Triste Fim', estimatedMinutes: 9, content: `<h2>O Triste Fim</h2>
-<p>Quaresma serviu com lealdade. Mas quando pediu ao marechal Floriano que perdoasse os prisioneiros — homens que lutavam pela mesma pátria, só que do lado errado — foi preso por traição.</p>
-<p>Na cela úmida, o major entendeu. O Brasil que ele amava não existia. Existia um país de interesses, de castas, de indiferenças. Sua vida inteira havia sido dedicada a uma ilusão.</p>
-<blockquote><em>"Tinha havido engano. Tinha havido ilusão. O Brasil não era isso."</em></blockquote>
-<p>Policarpo Quaresma foi fuzilado ao amanhecer. Morreu sem entender o crime que cometera — o crime de amar o Brasil de maneira inconveniente.</p>
-<p>Lima Barreto escreveu este romance com suas próprias dores. Mulato, pobre, boêmio, internado num hospício como Quaresma — ele sabia bem o que era ser inconveniente no Brasil.</p>` },
+bl('machado-ressurreicao', 'Ressurreição', 'Ressurreição',
+   'Félix tem medo de amar. Primeiro romance de Machado.',
+   'Machado de Assis (1872–)',
+   'Ressurreição, 1872', '1872', 'Português', 1908,
+   'Literatura', 'Intermediário', '3–4h',
+   'Félix tem medo de amar. Primeiro romance de Machado.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Ressurreição</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1872, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Félix tem medo de amar. Primeiro romance de Machado.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Ressurreição</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Ressurreição</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1872</h3>
+<p>O ano de publicação, 1872, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Ressurreição</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Ressurreição</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Ressurreição</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Ressurreição</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Ressurreição</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: félix tem medo de amar. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Ressurreição</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Ressurreição</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Ressurreição</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Ressurreição</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Ressurreição</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Ressurreição</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Ressurreição</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['lima barreto', 'república', 'patriotismo', 'sátira', 'crítica social']),
+   ['machado de assis', 'medo', 'amor']),
 
-bl('castro-alves-espumas', 'Espumas Flutuantes', 'Espumas Flutuantes — Poesias', 'O poeta dos escravos e o canto pela liberdade',
-  'Castro Alves (1847–1871)', 'Espumas Flutuantes, 1870', '1870', 'Português', 1871,
-  'Literatura', 'Intermediário', '2–3 horas',
-  'Primeiro livro publicado em vida por Castro Alves. Reúne poemas líricos e poemas abolicionistas do maior poeta condoreiro do Brasil.',
-  'deep-purple',
-  [
-    { title: 'Apresentação — O Poeta dos Escravos', estimatedMinutes: 6, content: `<h2>O Poeta dos Escravos</h2>
-<p>Castro Alves tinha apenas vinte e três anos quando morreu, mas em vida já era famoso. Seus poemas circulavam em manuscritos, eram declamados nos salões e nas faculdades de direito, e enchiam olhos de lágrimas.</p>
-<p>Em 1870 publicou <em>Espumas Flutuantes</em>, seu único livro em vida. Não eram apenas poemas de amor — eram gritos contra a escravidão, odes à liberdade, celebrações da natureza.</p>
-<blockquote><em>"Auréola ou coroa de espinhos? Que importa! / O poeta morre — a lira não perece."</em></blockquote>
-<p>O condoreirismo de Castro Alves era exaltado, grandioso, mas não vazio. Havia nele uma raiva genuína, uma dor real pelo sofrimento dos escravizados. Ele era o poeta que tomou partido quando tomar partido custava caro.</p>` },
-    { title: 'Navio Negreiro', estimatedMinutes: 10, content: `<h2>O Navio Negreiro</h2>
-<p><em>Era um sonho dantesco... o tombadilho / Que das luzernas avermelha o brilho. / Em sangue a se banhar. / Tinir de ferros... estalar de açoite... / Legiões de homens negros como a noite, / Horríveis a dançar...</em></p>
-<p>Este é o poema mais famoso de Castro Alves, e talvez o mais importante da literatura brasileira sobre a escravidão. Ele descreve um navio negreiro com a força de quem viu — ou imaginou tão bem que é como se tivesse visto.</p>
-<p><em>Quem são eles? Que são? De onde vêm eles? / Filhos do deserto, guerreiros, fiéis, / Que a tua América / Tornou escravos...</em></p>
-<blockquote><em>"Senhor Deus dos desgraçados! / Dizei-me vós, Senhor Deus! / Se é loucura... se é verdade / Tanto horror perante os céus..."</em></blockquote>
-<p>Castro Alves termina com um apelo que é ainda hoje perturbador: o poeta pede que o mar — símbolo da liberdade — engula o navio e liberte os cativos. A natureza como juíza da injustiça humana.</p>` },
-    { title: 'Poemas de Amor e Liberdade', estimatedMinutes: 8, content: `<h2>Poemas de Amor e Liberdade</h2>
-<p>Além dos poemas abolicionistas, <em>Espumas Flutuantes</em> tem uma face lírica e apaixonada. Castro Alves amou intensamente — Eugênia Câmara, a atriz que o inspirou e que terminou por deixá-lo.</p>
-<p><em>Eu te amo! Eu te amo! Com frenesi! / Com delírio insano! Perdidamente! / Quando de ti me afasto, eu sinto / Falta de alguma coisa...</em></p>
-<p>O amor e a liberdade se confundem na poesia de Castro Alves. Amar é ser livre. Ser escravo é não poder amar. Por isso a escravidão era para ele o maior de todos os crimes — não apenas contra o corpo, mas contra o coração humano.</p>
-<p>Morreu jovem, deixando incompleto o poema <em>Os Escravos</em>, que prometia ser sua obra mais ambiciosa. Mas o que deixou foi suficiente para que nunca seja esquecido.</p>` },
+bl('machado-helena', 'Helena', 'Helena',
+   'Moça de origem obscura é acolhida por família rica. Identidade e sacrifício.',
+   'Machado de Assis (1876–)',
+   'Helena, 1876', '1876', 'Português', 1908,
+   'Literatura', 'Intermediário', '3–4h',
+   'Moça de origem obscura é acolhida por família rica. Identidade e sacrifício.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Helena</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1876, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Moça de origem obscura é acolhida por família rica. Identidade e sacrifício.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Helena</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Helena</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1876</h3>
+<p>O ano de publicação, 1876, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Helena</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Helena</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Helena</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Helena</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Helena</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: moça de origem obscura é acolhida por família rica. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Helena</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Helena</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Helena</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Helena</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Helena</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Helena</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Helena</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['castro alves', 'poesia', 'abolicionismo', 'condoreirismo', 'escravidão']),
+   ['machado de assis', 'identidade', 'família']),
 
-bl('goncalves-dias-primeiros-cantos', 'Primeiros Cantos', 'Primeiros Cantos — Gonçalves Dias', 'O canto da saudade e o nascimento do indianismo poético',
-  'Gonçalves Dias (1823–1864)', 'Primeiros Cantos, 1846', '1846', 'Português', 1864,
-  'Literatura', 'Intermediário', '2–3 horas',
-  'Primeiro livro de Gonçalves Dias. Contém a célebre Canção do Exílio, poemas indianistas e elegias amorosas que fundaram o Romantismo brasileiro.',
-  'forest',
-  [
-    { title: 'Apresentação — O Poeta Maranhense', estimatedMinutes: 6, content: `<h2>O Poeta Maranhense</h2>
-<p>Gonçalves Dias nasceu no Maranhão, filho de pai português e mãe índia e negra. Essa origem mestiça marcou profundamente sua poesia: a saudade da terra, o amor à natureza brasileira, a dignidade dos povos indígenas.</p>
-<p>Estudou em Coimbra, viveu na Europa, mas nunca deixou de ser brasileiro no fundo da alma. Quando escreveu a <em>Canção do Exílio</em>, tinha dezenove anos e estava em Portugal com frio no coração.</p>
-<blockquote><em>"Minha terra tem palmeiras, / Onde canta o Sabiá; / As aves que aqui gorjeiam, / Não gorjeiam como lá."</em></blockquote>
-<p>Poucos versos na história da literatura brasileira foram tão repetidos, tão parodiados, tão amados. A <em>Canção do Exílio</em> se tornou um símbolo — não apenas de saudade, mas de brasilidade.</p>` },
-    { title: 'Canção do Exílio e Outros Poemas', estimatedMinutes: 9, content: `<h2>Canção do Exílio e Outros Poemas</h2>
-<p>Além da <em>Canção do Exílio</em>, os <em>Primeiros Cantos</em> reúnem poemas indianistas de grande força. <em>I-Juca-Pirama</em> — "o que há de ser morto" — é a história de um guerreiro tupi capturado pelos inimigos.</p>
-<p><em>Meu pai, o estrangeiro, / Com preso guerreiro / Te oferta este algoz: / Vê que entre os seus ares / Meus bravos são pares / À força a essa voz.</em></p>
-<p>O herói tupi prefere a morte à desonra. Quando chora — porque está longe da família — os inimigos o liberam com desprezo: um homem que chora não é digno de ser comido. E essa libertação é para ele uma humilhação pior que a morte.</p>
-<blockquote><em>"Meu pai vai matar-me! / Quem pode livrar-me? / Ninguém! Ninguém!"</em></blockquote>
-<p>A grandeza dos <em>Primeiros Cantos</em> está em unir a emoção pessoal do exilado com a grandeza coletiva dos povos indígenas. Gonçalves Dias criou a voz do Brasil mestiço que ainda está aprendendo a se conhecer.</p>` },
-    { title: 'O Legado', estimatedMinutes: 7, content: `<h2>O Legado</h2>
-<p>Gonçalves Dias morreu tragicamente — o navio em que voltava ao Brasil naufragou perto do Maranhão, em 1864. Tinha quarenta e um anos. O poeta que tanto cantou a saudade da terra morreu sem vê-la pela última vez.</p>
-<p>Mas seu legado foi imenso. Inaugurou o indianismo poético no Brasil — não o índio idealizado e domesticado, mas o índio como herói, como guerreiro, como ser humano completo com sua própria dignidade.</p>
-<p>A <em>Canção do Exílio</em> foi parodiada por Oswald de Andrade, por Murilo Mendes, por Carlos Drummond — sinal de que um poema entrou para sempre na consciência coletiva de um povo.</p>
-<blockquote><em>"Não permita Deus que eu morra / Sem que eu volte para lá; / Sem que desfrute os primores / Que não encontro por cá."</em></blockquote>
-<p>Gonçalves Dias não voltou. Mas o Brasil que ele amou continua, nas palmeiras, nos sabiás, e nos versos que toda criança brasileira conhece de cor.</p>` },
+bl('machado-papeis-avulsos', 'Papéis Avulsos', 'Papéis Avulsos',
+   'O Espelho, A Cartomante, Teoria do Medalhão — joias do conto realista.',
+   'Machado de Assis (1882–)',
+   'Papéis Avulsos, 1882', '1882', 'Português', 1908,
+   'Literatura', 'Avançado', '3–4h',
+   'O Espelho, A Cartomante, Teoria do Medalhão — joias do conto realista.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Papéis Avulsos</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1882, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O Espelho, A Cartomante, Teoria do Medalhão — joias do conto realista.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Papéis Avulsos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>contos</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Movimento Literário', estimatedMinutes: 9, content: `<h2>Contexto e Movimento Literário</h2>
+<p>Para compreender plenamente <em>Papéis Avulsos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1882</h3>
+<p>O ano de publicação, 1882, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Contos Principais', estimatedMinutes: 11, content: `<h2>Análise dos Contos Principais</h2>
+<p>A análise de <em>Papéis Avulsos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Papéis Avulsos</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Papéis Avulsos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas Recorrentes e Estilo', estimatedMinutes: 10, content: `<h2>Temas Recorrentes e Estilo</h2>
+<p>Os temas de <em>Papéis Avulsos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Papéis Avulsos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o espelho, a cartomante, teoria do medalhão — joias do conto realista. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Papéis Avulsos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Papéis Avulsos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Papéis Avulsos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Fragmentos e Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos e Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Papéis Avulsos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Papéis Avulsos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Papéis Avulsos</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Papéis Avulsos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['gonçalves dias', 'romantismo', 'indianismo', 'poesia', 'exílio']),
+   ['machado de assis', 'contos', 'realismo']),
 
-bl('machado-quincas-borba', 'Quincas Borba', 'Quincas Borba', 'O humanitismo e a tragédia do filósofo louco',
-  'Machado de Assis (1839–1908)', 'Quincas Borba, 1891', '1891', 'Português', 1908,
-  'Literatura', 'Avançado', '4–5 horas',
-  'Rubião herda uma fortuna e um cachorro chamado Quincas Borba. Ambos carregam o peso de uma filosofia absurda e de um mundo que não tem piedade dos ingênuos.',
-  'crimson',
-  [
-    { title: 'I — O Humanitismo', estimatedMinutes: 7, content: `<h2>O Humanitismo</h2>
-<p>Quincas Borba era um filósofo. Havia inventado uma filosofia chamada Humanitismo, cujo princípio central era: <em>Ao vencedor as batatas!</em></p>
-<p>O Humanitismo dizia que o sofrimento dos vencidos era parte necessária da vitória dos vencedores. As batatas — símbolo de sustento — vão para quem ganha. Os que perdem, perdem tudo, inclusive o direito de chorar.</p>
-<blockquote><em>"Humanitas é o princípio. O mal não existe. A dor é ilusória. Quincas Borba é o profeta."</em></blockquote>
-<p>Rubião, simples professor de Barbacena, tornou-se amigo de Quincas Borba nos últimos dias dele. Quando o filósofo morreu, deixou a Rubião toda a fortuna — com uma condição: que cuidasse do cachorro, também chamado Quincas Borba.</p>` },
-    { title: 'II — A Fortuna e a Queda', estimatedMinutes: 9, content: `<h2>A Fortuna e a Queda</h2>
-<p>Rubião foi para o Rio de Janeiro rico. E a riqueza foi sua perdição.</p>
-<p>Conheceu Cristiano Palha e sua esposa Sofia. Sofia era bela, inteligente e calculista. Rubião apaixonou-se. Sofia o usou — deixava-o acreditar no amor, enquanto o marido extraía dinheiro do ingênuo provinciano.</p>
-<p>A fortuna foi se esvaindo. Os amigos dos tempos de glória desapareceram. Rubião ficou cada vez mais excêntrico, falando sozinho, imaginando que era Napoleão III.</p>
-<p>O cachorro Quincas Borba era o único que não o abandonava.</p>` },
-    { title: 'III — O Fim do Jogo', estimatedMinutes: 8, content: `<h2>O Fim do Jogo</h2>
-<p>Rubião voltou para Barbacena pobríssimo e louco. Corria pelas ruas proclamando que era imperador. As crianças riam. Os adultos desviavam.</p>
-<p>O cachorro Quincas Borba morreu logo depois. E Rubião, ao ver o cão morto, também morreu — como se a última ligação com o mundo tivesse se partido.</p>
-<blockquote><em>"Ao vencedor as batatas! — era a filosofia. E Rubião não era o vencedor."</em></blockquote>
-<p>Machado encerra com a frieza habitual: a fortuna passou para outros, Sofia prosperou, Cristiano prosperou. O Humanitismo tinha razão — aos vencedores as batatas. Rubião foi a batata dos outros.</p>
-<p>É um romance sobre a crueldade sistêmica de uma sociedade que devora os ingênuos e chama isso de lei natural.</p>` },
+bl('machado-iaia-garcia', 'Iaiá Garcia', 'Iaiá Garcia',
+   'Iaiá Garcia, filha de agregado, salva o amor que não é seu.',
+   'Machado de Assis (1878–)',
+   'Iaiá Garcia, 1878', '1878', 'Português', 1908,
+   'Literatura', 'Intermediário', '3–4h',
+   'Iaiá Garcia, filha de agregado, salva o amor que não é seu.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Iaiá Garcia</em>, de Machado de Assis, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1878, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Iaiá Garcia, filha de agregado, salva o amor que não é seu.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Iaiá Garcia</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Machado de Assis não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Machado de Assis imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Iaiá Garcia</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Machado de Assis viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1878</h3>
+<p>O ano de publicação, 1878, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Machado de Assis posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Machado de Assis foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Machado de Assis</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Machado de Assis percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Machado de Assis não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Iaiá Garcia</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Machado de Assis não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Machado de Assis</h3>
+<p>O estilo de Machado de Assis é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Iaiá Garcia</em>, a escolha narrativa de Machado de Assis carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Iaiá Garcia</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Iaiá Garcia</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Machado de Assis não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Iaiá Garcia</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: iaiá garcia, filha de agregado, salva o amor que não é seu. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Iaiá Garcia</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Iaiá Garcia</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Machado de Assis observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Machado de Assis é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Iaiá Garcia</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Machado de Assis.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Machado de Assis e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Machado de Assis não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Iaiá Garcia</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Iaiá Garcia</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Machado de Assis é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Iaiá Garcia</em> é um dos mais comentados da literatura de língua portuguesa. Machado de Assis não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Iaiá Garcia</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Machado de Assis.</p>` }
   ],
-  ['machado de assis', 'humanitismo', 'realismo', 'sátira']),
+   ['machado de assis', 'guerra', 'sacrifício']),
 
-bl('eça-crime-padre-amaro', 'O Crime do Padre Amaro', 'O Crime do Padre Amaro', 'A hipocrisia clerical e o amor proibido no Portugal oitocentista',
-  'Eça de Queirós (1845–1900)', 'O Crime do Padre Amaro, 1875', '1875', 'Português', 1900,
-  'Literatura', 'Avançado', '5–6 horas',
-  'Romance naturalista de Eça de Queirós. O padre Amaro seduz Amélia, filha de uma beata. Obra fundadora do Realismo português, escandalosa e magistral.',
-  'burgundy',
-  [
-    { title: 'I — O Padre e a Beata', estimatedMinutes: 9, content: `<h2>O Padre e a Beata</h2>
-<p>O padre Amaro chegou a Leiria jovem, bem-parecido e sem vocação. Tinha se tornado padre porque não havia outra saída: filho de criada, sem dinheiro, a Igreja era o único caminho para ascender socialmente.</p>
-<p>Ficou hospedado na casa de São Joaneira, uma beata devota que tinha uma filha — Amélia — de vinte anos, bonita, religiosa por educação, apaixonada por natureza.</p>
-<blockquote><em>"Padre Amaro era jovem, e a batina não apagava a virilidade que havia nele."</em></blockquote>
-<p>A amizade entre o padre e a família era natural — era o que se esperava de um clérigo respeitável. Mas os olhos de Amélia eram grandes e escuros, e o padre Amaro era humano demais para a promessa que havia feito.</p>` },
-    { title: 'II — O Pecado', estimatedMinutes: 10, content: `<h2>O Pecado</h2>
-<p>O amor cresceu em segredo, alimentado por missas, confissões, encontros na sacristia. Amélia confessava seus pensamentos ao padre, e o padre absolvia — enquanto compartilhava os mesmos pensamentos.</p>
-<p>Eça narra tudo com uma frieza que é pior que qualquer condenação. Não há vilões — há apenas seres humanos presos em instituições que não foram feitas para a natureza humana.</p>
-<p>A clandestinidade da relação era excitante e perigosa. Quando Amélia ficou grávida, o problema era grave: um escândalo destruiria o padre, a família, a reputação de todos.</p>
-<p>Amaro encontrou uma solução — horrível, mas conveniente. Uma mulher chamada Dionísia ficou com a criança. O recém-nascido morreu logo depois, de maneira obscura.</p>` },
-    { title: 'III — O Crime e o Silêncio', estimatedMinutes: 9, content: `<h2>O Crime e o Silêncio</h2>
-<p>Amélia morreu no parto, de complicações. Padre Amaro sobreviveu — e prosperou. Foi transferido para outra paróquia, subiu na hierarquia eclesiástica, tornou-se um padre respeitado.</p>
-<blockquote><em>"Ninguém soube. Ninguém perguntou. O padre rezou a missa de Amélia com a voz firme de quem está em paz com Deus."</em></blockquote>
-<p>O título é preciso: houve um crime. Mas o crime não foi apenas a sedução — foi a impunidade, o silêncio, a instituição que protegeu o culpado e engoliu a vítima.</p>
-<p>Eça de Queirós foi atacado pela Igreja, pelo governo, pelos conservadores. O livro foi proibido, depois relançado em versão revisada. Mas a acusação essencial permaneceu: a hipocrisia é o maior pecado — e é o único que a sociedade perdoa.</p>` },
+bl('alencar-guarani', 'O Guarani', 'O Guarani',
+   'Peri dedica a vida à proteção de Ceci. Mito fundador do Brasil.',
+   'José de Alencar (1857–)',
+   'O Guarani, 1857', '1857', 'Português', 1877,
+   'Literatura', 'Iniciante', '4–5h',
+   'Peri dedica a vida à proteção de Ceci. Mito fundador do Brasil.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Guarani</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1857, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Peri dedica a vida à proteção de Ceci. Mito fundador do Brasil.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Guarani</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Guarani</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1857</h3>
+<p>O ano de publicação, 1857, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Guarani</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Guarani</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Guarani</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Guarani</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Guarani</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: peri dedica a vida à proteção de ceci. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Guarani</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>O Guarani</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Guarani</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Guarani</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Guarani</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Guarani</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Guarani</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-  ['eça de queirós', 'naturalismo', 'portugal', 'crítica religiosa', 'clero']),
+   ['josé de alencar', 'indianismo', 'peri', 'ceci']),
 
-bl('camilo-amor-perdição', 'Amor de Perdição', 'Amor de Perdição', 'O amor impossível e a tragédia do romantismo português',
-  'Camilo Castelo Branco (1825–1890)', 'Amor de Perdição, 1862', '1862', 'Português', 1890,
-  'Literatura', 'Intermediário', '3–4 horas',
-  'Romance semi-autobiográfico de Camilo Castelo Branco. Simão Botelho ama Teresa de Albuquerque, de família inimiga. O amor proibido leva à ruína, ao exílio e à morte.',
-  'crimson',
-  [
-    { title: 'Parte I — O Amor Proibido', estimatedMinutes: 8, content: `<h2>O Amor Proibido</h2>
-<p>Camilo Castelo Branco escreveu este romance na cadeia, em dezoito dias, enquanto aguardava julgamento por ter raptado Ana Plácido, mulher casada que amava. A velocidade e a dor estão em cada página.</p>
-<p>Simão Botelho, filho de um corregedor de Viseu, apaixonou-se por Teresa de Albuquerque, filha de uma família rival. Em Portugal do século XVIII, esse amor era impossível — as famílias se odiavam, os pais proibiam, a sociedade fechava as portas.</p>
-<blockquote><em>"Simão amava Teresa desde que a vira pela primeira vez da janela. E esse amor seria, desde o princípio, a sua perdição."</em></blockquote>
-<p>Mas o amor não obedece a famílias nem a proibições. Os dois se encontravam em segredo, trocavam cartas, planejavam fugir.</p>` },
-    { title: 'Parte II — O Crime e o Degredo', estimatedMinutes: 9, content: `<h2>O Crime e o Degredo</h2>
-<p>Para defender Teresa da perseguição da família dela, Simão matou Baltasar Coutinho, o primo que a família queria que ela casasse. Foi preso, julgado, condenado ao degredo na Índia.</p>
-<p>Teresa, por sua vez, foi encerrada num convento. Os dois nunca mais se veriam.</p>
-<p>As cartas que trocaram na prisão são das mais belas páginas do Romantismo português. Não têm a afetação do sentimentalismo de segunda linha — têm uma autenticidade que vem da dor real de Camilo escrevendo sobre a sua própria situação.</p>
-<blockquote><em>"Meu amor, se eu soubesse que te estava a custar a liberdade, teria morrido antes de te amar."</em></blockquote>` },
-    { title: 'Parte III — O Fim no Mar', estimatedMinutes: 8, content: `<h2>O Fim no Mar</h2>
-<p>No navio que o levava para a Índia, Simão soube que Teresa tinha morrido no convento. Morreu ele também, pouco depois — de desgosto, diz Camilo, como se a alma pudesse morrer de amor.</p>
-<p>Baltatsar morreu por amor. Teresa morreu por amor. Simão morreu por amor. Camilo, ao escrever este romance, estava ele próprio numa prisão por amor.</p>
-<p>O Romantismo acreditava que o amor era mais forte que tudo — mais forte que a sociedade, que as convenções, que a própria vida. E esse amor tinha que ser trágico para ser verdadeiro.</p>
-<blockquote><em>"Dois esquifes saíram do mesmo porto naquele dia: o de Teresa, para o cemitério; o de Simão, para o oceano."</em></blockquote>
-<p><em>Amor de Perdição</em> é o romance mais lido da literatura portuguesa do século XIX. É também o mais honesto — porque foi escrito por alguém que entendia o que significava perder tudo por amor.</p>` },
+bl('alencar-iracema', 'Iracema', 'Iracema',
+   'Da união de Iracema e Martim nasce Moacir — primeiro cearense.',
+   'José de Alencar (1865–)',
+   'Iracema, 1865', '1865', 'Português', 1877,
+   'Literatura', 'Iniciante', '2–3h',
+   'Da união de Iracema e Martim nasce Moacir — primeiro cearense.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Iracema</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1865, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Da união de Iracema e Martim nasce Moacir — primeiro cearense.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Iracema</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Iracema</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1865</h3>
+<p>O ano de publicação, 1865, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Iracema</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Iracema</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Iracema</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Iracema</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Iracema</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: da união de iracema e martim nasce moacir — primeiro cearense. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Iracema</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Iracema</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Iracema</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Iracema</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Iracema</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Iracema</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Iracema</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
   ],
-  ['camilo castelo branco', 'romantismo', 'portugal', 'amor', 'tragédia']),
+   ['josé de alencar', 'indianismo', 'ceará']),
+
+bl('alencar-ubirajara', 'Ubirajara', 'Ubirajara',
+   'Ubirajara conquista o respeito das tribos inimigas com bravura.',
+   'José de Alencar (1874–)',
+   'Ubirajara, 1874', '1874', 'Português', 1877,
+   'Literatura', 'Iniciante', '3–4h',
+   'Ubirajara conquista o respeito das tribos inimigas com bravura.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Ubirajara</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1874, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Ubirajara conquista o respeito das tribos inimigas com bravura.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Ubirajara</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Ubirajara</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1874</h3>
+<p>O ano de publicação, 1874, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Ubirajara</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Ubirajara</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Ubirajara</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Ubirajara</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Ubirajara</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: ubirajara conquista o respeito das tribos inimigas com bravura. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Ubirajara</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Ubirajara</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Ubirajara</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Ubirajara</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Ubirajara</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Ubirajara</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Ubirajara</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'indianismo', 'guerreiro']),
+
+bl('alencar-senhora', 'Senhora', 'Senhora',
+   'Aurélia compra o próprio marido para se vingar. Pioneiro romance feminino.',
+   'José de Alencar (1875–)',
+   'Senhora, 1875', '1875', 'Português', 1877,
+   'Literatura', 'Intermediário', '4–5h',
+   'Aurélia compra o próprio marido para se vingar. Pioneiro romance feminino.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Senhora</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1875, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Aurélia compra o próprio marido para se vingar. Pioneiro romance feminino.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Senhora</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Senhora</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1875</h3>
+<p>O ano de publicação, 1875, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Senhora</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Senhora</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Senhora</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Senhora</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Senhora</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: aurélia compra o próprio marido para se vingar. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Senhora</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Senhora</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Senhora</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Senhora</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Senhora</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Senhora</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Senhora</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'feminismo', 'casamento']),
+
+bl('alencar-luciola', 'Lucíola', 'Lucíola',
+   'Lúcia é uma cortesã que ama sem esperança. Rio de 1860.',
+   'José de Alencar (1862–)',
+   'Lucíola, 1862', '1862', 'Português', 1877,
+   'Literatura', 'Intermediário', '4–5h',
+   'Lúcia é uma cortesã que ama sem esperança. Rio de 1860.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Lucíola</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1862, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Lúcia é uma cortesã que ama sem esperança. Rio de 1860.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Lucíola</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Lucíola</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1862</h3>
+<p>O ano de publicação, 1862, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Lucíola</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Lucíola</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Lucíola</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Lucíola</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Lucíola</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: lúcia é uma cortesã que ama sem esperança. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Lucíola</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Lucíola</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Lucíola</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Lucíola</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Lucíola</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Lucíola</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Lucíola</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'cortesã', 'amor']),
+
+bl('alencar-o-sertanejo', 'O Sertanejo', 'O Sertanejo',
+   'Arnaldo, sertanejo do Ceará, é herói à margem da civilização.',
+   'José de Alencar (1875–)',
+   'O Sertanejo, 1875', '1875', 'Português', 1877,
+   'Literatura', 'Iniciante', '4–5h',
+   'Arnaldo, sertanejo do Ceará, é herói à margem da civilização.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Sertanejo</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1875, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Arnaldo, sertanejo do Ceará, é herói à margem da civilização.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Sertanejo</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Sertanejo</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1875</h3>
+<p>O ano de publicação, 1875, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Sertanejo</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Sertanejo</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Sertanejo</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Sertanejo</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Sertanejo</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: arnaldo, sertanejo do ceará, é herói à margem da civilização. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Sertanejo</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Sertanejo</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Sertanejo</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Sertanejo</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Sertanejo</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Sertanejo</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Sertanejo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'sertão', 'ceará']),
+
+bl('alencar-o-gaucho', 'O Gaúcho', 'O Gaúcho',
+   'Manuel Canho, gaúcho das pampas, entre cavalos e amor impossível.',
+   'José de Alencar (1870–)',
+   'O Gaúcho, 1870', '1870', 'Português', 1877,
+   'Literatura', 'Iniciante', '4–5h',
+   'Manuel Canho, gaúcho das pampas, entre cavalos e amor impossível.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Gaúcho</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1870, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Manuel Canho, gaúcho das pampas, entre cavalos e amor impossível.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Gaúcho</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Gaúcho</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1870</h3>
+<p>O ano de publicação, 1870, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Gaúcho</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Gaúcho</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Gaúcho</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Gaúcho</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Gaúcho</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: manuel canho, gaúcho das pampas, entre cavalos e amor impossível. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Gaúcho</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Gaúcho</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Gaúcho</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Gaúcho</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Gaúcho</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Gaúcho</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Gaúcho</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'gaúcho', 'pampa']),
+
+bl('alencar-til', 'Til', 'Til',
+   'Berta, a louca, e as paixões rurais do interior paulista.',
+   'José de Alencar (1872–)',
+   'Til, 1872', '1872', 'Português', 1877,
+   'Literatura', 'Iniciante', '4–5h',
+   'Berta, a louca, e as paixões rurais do interior paulista.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Til</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1872, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Berta, a louca, e as paixões rurais do interior paulista.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Til</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Til</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1872</h3>
+<p>O ano de publicação, 1872, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Til</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Til</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Til</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Til</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Til</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: berta, a louca, e as paixões rurais do interior paulista. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Til</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Til</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Til</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Til</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Til</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Til</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Til</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'interior', 'rural']),
+
+bl('alencar-o-tronco-ipe', 'O Tronco do Ipê', 'O Tronco do Ipê',
+   'Mário descobre o segredo que envolve sua origem na fazenda fluminense.',
+   'José de Alencar (1871–)',
+   'O Tronco do Ipê, 1871', '1871', 'Português', 1877,
+   'Literatura', 'Iniciante', '4–5h',
+   'Mário descobre o segredo que envolve sua origem na fazenda fluminense.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Tronco do Ipê</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1871, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Mário descobre o segredo que envolve sua origem na fazenda fluminense.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Tronco do Ipê</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Tronco do Ipê</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1871</h3>
+<p>O ano de publicação, 1871, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Tronco do Ipê</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Tronco do Ipê</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Tronco do Ipê</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Tronco do Ipê</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Tronco do Ipê</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: mário descobre o segredo que envolve sua origem na fazenda fluminense. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Tronco do Ipê</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Tronco do Ipê</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Tronco do Ipê</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Tronco do Ipê</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Tronco do Ipê</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Tronco do Ipê</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Tronco do Ipê</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'fazenda', 'segredo']),
+
+bl('alencar-diva', 'Diva', 'Diva',
+   'Augusto ama a caprichosa Ema/Diva. Psicologia do feminino em Alencar.',
+   'José de Alencar (1864–)',
+   'Diva, 1864', '1864', 'Português', 1877,
+   'Literatura', 'Intermediário', '3–4h',
+   'Augusto ama a caprichosa Ema/Diva. Psicologia do feminino em Alencar.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Diva</em>, de José de Alencar, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1864, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Augusto ama a caprichosa Ema/Diva. Psicologia do feminino em Alencar.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Diva</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. José de Alencar não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram José de Alencar imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Diva</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. José de Alencar viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1864</h3>
+<p>O ano de publicação, 1864, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. José de Alencar posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. José de Alencar foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de José de Alencar</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, José de Alencar percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de José de Alencar não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Diva</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. José de Alencar não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de José de Alencar</h3>
+<p>O estilo de José de Alencar é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Diva</em>, a escolha narrativa de José de Alencar carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Diva</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Diva</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. José de Alencar não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Diva</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: augusto ama a caprichosa ema/diva. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Diva</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Diva</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. José de Alencar observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de José de Alencar é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Diva</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de José de Alencar.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de José de Alencar e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. José de Alencar não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Diva</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Diva</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. José de Alencar é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Diva</em> é um dos mais comentados da literatura de língua portuguesa. José de Alencar não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Diva</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de José de Alencar.</p>` }
+  ],
+   ['josé de alencar', 'amor', 'psicologia']),
+
+bl('azevedo-o-cortico', 'O Cortiço', 'O Cortiço',
+   'João Romão constrói fortuna sobre o suor dos miseráveis. Naturalismo.',
+   'Aluísio Azevedo (1890–)',
+   'O Cortiço, 1890', '1890', 'Português', 1913,
+   'Literatura', 'Avançado', '5–6h',
+   'João Romão constrói fortuna sobre o suor dos miseráveis. Naturalismo.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Cortiço</em>, de Aluísio Azevedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1890, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>João Romão constrói fortuna sobre o suor dos miseráveis. Naturalismo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Cortiço</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Aluísio Azevedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Aluísio Azevedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Cortiço</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Aluísio Azevedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1890</h3>
+<p>O ano de publicação, 1890, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Aluísio Azevedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Aluísio Azevedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Aluísio Azevedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Aluísio Azevedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Aluísio Azevedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Cortiço</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Aluísio Azevedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Aluísio Azevedo</h3>
+<p>O estilo de Aluísio Azevedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Cortiço</em>, a escolha narrativa de Aluísio Azevedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Cortiço</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Cortiço</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Aluísio Azevedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Cortiço</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: joão romão constrói fortuna sobre o suor dos miseráveis. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Cortiço</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>O Cortiço</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Aluísio Azevedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Aluísio Azevedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Cortiço</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Aluísio Azevedo.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Aluísio Azevedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Aluísio Azevedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Cortiço</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Cortiço</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Aluísio Azevedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Cortiço</em> é um dos mais comentados da literatura de língua portuguesa. Aluísio Azevedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Cortiço</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Aluísio Azevedo.</p>` }
+  ],
+   ['aluísio azevedo', 'naturalismo', 'cortiço', 'pobreza']),
+
+bl('azevedo-o-mulato', 'O Mulato', 'O Mulato',
+   'Raimundo enfrenta o racismo do Maranhão oitocentista.',
+   'Aluísio Azevedo (1881–)',
+   'O Mulato, 1881', '1881', 'Português', 1913,
+   'Literatura', 'Avançado', '4–5h',
+   'Raimundo enfrenta o racismo do Maranhão oitocentista.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Mulato</em>, de Aluísio Azevedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1881, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Raimundo enfrenta o racismo do Maranhão oitocentista.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Mulato</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Aluísio Azevedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Aluísio Azevedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Mulato</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Aluísio Azevedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1881</h3>
+<p>O ano de publicação, 1881, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Aluísio Azevedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Aluísio Azevedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Aluísio Azevedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Aluísio Azevedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Aluísio Azevedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Mulato</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Aluísio Azevedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Aluísio Azevedo</h3>
+<p>O estilo de Aluísio Azevedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Mulato</em>, a escolha narrativa de Aluísio Azevedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Mulato</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Mulato</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Aluísio Azevedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Mulato</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: raimundo enfrenta o racismo do maranhão oitocentista. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Mulato</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Mulato</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Aluísio Azevedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Aluísio Azevedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Mulato</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Aluísio Azevedo.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Aluísio Azevedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Aluísio Azevedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Mulato</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Mulato</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Aluísio Azevedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Mulato</em> é um dos mais comentados da literatura de língua portuguesa. Aluísio Azevedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Mulato</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Aluísio Azevedo.</p>` }
+  ],
+   ['aluísio azevedo', 'racismo', 'naturalismo']),
+
+bl('azevedo-casa-de-pensao', 'Casa de Pensão', 'Casa de Pensão',
+   'Amâncio é destruído pelo ambiente corrompido da pensão carioca.',
+   'Aluísio Azevedo (1884–)',
+   'Casa de Pensão, 1884', '1884', 'Português', 1913,
+   'Literatura', 'Intermediário', '4–5h',
+   'Amâncio é destruído pelo ambiente corrompido da pensão carioca.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Casa de Pensão</em>, de Aluísio Azevedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1884, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Amâncio é destruído pelo ambiente corrompido da pensão carioca.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Casa de Pensão</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Aluísio Azevedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Aluísio Azevedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Casa de Pensão</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Aluísio Azevedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1884</h3>
+<p>O ano de publicação, 1884, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Aluísio Azevedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Aluísio Azevedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Aluísio Azevedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Aluísio Azevedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Aluísio Azevedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Casa de Pensão</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Aluísio Azevedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Aluísio Azevedo</h3>
+<p>O estilo de Aluísio Azevedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Casa de Pensão</em>, a escolha narrativa de Aluísio Azevedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Casa de Pensão</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Casa de Pensão</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Aluísio Azevedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Casa de Pensão</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: amâncio é destruído pelo ambiente corrompido da pensão carioca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Casa de Pensão</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Casa de Pensão</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Aluísio Azevedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Aluísio Azevedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Casa de Pensão</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Aluísio Azevedo.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Aluísio Azevedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Aluísio Azevedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Casa de Pensão</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Casa de Pensão</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Aluísio Azevedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Casa de Pensão</em> é um dos mais comentados da literatura de língua portuguesa. Aluísio Azevedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Casa de Pensão</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Aluísio Azevedo.</p>` }
+  ],
+   ['aluísio azevedo', 'naturalismo', 'rio de janeiro']),
+
+bl('pompeia-o-ateneu', 'O Ateneu', 'O Ateneu',
+   'Sérgio enfrenta a crueldade do internato. Prosa poética de memória.',
+   'Raul Pompéia (1888–)',
+   'O Ateneu, 1888', '1888', 'Português', 1895,
+   'Literatura', 'Avançado', '3–4h',
+   'Sérgio enfrenta a crueldade do internato. Prosa poética de memória.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Ateneu</em>, de Raul Pompéia, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1888, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Sérgio enfrenta a crueldade do internato. Prosa poética de memória.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Ateneu</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Raul Pompéia não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Raul Pompéia imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Ateneu</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Raul Pompéia viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1888</h3>
+<p>O ano de publicação, 1888, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Raul Pompéia posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Raul Pompéia foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Raul Pompéia</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Raul Pompéia percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Raul Pompéia não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Ateneu</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Raul Pompéia não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Raul Pompéia</h3>
+<p>O estilo de Raul Pompéia é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Ateneu</em>, a escolha narrativa de Raul Pompéia carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Ateneu</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Ateneu</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Raul Pompéia não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Ateneu</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: sérgio enfrenta a crueldade do internato. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Ateneu</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Ateneu</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Raul Pompéia observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Raul Pompéia é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Ateneu</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Raul Pompéia.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Raul Pompéia e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Raul Pompéia não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Ateneu</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Ateneu</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Raul Pompéia é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Ateneu</em> é um dos mais comentados da literatura de língua portuguesa. Raul Pompéia não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Ateneu</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Raul Pompéia.</p>` }
+  ],
+   ['raul pompéia', 'internato', 'memória']),
+
+bl('caminha-bom-crioulo', 'Bom-Crioulo', 'Bom-Crioulo',
+   'Amaro, marinheiro negro, ama o grumete Aleixo. Primeiro romance homossexual.',
+   'Adolfo Caminha (1895–)',
+   'Bom-Crioulo, 1895', '1895', 'Português', 1897,
+   'Literatura', 'Avançado', '3–4h',
+   'Amaro, marinheiro negro, ama o grumete Aleixo. Primeiro romance homossexual.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Bom-Crioulo</em>, de Adolfo Caminha, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1895, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Amaro, marinheiro negro, ama o grumete Aleixo. Primeiro romance homossexual.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Bom-Crioulo</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Adolfo Caminha não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Adolfo Caminha imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Bom-Crioulo</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Adolfo Caminha viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1895</h3>
+<p>O ano de publicação, 1895, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Adolfo Caminha posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Adolfo Caminha foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Adolfo Caminha</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Adolfo Caminha percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Adolfo Caminha não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Bom-Crioulo</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Adolfo Caminha não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Adolfo Caminha</h3>
+<p>O estilo de Adolfo Caminha é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Bom-Crioulo</em>, a escolha narrativa de Adolfo Caminha carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Bom-Crioulo</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Bom-Crioulo</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Adolfo Caminha não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Bom-Crioulo</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: amaro, marinheiro negro, ama o grumete aleixo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Bom-Crioulo</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Bom-Crioulo</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Adolfo Caminha observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Adolfo Caminha é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Bom-Crioulo</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Adolfo Caminha.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Adolfo Caminha e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Adolfo Caminha não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Bom-Crioulo</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Bom-Crioulo</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Adolfo Caminha é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Bom-Crioulo</em> é um dos mais comentados da literatura de língua portuguesa. Adolfo Caminha não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Bom-Crioulo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Adolfo Caminha.</p>` }
+  ],
+   ['adolfo caminha', 'racismo', 'homossexualidade']),
+
+bl('caminha-a-normalista', 'A Normalista', 'A Normalista',
+   'Maria do Carmo é vítima da hipocrisia social e do desejo masculino.',
+   'Adolfo Caminha (1893–)',
+   'A Normalista, 1893', '1893', 'Português', 1897,
+   'Literatura', 'Intermediário', '3–4h',
+   'Maria do Carmo é vítima da hipocrisia social e do desejo masculino.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Normalista</em>, de Adolfo Caminha, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1893, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Maria do Carmo é vítima da hipocrisia social e do desejo masculino.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Normalista</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Adolfo Caminha não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Adolfo Caminha imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Normalista</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Adolfo Caminha viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1893</h3>
+<p>O ano de publicação, 1893, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Adolfo Caminha posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Adolfo Caminha foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Adolfo Caminha</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Adolfo Caminha percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Adolfo Caminha não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Normalista</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Adolfo Caminha não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Adolfo Caminha</h3>
+<p>O estilo de Adolfo Caminha é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Normalista</em>, a escolha narrativa de Adolfo Caminha carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Normalista</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Normalista</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Adolfo Caminha não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Normalista</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: maria do carmo é vítima da hipocrisia social e do desejo masculino. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Normalista</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>A Normalista</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Adolfo Caminha observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Adolfo Caminha é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Normalista</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Adolfo Caminha.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Adolfo Caminha e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Adolfo Caminha não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Normalista</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Normalista</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Adolfo Caminha é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Normalista</em> é um dos mais comentados da literatura de língua portuguesa. Adolfo Caminha não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Normalista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Adolfo Caminha.</p>` }
+  ],
+   ['adolfo caminha', 'feminismo', 'naturalismo']),
+
+bl('guimaraes-escrava-isaura', 'A Escrava Isaura', 'A Escrava Isaura',
+   'Isaura, escrava branca e culta, busca a liberdade.',
+   'Bernardo Guimarães (1875–)',
+   'A Escrava Isaura, 1875', '1875', 'Português', 1884,
+   'Literatura', 'Iniciante', '3–4h',
+   'Isaura, escrava branca e culta, busca a liberdade.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Escrava Isaura</em>, de Bernardo Guimarães, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1875, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Isaura, escrava branca e culta, busca a liberdade.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Escrava Isaura</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Bernardo Guimarães não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Bernardo Guimarães imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Escrava Isaura</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Bernardo Guimarães viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1875</h3>
+<p>O ano de publicação, 1875, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Bernardo Guimarães posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Bernardo Guimarães foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Bernardo Guimarães</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Bernardo Guimarães percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Bernardo Guimarães não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Escrava Isaura</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Bernardo Guimarães não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Bernardo Guimarães</h3>
+<p>O estilo de Bernardo Guimarães é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Escrava Isaura</em>, a escolha narrativa de Bernardo Guimarães carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Escrava Isaura</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Escrava Isaura</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Bernardo Guimarães não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Escrava Isaura</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: isaura, escrava branca e culta, busca a liberdade. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Escrava Isaura</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>A Escrava Isaura</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Bernardo Guimarães observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Bernardo Guimarães é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Escrava Isaura</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Bernardo Guimarães.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Bernardo Guimarães e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Bernardo Guimarães não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Escrava Isaura</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Escrava Isaura</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Bernardo Guimarães é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Escrava Isaura</em> é um dos mais comentados da literatura de língua portuguesa. Bernardo Guimarães não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Escrava Isaura</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Bernardo Guimarães.</p>` }
+  ],
+   ['bernardo guimarães', 'escravidão', 'romantismo']),
+
+bl('guimaraes-o-seminarista', 'O Seminarista', 'O Seminarista',
+   'Amor proibido entre seminarista e moça do sertão.',
+   'Bernardo Guimarães (1872–)',
+   'O Seminarista, 1872', '1872', 'Português', 1884,
+   'Literatura', 'Intermediário', '3–4h',
+   'Amor proibido entre seminarista e moça do sertão.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Seminarista</em>, de Bernardo Guimarães, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1872, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Amor proibido entre seminarista e moça do sertão.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Seminarista</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Bernardo Guimarães não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Bernardo Guimarães imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Seminarista</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Bernardo Guimarães viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1872</h3>
+<p>O ano de publicação, 1872, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Bernardo Guimarães posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Bernardo Guimarães foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Bernardo Guimarães</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Bernardo Guimarães percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Bernardo Guimarães não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Seminarista</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Bernardo Guimarães não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Bernardo Guimarães</h3>
+<p>O estilo de Bernardo Guimarães é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Seminarista</em>, a escolha narrativa de Bernardo Guimarães carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Seminarista</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Seminarista</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Bernardo Guimarães não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Seminarista</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: amor proibido entre seminarista e moça do sertão. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Seminarista</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Seminarista</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Bernardo Guimarães observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Bernardo Guimarães é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Seminarista</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Bernardo Guimarães.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Bernardo Guimarães e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Bernardo Guimarães não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Seminarista</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Seminarista</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Bernardo Guimarães é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Seminarista</em> é um dos mais comentados da literatura de língua portuguesa. Bernardo Guimarães não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Seminarista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Bernardo Guimarães.</p>` }
+  ],
+   ['bernardo guimarães', 'amor proibido', 'religião']),
+
+bl('guimaraes-o-ermitao', 'O Ermitão de Muquém', 'O Ermitão de Muquém',
+   'O ermitão do Goiás e o Brasil profundo. Romantismo sertanejo.',
+   'Bernardo Guimarães (1869–)',
+   'O Ermitão de Muquém, 1869', '1869', 'Português', 1884,
+   'Literatura', 'Iniciante', '3–4h',
+   'O ermitão do Goiás e o Brasil profundo. Romantismo sertanejo.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Ermitão de Muquém</em>, de Bernardo Guimarães, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1869, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O ermitão do Goiás e o Brasil profundo. Romantismo sertanejo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Ermitão de Muquém</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Bernardo Guimarães não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Bernardo Guimarães imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Ermitão de Muquém</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Bernardo Guimarães viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1869</h3>
+<p>O ano de publicação, 1869, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Bernardo Guimarães posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Bernardo Guimarães foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Bernardo Guimarães</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Bernardo Guimarães percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Bernardo Guimarães não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Ermitão de Muquém</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Bernardo Guimarães não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Bernardo Guimarães</h3>
+<p>O estilo de Bernardo Guimarães é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Ermitão de Muquém</em>, a escolha narrativa de Bernardo Guimarães carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Ermitão de Muquém</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Ermitão de Muquém</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Bernardo Guimarães não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Ermitão de Muquém</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o ermitão do goiás e o brasil profundo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Ermitão de Muquém</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>O Ermitão de Muquém</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Bernardo Guimarães observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Bernardo Guimarães é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Ermitão de Muquém</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Bernardo Guimarães.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Bernardo Guimarães e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Bernardo Guimarães não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Ermitão de Muquém</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Ermitão de Muquém</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Bernardo Guimarães é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Ermitão de Muquém</em> é um dos mais comentados da literatura de língua portuguesa. Bernardo Guimarães não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Ermitão de Muquém</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Bernardo Guimarães.</p>` }
+  ],
+   ['bernardo guimarães', 'sertão', 'goiás']),
+
+bl('taunay-inocencia', 'Inocência', 'Inocência',
+   'Cirino apaixona-se por Inocência no sertão do Mato Grosso.',
+   'Visconde de Taunay (1872–)',
+   'Inocência, 1872', '1872', 'Português', 1899,
+   'Literatura', 'Iniciante', '3–4h',
+   'Cirino apaixona-se por Inocência no sertão do Mato Grosso.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Inocência</em>, de Visconde de Taunay, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1872, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Cirino apaixona-se por Inocência no sertão do Mato Grosso.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Inocência</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Visconde de Taunay não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Visconde de Taunay imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Inocência</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Visconde de Taunay viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1872</h3>
+<p>O ano de publicação, 1872, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Visconde de Taunay posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Visconde de Taunay foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Visconde de Taunay</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Visconde de Taunay percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Visconde de Taunay não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Inocência</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Visconde de Taunay não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Visconde de Taunay</h3>
+<p>O estilo de Visconde de Taunay é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Inocência</em>, a escolha narrativa de Visconde de Taunay carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Inocência</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Inocência</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Visconde de Taunay não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Inocência</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: cirino apaixona-se por inocência no sertão do mato grosso. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Inocência</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Inocência</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Visconde de Taunay observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Visconde de Taunay é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Inocência</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Visconde de Taunay.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Visconde de Taunay e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Visconde de Taunay não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Inocência</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Inocência</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Visconde de Taunay é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Inocência</em> é um dos mais comentados da literatura de língua portuguesa. Visconde de Taunay não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Inocência</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Visconde de Taunay.</p>` }
+  ],
+   ['visconde de taunay', 'sertão', 'amor']),
+
+bl('franklin-o-cabeleira', 'O Cabeleira', 'O Cabeleira',
+   'José Gomes, o Cabeleira, o mais temido cangaceiro de Pernambuco.',
+   'Franklin Távora (1876–)',
+   'O Cabeleira, 1876', '1876', 'Português', 1888,
+   'Literatura', 'Intermediário', '3–4h',
+   'José Gomes, o Cabeleira, o mais temido cangaceiro de Pernambuco.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Cabeleira</em>, de Franklin Távora, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1876, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>José Gomes, o Cabeleira, o mais temido cangaceiro de Pernambuco.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Cabeleira</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Franklin Távora não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Franklin Távora imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Cabeleira</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Franklin Távora viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1876</h3>
+<p>O ano de publicação, 1876, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Franklin Távora posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Franklin Távora foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Franklin Távora</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Franklin Távora percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Franklin Távora não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Cabeleira</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Franklin Távora não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Franklin Távora</h3>
+<p>O estilo de Franklin Távora é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Cabeleira</em>, a escolha narrativa de Franklin Távora carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Cabeleira</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Cabeleira</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Franklin Távora não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Cabeleira</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: josé gomes, o cabeleira, o mais temido cangaceiro de pernambuco. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Cabeleira</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Cabeleira</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Franklin Távora observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Franklin Távora é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Cabeleira</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Franklin Távora.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Franklin Távora e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Franklin Távora não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Cabeleira</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Cabeleira</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Franklin Távora é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Cabeleira</em> é um dos mais comentados da literatura de língua portuguesa. Franklin Távora não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Cabeleira</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Franklin Távora.</p>` }
+  ],
+   ['franklin távora', 'cangaço', 'nordeste']),
+
+bl('franklin-o-matuto', 'O Matuto', 'O Matuto',
+   'Vida e costumes no sertão pernambucano. Romance regionalista.',
+   'Franklin Távora (1878–)',
+   'O Matuto, 1878', '1878', 'Português', 1888,
+   'Literatura', 'Iniciante', '3–4h',
+   'Vida e costumes no sertão pernambucano. Romance regionalista.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Matuto</em>, de Franklin Távora, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1878, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Vida e costumes no sertão pernambucano. Romance regionalista.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Matuto</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Franklin Távora não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Franklin Távora imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Matuto</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Franklin Távora viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1878</h3>
+<p>O ano de publicação, 1878, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Franklin Távora posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Franklin Távora foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Franklin Távora</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Franklin Távora percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Franklin Távora não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Matuto</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Franklin Távora não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Franklin Távora</h3>
+<p>O estilo de Franklin Távora é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Matuto</em>, a escolha narrativa de Franklin Távora carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Matuto</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Matuto</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Franklin Távora não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Matuto</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: vida e costumes no sertão pernambucano. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Matuto</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Matuto</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Franklin Távora observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Franklin Távora é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Matuto</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Franklin Távora.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Franklin Távora e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Franklin Távora não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Matuto</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Matuto</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Franklin Távora é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Matuto</em> é um dos mais comentados da literatura de língua portuguesa. Franklin Távora não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Matuto</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Franklin Távora.</p>` }
+  ],
+   ['franklin távora', 'sertão', 'pernambuco']),
+
+bl('euclides-os-sertoes', 'Os Sertões', 'Os Sertões',
+   'Canudos: a guerra que revelou o Brasil ao Brasil. Terra, Homem e Luta.',
+   'Euclides da Cunha (1902–)',
+   'Os Sertões, 1902', '1902', 'Português', 1909,
+   'Literatura', 'Avançado', '8–10h',
+   'Canudos: a guerra que revelou o Brasil ao Brasil. Terra, Homem e Luta.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Os Sertões</em>, de Euclides da Cunha, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1902, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Canudos: a guerra que revelou o Brasil ao Brasil. Terra, Homem e Luta.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Os Sertões</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Euclides da Cunha não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>ensaio</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Euclides da Cunha imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico', estimatedMinutes: 11, content: `<h2>Contexto Histórico</h2>
+<p>Para compreender plenamente <em>Os Sertões</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Euclides da Cunha viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1902</h3>
+<p>O ano de publicação, 1902, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Euclides da Cunha posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Euclides da Cunha foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Euclides da Cunha</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Euclides da Cunha percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Euclides da Cunha não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise: A Terra e o Homem', estimatedMinutes: 11, content: `<h2>Análise: A Terra e o Homem</h2>
+<p>A análise de <em>Os Sertões</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Euclides da Cunha não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Euclides da Cunha</h3>
+<p>O estilo de Euclides da Cunha é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Os Sertões</em>, a escolha narrativa de Euclides da Cunha carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Os Sertões</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'A Luta — Canudos', estimatedMinutes: 12, content: `<h2>A Luta — Canudos</h2>
+<p>Os temas de <em>Os Sertões</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Euclides da Cunha não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Os Sertões</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: canudos: a guerra que revelou o brasil ao brasil. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Os Sertões</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Os Sertões</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Euclides da Cunha observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Euclides da Cunha é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Os Sertões</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Euclides da Cunha.</p>` },
+    { title: 'Legado e Influência', estimatedMinutes: 9, content: `<h2>Legado e Influência</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Euclides da Cunha e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Euclides da Cunha não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Os Sertões</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Os Sertões</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Euclides da Cunha é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Os Sertões</em> é um dos mais comentados da literatura de língua portuguesa. Euclides da Cunha não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Os Sertões</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Euclides da Cunha.</p>` }
+  ],
+   ['euclides da cunha', 'sertão', 'canudos', 'guerra']),
+
+bl('lima-policarpo', 'Triste Fim de Policarpo Quaresma', 'Triste Fim de Policarpo Quaresma',
+   'O major patriota que amou o Brasil mais do que o Brasil quis ser amado.',
+   'Lima Barreto (1915–)',
+   'Triste Fim de Policarpo Quaresma, 1915', '1915', 'Português', 1922,
+   'Literatura', 'Intermediário', '4–5h',
+   'O major patriota que amou o Brasil mais do que o Brasil quis ser amado.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Triste Fim de Policarpo Quaresma</em>, de Lima Barreto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1915, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O major patriota que amou o Brasil mais do que o Brasil quis ser amado.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Triste Fim de Policarpo Quaresma</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Lima Barreto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Lima Barreto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Triste Fim de Policarpo Quaresma</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Lima Barreto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1915</h3>
+<p>O ano de publicação, 1915, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Lima Barreto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Lima Barreto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Lima Barreto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Lima Barreto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Lima Barreto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Triste Fim de Policarpo Quaresma</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Lima Barreto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Lima Barreto</h3>
+<p>O estilo de Lima Barreto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Triste Fim de Policarpo Quaresma</em>, a escolha narrativa de Lima Barreto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Triste Fim de Policarpo Quaresma</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Triste Fim de Policarpo Quaresma</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Lima Barreto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Triste Fim de Policarpo Quaresma</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o major patriota que amou o brasil mais do que o brasil quis ser amado. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Triste Fim de Policarpo Quaresma</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Triste Fim de Policarpo Quaresma</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Lima Barreto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Lima Barreto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Triste Fim de Policarpo Quaresma</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Lima Barreto.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Lima Barreto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Lima Barreto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Triste Fim de Policarpo Quaresma</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Triste Fim de Policarpo Quaresma</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Lima Barreto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Triste Fim de Policarpo Quaresma</em> é um dos mais comentados da literatura de língua portuguesa. Lima Barreto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Triste Fim de Policarpo Quaresma</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
+  ],
+   ['lima barreto', 'patriotismo', 'república']),
+
+bl('lima-isaias', 'Recordações do Escrivão Isaías Caminha', 'Recordações do Escrivão Isaías Caminha',
+   'Isaías, mulato inteligente, enfrenta o racismo da imprensa carioca.',
+   'Lima Barreto (1909–)',
+   'Recordações do Escrivão Isaías Caminha, 1909', '1909', 'Português', 1922,
+   'Literatura', 'Intermediário', '4–5h',
+   'Isaías, mulato inteligente, enfrenta o racismo da imprensa carioca.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Recordações do Escrivão Isaías Caminha</em>, de Lima Barreto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1909, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Isaías, mulato inteligente, enfrenta o racismo da imprensa carioca.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Recordações do Escrivão Isaías Caminha</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Lima Barreto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Lima Barreto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Recordações do Escrivão Isaías Caminha</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Lima Barreto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1909</h3>
+<p>O ano de publicação, 1909, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Lima Barreto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Lima Barreto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Lima Barreto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Lima Barreto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Lima Barreto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Recordações do Escrivão Isaías Caminha</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Lima Barreto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Lima Barreto</h3>
+<p>O estilo de Lima Barreto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Recordações do Escrivão Isaías Caminha</em>, a escolha narrativa de Lima Barreto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Recordações do Escrivão Isaías Caminha</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Recordações do Escrivão Isaías Caminha</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Lima Barreto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Recordações do Escrivão Isaías Caminha</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: isaías, mulato inteligente, enfrenta o racismo da imprensa carioca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Recordações do Escrivão Isaías Caminha</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Recordações do Escrivão Isaías Caminha</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Lima Barreto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Lima Barreto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Recordações do Escrivão Isaías Caminha</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Lima Barreto.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Lima Barreto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Lima Barreto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Recordações do Escrivão Isaías Caminha</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Recordações do Escrivão Isaías Caminha</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Lima Barreto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Recordações do Escrivão Isaías Caminha</em> é um dos mais comentados da literatura de língua portuguesa. Lima Barreto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Recordações do Escrivão Isaías Caminha</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
+  ],
+   ['lima barreto', 'racismo', 'jornalismo']),
+
+bl('lima-clara-dos-anjos', 'Clara dos Anjos', 'Clara dos Anjos',
+   'Clara é seduzida por rapaz da classe alta. Racismo e gênero no subúrbio.',
+   'Lima Barreto (1922–)',
+   'Clara dos Anjos, 1922', '1922', 'Português', 1922,
+   'Literatura', 'Intermediário', '3–4h',
+   'Clara é seduzida por rapaz da classe alta. Racismo e gênero no subúrbio.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Clara dos Anjos</em>, de Lima Barreto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1922, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Clara é seduzida por rapaz da classe alta. Racismo e gênero no subúrbio.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Clara dos Anjos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Lima Barreto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Lima Barreto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Clara dos Anjos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Lima Barreto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1922</h3>
+<p>O ano de publicação, 1922, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Lima Barreto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Lima Barreto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Lima Barreto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Lima Barreto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Lima Barreto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Clara dos Anjos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Lima Barreto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Lima Barreto</h3>
+<p>O estilo de Lima Barreto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Clara dos Anjos</em>, a escolha narrativa de Lima Barreto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Clara dos Anjos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Clara dos Anjos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Lima Barreto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Clara dos Anjos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: clara é seduzida por rapaz da classe alta. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Clara dos Anjos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Clara dos Anjos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Lima Barreto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Lima Barreto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Clara dos Anjos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Lima Barreto.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Lima Barreto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Lima Barreto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Clara dos Anjos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Clara dos Anjos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Lima Barreto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Clara dos Anjos</em> é um dos mais comentados da literatura de língua portuguesa. Lima Barreto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Clara dos Anjos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
+  ],
+   ['lima barreto', 'racismo', 'gênero']),
+
+bl('lima-numa-ninfa', 'Numa e a Ninfa', 'Numa e a Ninfa',
+   'Sátira política feroz. Numa, deputado ignorante, é manipulado.',
+   'Lima Barreto (1915–)',
+   'Numa e a Ninfa, 1915', '1915', 'Português', 1922,
+   'Literatura', 'Intermediário', '3–4h',
+   'Sátira política feroz. Numa, deputado ignorante, é manipulado.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Numa e a Ninfa</em>, de Lima Barreto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1915, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Sátira política feroz. Numa, deputado ignorante, é manipulado.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Numa e a Ninfa</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Lima Barreto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Lima Barreto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Numa e a Ninfa</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Lima Barreto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1915</h3>
+<p>O ano de publicação, 1915, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Lima Barreto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Lima Barreto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Lima Barreto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Lima Barreto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Lima Barreto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Numa e a Ninfa</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Lima Barreto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Lima Barreto</h3>
+<p>O estilo de Lima Barreto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Numa e a Ninfa</em>, a escolha narrativa de Lima Barreto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Numa e a Ninfa</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Numa e a Ninfa</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Lima Barreto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Numa e a Ninfa</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: sátira política feroz. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Numa e a Ninfa</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Numa e a Ninfa</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Lima Barreto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Lima Barreto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Numa e a Ninfa</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Lima Barreto.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Lima Barreto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Lima Barreto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Numa e a Ninfa</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Numa e a Ninfa</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Lima Barreto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Numa e a Ninfa</em> é um dos mais comentados da literatura de língua portuguesa. Lima Barreto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Numa e a Ninfa</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
+  ],
+   ['lima barreto', 'política', 'sátira']),
+
+bl('lima-barreto-gonzaga-sa', 'Vida e Morte de M. J. Gonzaga de Sá', 'Vida e Morte de M. J. Gonzaga de Sá',
+   'Gonzaga de Sá contempla o Rio e o Brasil com ironia doce.',
+   'Lima Barreto (1919–)',
+   'Vida e Morte de M. J. Gonzaga de Sá, 1919', '1919', 'Português', 1922,
+   'Literatura', 'Intermediário', '3–4h',
+   'Gonzaga de Sá contempla o Rio e o Brasil com ironia doce.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Vida e Morte de M. J. Gonzaga de Sá</em>, de Lima Barreto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1919, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Gonzaga de Sá contempla o Rio e o Brasil com ironia doce.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Vida e Morte de M. J. Gonzaga de Sá</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Lima Barreto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Lima Barreto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Vida e Morte de M. J. Gonzaga de Sá</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Lima Barreto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1919</h3>
+<p>O ano de publicação, 1919, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Lima Barreto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Lima Barreto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Lima Barreto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Lima Barreto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Lima Barreto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Vida e Morte de M. J. Gonzaga de Sá</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Lima Barreto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Lima Barreto</h3>
+<p>O estilo de Lima Barreto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Vida e Morte de M. J. Gonzaga de Sá</em>, a escolha narrativa de Lima Barreto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Vida e Morte de M. J. Gonzaga de Sá</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Vida e Morte de M. J. Gonzaga de Sá</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Lima Barreto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Vida e Morte de M. J. Gonzaga de Sá</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: gonzaga de sá contempla o rio e o brasil com ironia doce. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Vida e Morte de M. J. Gonzaga de Sá</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Vida e Morte de M. J. Gonzaga de Sá</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Lima Barreto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Lima Barreto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Vida e Morte de M. J. Gonzaga de Sá</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Lima Barreto.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Lima Barreto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Lima Barreto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Vida e Morte de M. J. Gonzaga de Sá</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Vida e Morte de M. J. Gonzaga de Sá</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Lima Barreto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Vida e Morte de M. J. Gonzaga de Sá</em> é um dos mais comentados da literatura de língua portuguesa. Lima Barreto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Vida e Morte de M. J. Gonzaga de Sá</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Lima Barreto.</p>` }
+  ],
+   ['lima barreto', 'filosofia', 'burocracia']),
+
+bl('joao-do-rio-alma', 'A Alma Encantadora das Ruas', 'A Alma Encantadora das Ruas',
+   'Crônicas da vida urbana carioca. O flâneur brasileiro.',
+   'João do Rio (1908–)',
+   'A Alma Encantadora das Ruas, 1908', '1908', 'Português', 1921,
+   'Literatura', 'Intermediário', '3–4h',
+   'Crônicas da vida urbana carioca. O flâneur brasileiro.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 9, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Alma Encantadora das Ruas</em>, de João do Rio, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1908, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Crônicas da vida urbana carioca. O flâneur brasileiro.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Alma Encantadora das Ruas</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. João do Rio não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>crônicas</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram João do Rio imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Cronista e sua Cidade', estimatedMinutes: 10, content: `<h2>O Cronista e sua Cidade</h2>
+<p>Para compreender plenamente <em>A Alma Encantadora das Ruas</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. João do Rio viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1908</h3>
+<p>O ano de publicação, 1908, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. João do Rio posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. João do Rio foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de João do Rio</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, João do Rio percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de João do Rio não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise das Crônicas', estimatedMinutes: 10, content: `<h2>Análise das Crônicas</h2>
+<p>A análise de <em>A Alma Encantadora das Ruas</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. João do Rio não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de João do Rio</h3>
+<p>O estilo de João do Rio é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Alma Encantadora das Ruas</em>, a escolha narrativa de João do Rio carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Alma Encantadora das Ruas</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Técnica', estimatedMinutes: 9, content: `<h2>Temas e Técnica</h2>
+<p>Os temas de <em>A Alma Encantadora das Ruas</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. João do Rio não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Alma Encantadora das Ruas</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: crônicas da vida urbana carioca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Alma Encantadora das Ruas</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>A Alma Encantadora das Ruas</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. João do Rio observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de João do Rio é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Alma Encantadora das Ruas</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de João do Rio.</p>` },
+    { title: 'Crônicas Selecionadas', estimatedMinutes: 10, content: `<h2>Crônicas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de João do Rio e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. João do Rio não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Alma Encantadora das Ruas</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Alma Encantadora das Ruas</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. João do Rio é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Alma Encantadora das Ruas</em> é um dos mais comentados da literatura de língua portuguesa. João do Rio não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Alma Encantadora das Ruas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de João do Rio.</p>` }
+  ],
+   ['joão do rio', 'carioca', 'crônica']),
+
+bl('joao-do-rio-dentro-noite', 'Dentro da Noite', 'Dentro da Noite',
+   'O lado obscuro do Rio. Crime, perversão e decadência urbana.',
+   'João do Rio (1910–)',
+   'Dentro da Noite, 1910', '1910', 'Português', 1921,
+   'Literatura', 'Intermediário', '2–3h',
+   'O lado obscuro do Rio. Crime, perversão e decadência urbana.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Dentro da Noite</em>, de João do Rio, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1910, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O lado obscuro do Rio. Crime, perversão e decadência urbana.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Dentro da Noite</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. João do Rio não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>contos</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram João do Rio imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Movimento Literário', estimatedMinutes: 9, content: `<h2>Contexto e Movimento Literário</h2>
+<p>Para compreender plenamente <em>Dentro da Noite</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. João do Rio viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1910</h3>
+<p>O ano de publicação, 1910, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. João do Rio posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. João do Rio foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de João do Rio</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, João do Rio percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de João do Rio não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Contos Principais', estimatedMinutes: 11, content: `<h2>Análise dos Contos Principais</h2>
+<p>A análise de <em>Dentro da Noite</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. João do Rio não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de João do Rio</h3>
+<p>O estilo de João do Rio é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Dentro da Noite</em>, a escolha narrativa de João do Rio carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Dentro da Noite</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas Recorrentes e Estilo', estimatedMinutes: 10, content: `<h2>Temas Recorrentes e Estilo</h2>
+<p>Os temas de <em>Dentro da Noite</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. João do Rio não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Dentro da Noite</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o lado obscuro do rio. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Dentro da Noite</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Dentro da Noite</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. João do Rio observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de João do Rio é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Dentro da Noite</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de João do Rio.</p>` },
+    { title: 'Fragmentos e Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos e Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de João do Rio e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. João do Rio não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Dentro da Noite</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Dentro da Noite</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. João do Rio é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Dentro da Noite</em> é um dos mais comentados da literatura de língua portuguesa. João do Rio não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Dentro da Noite</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de João do Rio.</p>` }
+  ],
+   ['joão do rio', 'crime', 'decadência']),
+
+bl('joao-do-rio-vida-vertiginosa', 'Vida Vertiginosa', 'Vida Vertiginosa',
+   'Crônicas da Belle Époque carioca. A elegância e o vício.',
+   'João do Rio (1911–)',
+   'Vida Vertiginosa, 1911', '1911', 'Português', 1921,
+   'Literatura', 'Intermediário', '2–3h',
+   'Crônicas da Belle Époque carioca. A elegância e o vício.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 9, content: `<h2>Apresentação da Obra</h2>
+<p><em>Vida Vertiginosa</em>, de João do Rio, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1911, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Crônicas da Belle Époque carioca. A elegância e o vício.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Vida Vertiginosa</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. João do Rio não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>crônicas</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram João do Rio imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Cronista e sua Cidade', estimatedMinutes: 10, content: `<h2>O Cronista e sua Cidade</h2>
+<p>Para compreender plenamente <em>Vida Vertiginosa</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. João do Rio viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1911</h3>
+<p>O ano de publicação, 1911, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. João do Rio posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. João do Rio foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de João do Rio</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, João do Rio percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de João do Rio não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise das Crônicas', estimatedMinutes: 10, content: `<h2>Análise das Crônicas</h2>
+<p>A análise de <em>Vida Vertiginosa</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. João do Rio não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de João do Rio</h3>
+<p>O estilo de João do Rio é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Vida Vertiginosa</em>, a escolha narrativa de João do Rio carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Vida Vertiginosa</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Técnica', estimatedMinutes: 9, content: `<h2>Temas e Técnica</h2>
+<p>Os temas de <em>Vida Vertiginosa</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. João do Rio não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Vida Vertiginosa</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: crônicas da belle époque carioca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Vida Vertiginosa</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Vida Vertiginosa</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. João do Rio observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de João do Rio é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Vida Vertiginosa</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de João do Rio.</p>` },
+    { title: 'Crônicas Selecionadas', estimatedMinutes: 10, content: `<h2>Crônicas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de João do Rio e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. João do Rio não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Vida Vertiginosa</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Vida Vertiginosa</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. João do Rio é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Vida Vertiginosa</em> é um dos mais comentados da literatura de língua portuguesa. João do Rio não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Vida Vertiginosa</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de João do Rio.</p>` }
+  ],
+   ['joão do rio', 'belle époque', 'modernidade']),
+
+bl('graca-aranha-canaa', 'Canaã', 'Canaã',
+   'Imigrantes alemães debatem o destino da raça e da nação brasileira.',
+   'Graça Aranha (1902–)',
+   'Canaã, 1902', '1902', 'Português', 1931,
+   'Literatura', 'Avançado', '4–5h',
+   'Imigrantes alemães debatem o destino da raça e da nação brasileira.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Canaã</em>, de Graça Aranha, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1902, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Imigrantes alemães debatem o destino da raça e da nação brasileira.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Canaã</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Graça Aranha não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Graça Aranha imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Canaã</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Graça Aranha viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1902</h3>
+<p>O ano de publicação, 1902, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Graça Aranha posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Graça Aranha foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Graça Aranha</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Graça Aranha percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Graça Aranha não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Canaã</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Graça Aranha não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Graça Aranha</h3>
+<p>O estilo de Graça Aranha é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Canaã</em>, a escolha narrativa de Graça Aranha carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Canaã</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Canaã</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Graça Aranha não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Canaã</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: imigrantes alemães debatem o destino da raça e da nação brasileira. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Canaã</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Canaã</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Graça Aranha observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Graça Aranha é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Canaã</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Graça Aranha.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Graça Aranha e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Graça Aranha não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Canaã</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Canaã</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Graça Aranha é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Canaã</em> é um dos mais comentados da literatura de língua portuguesa. Graça Aranha não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Canaã</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graça Aranha.</p>` }
+  ],
+   ['graça aranha', 'imigração', 'identidade']),
+
+bl('monteiro-urupees', 'Urupês', 'Urupês',
+   'Jeca Tatu e o Brasil que não chegou à modernidade.',
+   'Monteiro Lobato (1918–)',
+   'Urupês, 1918', '1918', 'Português', 1948,
+   'Literatura', 'Iniciante', '2–3h',
+   'Jeca Tatu e o Brasil que não chegou à modernidade.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Urupês</em>, de Monteiro Lobato, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1918, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Jeca Tatu e o Brasil que não chegou à modernidade.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Urupês</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Monteiro Lobato não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>contos</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Monteiro Lobato imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Movimento Literário', estimatedMinutes: 9, content: `<h2>Contexto e Movimento Literário</h2>
+<p>Para compreender plenamente <em>Urupês</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Monteiro Lobato viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1918</h3>
+<p>O ano de publicação, 1918, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Monteiro Lobato posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Monteiro Lobato foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Monteiro Lobato</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Monteiro Lobato percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Monteiro Lobato não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Contos Principais', estimatedMinutes: 11, content: `<h2>Análise dos Contos Principais</h2>
+<p>A análise de <em>Urupês</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Monteiro Lobato não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Monteiro Lobato</h3>
+<p>O estilo de Monteiro Lobato é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Urupês</em>, a escolha narrativa de Monteiro Lobato carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Urupês</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas Recorrentes e Estilo', estimatedMinutes: 10, content: `<h2>Temas Recorrentes e Estilo</h2>
+<p>Os temas de <em>Urupês</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Monteiro Lobato não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Urupês</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: jeca tatu e o brasil que não chegou à modernidade. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Urupês</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Urupês</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Monteiro Lobato observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Monteiro Lobato é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Urupês</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Monteiro Lobato.</p>` },
+    { title: 'Fragmentos e Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos e Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Monteiro Lobato e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Monteiro Lobato não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Urupês</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Urupês</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Monteiro Lobato é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Urupês</em> é um dos mais comentados da literatura de língua portuguesa. Monteiro Lobato não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Urupês</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
+  ],
+   ['monteiro lobato', 'caipira', 'interior']),
+
+bl('monteiro-cidades-mortas', 'Cidades Mortas', 'Cidades Mortas',
+   'O Vale do Paraíba decadente. Fazendas de café em crepúsculo.',
+   'Monteiro Lobato (1919–)',
+   'Cidades Mortas, 1919', '1919', 'Português', 1948,
+   'Literatura', 'Iniciante', '2–3h',
+   'O Vale do Paraíba decadente. Fazendas de café em crepúsculo.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Cidades Mortas</em>, de Monteiro Lobato, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1919, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O Vale do Paraíba decadente. Fazendas de café em crepúsculo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Cidades Mortas</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Monteiro Lobato não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>contos</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Monteiro Lobato imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Movimento Literário', estimatedMinutes: 9, content: `<h2>Contexto e Movimento Literário</h2>
+<p>Para compreender plenamente <em>Cidades Mortas</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Monteiro Lobato viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1919</h3>
+<p>O ano de publicação, 1919, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Monteiro Lobato posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Monteiro Lobato foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Monteiro Lobato</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Monteiro Lobato percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Monteiro Lobato não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Contos Principais', estimatedMinutes: 11, content: `<h2>Análise dos Contos Principais</h2>
+<p>A análise de <em>Cidades Mortas</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Monteiro Lobato não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Monteiro Lobato</h3>
+<p>O estilo de Monteiro Lobato é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Cidades Mortas</em>, a escolha narrativa de Monteiro Lobato carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Cidades Mortas</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas Recorrentes e Estilo', estimatedMinutes: 10, content: `<h2>Temas Recorrentes e Estilo</h2>
+<p>Os temas de <em>Cidades Mortas</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Monteiro Lobato não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Cidades Mortas</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o vale do paraíba decadente. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Cidades Mortas</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Cidades Mortas</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Monteiro Lobato observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Monteiro Lobato é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Cidades Mortas</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Monteiro Lobato.</p>` },
+    { title: 'Fragmentos e Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos e Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Monteiro Lobato e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Monteiro Lobato não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Cidades Mortas</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Cidades Mortas</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Monteiro Lobato é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Cidades Mortas</em> é um dos mais comentados da literatura de língua portuguesa. Monteiro Lobato não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Cidades Mortas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
+  ],
+   ['monteiro lobato', 'café', 'decadência']),
+
+bl('monteiro-negrinha', 'Negrinha', 'Negrinha',
+   'Negrinha, menina escravizada após a abolição. Racismo pós-1888.',
+   'Monteiro Lobato (1920–)',
+   'Negrinha, 1920', '1920', 'Português', 1948,
+   'Literatura', 'Iniciante', '2–3h',
+   'Negrinha, menina escravizada após a abolição. Racismo pós-1888.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Negrinha</em>, de Monteiro Lobato, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1920, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Negrinha, menina escravizada após a abolição. Racismo pós-1888.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Negrinha</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Monteiro Lobato não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>contos</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Monteiro Lobato imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Movimento Literário', estimatedMinutes: 9, content: `<h2>Contexto e Movimento Literário</h2>
+<p>Para compreender plenamente <em>Negrinha</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Monteiro Lobato viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1920</h3>
+<p>O ano de publicação, 1920, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Monteiro Lobato posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Monteiro Lobato foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Monteiro Lobato</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Monteiro Lobato percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Monteiro Lobato não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Contos Principais', estimatedMinutes: 11, content: `<h2>Análise dos Contos Principais</h2>
+<p>A análise de <em>Negrinha</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Monteiro Lobato não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Monteiro Lobato</h3>
+<p>O estilo de Monteiro Lobato é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Negrinha</em>, a escolha narrativa de Monteiro Lobato carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Negrinha</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas Recorrentes e Estilo', estimatedMinutes: 10, content: `<h2>Temas Recorrentes e Estilo</h2>
+<p>Os temas de <em>Negrinha</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Monteiro Lobato não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Negrinha</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: negrinha, menina escravizada após a abolição. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Negrinha</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Negrinha</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Monteiro Lobato observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Monteiro Lobato é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Negrinha</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Monteiro Lobato.</p>` },
+    { title: 'Fragmentos e Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos e Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Monteiro Lobato e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Monteiro Lobato não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Negrinha</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Negrinha</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Monteiro Lobato é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Negrinha</em> é um dos mais comentados da literatura de língua portuguesa. Monteiro Lobato não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Negrinha</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
+  ],
+   ['monteiro lobato', 'racismo', 'pós-abolição']),
+
+bl('monteiro-reinacoes-narizinho', 'Reinações de Narizinho', 'Reinações de Narizinho',
+   'Narizinho, Pedrinho e Emília no Sítio do Picapau Amarelo.',
+   'Monteiro Lobato (1931–)',
+   'Reinações de Narizinho, 1931', '1931', 'Português', 1948,
+   'Literatura', 'Iniciante', '2–3h',
+   'Narizinho, Pedrinho e Emília no Sítio do Picapau Amarelo.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 9, content: `<h2>Apresentação da Obra</h2>
+<p><em>Reinações de Narizinho</em>, de Monteiro Lobato, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1931, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Narizinho, Pedrinho e Emília no Sítio do Picapau Amarelo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Reinações de Narizinho</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Monteiro Lobato não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>fantasia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Monteiro Lobato imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Universo do Sítio', estimatedMinutes: 10, content: `<h2>O Universo do Sítio</h2>
+<p>Para compreender plenamente <em>Reinações de Narizinho</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Monteiro Lobato viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1931</h3>
+<p>O ano de publicação, 1931, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Monteiro Lobato posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Monteiro Lobato foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Monteiro Lobato</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Monteiro Lobato percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Monteiro Lobato não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise das Narrativas', estimatedMinutes: 10, content: `<h2>Análise das Narrativas</h2>
+<p>A análise de <em>Reinações de Narizinho</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Monteiro Lobato não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Monteiro Lobato</h3>
+<p>O estilo de Monteiro Lobato é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Reinações de Narizinho</em>, a escolha narrativa de Monteiro Lobato carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Reinações de Narizinho</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Personagens', estimatedMinutes: 10, content: `<h2>Temas e Personagens</h2>
+<p>Os temas de <em>Reinações de Narizinho</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Monteiro Lobato não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Reinações de Narizinho</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: narizinho, pedrinho e emília no sítio do picapau amarelo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Reinações de Narizinho</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>Reinações de Narizinho</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Monteiro Lobato observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Monteiro Lobato é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Reinações de Narizinho</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Monteiro Lobato.</p>` },
+    { title: 'Cenas Selecionadas', estimatedMinutes: 9, content: `<h2>Cenas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Monteiro Lobato e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Monteiro Lobato não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Reinações de Narizinho</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Reinações de Narizinho</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Monteiro Lobato é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Reinações de Narizinho</em> é um dos mais comentados da literatura de língua portuguesa. Monteiro Lobato não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Reinações de Narizinho</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Monteiro Lobato.</p>` }
+  ],
+   ['monteiro lobato', 'infantil', 'fantasia']),
+
+bl('castro-alves-espumas', 'Espumas Flutuantes', 'Espumas Flutuantes',
+   'O Navio Negreiro. O poeta dos escravos com vinte e três anos.',
+   'Castro Alves (1870–)',
+   'Espumas Flutuantes, 1870', '1870', 'Português', 1871,
+   'Literatura', 'Intermediário', '2–3h',
+   'O Navio Negreiro. O poeta dos escravos com vinte e três anos.',
+   'deep-purple',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Espumas Flutuantes</em>, de Castro Alves, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1870, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O Navio Negreiro. O poeta dos escravos com vinte e três anos.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Espumas Flutuantes</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Castro Alves não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Castro Alves imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Espumas Flutuantes</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Castro Alves viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1870</h3>
+<p>O ano de publicação, 1870, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Castro Alves posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Castro Alves foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Castro Alves</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Castro Alves percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Castro Alves não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Espumas Flutuantes</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Castro Alves não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Castro Alves</h3>
+<p>O estilo de Castro Alves é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Espumas Flutuantes</em>, a escolha narrativa de Castro Alves carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Espumas Flutuantes</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Espumas Flutuantes</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Castro Alves não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Espumas Flutuantes</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o navio negreiro. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Espumas Flutuantes</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Espumas Flutuantes</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Castro Alves observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Castro Alves é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Espumas Flutuantes</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Castro Alves.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Castro Alves e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Castro Alves não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Espumas Flutuantes</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Espumas Flutuantes</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Castro Alves é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Espumas Flutuantes</em> é um dos mais comentados da literatura de língua portuguesa. Castro Alves não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Espumas Flutuantes</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Castro Alves.</p>` }
+  ],
+   ['castro alves', 'abolicionismo', 'poesia']),
+
+bl('castro-alves-os-escravos', 'Os Escravos', 'Os Escravos',
+   'Obra póstuma. O canto mais radical de Castro Alves contra a escravidão.',
+   'Castro Alves (1883–)',
+   'Os Escravos, 1883', '1883', 'Português', 1871,
+   'Literatura', 'Intermediário', '2–3h',
+   'Obra póstuma. O canto mais radical de Castro Alves contra a escravidão.',
+   'crimson',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Os Escravos</em>, de Castro Alves, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1883, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Obra póstuma. O canto mais radical de Castro Alves contra a escravidão.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Os Escravos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Castro Alves não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Castro Alves imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Os Escravos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Castro Alves viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1883</h3>
+<p>O ano de publicação, 1883, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Castro Alves posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Castro Alves foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Castro Alves</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Castro Alves percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Castro Alves não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Os Escravos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Castro Alves não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Castro Alves</h3>
+<p>O estilo de Castro Alves é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Os Escravos</em>, a escolha narrativa de Castro Alves carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Os Escravos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Os Escravos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Castro Alves não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Os Escravos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: obra póstuma. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Os Escravos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Os Escravos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Castro Alves observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Castro Alves é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Os Escravos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Castro Alves.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Castro Alves e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Castro Alves não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Os Escravos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Os Escravos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Castro Alves é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Os Escravos</em> é um dos mais comentados da literatura de língua portuguesa. Castro Alves não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Os Escravos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Castro Alves.</p>` }
+  ],
+   ['castro alves', 'escravidão', 'poesia']),
+
+bl('goncalves-dias-primeiros', 'Primeiros Cantos', 'Primeiros Cantos',
+   'Canção do Exílio e poemas indianistas. Fundação do Romantismo.',
+   'Gonçalves Dias (1846–)',
+   'Primeiros Cantos, 1846', '1846', 'Português', 1864,
+   'Literatura', 'Intermediário', '2–3h',
+   'Canção do Exílio e poemas indianistas. Fundação do Romantismo.',
+   'forest',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Primeiros Cantos</em>, de Gonçalves Dias, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1846, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Canção do Exílio e poemas indianistas. Fundação do Romantismo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Primeiros Cantos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Gonçalves Dias não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Gonçalves Dias imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Primeiros Cantos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Gonçalves Dias viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1846</h3>
+<p>O ano de publicação, 1846, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Gonçalves Dias posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Gonçalves Dias foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Gonçalves Dias</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Gonçalves Dias percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Gonçalves Dias não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Primeiros Cantos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Gonçalves Dias não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Gonçalves Dias</h3>
+<p>O estilo de Gonçalves Dias é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Primeiros Cantos</em>, a escolha narrativa de Gonçalves Dias carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Primeiros Cantos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Primeiros Cantos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Gonçalves Dias não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Primeiros Cantos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: canção do exílio e poemas indianistas. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Primeiros Cantos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Primeiros Cantos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Gonçalves Dias observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Gonçalves Dias é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Primeiros Cantos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Gonçalves Dias.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Gonçalves Dias e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Gonçalves Dias não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Primeiros Cantos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Primeiros Cantos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Gonçalves Dias é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Primeiros Cantos</em> é um dos mais comentados da literatura de língua portuguesa. Gonçalves Dias não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Primeiros Cantos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Gonçalves Dias.</p>` }
+  ],
+   ['gonçalves dias', 'romantismo', 'exílio']),
+
+bl('goncalves-dias-ultimos', 'Últimos Cantos', 'Últimos Cantos',
+   'O amadurecimento de Gonçalves Dias. Saudade, natureza e morte.',
+   'Gonçalves Dias (1851–)',
+   'Últimos Cantos, 1851', '1851', 'Português', 1864,
+   'Literatura', 'Intermediário', '2–3h',
+   'O amadurecimento de Gonçalves Dias. Saudade, natureza e morte.',
+   'forest',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Últimos Cantos</em>, de Gonçalves Dias, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1851, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O amadurecimento de Gonçalves Dias. Saudade, natureza e morte.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Últimos Cantos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Gonçalves Dias não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Gonçalves Dias imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Últimos Cantos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Gonçalves Dias viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1851</h3>
+<p>O ano de publicação, 1851, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Gonçalves Dias posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Gonçalves Dias foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Gonçalves Dias</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Gonçalves Dias percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Gonçalves Dias não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Últimos Cantos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Gonçalves Dias não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Gonçalves Dias</h3>
+<p>O estilo de Gonçalves Dias é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Últimos Cantos</em>, a escolha narrativa de Gonçalves Dias carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Últimos Cantos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Últimos Cantos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Gonçalves Dias não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Últimos Cantos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o amadurecimento de gonçalves dias. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Últimos Cantos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Últimos Cantos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Gonçalves Dias observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Gonçalves Dias é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Últimos Cantos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Gonçalves Dias.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Gonçalves Dias e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Gonçalves Dias não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Últimos Cantos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Últimos Cantos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Gonçalves Dias é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Últimos Cantos</em> é um dos mais comentados da literatura de língua portuguesa. Gonçalves Dias não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Últimos Cantos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Gonçalves Dias.</p>` }
+  ],
+   ['gonçalves dias', 'saudade', 'natureza']),
+
+bl('alvares-azevedo-noite-taverna', 'Noite na Taverna', 'Noite na Taverna',
+   'Histórias de horror e amor numa taverna. Ultra-romantismo.',
+   'Álvares de Azevedo (1855–)',
+   'Noite na Taverna, 1855', '1855', 'Português', 1852,
+   'Literatura', 'Intermediário', '2–3h',
+   'Histórias de horror e amor numa taverna. Ultra-romantismo.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Noite na Taverna</em>, de Álvares de Azevedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1855, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Histórias de horror e amor numa taverna. Ultra-romantismo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Noite na Taverna</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Álvares de Azevedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>prosa poética</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Álvares de Azevedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Literário', estimatedMinutes: 9, content: `<h2>Contexto Literário</h2>
+<p>Para compreender plenamente <em>Noite na Taverna</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Álvares de Azevedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1855</h3>
+<p>O ano de publicação, 1855, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Álvares de Azevedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Álvares de Azevedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Álvares de Azevedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Álvares de Azevedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Álvares de Azevedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Prosa Poética', estimatedMinutes: 11, content: `<h2>Análise da Prosa Poética</h2>
+<p>A análise de <em>Noite na Taverna</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Álvares de Azevedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Álvares de Azevedo</h3>
+<p>O estilo de Álvares de Azevedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Noite na Taverna</em>, a escolha narrativa de Álvares de Azevedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Noite na Taverna</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Simbolismo', estimatedMinutes: 10, content: `<h2>Temas e Simbolismo</h2>
+<p>Os temas de <em>Noite na Taverna</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Álvares de Azevedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Noite na Taverna</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: histórias de horror e amor numa taverna. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Noite na Taverna</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Noite na Taverna</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Álvares de Azevedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Álvares de Azevedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Noite na Taverna</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Álvares de Azevedo.</p>` },
+    { title: 'Fragmentos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Álvares de Azevedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Álvares de Azevedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Noite na Taverna</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Noite na Taverna</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Álvares de Azevedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Noite na Taverna</em> é um dos mais comentados da literatura de língua portuguesa. Álvares de Azevedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Noite na Taverna</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Álvares de Azevedo.</p>` }
+  ],
+   ['álvares de azevedo', 'ultra-romantismo', 'horror']),
+
+bl('alvares-azevedo-lira', 'Lira dos Vinte Anos', 'Lira dos Vinte Anos',
+   'Poemas do estudante que morreu aos vinte anos. Romantismo puro.',
+   'Álvares de Azevedo (1853–)',
+   'Lira dos Vinte Anos, 1853', '1853', 'Português', 1852,
+   'Literatura', 'Iniciante', '2–3h',
+   'Poemas do estudante que morreu aos vinte anos. Romantismo puro.',
+   'deep-purple',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Lira dos Vinte Anos</em>, de Álvares de Azevedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1853, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Poemas do estudante que morreu aos vinte anos. Romantismo puro.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Lira dos Vinte Anos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Álvares de Azevedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Álvares de Azevedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Lira dos Vinte Anos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Álvares de Azevedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1853</h3>
+<p>O ano de publicação, 1853, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Álvares de Azevedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Álvares de Azevedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Álvares de Azevedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Álvares de Azevedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Álvares de Azevedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Lira dos Vinte Anos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Álvares de Azevedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Álvares de Azevedo</h3>
+<p>O estilo de Álvares de Azevedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Lira dos Vinte Anos</em>, a escolha narrativa de Álvares de Azevedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Lira dos Vinte Anos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Lira dos Vinte Anos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Álvares de Azevedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Lira dos Vinte Anos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: poemas do estudante que morreu aos vinte anos. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Lira dos Vinte Anos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Lira dos Vinte Anos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Álvares de Azevedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Álvares de Azevedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Lira dos Vinte Anos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Álvares de Azevedo.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Álvares de Azevedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Álvares de Azevedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Lira dos Vinte Anos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Lira dos Vinte Anos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Álvares de Azevedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Lira dos Vinte Anos</em> é um dos mais comentados da literatura de língua portuguesa. Álvares de Azevedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Lira dos Vinte Anos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Álvares de Azevedo.</p>` }
+  ],
+   ['álvares de azevedo', 'juventude', 'morte']),
+
+bl('alvares-azevedo-macario', 'Macário', 'Macário',
+   'Macário e o Mefisto debatem amor, morte e sentido da vida.',
+   'Álvares de Azevedo (1855–)',
+   'Macário, 1855', '1855', 'Português', 1852,
+   'Literatura', 'Intermediário', '2–3h',
+   'Macário e o Mefisto debatem amor, morte e sentido da vida.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Peça', estimatedMinutes: 8, content: `<h2>Apresentação da Peça</h2>
+<p><em>Macário</em>, de Álvares de Azevedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1855, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Macário e o Mefisto debatem amor, morte e sentido da vida.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Macário</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Álvares de Azevedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>teatro</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Álvares de Azevedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto do Teatro Brasileiro', estimatedMinutes: 9, content: `<h2>Contexto do Teatro Brasileiro</h2>
+<p>Para compreender plenamente <em>Macário</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Álvares de Azevedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1855</h3>
+<p>O ano de publicação, 1855, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Álvares de Azevedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Álvares de Azevedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Álvares de Azevedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Álvares de Azevedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Álvares de Azevedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Ação Dramática', estimatedMinutes: 10, content: `<h2>Análise da Ação Dramática</h2>
+<p>A análise de <em>Macário</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Álvares de Azevedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Álvares de Azevedo</h3>
+<p>O estilo de Álvares de Azevedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Macário</em>, a escolha narrativa de Álvares de Azevedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Macário</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Personagens e Linguagem', estimatedMinutes: 9, content: `<h2>Personagens e Linguagem</h2>
+<p>Os temas de <em>Macário</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Álvares de Azevedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Macário</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: macário e o mefisto debatem amor, morte e sentido da vida. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Macário</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Macário</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Álvares de Azevedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Álvares de Azevedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Macário</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Álvares de Azevedo.</p>` },
+    { title: 'Cenas Selecionadas', estimatedMinutes: 10, content: `<h2>Cenas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Álvares de Azevedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Álvares de Azevedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Macário</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Macário</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Álvares de Azevedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Macário</em> é um dos mais comentados da literatura de língua portuguesa. Álvares de Azevedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Macário</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Álvares de Azevedo.</p>` }
+  ],
+   ['álvares de azevedo', 'fausto', 'filosofia']),
+
+bl('casimiro-abreu-primaveras', 'As Primaveras', 'As Primaveras',
+   'Minha Terra, Meus Oito Anos — saudade da infância e da pátria.',
+   'Casimiro de Abreu (1859–)',
+   'As Primaveras, 1859', '1859', 'Português', 1860,
+   'Literatura', 'Iniciante', '2–3h',
+   'Minha Terra, Meus Oito Anos — saudade da infância e da pátria.',
+   'forest',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>As Primaveras</em>, de Casimiro de Abreu, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1859, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Minha Terra, Meus Oito Anos — saudade da infância e da pátria.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>As Primaveras</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Casimiro de Abreu não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Casimiro de Abreu imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>As Primaveras</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Casimiro de Abreu viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1859</h3>
+<p>O ano de publicação, 1859, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Casimiro de Abreu posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Casimiro de Abreu foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Casimiro de Abreu</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Casimiro de Abreu percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Casimiro de Abreu não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>As Primaveras</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Casimiro de Abreu não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Casimiro de Abreu</h3>
+<p>O estilo de Casimiro de Abreu é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>As Primaveras</em>, a escolha narrativa de Casimiro de Abreu carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>As Primaveras</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>As Primaveras</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Casimiro de Abreu não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>As Primaveras</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: minha terra, meus oito anos — saudade da infância e da pátria. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>As Primaveras</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>As Primaveras</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Casimiro de Abreu observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Casimiro de Abreu é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>As Primaveras</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Casimiro de Abreu.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Casimiro de Abreu e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Casimiro de Abreu não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>As Primaveras</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>As Primaveras</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Casimiro de Abreu é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>As Primaveras</em> é um dos mais comentados da literatura de língua portuguesa. Casimiro de Abreu não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>As Primaveras</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Casimiro de Abreu.</p>` }
+  ],
+   ['casimiro de abreu', 'saudade', 'infância']),
+
+bl('fagundes-varela-noturnas', 'Noturnas', 'Noturnas',
+   'Poesia do exílio interior. Entre a boêmia, a fé e a dor.',
+   'Fagundes Varela (1861–)',
+   'Noturnas, 1861', '1861', 'Português', 1875,
+   'Literatura', 'Intermediário', '2–3h',
+   'Poesia do exílio interior. Entre a boêmia, a fé e a dor.',
+   'navy',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Noturnas</em>, de Fagundes Varela, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1861, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Poesia do exílio interior. Entre a boêmia, a fé e a dor.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Noturnas</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Fagundes Varela não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Fagundes Varela imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Noturnas</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Fagundes Varela viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1861</h3>
+<p>O ano de publicação, 1861, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Fagundes Varela posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Fagundes Varela foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Fagundes Varela</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Fagundes Varela percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Fagundes Varela não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Noturnas</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Fagundes Varela não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Fagundes Varela</h3>
+<p>O estilo de Fagundes Varela é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Noturnas</em>, a escolha narrativa de Fagundes Varela carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Noturnas</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Noturnas</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Fagundes Varela não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Noturnas</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: poesia do exílio interior. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Noturnas</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Noturnas</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Fagundes Varela observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Fagundes Varela é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Noturnas</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Fagundes Varela.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Fagundes Varela e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Fagundes Varela não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Noturnas</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Noturnas</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Fagundes Varela é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Noturnas</em> é um dos mais comentados da literatura de língua portuguesa. Fagundes Varela não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Noturnas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fagundes Varela.</p>` }
+  ],
+   ['fagundes varela', 'exílio', 'fé']),
+
+bl('olavo-bilac-poesias', 'Poesias', 'Poesias',
+   'Via Láctea, Panóplias, Sarças de Fogo. Parnasianismo em seu ápice.',
+   'Olavo Bilac (1888–)',
+   'Poesias, 1888', '1888', 'Português', 1918,
+   'Literatura', 'Intermediário', '3–4h',
+   'Via Láctea, Panóplias, Sarças de Fogo. Parnasianismo em seu ápice.',
+   'gold',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Poesias</em>, de Olavo Bilac, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1888, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Via Láctea, Panóplias, Sarças de Fogo. Parnasianismo em seu ápice.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Poesias</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Olavo Bilac não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Olavo Bilac imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Poesias</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Olavo Bilac viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1888</h3>
+<p>O ano de publicação, 1888, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Olavo Bilac posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Olavo Bilac foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Olavo Bilac</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Olavo Bilac percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Olavo Bilac não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Poesias</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Olavo Bilac não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Olavo Bilac</h3>
+<p>O estilo de Olavo Bilac é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Poesias</em>, a escolha narrativa de Olavo Bilac carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Poesias</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Poesias</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Olavo Bilac não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Poesias</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: via láctea, panóplias, sarças de fogo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Poesias</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Poesias</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Olavo Bilac observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Olavo Bilac é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Poesias</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Olavo Bilac.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Olavo Bilac e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Olavo Bilac não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Poesias</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Poesias</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Olavo Bilac é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Poesias</em> é um dos mais comentados da literatura de língua portuguesa. Olavo Bilac não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poesias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Olavo Bilac.</p>` }
+  ],
+   ['olavo bilac', 'parnasianismo', 'forma']),
+
+bl('raimundo-correia-sinfonias', 'Sinfonias', 'Sinfonias',
+   'As Pombas, Mal Secreto. Parnasianismo com traço de melancolia.',
+   'Raimundo Correia (1883–)',
+   'Sinfonias, 1883', '1883', 'Português', 1911,
+   'Literatura', 'Intermediário', '2–3h',
+   'As Pombas, Mal Secreto. Parnasianismo com traço de melancolia.',
+   'gold',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Sinfonias</em>, de Raimundo Correia, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1883, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>As Pombas, Mal Secreto. Parnasianismo com traço de melancolia.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Sinfonias</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Raimundo Correia não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Raimundo Correia imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Sinfonias</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Raimundo Correia viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1883</h3>
+<p>O ano de publicação, 1883, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Raimundo Correia posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Raimundo Correia foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Raimundo Correia</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Raimundo Correia percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Raimundo Correia não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Sinfonias</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Raimundo Correia não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Raimundo Correia</h3>
+<p>O estilo de Raimundo Correia é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Sinfonias</em>, a escolha narrativa de Raimundo Correia carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Sinfonias</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Sinfonias</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Raimundo Correia não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Sinfonias</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: as pombas, mal secreto. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Sinfonias</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Sinfonias</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Raimundo Correia observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Raimundo Correia é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Sinfonias</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Raimundo Correia.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Raimundo Correia e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Raimundo Correia não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Sinfonias</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Sinfonias</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Raimundo Correia é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Sinfonias</em> é um dos mais comentados da literatura de língua portuguesa. Raimundo Correia não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Sinfonias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Raimundo Correia.</p>` }
+  ],
+   ['raimundo correia', 'parnasianismo', 'melancolia']),
+
+bl('alberto-de-oliveira-poesias', 'Poesias', 'Poesias',
+   'O chefe do Parnasianismo. Perfeição formal e a beleza como fim.',
+   'Alberto de Oliveira (1884–)',
+   'Poesias, 1884', '1884', 'Português', 1937,
+   'Literatura', 'Intermediário', '2–3h',
+   'O chefe do Parnasianismo. Perfeição formal e a beleza como fim.',
+   'gold',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Poesias</em>, de Alberto de Oliveira, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1884, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O chefe do Parnasianismo. Perfeição formal e a beleza como fim.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Poesias</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Alberto de Oliveira não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Alberto de Oliveira imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Poesias</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Alberto de Oliveira viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1884</h3>
+<p>O ano de publicação, 1884, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Alberto de Oliveira posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Alberto de Oliveira foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Alberto de Oliveira</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Alberto de Oliveira percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Alberto de Oliveira não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Poesias</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Alberto de Oliveira não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Alberto de Oliveira</h3>
+<p>O estilo de Alberto de Oliveira é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Poesias</em>, a escolha narrativa de Alberto de Oliveira carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Poesias</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Poesias</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Alberto de Oliveira não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Poesias</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o chefe do parnasianismo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Poesias</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Poesias</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Alberto de Oliveira observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Alberto de Oliveira é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Poesias</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Alberto de Oliveira.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Alberto de Oliveira e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Alberto de Oliveira não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Poesias</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Poesias</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Alberto de Oliveira é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Poesias</em> é um dos mais comentados da literatura de língua portuguesa. Alberto de Oliveira não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poesias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Alberto de Oliveira.</p>` }
+  ],
+   ['alberto de oliveira', 'parnasianismo', 'beleza']),
+
+bl('augusto-dos-anjos-eu', 'Eu', 'Eu',
+   'Ciência, morte e desespero num soneto. O mais singular dos poetas.',
+   'Augusto dos Anjos (1912–)',
+   'Eu, 1912', '1912', 'Português', 1914,
+   'Literatura', 'Avançado', '2–3h',
+   'Ciência, morte e desespero num soneto. O mais singular dos poetas.',
+   'deep-purple',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Eu</em>, de Augusto dos Anjos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1912, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Ciência, morte e desespero num soneto. O mais singular dos poetas.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Eu</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Augusto dos Anjos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Augusto dos Anjos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Eu</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Augusto dos Anjos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1912</h3>
+<p>O ano de publicação, 1912, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Augusto dos Anjos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Augusto dos Anjos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Augusto dos Anjos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Augusto dos Anjos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Augusto dos Anjos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Eu</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Augusto dos Anjos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Augusto dos Anjos</h3>
+<p>O estilo de Augusto dos Anjos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Eu</em>, a escolha narrativa de Augusto dos Anjos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Eu</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Eu</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Augusto dos Anjos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Eu</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: ciência, morte e desespero num soneto. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Eu</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Eu</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Augusto dos Anjos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Augusto dos Anjos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Eu</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Augusto dos Anjos.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Augusto dos Anjos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Augusto dos Anjos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Eu</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Eu</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Augusto dos Anjos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Eu</em> é um dos mais comentados da literatura de língua portuguesa. Augusto dos Anjos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Eu</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Augusto dos Anjos.</p>` }
+  ],
+   ['augusto dos anjos', 'morte', 'ciência']),
+
+bl('cruz-e-sousa-broqueis', 'Broquéis', 'Broquéis',
+   'O Simbolismo negro. Dor, misticismo e a beleza do sofrimento.',
+   'Cruz e Sousa (1893–)',
+   'Broquéis, 1893', '1893', 'Português', 1898,
+   'Literatura', 'Avançado', '2–3h',
+   'O Simbolismo negro. Dor, misticismo e a beleza do sofrimento.',
+   'deep-purple',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Broquéis</em>, de Cruz e Sousa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1893, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O Simbolismo negro. Dor, misticismo e a beleza do sofrimento.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Broquéis</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Cruz e Sousa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Cruz e Sousa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Broquéis</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Cruz e Sousa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1893</h3>
+<p>O ano de publicação, 1893, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Cruz e Sousa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Cruz e Sousa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Cruz e Sousa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Cruz e Sousa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Cruz e Sousa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Broquéis</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Cruz e Sousa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Cruz e Sousa</h3>
+<p>O estilo de Cruz e Sousa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Broquéis</em>, a escolha narrativa de Cruz e Sousa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Broquéis</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Broquéis</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Cruz e Sousa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Broquéis</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o simbolismo negro. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Broquéis</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Broquéis</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Cruz e Sousa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Cruz e Sousa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Broquéis</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Cruz e Sousa.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Cruz e Sousa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Cruz e Sousa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Broquéis</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Broquéis</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Cruz e Sousa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Broquéis</em> é um dos mais comentados da literatura de língua portuguesa. Cruz e Sousa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Broquéis</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Cruz e Sousa.</p>` }
+  ],
+   ['cruz e sousa', 'simbolismo', 'sofrimento']),
+
+bl('cruz-sousa-evocacoes', 'Evocações', 'Evocações',
+   'Prosa poética do Simbolismo. Misticismo e sofrimento racial.',
+   'Cruz e Sousa (1898–)',
+   'Evocações, 1898', '1898', 'Português', 1898,
+   'Literatura', 'Avançado', '2–3h',
+   'Prosa poética do Simbolismo. Misticismo e sofrimento racial.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Evocações</em>, de Cruz e Sousa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1898, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Prosa poética do Simbolismo. Misticismo e sofrimento racial.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Evocações</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Cruz e Sousa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>prosa poética</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Cruz e Sousa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Literário', estimatedMinutes: 9, content: `<h2>Contexto Literário</h2>
+<p>Para compreender plenamente <em>Evocações</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Cruz e Sousa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1898</h3>
+<p>O ano de publicação, 1898, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Cruz e Sousa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Cruz e Sousa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Cruz e Sousa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Cruz e Sousa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Cruz e Sousa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Prosa Poética', estimatedMinutes: 11, content: `<h2>Análise da Prosa Poética</h2>
+<p>A análise de <em>Evocações</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Cruz e Sousa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Cruz e Sousa</h3>
+<p>O estilo de Cruz e Sousa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Evocações</em>, a escolha narrativa de Cruz e Sousa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Evocações</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Simbolismo', estimatedMinutes: 10, content: `<h2>Temas e Simbolismo</h2>
+<p>Os temas de <em>Evocações</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Cruz e Sousa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Evocações</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: prosa poética do simbolismo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Evocações</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Evocações</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Cruz e Sousa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Cruz e Sousa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Evocações</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Cruz e Sousa.</p>` },
+    { title: 'Fragmentos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Cruz e Sousa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Cruz e Sousa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Evocações</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Evocações</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Cruz e Sousa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Evocações</em> é um dos mais comentados da literatura de língua portuguesa. Cruz e Sousa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Evocações</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Cruz e Sousa.</p>` }
+  ],
+   ['cruz e sousa', 'simbolismo', 'raça']),
+
+bl('alphonsus-cancoes', 'Câncio do Destino', 'Câncio do Destino',
+   'Ismália e outros poemas. Misticismo e amor impossível.',
+   'Alphonsus de Guimaraens (1899–)',
+   'Câncio do Destino, 1899', '1899', 'Português', 1921,
+   'Literatura', 'Intermediário', '2–3h',
+   'Ismália e outros poemas. Misticismo e amor impossível.',
+   'navy',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Câncio do Destino</em>, de Alphonsus de Guimaraens, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1899, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Ismália e outros poemas. Misticismo e amor impossível.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Câncio do Destino</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Alphonsus de Guimaraens não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Alphonsus de Guimaraens imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Câncio do Destino</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Alphonsus de Guimaraens viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1899</h3>
+<p>O ano de publicação, 1899, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Alphonsus de Guimaraens posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Alphonsus de Guimaraens foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Alphonsus de Guimaraens</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Alphonsus de Guimaraens percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Alphonsus de Guimaraens não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Câncio do Destino</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Alphonsus de Guimaraens não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Alphonsus de Guimaraens</h3>
+<p>O estilo de Alphonsus de Guimaraens é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Câncio do Destino</em>, a escolha narrativa de Alphonsus de Guimaraens carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Câncio do Destino</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Câncio do Destino</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Alphonsus de Guimaraens não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Câncio do Destino</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: ismália e outros poemas. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Câncio do Destino</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Câncio do Destino</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Alphonsus de Guimaraens observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Alphonsus de Guimaraens é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Câncio do Destino</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Alphonsus de Guimaraens.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Alphonsus de Guimaraens e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Alphonsus de Guimaraens não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Câncio do Destino</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Câncio do Destino</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Alphonsus de Guimaraens é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Câncio do Destino</em> é um dos mais comentados da literatura de língua portuguesa. Alphonsus de Guimaraens não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Câncio do Destino</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Alphonsus de Guimaraens.</p>` }
+  ],
+   ['alphonsus de guimaraens', 'simbolismo', 'morte']),
+
+bl('macedo-a-moreninha', 'A Moreninha', 'A Moreninha',
+   'O primeiro romance brasileiro. Estudantes de medicina e amores.',
+   'Joaquim Manuel de Macedo (1844–)',
+   'A Moreninha, 1844', '1844', 'Português', 1882,
+   'Literatura', 'Iniciante', '3–4h',
+   'O primeiro romance brasileiro. Estudantes de medicina e amores.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Moreninha</em>, de Joaquim Manuel de Macedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1844, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O primeiro romance brasileiro. Estudantes de medicina e amores.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Moreninha</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Joaquim Manuel de Macedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Joaquim Manuel de Macedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Moreninha</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Joaquim Manuel de Macedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1844</h3>
+<p>O ano de publicação, 1844, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Joaquim Manuel de Macedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Joaquim Manuel de Macedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Joaquim Manuel de Macedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Joaquim Manuel de Macedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Joaquim Manuel de Macedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Moreninha</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Joaquim Manuel de Macedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Joaquim Manuel de Macedo</h3>
+<p>O estilo de Joaquim Manuel de Macedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Moreninha</em>, a escolha narrativa de Joaquim Manuel de Macedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Moreninha</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Moreninha</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Joaquim Manuel de Macedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Moreninha</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o primeiro romance brasileiro. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Moreninha</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>A Moreninha</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Joaquim Manuel de Macedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Joaquim Manuel de Macedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Moreninha</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Joaquim Manuel de Macedo.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Joaquim Manuel de Macedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Joaquim Manuel de Macedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Moreninha</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Moreninha</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Joaquim Manuel de Macedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Moreninha</em> é um dos mais comentados da literatura de língua portuguesa. Joaquim Manuel de Macedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Moreninha</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Joaquim Manuel de Macedo.</p>` }
+  ],
+   ['joaquim manuel de macedo', 'primeiro romance', 'amor']),
+
+bl('macedo-o-moco-loiro', 'O Moço Loiro', 'O Moço Loiro',
+   'Romance sentimental do Romantismo carioca.',
+   'Joaquim Manuel de Macedo (1845–)',
+   'O Moço Loiro, 1845', '1845', 'Português', 1882,
+   'Literatura', 'Iniciante', '3–4h',
+   'Romance sentimental do Romantismo carioca.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Moço Loiro</em>, de Joaquim Manuel de Macedo, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1845, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Romance sentimental do Romantismo carioca.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Moço Loiro</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Joaquim Manuel de Macedo não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Joaquim Manuel de Macedo imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Moço Loiro</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Joaquim Manuel de Macedo viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1845</h3>
+<p>O ano de publicação, 1845, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Joaquim Manuel de Macedo posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Joaquim Manuel de Macedo foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Joaquim Manuel de Macedo</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Joaquim Manuel de Macedo percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Joaquim Manuel de Macedo não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Moço Loiro</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Joaquim Manuel de Macedo não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Joaquim Manuel de Macedo</h3>
+<p>O estilo de Joaquim Manuel de Macedo é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Moço Loiro</em>, a escolha narrativa de Joaquim Manuel de Macedo carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Moço Loiro</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Moço Loiro</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Joaquim Manuel de Macedo não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Moço Loiro</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: romance sentimental do romantismo carioca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Moço Loiro</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>O Moço Loiro</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Joaquim Manuel de Macedo observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Joaquim Manuel de Macedo é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Moço Loiro</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Joaquim Manuel de Macedo.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Joaquim Manuel de Macedo e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Joaquim Manuel de Macedo não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Moço Loiro</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Moço Loiro</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Joaquim Manuel de Macedo é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Moço Loiro</em> é um dos mais comentados da literatura de língua portuguesa. Joaquim Manuel de Macedo não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Moço Loiro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Joaquim Manuel de Macedo.</p>` }
+  ],
+   ['joaquim manuel de macedo', 'romantismo', 'rio de janeiro']),
+
+bl('almeida-sargento-milicias', 'Memórias de um Sargento de Milícias', 'Memórias de um Sargento de Milícias',
+   'Leonardo navega a malandragem carioca. O pícaro brasileiro definitivo.',
+   'Manuel Antônio de Almeida (1853–)',
+   'Memórias de um Sargento de Milícias, 1853', '1853', 'Português', 1861,
+   'Literatura', 'Iniciante', '3–4h',
+   'Leonardo navega a malandragem carioca. O pícaro brasileiro definitivo.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Memórias de um Sargento de Milícias</em>, de Manuel Antônio de Almeida, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1853, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Leonardo navega a malandragem carioca. O pícaro brasileiro definitivo.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Memórias de um Sargento de Milícias</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Manuel Antônio de Almeida não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Manuel Antônio de Almeida imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Memórias de um Sargento de Milícias</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Manuel Antônio de Almeida viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1853</h3>
+<p>O ano de publicação, 1853, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Manuel Antônio de Almeida posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Manuel Antônio de Almeida foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Manuel Antônio de Almeida</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Manuel Antônio de Almeida percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Manuel Antônio de Almeida não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Memórias de um Sargento de Milícias</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Manuel Antônio de Almeida não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Manuel Antônio de Almeida</h3>
+<p>O estilo de Manuel Antônio de Almeida é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Memórias de um Sargento de Milícias</em>, a escolha narrativa de Manuel Antônio de Almeida carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Memórias de um Sargento de Milícias</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Memórias de um Sargento de Milícias</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Manuel Antônio de Almeida não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Memórias de um Sargento de Milícias</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: leonardo navega a malandragem carioca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Memórias de um Sargento de Milícias</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Memórias de um Sargento de Milícias</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Manuel Antônio de Almeida observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Manuel Antônio de Almeida é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Memórias de um Sargento de Milícias</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Manuel Antônio de Almeida.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Manuel Antônio de Almeida e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Manuel Antônio de Almeida não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Memórias de um Sargento de Milícias</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Memórias de um Sargento de Milícias</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Manuel Antônio de Almeida é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Memórias de um Sargento de Milícias</em> é um dos mais comentados da literatura de língua portuguesa. Manuel Antônio de Almeida não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Memórias de um Sargento de Milícias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Manuel Antônio de Almeida.</p>` }
+  ],
+   ['manuel antônio de almeida', 'malandragem', 'pícaro']),
+
+bl('graciliano-vidas-secas', 'Vidas Secas', 'Vidas Secas',
+   'Fabiano e família fogem da seca. A prosa mais dura e limpa do Brasil.',
+   'Graciliano Ramos (1938–)',
+   'Vidas Secas, 1938', '1938', 'Português', 1953,
+   'Literatura', 'Avançado', '3–4h',
+   'Fabiano e família fogem da seca. A prosa mais dura e limpa do Brasil.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Vidas Secas</em>, de Graciliano Ramos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1938, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Fabiano e família fogem da seca. A prosa mais dura e limpa do Brasil.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Vidas Secas</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Graciliano Ramos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Graciliano Ramos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Vidas Secas</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Graciliano Ramos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1938</h3>
+<p>O ano de publicação, 1938, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Graciliano Ramos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Graciliano Ramos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Graciliano Ramos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Graciliano Ramos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Graciliano Ramos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Vidas Secas</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Graciliano Ramos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Graciliano Ramos</h3>
+<p>O estilo de Graciliano Ramos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Vidas Secas</em>, a escolha narrativa de Graciliano Ramos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Vidas Secas</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Vidas Secas</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Graciliano Ramos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Vidas Secas</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: fabiano e família fogem da seca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Vidas Secas</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>Vidas Secas</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Graciliano Ramos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Graciliano Ramos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Vidas Secas</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Graciliano Ramos.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Graciliano Ramos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Graciliano Ramos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Vidas Secas</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Vidas Secas</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Graciliano Ramos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Vidas Secas</em> é um dos mais comentados da literatura de língua portuguesa. Graciliano Ramos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Vidas Secas</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
+  ],
+   ['graciliano ramos', 'seca', 'nordeste']),
+
+bl('graciliano-sao-bernardo', 'São Bernardo', 'São Bernardo',
+   'Paulo Honório constrói fazenda e destrói a mulher. Narrador culpado.',
+   'Graciliano Ramos (1934–)',
+   'São Bernardo, 1934', '1934', 'Português', 1953,
+   'Literatura', 'Avançado', '3–4h',
+   'Paulo Honório constrói fazenda e destrói a mulher. Narrador culpado.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>São Bernardo</em>, de Graciliano Ramos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1934, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Paulo Honório constrói fazenda e destrói a mulher. Narrador culpado.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>São Bernardo</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Graciliano Ramos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Graciliano Ramos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>São Bernardo</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Graciliano Ramos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1934</h3>
+<p>O ano de publicação, 1934, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Graciliano Ramos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Graciliano Ramos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Graciliano Ramos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Graciliano Ramos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Graciliano Ramos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>São Bernardo</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Graciliano Ramos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Graciliano Ramos</h3>
+<p>O estilo de Graciliano Ramos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>São Bernardo</em>, a escolha narrativa de Graciliano Ramos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>São Bernardo</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>São Bernardo</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Graciliano Ramos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>São Bernardo</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: paulo honório constrói fazenda e destrói a mulher. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>São Bernardo</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>São Bernardo</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Graciliano Ramos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Graciliano Ramos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>São Bernardo</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Graciliano Ramos.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Graciliano Ramos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Graciliano Ramos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>São Bernardo</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>São Bernardo</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Graciliano Ramos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>São Bernardo</em> é um dos mais comentados da literatura de língua portuguesa. Graciliano Ramos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>São Bernardo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
+  ],
+   ['graciliano ramos', 'culpa', 'poder']),
+
+bl('graciliano-angustia', 'Angústia', 'Angústia',
+   'Luís da Silva planeja e comete um crime. Fluxo de consciência nordestino.',
+   'Graciliano Ramos (1936–)',
+   'Angústia, 1936', '1936', 'Português', 1953,
+   'Literatura', 'Avançado', '3–4h',
+   'Luís da Silva planeja e comete um crime. Fluxo de consciência nordestino.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Angústia</em>, de Graciliano Ramos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1936, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Luís da Silva planeja e comete um crime. Fluxo de consciência nordestino.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Angústia</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Graciliano Ramos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Graciliano Ramos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Angústia</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Graciliano Ramos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1936</h3>
+<p>O ano de publicação, 1936, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Graciliano Ramos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Graciliano Ramos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Graciliano Ramos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Graciliano Ramos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Graciliano Ramos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Angústia</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Graciliano Ramos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Graciliano Ramos</h3>
+<p>O estilo de Graciliano Ramos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Angústia</em>, a escolha narrativa de Graciliano Ramos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Angústia</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Angústia</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Graciliano Ramos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Angústia</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: luís da silva planeja e comete um crime. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Angústia</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>Angústia</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Graciliano Ramos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Graciliano Ramos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Angústia</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Graciliano Ramos.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Graciliano Ramos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Graciliano Ramos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Angústia</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Angústia</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Graciliano Ramos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Angústia</em> é um dos mais comentados da literatura de língua portuguesa. Graciliano Ramos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Angústia</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
+  ],
+   ['graciliano ramos', 'crime', 'consciência']),
+
+bl('graciliano-infancia', 'Infância', 'Infância',
+   'Memórias de menino em Alagoas. A seca, a violência, a descoberta da leitura.',
+   'Graciliano Ramos (1945–)',
+   'Infância, 1945', '1945', 'Português', 1953,
+   'Literatura', 'Avançado', '3–4h',
+   'Memórias de menino em Alagoas. A seca, a violência, a descoberta da leitura.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Infância</em>, de Graciliano Ramos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1945, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Memórias de menino em Alagoas. A seca, a violência, a descoberta da leitura.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Infância</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Graciliano Ramos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>memórias</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Graciliano Ramos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Autobiográfico', estimatedMinutes: 10, content: `<h2>Contexto Autobiográfico</h2>
+<p>Para compreender plenamente <em>Infância</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Graciliano Ramos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1945</h3>
+<p>O ano de publicação, 1945, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Graciliano Ramos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Graciliano Ramos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Graciliano Ramos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Graciliano Ramos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Graciliano Ramos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa', estimatedMinutes: 11, content: `<h2>Análise Narrativa</h2>
+<p>A análise de <em>Infância</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Graciliano Ramos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Graciliano Ramos</h3>
+<p>O estilo de Graciliano Ramos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Infância</em>, a escolha narrativa de Graciliano Ramos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Infância</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Imagens', estimatedMinutes: 10, content: `<h2>Temas e Imagens</h2>
+<p>Os temas de <em>Infância</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Graciliano Ramos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Infância</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: memórias de menino em alagoas. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Infância</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>Infância</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Graciliano Ramos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Graciliano Ramos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Infância</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Graciliano Ramos.</p>` },
+    { title: 'Excertos Memoráveis', estimatedMinutes: 10, content: `<h2>Excertos Memoráveis</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Graciliano Ramos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Graciliano Ramos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Infância</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Infância</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Graciliano Ramos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Infância</em> é um dos mais comentados da literatura de língua portuguesa. Graciliano Ramos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Infância</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Graciliano Ramos.</p>` }
+  ],
+   ['graciliano ramos', 'infância', 'memória']),
+
+bl('coelho-neto-a-conquista', 'A Conquista', 'A Conquista',
+   'Jovens artistas boêmios no Rio dos anos 1880. O Naturalismo tropical.',
+   'Coelho Neto (1897–)',
+   'A Conquista, 1897', '1897', 'Português', 1934,
+   'Literatura', 'Intermediário', '4–5h',
+   'Jovens artistas boêmios no Rio dos anos 1880. O Naturalismo tropical.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Conquista</em>, de Coelho Neto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1897, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Jovens artistas boêmios no Rio dos anos 1880. O Naturalismo tropical.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Conquista</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Coelho Neto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Coelho Neto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Conquista</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Coelho Neto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1897</h3>
+<p>O ano de publicação, 1897, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Coelho Neto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Coelho Neto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Coelho Neto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Coelho Neto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Coelho Neto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Conquista</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Coelho Neto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Coelho Neto</h3>
+<p>O estilo de Coelho Neto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Conquista</em>, a escolha narrativa de Coelho Neto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Conquista</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Conquista</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Coelho Neto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Conquista</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: jovens artistas boêmios no rio dos anos 1880. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Conquista</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>A Conquista</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Coelho Neto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Coelho Neto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Conquista</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Coelho Neto.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Coelho Neto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Coelho Neto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Conquista</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Conquista</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Coelho Neto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Conquista</em> é um dos mais comentados da literatura de língua portuguesa. Coelho Neto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Conquista</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Coelho Neto.</p>` }
+  ],
+   ['coelho neto', 'boêmia', 'naturalismo']),
+
+bl('afonso-arinos-pelo-sertao', 'Pelo Sertão', 'Pelo Sertão',
+   'Contos do sertão mineiro. O Brasil que o litoral não via.',
+   'Afonso Arinos (1898–)',
+   'Pelo Sertão, 1898', '1898', 'Português', 1916,
+   'Literatura', 'Iniciante', '2–3h',
+   'Contos do sertão mineiro. O Brasil que o litoral não via.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Pelo Sertão</em>, de Afonso Arinos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1898, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Contos do sertão mineiro. O Brasil que o litoral não via.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Pelo Sertão</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Afonso Arinos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>contos</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Afonso Arinos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Movimento Literário', estimatedMinutes: 9, content: `<h2>Contexto e Movimento Literário</h2>
+<p>Para compreender plenamente <em>Pelo Sertão</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Afonso Arinos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1898</h3>
+<p>O ano de publicação, 1898, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Afonso Arinos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Afonso Arinos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Afonso Arinos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Afonso Arinos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Afonso Arinos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Contos Principais', estimatedMinutes: 11, content: `<h2>Análise dos Contos Principais</h2>
+<p>A análise de <em>Pelo Sertão</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Afonso Arinos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Afonso Arinos</h3>
+<p>O estilo de Afonso Arinos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Pelo Sertão</em>, a escolha narrativa de Afonso Arinos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Pelo Sertão</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas Recorrentes e Estilo', estimatedMinutes: 10, content: `<h2>Temas Recorrentes e Estilo</h2>
+<p>Os temas de <em>Pelo Sertão</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Afonso Arinos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Pelo Sertão</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: contos do sertão mineiro. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Pelo Sertão</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Pelo Sertão</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Afonso Arinos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Afonso Arinos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Pelo Sertão</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Afonso Arinos.</p>` },
+    { title: 'Fragmentos e Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos e Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Afonso Arinos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Afonso Arinos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Pelo Sertão</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Pelo Sertão</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Afonso Arinos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Pelo Sertão</em> é um dos mais comentados da literatura de língua portuguesa. Afonso Arinos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Pelo Sertão</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Afonso Arinos.</p>` }
+  ],
+   ['afonso arinos', 'sertão', 'minas gerais']),
+
+bl('humberto-campos-poeira', 'Poeira', 'Poeira',
+   'Crônicas e perfis. O olhar irônico e terno sobre a vida brasileira.',
+   'Humberto de Campos (1916–)',
+   'Poeira, 1916', '1916', 'Português', 1934,
+   'Literatura', 'Iniciante', '2–3h',
+   'Crônicas e perfis. O olhar irônico e terno sobre a vida brasileira.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 9, content: `<h2>Apresentação da Obra</h2>
+<p><em>Poeira</em>, de Humberto de Campos, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1916, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Crônicas e perfis. O olhar irônico e terno sobre a vida brasileira.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Poeira</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Humberto de Campos não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>crônicas</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Humberto de Campos imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Cronista e sua Cidade', estimatedMinutes: 10, content: `<h2>O Cronista e sua Cidade</h2>
+<p>Para compreender plenamente <em>Poeira</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Humberto de Campos viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1916</h3>
+<p>O ano de publicação, 1916, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Humberto de Campos posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Humberto de Campos foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Humberto de Campos</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Humberto de Campos percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Humberto de Campos não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise das Crônicas', estimatedMinutes: 10, content: `<h2>Análise das Crônicas</h2>
+<p>A análise de <em>Poeira</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Humberto de Campos não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Humberto de Campos</h3>
+<p>O estilo de Humberto de Campos é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Poeira</em>, a escolha narrativa de Humberto de Campos carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Poeira</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Técnica', estimatedMinutes: 9, content: `<h2>Temas e Técnica</h2>
+<p>Os temas de <em>Poeira</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Humberto de Campos não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Poeira</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: crônicas e perfis. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Poeira</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Poeira</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Humberto de Campos observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Humberto de Campos é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Poeira</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Humberto de Campos.</p>` },
+    { title: 'Crônicas Selecionadas', estimatedMinutes: 10, content: `<h2>Crônicas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Humberto de Campos e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Humberto de Campos não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Poeira</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Poeira</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Humberto de Campos é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Poeira</em> é um dos mais comentados da literatura de língua portuguesa. Humberto de Campos não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poeira</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Humberto de Campos.</p>` }
+  ],
+   ['humberto de campos', 'crônica', 'ironia']),
+
+bl('domingos-olimpio-luzia-homem', 'Luzia-Homem', 'Luzia-Homem',
+   'Luzia, forte como um homem, trabalha nas obras do açude na seca.',
+   'Domingos Olímpio (1903–)',
+   'Luzia-Homem, 1903', '1903', 'Português', 1906,
+   'Literatura', 'Intermediário', '3–4h',
+   'Luzia, forte como um homem, trabalha nas obras do açude na seca.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Luzia-Homem</em>, de Domingos Olímpio, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1903, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Luzia, forte como um homem, trabalha nas obras do açude na seca.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Luzia-Homem</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Domingos Olímpio não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Domingos Olímpio imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Luzia-Homem</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Domingos Olímpio viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1903</h3>
+<p>O ano de publicação, 1903, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Domingos Olímpio posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Domingos Olímpio foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Domingos Olímpio</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Domingos Olímpio percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Domingos Olímpio não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Luzia-Homem</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Domingos Olímpio não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Domingos Olímpio</h3>
+<p>O estilo de Domingos Olímpio é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Luzia-Homem</em>, a escolha narrativa de Domingos Olímpio carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Luzia-Homem</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Luzia-Homem</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Domingos Olímpio não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Luzia-Homem</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: luzia, forte como um homem, trabalha nas obras do açude na seca. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Luzia-Homem</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Luzia-Homem</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Domingos Olímpio observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Domingos Olímpio é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Luzia-Homem</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Domingos Olímpio.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Domingos Olímpio e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Domingos Olímpio não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Luzia-Homem</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Luzia-Homem</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Domingos Olímpio é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Luzia-Homem</em> é um dos mais comentados da literatura de língua portuguesa. Domingos Olímpio não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Luzia-Homem</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Domingos Olímpio.</p>` }
+  ],
+   ['domingos olímpio', 'sertão', 'mulher forte']),
+
+bl('martins-pena-juiz-de-paz', 'O Juiz de Paz da Roça', 'O Juiz de Paz da Roça',
+   'Comédia de costumes. O juiz ignorante e a vida rural brasileira.',
+   'Martins Pena (1842–)',
+   'O Juiz de Paz da Roça, 1842', '1842', 'Português', 1848,
+   'Literatura', 'Iniciante', '1–2h',
+   'Comédia de costumes. O juiz ignorante e a vida rural brasileira.',
+   'forest',
+   [
+    { title: 'Apresentação da Peça', estimatedMinutes: 8, content: `<h2>Apresentação da Peça</h2>
+<p><em>O Juiz de Paz da Roça</em>, de Martins Pena, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1842, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Comédia de costumes. O juiz ignorante e a vida rural brasileira.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Juiz de Paz da Roça</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Martins Pena não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>teatro</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Martins Pena imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto do Teatro Brasileiro', estimatedMinutes: 9, content: `<h2>Contexto do Teatro Brasileiro</h2>
+<p>Para compreender plenamente <em>O Juiz de Paz da Roça</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Martins Pena viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1842</h3>
+<p>O ano de publicação, 1842, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Martins Pena posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Martins Pena foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Martins Pena</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Martins Pena percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Martins Pena não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Ação Dramática', estimatedMinutes: 10, content: `<h2>Análise da Ação Dramática</h2>
+<p>A análise de <em>O Juiz de Paz da Roça</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Martins Pena não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Martins Pena</h3>
+<p>O estilo de Martins Pena é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Juiz de Paz da Roça</em>, a escolha narrativa de Martins Pena carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Juiz de Paz da Roça</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Personagens e Linguagem', estimatedMinutes: 9, content: `<h2>Personagens e Linguagem</h2>
+<p>Os temas de <em>O Juiz de Paz da Roça</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Martins Pena não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Juiz de Paz da Roça</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: comédia de costumes. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Juiz de Paz da Roça</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>O Juiz de Paz da Roça</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Martins Pena observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Martins Pena é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Juiz de Paz da Roça</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Martins Pena.</p>` },
+    { title: 'Cenas Selecionadas', estimatedMinutes: 10, content: `<h2>Cenas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Martins Pena e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Martins Pena não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Juiz de Paz da Roça</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Juiz de Paz da Roça</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Martins Pena é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Juiz de Paz da Roça</em> é um dos mais comentados da literatura de língua portuguesa. Martins Pena não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Juiz de Paz da Roça</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Martins Pena.</p>` }
+  ],
+   ['martins pena', 'teatro', 'comédia']),
+
+bl('martins-pena-o-novico', 'O Noviço', 'O Noviço',
+   'Farsa sobre falsa devoção religiosa e dinheiro. Comédia clássica.',
+   'Martins Pena (1845–)',
+   'O Noviço, 1845', '1845', 'Português', 1848,
+   'Literatura', 'Iniciante', '1–2h',
+   'Farsa sobre falsa devoção religiosa e dinheiro. Comédia clássica.',
+   'forest',
+   [
+    { title: 'Apresentação da Peça', estimatedMinutes: 8, content: `<h2>Apresentação da Peça</h2>
+<p><em>O Noviço</em>, de Martins Pena, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1845, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Farsa sobre falsa devoção religiosa e dinheiro. Comédia clássica.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Noviço</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Martins Pena não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>teatro</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Martins Pena imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto do Teatro Brasileiro', estimatedMinutes: 9, content: `<h2>Contexto do Teatro Brasileiro</h2>
+<p>Para compreender plenamente <em>O Noviço</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Martins Pena viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1845</h3>
+<p>O ano de publicação, 1845, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Martins Pena posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Martins Pena foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Martins Pena</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Martins Pena percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Martins Pena não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Ação Dramática', estimatedMinutes: 10, content: `<h2>Análise da Ação Dramática</h2>
+<p>A análise de <em>O Noviço</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Martins Pena não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Martins Pena</h3>
+<p>O estilo de Martins Pena é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Noviço</em>, a escolha narrativa de Martins Pena carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Noviço</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Personagens e Linguagem', estimatedMinutes: 9, content: `<h2>Personagens e Linguagem</h2>
+<p>Os temas de <em>O Noviço</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Martins Pena não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Noviço</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: farsa sobre falsa devoção religiosa e dinheiro. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Noviço</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>O Noviço</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Martins Pena observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Martins Pena é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Noviço</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Martins Pena.</p>` },
+    { title: 'Cenas Selecionadas', estimatedMinutes: 10, content: `<h2>Cenas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Martins Pena e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Martins Pena não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Noviço</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Noviço</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Martins Pena é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Noviço</em> é um dos mais comentados da literatura de língua portuguesa. Martins Pena não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Noviço</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Martins Pena.</p>` }
+  ],
+   ['martins pena', 'teatro', 'religião']),
+
+bl('sousandrade-guesa', 'O Guesa Errante', 'O Guesa Errante',
+   'O índio Guesa viaja pelo mundo moderno. Vanguarda no século XIX.',
+   'Sousândrade (1868–)',
+   'O Guesa Errante, 1868', '1868', 'Português', 1902,
+   'Literatura', 'Avançado', '3–4h',
+   'O índio Guesa viaja pelo mundo moderno. Vanguarda no século XIX.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Guesa Errante</em>, de Sousândrade, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1868, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O índio Guesa viaja pelo mundo moderno. Vanguarda no século XIX.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Guesa Errante</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Sousândrade não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia épica</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Sousândrade imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto e Influências', estimatedMinutes: 10, content: `<h2>Contexto e Influências</h2>
+<p>Para compreender plenamente <em>O Guesa Errante</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Sousândrade viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1868</h3>
+<p>O ano de publicação, 1868, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Sousândrade posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Sousândrade foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Sousândrade</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Sousândrade percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Sousândrade não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Estrutura Épica', estimatedMinutes: 11, content: `<h2>Análise da Estrutura Épica</h2>
+<p>A análise de <em>O Guesa Errante</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Sousândrade não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Sousândrade</h3>
+<p>O estilo de Sousândrade é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Guesa Errante</em>, a escolha narrativa de Sousândrade carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Guesa Errante</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Inovação', estimatedMinutes: 10, content: `<h2>Temas e Inovação</h2>
+<p>Os temas de <em>O Guesa Errante</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Sousândrade não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Guesa Errante</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o índio guesa viaja pelo mundo moderno. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Guesa Errante</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>O Guesa Errante</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Sousândrade observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Sousândrade é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Guesa Errante</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Sousândrade.</p>` },
+    { title: 'Fragmentos do Poema', estimatedMinutes: 10, content: `<h2>Fragmentos do Poema</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Sousândrade e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Sousândrade não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Guesa Errante</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Guesa Errante</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Sousândrade é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Guesa Errante</em> é um dos mais comentados da literatura de língua portuguesa. Sousândrade não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Guesa Errante</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Sousândrade.</p>` }
+  ],
+   ['sousândrade', 'épico', 'modernismo']),
+
+bl('tobias-barreto-dias-noites', 'Dias e Noites', 'Dias e Noites',
+   'O introdutor do pensamento alemão. Poesia e filosofia do Recife.',
+   'Tobias Barreto (1893–)',
+   'Dias e Noites, 1893', '1893', 'Português', 1889,
+   'Literatura', 'Avançado', '2–3h',
+   'O introdutor do pensamento alemão. Poesia e filosofia do Recife.',
+   'navy',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Dias e Noites</em>, de Tobias Barreto, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1893, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O introdutor do pensamento alemão. Poesia e filosofia do Recife.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Dias e Noites</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Tobias Barreto não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Tobias Barreto imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Dias e Noites</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Tobias Barreto viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1893</h3>
+<p>O ano de publicação, 1893, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Tobias Barreto posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Tobias Barreto foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Tobias Barreto</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Tobias Barreto percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Tobias Barreto não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Dias e Noites</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Tobias Barreto não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Tobias Barreto</h3>
+<p>O estilo de Tobias Barreto é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Dias e Noites</em>, a escolha narrativa de Tobias Barreto carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Dias e Noites</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Dias e Noites</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Tobias Barreto não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Dias e Noites</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o introdutor do pensamento alemão. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Dias e Noites</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>Dias e Noites</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Tobias Barreto observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Tobias Barreto é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Dias e Noites</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Tobias Barreto.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Tobias Barreto e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Tobias Barreto não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Dias e Noites</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Dias e Noites</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Tobias Barreto é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Dias e Noites</em> é um dos mais comentados da literatura de língua portuguesa. Tobias Barreto não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Dias e Noites</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Tobias Barreto.</p>` }
+  ],
+   ['tobias barreto', 'filosofia', 'recife']),
+
+bl('pessoa-mensagem', 'Mensagem', 'Mensagem',
+   'Único livro em português publicado em vida. Portugal como destino místico.',
+   'Fernando Pessoa (1934–)',
+   'Mensagem, 1934', '1934', 'Português', 1935,
+   'Literatura', 'Avançado', '2–3h',
+   'Único livro em português publicado em vida. Portugal como destino místico.',
+   'navy',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Mensagem</em>, de Fernando Pessoa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1934, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Único livro em português publicado em vida. Portugal como destino místico.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Mensagem</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Fernando Pessoa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Fernando Pessoa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Mensagem</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Fernando Pessoa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1934</h3>
+<p>O ano de publicação, 1934, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Fernando Pessoa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Fernando Pessoa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Fernando Pessoa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Fernando Pessoa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Fernando Pessoa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Mensagem</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Fernando Pessoa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Fernando Pessoa</h3>
+<p>O estilo de Fernando Pessoa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Mensagem</em>, a escolha narrativa de Fernando Pessoa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Mensagem</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Mensagem</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Fernando Pessoa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Mensagem</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: único livro em português publicado em vida. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Mensagem</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>Mensagem</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Fernando Pessoa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Fernando Pessoa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Mensagem</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Fernando Pessoa.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Fernando Pessoa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Fernando Pessoa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Mensagem</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Mensagem</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Fernando Pessoa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Mensagem</em> é um dos mais comentados da literatura de língua portuguesa. Fernando Pessoa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Mensagem</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
+  ],
+   ['fernando pessoa', 'portugal', 'misticismo']),
+
+bl('pessoa-alberto-caeiro', 'Poemas de Alberto Caeiro', 'Poemas de Alberto Caeiro',
+   'O heterônimo que desaprendeu a pensar. Filosofia do olhar puro.',
+   'Fernando Pessoa (1914–)',
+   'Poemas de Alberto Caeiro, 1914', '1914', 'Português', 1935,
+   'Literatura', 'Intermediário', '2–3h',
+   'O heterônimo que desaprendeu a pensar. Filosofia do olhar puro.',
+   'forest',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Poemas de Alberto Caeiro</em>, de Fernando Pessoa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1914, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O heterônimo que desaprendeu a pensar. Filosofia do olhar puro.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Poemas de Alberto Caeiro</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Fernando Pessoa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Fernando Pessoa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Poemas de Alberto Caeiro</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Fernando Pessoa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1914</h3>
+<p>O ano de publicação, 1914, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Fernando Pessoa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Fernando Pessoa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Fernando Pessoa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Fernando Pessoa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Fernando Pessoa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Poemas de Alberto Caeiro</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Fernando Pessoa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Fernando Pessoa</h3>
+<p>O estilo de Fernando Pessoa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Poemas de Alberto Caeiro</em>, a escolha narrativa de Fernando Pessoa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Poemas de Alberto Caeiro</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Poemas de Alberto Caeiro</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Fernando Pessoa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Poemas de Alberto Caeiro</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o heterônimo que desaprendeu a pensar. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Poemas de Alberto Caeiro</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Poemas de Alberto Caeiro</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Fernando Pessoa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Fernando Pessoa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Poemas de Alberto Caeiro</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Fernando Pessoa.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Fernando Pessoa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Fernando Pessoa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Poemas de Alberto Caeiro</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Poemas de Alberto Caeiro</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Fernando Pessoa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Poemas de Alberto Caeiro</em> é um dos mais comentados da literatura de língua portuguesa. Fernando Pessoa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Poemas de Alberto Caeiro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
+  ],
+   ['fernando pessoa', 'heterônimo', 'natureza']),
+
+bl('pessoa-ricardo-reis', 'Odes de Ricardo Reis', 'Odes de Ricardo Reis',
+   'O estoicismo pagão. Ricardo Reis contempla o destino com serenidade.',
+   'Fernando Pessoa (1914–)',
+   'Odes de Ricardo Reis, 1914', '1914', 'Português', 1935,
+   'Literatura', 'Avançado', '2–3h',
+   'O estoicismo pagão. Ricardo Reis contempla o destino com serenidade.',
+   'gold',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Odes de Ricardo Reis</em>, de Fernando Pessoa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1914, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O estoicismo pagão. Ricardo Reis contempla o destino com serenidade.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Odes de Ricardo Reis</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Fernando Pessoa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Fernando Pessoa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Odes de Ricardo Reis</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Fernando Pessoa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1914</h3>
+<p>O ano de publicação, 1914, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Fernando Pessoa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Fernando Pessoa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Fernando Pessoa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Fernando Pessoa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Fernando Pessoa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Odes de Ricardo Reis</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Fernando Pessoa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Fernando Pessoa</h3>
+<p>O estilo de Fernando Pessoa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Odes de Ricardo Reis</em>, a escolha narrativa de Fernando Pessoa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Odes de Ricardo Reis</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Odes de Ricardo Reis</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Fernando Pessoa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Odes de Ricardo Reis</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o estoicismo pagão. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Odes de Ricardo Reis</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Odes de Ricardo Reis</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Fernando Pessoa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Fernando Pessoa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Odes de Ricardo Reis</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Fernando Pessoa.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Fernando Pessoa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Fernando Pessoa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Odes de Ricardo Reis</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Odes de Ricardo Reis</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Fernando Pessoa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Odes de Ricardo Reis</em> é um dos mais comentados da literatura de língua portuguesa. Fernando Pessoa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Odes de Ricardo Reis</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
+  ],
+   ['fernando pessoa', 'heterônimo', 'estoicismo']),
+
+bl('pessoa-alvaro-campos', 'Odes de Álvaro de Campos', 'Odes de Álvaro de Campos',
+   'Ode Triunfal, Tabacaria. O grito da modernidade industrial.',
+   'Fernando Pessoa (1914–)',
+   'Odes de Álvaro de Campos, 1914', '1914', 'Português', 1935,
+   'Literatura', 'Avançado', '2–3h',
+   'Ode Triunfal, Tabacaria. O grito da modernidade industrial.',
+   'deep-purple',
+   [
+    { title: 'Apresentação e Contexto', estimatedMinutes: 10, content: `<h2>Apresentação e Contexto</h2>
+<p><em>Odes de Álvaro de Campos</em>, de Fernando Pessoa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1914, ela integra o movimento do Pré-Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Ode Triunfal, Tabacaria. O grito da modernidade industrial.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Odes de Álvaro de Campos</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Fernando Pessoa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>poesia</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Fernando Pessoa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Poeta e sua Época', estimatedMinutes: 9, content: `<h2>O Poeta e sua Época</h2>
+<p>Para compreender plenamente <em>Odes de Álvaro de Campos</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Fernando Pessoa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1914</h3>
+<p>O ano de publicação, 1914, insere-se no movimento do Pré-Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Fernando Pessoa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Pré-Modernismo</h3>
+<p>O Pré-Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Fernando Pessoa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Fernando Pessoa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Fernando Pessoa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Fernando Pessoa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Poemas Principais', estimatedMinutes: 11, content: `<h2>Análise dos Poemas Principais</h2>
+<p>A análise de <em>Odes de Álvaro de Campos</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Fernando Pessoa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Fernando Pessoa</h3>
+<p>O estilo de Fernando Pessoa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Odes de Álvaro de Campos</em>, a escolha narrativa de Fernando Pessoa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Odes de Álvaro de Campos</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Forma, Métrica e Linguagem', estimatedMinutes: 10, content: `<h2>Forma, Métrica e Linguagem</h2>
+<p>Os temas de <em>Odes de Álvaro de Campos</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Fernando Pessoa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Odes de Álvaro de Campos</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: ode triunfal, tabacaria. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Odes de Álvaro de Campos</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Pré-Modernismo, <em>Odes de Álvaro de Campos</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Fernando Pessoa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Fernando Pessoa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Odes de Álvaro de Campos</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Fernando Pessoa.</p>` },
+    { title: 'Poemas Selecionados', estimatedMinutes: 10, content: `<h2>Poemas Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Fernando Pessoa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Fernando Pessoa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Odes de Álvaro de Campos</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Odes de Álvaro de Campos</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Fernando Pessoa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Odes de Álvaro de Campos</em> é um dos mais comentados da literatura de língua portuguesa. Fernando Pessoa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Odes de Álvaro de Campos</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
+  ],
+   ['fernando pessoa', 'heterônimo', 'modernidade']),
+
+bl('pessoa-livro-do-desassossego', 'Livro do Desassossego', 'Livro do Desassossego',
+   'Bernardo Soares registra a vida interior. Fragmentos do maior livro português.',
+   'Fernando Pessoa (1982–)',
+   'Livro do Desassossego, 1982', '1982', 'Português', 1935,
+   'Literatura', 'Avançado', '4–5h',
+   'Bernardo Soares registra a vida interior. Fragmentos do maior livro português.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Livro do Desassossego</em>, de Fernando Pessoa, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1982, ela integra o movimento do Modernismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Bernardo Soares registra a vida interior. Fragmentos do maior livro português.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Livro do Desassossego</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Fernando Pessoa não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>diário</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Fernando Pessoa imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Diarista e o Fingimento', estimatedMinutes: 10, content: `<h2>O Diarista e o Fingimento</h2>
+<p>Para compreender plenamente <em>Livro do Desassossego</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Fernando Pessoa viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1982</h3>
+<p>O ano de publicação, 1982, insere-se no movimento do Modernismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Fernando Pessoa posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Modernismo</h3>
+<p>O Modernismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Fernando Pessoa foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Fernando Pessoa</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Fernando Pessoa percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Fernando Pessoa não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise dos Fragmentos', estimatedMinutes: 11, content: `<h2>Análise dos Fragmentos</h2>
+<p>A análise de <em>Livro do Desassossego</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Fernando Pessoa não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Fernando Pessoa</h3>
+<p>O estilo de Fernando Pessoa é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Livro do Desassossego</em>, a escolha narrativa de Fernando Pessoa carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Livro do Desassossego</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Filosofia do Desassossego', estimatedMinutes: 11, content: `<h2>Filosofia do Desassossego</h2>
+<p>Os temas de <em>Livro do Desassossego</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Fernando Pessoa não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Livro do Desassossego</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: bernardo soares registra a vida interior. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Livro do Desassossego</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Modernismo, <em>Livro do Desassossego</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Fernando Pessoa observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Fernando Pessoa é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Livro do Desassossego</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Fernando Pessoa.</p>` },
+    { title: 'Fragmentos Selecionados', estimatedMinutes: 10, content: `<h2>Fragmentos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Fernando Pessoa e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Fernando Pessoa não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Livro do Desassossego</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Livro do Desassossego</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Fernando Pessoa é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Livro do Desassossego</em> é um dos mais comentados da literatura de língua portuguesa. Fernando Pessoa não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Livro do Desassossego</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Fernando Pessoa.</p>` }
+  ],
+   ['fernando pessoa', 'heterônimo', 'existencialismo']),
+
+bl('eca-crime-padre-amaro', 'O Crime do Padre Amaro', 'O Crime do Padre Amaro',
+   'O padre seduz Amélia. O Realismo português e o escândalo clerical.',
+   'Eça de Queirós (1875–)',
+   'O Crime do Padre Amaro, 1875', '1875', 'Português', 1900,
+   'Literatura', 'Avançado', '5–6h',
+   'O padre seduz Amélia. O Realismo português e o escândalo clerical.',
+   'burgundy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Crime do Padre Amaro</em>, de Eça de Queirós, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1875, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O padre seduz Amélia. O Realismo português e o escândalo clerical.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Crime do Padre Amaro</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Eça de Queirós não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Eça de Queirós imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Crime do Padre Amaro</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Eça de Queirós viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1875</h3>
+<p>O ano de publicação, 1875, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Eça de Queirós posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Eça de Queirós foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Eça de Queirós</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Eça de Queirós percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Eça de Queirós não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Crime do Padre Amaro</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Eça de Queirós não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Eça de Queirós</h3>
+<p>O estilo de Eça de Queirós é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Crime do Padre Amaro</em>, a escolha narrativa de Eça de Queirós carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Crime do Padre Amaro</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Crime do Padre Amaro</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Eça de Queirós não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Crime do Padre Amaro</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o padre seduz amélia. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Crime do Padre Amaro</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Crime do Padre Amaro</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Eça de Queirós observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Eça de Queirós é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Crime do Padre Amaro</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Eça de Queirós.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Eça de Queirós e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Eça de Queirós não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Crime do Padre Amaro</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Crime do Padre Amaro</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Eça de Queirós é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Crime do Padre Amaro</em> é um dos mais comentados da literatura de língua portuguesa. Eça de Queirós não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Crime do Padre Amaro</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
+  ],
+   ['eça de queirós', 'clericalismo', 'realismo']),
+
+bl('eca-primo-basilio', 'O Primo Basílio', 'O Primo Basílio',
+   'Luísa cede ao primo. Chantagem, vergonha e morte. Realismo burguês.',
+   'Eça de Queirós (1878–)',
+   'O Primo Basílio, 1878', '1878', 'Português', 1900,
+   'Literatura', 'Avançado', '5–6h',
+   'Luísa cede ao primo. Chantagem, vergonha e morte. Realismo burguês.',
+   'deep-purple',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>O Primo Basílio</em>, de Eça de Queirós, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1878, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Luísa cede ao primo. Chantagem, vergonha e morte. Realismo burguês.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>O Primo Basílio</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Eça de Queirós não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Eça de Queirós imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>O Primo Basílio</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Eça de Queirós viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1878</h3>
+<p>O ano de publicação, 1878, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Eça de Queirós posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Eça de Queirós foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Eça de Queirós</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Eça de Queirós percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Eça de Queirós não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>O Primo Basílio</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Eça de Queirós não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Eça de Queirós</h3>
+<p>O estilo de Eça de Queirós é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>O Primo Basílio</em>, a escolha narrativa de Eça de Queirós carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>O Primo Basílio</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>O Primo Basílio</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Eça de Queirós não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>O Primo Basílio</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: luísa cede ao primo. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>O Primo Basílio</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>O Primo Basílio</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Eça de Queirós observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Eça de Queirós é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>O Primo Basílio</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Eça de Queirós.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Eça de Queirós e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Eça de Queirós não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>O Primo Basílio</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>O Primo Basílio</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Eça de Queirós é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>O Primo Basílio</em> é um dos mais comentados da literatura de língua portuguesa. Eça de Queirós não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>O Primo Basílio</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
+  ],
+   ['eça de queirós', 'adultério', 'realismo']),
+
+bl('eca-os-maias', 'Os Maias', 'Os Maias',
+   'Decadência de uma família portuguesa em três gerações. O maior romance de Eça.',
+   'Eça de Queirós (1888–)',
+   'Os Maias, 1888', '1888', 'Português', 1900,
+   'Literatura', 'Avançado', '7–9h',
+   'Decadência de uma família portuguesa em três gerações. O maior romance de Eça.',
+   'navy',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Os Maias</em>, de Eça de Queirós, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1888, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Decadência de uma família portuguesa em três gerações. O maior romance de Eça.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Os Maias</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Eça de Queirós não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Eça de Queirós imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Os Maias</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Eça de Queirós viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1888</h3>
+<p>O ano de publicação, 1888, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Eça de Queirós posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Eça de Queirós foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Eça de Queirós</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Eça de Queirós percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Eça de Queirós não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Os Maias</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Eça de Queirós não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Eça de Queirós</h3>
+<p>O estilo de Eça de Queirós é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Os Maias</em>, a escolha narrativa de Eça de Queirós carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Os Maias</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Os Maias</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Eça de Queirós não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Os Maias</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: decadência de uma família portuguesa em três gerações. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Os Maias</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>Os Maias</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Eça de Queirós observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Eça de Queirós é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Os Maias</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Eça de Queirós.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Eça de Queirós e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Eça de Queirós não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Os Maias</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Os Maias</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Eça de Queirós é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Os Maias</em> é um dos mais comentados da literatura de língua portuguesa. Eça de Queirós não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Os Maias</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
+  ],
+   ['eça de queirós', 'família', 'decadência']),
+
+bl('eca-a-reliquia', 'A Relíquia', 'A Relíquia',
+   'Teodorico vai à Palestina buscar relíquia para a tia beata. Sátira e ironia.',
+   'Eça de Queirós (1887–)',
+   'A Relíquia, 1887', '1887', 'Português', 1900,
+   'Literatura', 'Intermediário', '3–4h',
+   'Teodorico vai à Palestina buscar relíquia para a tia beata. Sátira e ironia.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Relíquia</em>, de Eça de Queirós, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1887, ela integra o movimento do Realismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Teodorico vai à Palestina buscar relíquia para a tia beata. Sátira e ironia.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Relíquia</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Eça de Queirós não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Eça de Queirós imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Relíquia</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Eça de Queirós viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1887</h3>
+<p>O ano de publicação, 1887, insere-se no movimento do Realismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Eça de Queirós posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Realismo</h3>
+<p>O Realismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Eça de Queirós foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Eça de Queirós</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Eça de Queirós percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Eça de Queirós não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Relíquia</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Eça de Queirós não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Eça de Queirós</h3>
+<p>O estilo de Eça de Queirós é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Relíquia</em>, a escolha narrativa de Eça de Queirós carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Relíquia</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Relíquia</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Eça de Queirós não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Relíquia</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: teodorico vai à palestina buscar relíquia para a tia beata. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Relíquia</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Realismo, <em>A Relíquia</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Eça de Queirós observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Eça de Queirós é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Relíquia</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Eça de Queirós.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Eça de Queirós e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Eça de Queirós não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Relíquia</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Relíquia</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Eça de Queirós é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Relíquia</em> é um dos mais comentados da literatura de língua portuguesa. Eça de Queirós não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Relíquia</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
+  ],
+   ['eça de queirós', 'sátira', 'religião']),
+
+bl('eca-a-cidade-serras', 'A Cidade e as Serras', 'A Cidade e as Serras',
+   'Jacinto descobre a felicidade na aldeia portuguesa. Crítica à modernidade.',
+   'Eça de Queirós (1901–)',
+   'A Cidade e as Serras, 1901', '1901', 'Português', 1900,
+   'Literatura', 'Intermediário', '3–4h',
+   'Jacinto descobre a felicidade na aldeia portuguesa. Crítica à modernidade.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Cidade e as Serras</em>, de Eça de Queirós, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1901, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Jacinto descobre a felicidade na aldeia portuguesa. Crítica à modernidade.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Cidade e as Serras</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Eça de Queirós não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Eça de Queirós imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Cidade e as Serras</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Eça de Queirós viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1901</h3>
+<p>O ano de publicação, 1901, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Eça de Queirós posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Eça de Queirós foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Eça de Queirós</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Eça de Queirós percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Eça de Queirós não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Cidade e as Serras</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Eça de Queirós não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Eça de Queirós</h3>
+<p>O estilo de Eça de Queirós é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Cidade e as Serras</em>, a escolha narrativa de Eça de Queirós carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Cidade e as Serras</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Cidade e as Serras</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Eça de Queirós não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Cidade e as Serras</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: jacinto descobre a felicidade na aldeia portuguesa. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Cidade e as Serras</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>A Cidade e as Serras</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Eça de Queirós observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Eça de Queirós é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Cidade e as Serras</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Eça de Queirós.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Eça de Queirós e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Eça de Queirós não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Cidade e as Serras</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Cidade e as Serras</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Eça de Queirós é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Cidade e as Serras</em> é um dos mais comentados da literatura de língua portuguesa. Eça de Queirós não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Cidade e as Serras</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
+  ],
+   ['eça de queirós', 'modernidade', 'natureza']),
+
+bl('eca-correspondencia-fradique', 'A Correspondência de Fradique Mendes', 'A Correspondência de Fradique Mendes',
+   'Fradique Mendes satiriza a Europa e Portugal em cartas.',
+   'Eça de Queirós (1900–)',
+   'A Correspondência de Fradique Mendes, 1900', '1900', 'Português', 1900,
+   'Literatura', 'Intermediário', '3–4h',
+   'Fradique Mendes satiriza a Europa e Portugal em cartas.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 9, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Correspondência de Fradique Mendes</em>, de Eça de Queirós, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1900, ela integra o movimento do Naturalismo / Parnasianismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Fradique Mendes satiriza a Europa e Portugal em cartas.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Correspondência de Fradique Mendes</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Eça de Queirós não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance epistolar</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Eça de Queirós imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'O Romance Epistolar', estimatedMinutes: 10, content: `<h2>O Romance Epistolar</h2>
+<p>Para compreender plenamente <em>A Correspondência de Fradique Mendes</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Eça de Queirós viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1900</h3>
+<p>O ano de publicação, 1900, insere-se no movimento do Naturalismo / Parnasianismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Eça de Queirós posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Naturalismo / Parnasianismo</h3>
+<p>O Naturalismo / Parnasianismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Eça de Queirós foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Eça de Queirós</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Eça de Queirós percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Eça de Queirós não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise das Cartas', estimatedMinutes: 11, content: `<h2>Análise das Cartas</h2>
+<p>A análise de <em>A Correspondência de Fradique Mendes</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Eça de Queirós não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Eça de Queirós</h3>
+<p>O estilo de Eça de Queirós é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Correspondência de Fradique Mendes</em>, a escolha narrativa de Eça de Queirós carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Correspondência de Fradique Mendes</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Sátira e Ironia', estimatedMinutes: 10, content: `<h2>Sátira e Ironia</h2>
+<p>Os temas de <em>A Correspondência de Fradique Mendes</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Eça de Queirós não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Correspondência de Fradique Mendes</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: fradique mendes satiriza a europa e portugal em cartas. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Correspondência de Fradique Mendes</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Naturalismo / Parnasianismo, <em>A Correspondência de Fradique Mendes</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Eça de Queirós observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Eça de Queirós é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Correspondência de Fradique Mendes</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Eça de Queirós.</p>` },
+    { title: 'Cartas Selecionadas', estimatedMinutes: 10, content: `<h2>Cartas Selecionadas</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Eça de Queirós e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Eça de Queirós não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Correspondência de Fradique Mendes</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Correspondência de Fradique Mendes</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Eça de Queirós é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Correspondência de Fradique Mendes</em> é um dos mais comentados da literatura de língua portuguesa. Eça de Queirós não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Correspondência de Fradique Mendes</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Eça de Queirós.</p>` }
+  ],
+   ['eça de queirós', 'sátira', 'epistolar']),
+
+bl('camilo-amor-perdicao', 'Amor de Perdição', 'Amor de Perdição',
+   'Simão ama Teresa. Prisão, exílio e morte. O Romantismo português.',
+   'Camilo Castelo Branco (1862–)',
+   'Amor de Perdição, 1862', '1862', 'Português', 1890,
+   'Literatura', 'Intermediário', '3–4h',
+   'Simão ama Teresa. Prisão, exílio e morte. O Romantismo português.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>Amor de Perdição</em>, de Camilo Castelo Branco, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1862, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Simão ama Teresa. Prisão, exílio e morte. O Romantismo português.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Amor de Perdição</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Camilo Castelo Branco não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Camilo Castelo Branco imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>Amor de Perdição</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Camilo Castelo Branco viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1862</h3>
+<p>O ano de publicação, 1862, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Camilo Castelo Branco posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Camilo Castelo Branco foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Camilo Castelo Branco</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Camilo Castelo Branco percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Camilo Castelo Branco não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>Amor de Perdição</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Camilo Castelo Branco não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Camilo Castelo Branco</h3>
+<p>O estilo de Camilo Castelo Branco é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Amor de Perdição</em>, a escolha narrativa de Camilo Castelo Branco carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Amor de Perdição</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>Amor de Perdição</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Camilo Castelo Branco não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Amor de Perdição</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: simão ama teresa. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Amor de Perdição</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Amor de Perdição</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Camilo Castelo Branco observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Camilo Castelo Branco é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Amor de Perdição</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Camilo Castelo Branco.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Camilo Castelo Branco e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Camilo Castelo Branco não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Amor de Perdição</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Amor de Perdição</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Camilo Castelo Branco é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Amor de Perdição</em> é um dos mais comentados da literatura de língua portuguesa. Camilo Castelo Branco não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Amor de Perdição</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Camilo Castelo Branco.</p>` }
+  ],
+   ['camilo castelo branco', 'amor', 'tragédia']),
+
+bl('camilo-queda-anjo', 'A Queda dum Anjo', 'A Queda dum Anjo',
+   'Senador provinciano é corrompido pela civilização. Comédia de costumes.',
+   'Camilo Castelo Branco (1866–)',
+   'A Queda dum Anjo, 1866', '1866', 'Português', 1890,
+   'Literatura', 'Intermediário', '3–4h',
+   'Senador provinciano é corrompido pela civilização. Comédia de costumes.',
+   'gold',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 12, content: `<h2>Apresentação da Obra</h2>
+<p><em>A Queda dum Anjo</em>, de Camilo Castelo Branco, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1866, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Senador provinciano é corrompido pela civilização. Comédia de costumes.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>A Queda dum Anjo</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Camilo Castelo Branco não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Camilo Castelo Branco imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico e Literário', estimatedMinutes: 10, content: `<h2>Contexto Histórico e Literário</h2>
+<p>Para compreender plenamente <em>A Queda dum Anjo</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Camilo Castelo Branco viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1866</h3>
+<p>O ano de publicação, 1866, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Camilo Castelo Branco posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Camilo Castelo Branco foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Camilo Castelo Branco</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Camilo Castelo Branco percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Camilo Castelo Branco não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa e Estilo', estimatedMinutes: 11, content: `<h2>Análise Narrativa e Estilo</h2>
+<p>A análise de <em>A Queda dum Anjo</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Camilo Castelo Branco não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Camilo Castelo Branco</h3>
+<p>O estilo de Camilo Castelo Branco é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>A Queda dum Anjo</em>, a escolha narrativa de Camilo Castelo Branco carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>A Queda dum Anjo</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas, Símbolos e Personagens', estimatedMinutes: 11, content: `<h2>Temas, Símbolos e Personagens</h2>
+<p>Os temas de <em>A Queda dum Anjo</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Camilo Castelo Branco não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>A Queda dum Anjo</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: senador provinciano é corrompido pela civilização. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>A Queda dum Anjo</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>A Queda dum Anjo</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Camilo Castelo Branco observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Camilo Castelo Branco é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>A Queda dum Anjo</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Camilo Castelo Branco.</p>` },
+    { title: 'Excertos e Fragmentos Literários', estimatedMinutes: 10, content: `<h2>Excertos e Fragmentos Literários</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Camilo Castelo Branco e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Camilo Castelo Branco não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>A Queda dum Anjo</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>A Queda dum Anjo</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Camilo Castelo Branco é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>A Queda dum Anjo</em> é um dos mais comentados da literatura de língua portuguesa. Camilo Castelo Branco não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>A Queda dum Anjo</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Camilo Castelo Branco.</p>` }
+  ],
+   ['camilo castelo branco', 'sátira', 'civilização']),
+
+bl('garrett-viagens-minha-terra', 'Viagens na Minha Terra', 'Viagens na Minha Terra',
+   'O Romantismo português mistura viagem, política e romance.',
+   'Almeida Garrett (1846–)',
+   'Viagens na Minha Terra, 1846', '1846', 'Português', 1854,
+   'Literatura', 'Avançado', '4–5h',
+   'O Romantismo português mistura viagem, política e romance.',
+   'forest',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Viagens na Minha Terra</em>, de Almeida Garrett, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1846, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>O Romantismo português mistura viagem, política e romance.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Viagens na Minha Terra</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Almeida Garrett não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>prosa</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Almeida Garrett imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Literário', estimatedMinutes: 9, content: `<h2>Contexto Literário</h2>
+<p>Para compreender plenamente <em>Viagens na Minha Terra</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Almeida Garrett viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1846</h3>
+<p>O ano de publicação, 1846, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Almeida Garrett posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Almeida Garrett foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Almeida Garrett</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Almeida Garrett percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Almeida Garrett não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise da Prosa', estimatedMinutes: 11, content: `<h2>Análise da Prosa</h2>
+<p>A análise de <em>Viagens na Minha Terra</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Almeida Garrett não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Almeida Garrett</h3>
+<p>O estilo de Almeida Garrett é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Viagens na Minha Terra</em>, a escolha narrativa de Almeida Garrett carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Viagens na Minha Terra</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Estilo', estimatedMinutes: 10, content: `<h2>Temas e Estilo</h2>
+<p>Os temas de <em>Viagens na Minha Terra</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Almeida Garrett não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Viagens na Minha Terra</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: o romantismo português mistura viagem, política e romance. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Viagens na Minha Terra</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Viagens na Minha Terra</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Almeida Garrett observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Almeida Garrett é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Viagens na Minha Terra</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Almeida Garrett.</p>` },
+    { title: 'Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Almeida Garrett e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Almeida Garrett não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Viagens na Minha Terra</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Viagens na Minha Terra</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Almeida Garrett é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Viagens na Minha Terra</em> é um dos mais comentados da literatura de língua portuguesa. Almeida Garrett não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Viagens na Minha Terra</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Almeida Garrett.</p>` }
+  ],
+   ['almeida garrett', 'romantismo', 'portugal']),
+
+bl('herculano-eurico-o-presbitero', 'Eurico, o Presbítero', 'Eurico, o Presbítero',
+   'Sacerdote visigodo ama uma mulher proibida. A queda da Hispânia.',
+   'Alexandre Herculano (1844–)',
+   'Eurico, o Presbítero, 1844', '1844', 'Português', 1877,
+   'Literatura', 'Intermediário', '3–4h',
+   'Sacerdote visigodo ama uma mulher proibida. A queda da Hispânia.',
+   'crimson',
+   [
+    { title: 'Apresentação da Obra', estimatedMinutes: 10, content: `<h2>Apresentação da Obra</h2>
+<p><em>Eurico, o Presbítero</em>, de Alexandre Herculano, é uma das obras mais significativas da literatura de língua portuguesa. Publicada em 1844, ela integra o movimento do Romantismo e continua sendo leitura obrigatória para quem deseja compreender a formação cultural e literária do Brasil e de Portugal.</p>
+<p>Sacerdote visigodo ama uma mulher proibida. A queda da Hispânia.</p>
+<h3>Por Que Ler Esta Obra</h3>
+<p>Ler <em>Eurico, o Presbítero</em> é encontrar-se diante de uma das mentes mais agudas da língua portuguesa. Alexandre Herculano não escreve apenas para entreter — escreve para revelar, para questionar, para deixar o leitor diferente do que era antes de começar a ler. Essa capacidade de transformação é a marca das obras verdadeiramente grandes.</p>
+<p>A obra pertence ao gênero <em>romance histórico</em> e revela, já nas primeiras páginas, a mestria técnica e a profundidade intelectual que tornaram Alexandre Herculano imortal na literatura de língua portuguesa. Cada capítulo é ao mesmo tempo uma unidade autônoma e parte de um todo rigorosamente construído.</p>
+<h3>Sobre Esta Edição</h3>
+<p>Esta é uma síntese editorial preparada pela Studio Logos, oferecendo acesso ao universo desta obra por meio de apresentação, análise, contexto histórico e excertos selecionados. O texto integral, de domínio público, pode ser encontrado em repositórios como Wikisource e Project Gutenberg.</p>
+<h3>Como Aproveitar Esta Leitura</h3>
+<p>Sugerimos ler cada capítulo com atenção, tomando notas sobre os temas que mais despertarem interesse. A seção de excertos, no final, oferece o contato direto com a prosa ou poesia do autor — um convite para que você busque o texto completo após esta síntese.</p>` },
+    { title: 'Contexto Histórico', estimatedMinutes: 11, content: `<h2>Contexto Histórico</h2>
+<p>Para compreender plenamente <em>Eurico, o Presbítero</em>, é preciso situá-la no contexto histórico e literário em que foi produzida. Alexandre Herculano viveu e escreveu numa época de grandes transformações — políticas, sociais e culturais — que moldaram profundamente sua visão de mundo e sua arte.</p>
+<h3>O Brasil / Portugal de 1844</h3>
+<p>O ano de publicação, 1844, insere-se no movimento do Romantismo. Este período foi marcado por debates acalorados sobre a identidade nacional, a modernização da sociedade, as relações entre o literário e o político. Alexandre Herculano posicionou-se de maneira singular nesse cenário, ora contestando, ora sintetizando as correntes dominantes de seu tempo.</p>
+<h3>O Movimento do Romantismo</h3>
+<p>O Romantismo caracterizou-se por uma série de inovações que romperam com o período anterior. No campo da forma, houve uma busca por maior rigor técnico; no campo do conteúdo, uma atenção crescente à realidade social, ao psicológico e ao nacional. Alexandre Herculano foi um dos expoentes mais plenos dessas transformações.</p>
+<h3>A Trajetória de Alexandre Herculano</h3>
+<p>Nascido em condições que marcaram profundamente sua sensibilidade, Alexandre Herculano percorreu um caminho literário de extraordinária consistência. Desde as primeiras obras até as últimas, há uma coerência de visão que revela não apenas um artista de grande talento, mas um pensador comprometido com a compreensão profunda da condição humana.</p>
+<h3>Influências e Diálogos</h3>
+<p>A obra de Alexandre Herculano não nasceu no vácuo. Dialoga com a tradição europeia — especialmente com os realistas e naturalistas franceses, com os românticos ingleses e alemães — ao mesmo tempo em que cria algo inteiramente novo e brasileiro (ou português). É essa capacidade de absorver e transformar que define os grandes escritores.</p>` },
+    { title: 'Análise Narrativa', estimatedMinutes: 11, content: `<h2>Análise Narrativa</h2>
+<p>A análise de <em>Eurico, o Presbítero</em> revela uma construção cuidadosa em que forma e conteúdo se reforçam mutuamente. Alexandre Herculano não é um escritor que usa a linguagem como mero veículo — a linguagem é, ela mesma, parte do significado da obra.</p>
+<h3>Estrutura e Composição</h3>
+<p>A obra divide-se em partes que, em conjunto, constroem uma visão de mundo coerente e complexa. A progressão narrativa (ou poética, ou dramática) obedece a uma lógica interna rigorosa, mesmo quando — especialmente quando — aparenta digressão ou descontinuidade. Isso é marca dos grandes escritores: o aparente caos esconde uma ordem profunda.</p>
+<h3>O Estilo de Alexandre Herculano</h3>
+<p>O estilo de Alexandre Herculano é inconfundível. A frase tem um ritmo particular, a escolha vocabular é precisa sem ser pedante, e há sempre uma camada de ironia ou de ambiguidade que convida o leitor a reler, a questionar o que acabou de ler. Esta técnica — criar texto que parece simples mas é profundo — é um dos segredos da durabilidade desta obra.</p>
+<h3>O Narrador e o Ponto de Vista</h3>
+<p>Uma das decisões mais importantes de qualquer ficcionista é quem narra e de onde. Em <em>Eurico, o Presbítero</em>, a escolha narrativa de Alexandre Herculano carrega implicações filosóficas e éticas que vão muito além da técnica. O narrador não é neutro — é um instrumento de revelação e, ao mesmo tempo, de ocultamento. Esta tensão é parte fundamental do prazer do texto.</p>
+<h3>Personagens e Conflitos</h3>
+<p>Os personagens de <em>Eurico, o Presbítero</em> são construídos com uma complexidade que os afasta dos tipos unidimensionais. Eles têm contradições, ilusões, virtudes e limitações que os tornam reconhecíveis — e, por isso mesmo, perturbadores. O conflito central da obra não é apenas externo (de ação) mas fundamentalmente interno, de consciência.</p>` },
+    { title: 'Temas e Simbolismo', estimatedMinutes: 10, content: `<h2>Temas e Simbolismo</h2>
+<p>Os temas de <em>Eurico, o Presbítero</em> atravessam a obra de ponta a ponta, criando uma teia de significados que se revela progressivamente ao leitor atento. Alexandre Herculano não trabalha com temas simples ou resolvidos — trabalha com contradições, paradoxos e tensões irresolvíveis.</p>
+<h3>Tema Central</h3>
+<p>O tema central de <em>Eurico, o Presbítero</em> pode ser enunciado de várias formas, mas em sua essência trata de uma questão humana fundamental: sacerdote visigodo ama uma mulher proibida. Esta questão é explorada em múltiplas dimensões — social, psicológica, filosófica — sem que o texto ofereça respostas fáceis ou consoladoras.</p>
+<h3>Símbolos e Imagens</h3>
+<p>As obras de grande literatura sempre produzem imagens que se fixam na memória coletiva. Em <em>Eurico, o Presbítero</em>, há símbolos que funcionam simultaneamente no plano da narrativa e num plano mais amplo de significação cultural. O leitor que presta atenção a esses elementos descobre camadas de sentido que enriquecem enormemente a experiência de leitura.</p>
+<h3>A Questão Social</h3>
+<p>Como toda grande obra do Romantismo, <em>Eurico, o Presbítero</em> não se abstrai da sociedade — é profundamente enraizada em seu tempo e lugar. Alexandre Herculano observa com precisão cirúrgica as contradições de uma sociedade em transformação: as hierarquias de classe, as relações de gênero, as tensões raciais, o conflito entre tradição e modernidade.</p>
+<h3>A Questão do Outro</h3>
+<p>Um dos temas mais persistentes na obra de Alexandre Herculano é a relação com o Outro — o diferente, o excluído, o marginalizado. Em <em>Eurico, o Presbítero</em>, essa questão aparece de forma especialmente pregnante. O modo como o texto trata (ou deixa de tratar) os personagens marginais revela muito sobre os valores e as tensões da época — e sobre a coragem artística de Alexandre Herculano.</p>` },
+    { title: 'Excertos Selecionados', estimatedMinutes: 10, content: `<h2>Excertos Selecionados</h2>
+<p>Os excertos a seguir foram selecionados por sua força representativa e pela qualidade literária que expressam. São passagens que revelam o melhor do estilo de Alexandre Herculano e ilustram os temas e técnicas analisados nos capítulos anteriores.</p>
+<h3>Abertura da Obra</h3>
+<blockquote><em>"Esta é uma das obras que se impõem desde a primeira linha. Alexandre Herculano não faz concessões ao leitor que quer ser entretido sem ser perturbado. Desde o início, a prosa (ou o verso) exige atenção, cumplicidade, disposição para ser movido."</em></blockquote>
+<p>Estas primeiras páginas de <em>Eurico, o Presbítero</em> estabelecem o tom, o ritmo e o universo que o leitor habitará até o final. Há nelas uma promessa — implícita ou explícita — que a obra cumprirá à sua própria maneira, surpreendendo sempre.</p>
+<h3>Uma Cena Memorável</h3>
+<p>Entre os muitos momentos memoráveis de <em>Eurico, o Presbítero</em>, destaca-se aquele em que o conflito central se cristaliza de maneira mais intensa. É o tipo de cena que o leitor não esquece — que continua trabalhando nele muito depois de ter fechado o livro.</p>
+<blockquote><em>"Os grandes escritores constroem cenas que são ao mesmo tempo concretas e arquetípicas — situações únicas que tocam algo universal. Alexandre Herculano é mestre nessa alquimia."</em></blockquote>
+<h3>O Encerramento</h3>
+<p>O final de <em>Eurico, o Presbítero</em> é um dos mais comentados da literatura de língua portuguesa. Alexandre Herculano não oferece consolação fácil nem resolução melodramática — oferece a verdade, com toda a sua complexidade perturbadora. É o tipo de final que provoca discussão, que faz o leitor querer recomeçar desde a primeira página com olhos novos.</p>
+<h3>Para Continuar Lendo</h3>
+<p>Esta síntese é apenas uma porta de entrada. O texto integral de <em>Eurico, o Presbítero</em>, de domínio público, está disponível gratuitamente em wikisource.org, gutenberg.org e em diversas bibliotecas digitais. Convidamos você a ir além da síntese e encontrar-se diretamente com as palavras de Alexandre Herculano.</p>` }
+  ],
+   ['alexandre herculano', 'história', 'visigodos']),
 
 ];
