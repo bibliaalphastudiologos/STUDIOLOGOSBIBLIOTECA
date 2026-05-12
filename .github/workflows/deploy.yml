@@ -31,34 +31,26 @@ jobs:
           ls -lh public_html/assets/
           echo "Total size: $(du -sh public_html/ | cut -f1)"
 
+      - name: Deploy to Hostinger (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./public_html/
+          server-dir: /public_html/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+
       - name: Authenticate to Google Cloud
         id: auth
         continue-on-error: true
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SENTINELA_AI_489015 }}
-
-      - name: Deploy Firestore Rules
-        if: steps.auth.outcome == 'success'
-        continue-on-error: true
-        run: |
-          python3 - << 'PYEOF'
-          import json, urllib.request, subprocess
-          project = "sentinela-ai-489015"
-          database = "ai-studio-d00d75cd-ea9b-4bf1-9db1-7ac14eff586f"
-          token = subprocess.check_output(["gcloud", "auth", "print-access-token"]).decode().strip()
-          rules = open("firestore.studiologos.rules").read()
-          headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-          payload = json.dumps({"source": {"files": [{"content": rules, "name": "firestore.rules"}]}}).encode()
-          req = urllib.request.Request(
-              f"https://firebaserules.googleapis.com/v1/projects/{project}/rulesets",
-              data=payload, headers=headers, method="POST")
-          with urllib.request.urlopen(req) as r:
-              ruleset = json.load(r)
-          print(f"Ruleset: {ruleset['name']}")
-          PYEOF
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
 
       - name: Deploy Firebase Hosting
         continue-on-error: true
@@ -73,6 +65,6 @@ jobs:
         run: |
           echo "=================================="
           echo "Build: SUCCESS"
-          echo "public_html updated and committed"
-          echo "Firebase: ${{ steps.deploy.outcome || 'skipped (secret not configured)' }}"
+          echo "Hostinger FTP: deployed to /public_html/"
+          echo "Firebase: attempted"
           echo "=================================="
