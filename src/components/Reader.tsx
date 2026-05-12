@@ -282,8 +282,14 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
         {tocOpen && !focusMode && (
           <aside className={`hidden lg:flex w-80 shrink-0 border-r flex-col ${theme === "dark" ? "border-white/10 bg-black/20" : "border-black/10 bg-white/40"}`}>
             <div className="p-6 border-b border-inherit">
-              <p className="text-[9px] uppercase tracking-[0.3em] font-black accent-gold mb-3">Sumário</p>
-              <p className="text-sm opacity-60">{chapters.length} capítulos · {ebook.estimatedReadTime}</p>
+              <p className="text-[9px] uppercase tracking-[0.3em] font-black accent-gold mb-2">Sumário</p>
+              <p className="text-sm opacity-60">{chapters.length} {chapters.length === 1 ? 'capítulo' : 'capítulos'} · {ebook.estimatedReadTime}</p>
+              {importingText && (
+                <div className="mt-3">
+                  <div className="toc-loading-bar rounded-full" />
+                  <p className="text-[9px] opacity-50 mt-2 uppercase tracking-widest">Carregando capítulos...</p>
+                </div>
+              )}
             </div>
             <nav className="overflow-auto custom-scrollbar p-3">
               {chapters.map((chapter, index) => (
@@ -332,14 +338,23 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
               </div>
 
               {importingText && (
-                <div className="mb-8 border border-[#C5A059]/30 bg-[#C5A059]/10 px-5 py-4 text-sm">
-                  Preparando texto integral no leitor Studio Logos...
+                <div className="import-loading-banner mb-8 px-5 py-4 rounded-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="toc-loading-bar flex-1 rounded-full" />
+                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60 whitespace-nowrap">
+                      Carregando texto integral…
+                    </span>
+                  </div>
+                  <p className="text-xs opacity-50 mt-2">O leitor Studio Logos está buscando e organizando os capítulos desta obra. Aguarde alguns instantes.</p>
                 </div>
               )}
 
               {importError && (
-                <div className="mb-8 border border-red-900/20 bg-red-900/5 px-5 py-4 text-sm leading-relaxed">
-                  Esta obra entrou em revisão técnica porque o texto integral não respondeu corretamente agora. Ela continua catalogada, mas não será apresentada como leitura vazia.
+                <div className="mb-8 border border-amber-700/20 bg-amber-50/60 px-5 py-4 rounded-sm">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-amber-800 mb-2">Texto Integral Temporariamente Indisponível</p>
+                  <p className="text-sm leading-relaxed text-amber-900/70">
+                    Não foi possível carregar o texto completo desta obra agora. Você pode ler a apresentação e os capítulos introdutórios disponíveis. Tente novamente em alguns minutos — o leitor buscará o conteúdo automaticamente.
+                  </p>
                 </div>
               )}
 
