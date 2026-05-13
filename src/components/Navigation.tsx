@@ -62,7 +62,7 @@ export function Navigation() {
                 key={link.label}
                 type="button"
                 onClick={() => handleNavClick(link.targetId)}
-                className="premium-nav-link pb-1 text-[#0F0F0F]/75 transition-colors hover:text-[#0F0F0F]"
+                className="premium-nav-link pb-1 text-white/60 transition-colors hover:text-white"
               >
                 {link.label}
               </button>
@@ -70,7 +70,7 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => handleNavClick("shelf-literatura-geral")}
-              className="premium-nav-link text-[#0F0F0F]/75 transition-colors hover:text-[#0F0F0F]"
+              className="premium-nav-link text-white/60 transition-colors hover:text-white"
             >
               Literatura
             </button>
@@ -95,10 +95,10 @@ export function Navigation() {
 
           {/* Desktop user info */}
           <div className="hidden lg:block text-right">
-            <p className="text-[10px] uppercase tracking-widest opacity-60 font-bold text-[#0F0F0F]">
+            <p className="text-[10px] uppercase tracking-widest opacity-60 font-bold text-white">
               {user ? (hasAccess ? "Acesso liberado" : "Aguardando") : "Login Studio Logos"}
             </p>
-            <p className="text-sm font-serif text-[#0F0F0F] font-semibold">
+            <p className="text-sm font-serif text-white font-semibold">
               {profile?.nome || user?.displayName || user?.email || "Studio Logos"}
             </p>
             {user && hasAccess && (
@@ -112,7 +112,7 @@ export function Navigation() {
           {user ? (
             <button
               onClick={logout}
-              className="hidden md:block h-10 px-4 border border-[#0F0F0F]/20 bg-white/70 rounded-sm text-[10px] uppercase tracking-[0.2em] font-bold text-[#0F0F0F] hover:bg-[#0F0F0F] hover:text-white transition-colors"
+              className="hidden md:block h-10 px-4 border border-white/20 bg-white/10 rounded-sm text-[10px] uppercase tracking-[0.2em] font-bold text-white/80 hover:bg-white hover:text-black transition-colors"
             >
               Sair
             </button>
@@ -128,11 +128,11 @@ export function Navigation() {
 
           {/* Hamburger — mobile only */}
           <button
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-black/10 bg-white/60 transition-colors hover:bg-white active:scale-95"
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-white/15 bg-white/10 transition-colors hover:bg-white/20 active:scale-95"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileOpen ? <X size={18} color="white" /> : <Menu size={18} color="white" />}
           </button>
         </div>
       </nav>

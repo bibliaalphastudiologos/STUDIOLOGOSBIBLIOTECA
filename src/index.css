@@ -596,3 +596,111 @@
 .shelf-section {
   scroll-margin-top: 100px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   FASE 3 — DESIGN VIBRANTE
+   ═══════════════════════════════════════════════════════════ */
+
+/* Animação de entrada do WhatsApp popup */
+@keyframes whatsapp-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+.animate-whatsapp-in > * {
+  animation: whatsapp-in 0.2s ease forwards;
+}
+.animate-whatsapp-in > *:nth-child(2) { animation-delay: 0.06s; }
+
+/* ── Nav vibrante com gradiente ──────────────────────────── */
+.premium-nav {
+  background: rgba(8, 12, 30, 0.96) !important;
+  box-shadow: 0 1px 0 rgba(79,70,229,0.25), 0 14px 40px rgba(0,0,0,0.3) !important;
+  border-bottom: 1px solid rgba(79,70,229,0.2) !important;
+}
+.premium-nav-link {
+  color: rgba(255,255,255,0.65) !important;
+}
+.premium-nav-link:hover {
+  color: #fff !important;
+}
+.premium-nav-link::after {
+  background: linear-gradient(90deg, #f97316, #fbbf24) !important;
+}
+
+/* ── Body update — fundo mais escuro e vibrante ─────────── */
+body {
+  background: #f0eee8 !important;
+}
+
+/* ── Cards das estantes — borda colorida no hover ─────────── */
+.shelf-grid-card:hover {
+  background: rgba(255,255,255,0.9) !important;
+  box-shadow: 0 0 0 2px rgba(249,115,22,0.25), 0 16px 32px rgba(0,0,0,0.12) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ── Seção "Eixo" com gradiente escuro ───────────────────── */
+.axis-section {
+  background: linear-gradient(165deg, #07091a 0%, #0d1330 50%, #0a0f1e 100%);
+}
+
+/* ── Prateleira categoria header ─────────────────────────── */
+.shelf-category-header {
+  background: linear-gradient(90deg, rgba(249,115,22,0.08), transparent);
+  border-left: 3px solid #f97316;
+  padding-left: 12px;
+}
+
+/* ── Botão premium vibrante ──────────────────────────────── */
+.btn-vibrant-primary {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  box-shadow: 0 6px 24px rgba(249,115,22,0.35);
+  color: white;
+  font-weight: 900;
+  transition: all 0.2s ease;
+}
+.btn-vibrant-primary:hover {
+  background: linear-gradient(135deg, #fb923c, #f97316);
+  box-shadow: 0 10px 32px rgba(249,115,22,0.5);
+  transform: translateY(-2px);
+}
+
+/* ── Capa vibrante — gradient shine ─────────────────────── */
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Section dark vibe ───────────────────────────────────── */
+.section-dark-vibe {
+  background: linear-gradient(165deg, #07091a, #0d1330, #0a0f1e);
+}
+
+/* ── Category rail cards coloridos ──────────────────────── */
+.shelf-rail-card:hover .shelf-grid-cover {
+  box-shadow: 0 12px 28px rgba(249,115,22,0.3), 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* ── GuestBanner mais vibrante ───────────────────────────── */
+.subscription-banner-vibrant {
+  background: linear-gradient(135deg, #0d1a3a 0%, #1a0a2e 100%);
+  border: 1px solid rgba(249,115,22,0.25);
+}
+
+/* ── Mobile bottom nav — dark azul ──────────────────────── */
+.mobile-bottom-nav {
+  background: rgba(7, 9, 26, 0.98) !important;
+  border-top: 1px solid rgba(79, 70, 229, 0.2) !important;
+}
+
+/* ── Scrollbar global ────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0d1020; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #f97316);
+  border-radius: 3px;
+}

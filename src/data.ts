@@ -23,31 +23,31 @@ const categoryMap: Record<string, Category> = {
 };
 
 const coverColors: Record<Category, string> = {
-  [Category.SPECIAL]: 'bg-amber-950',
-  [Category.PHILOSOPHY]: 'bg-[#171512]',
-  [Category.THEOLOGY]: 'bg-[#2b2116]',
-  [Category.CHRISTIAN_SPIRITUALITY]: 'bg-[#253025]',
-  [Category.PSYCHOANALYSIS]: 'bg-[#18181b]',
-  [Category.BRAZILIAN_LITERATURE]: 'bg-[#1f3026]',
-  [Category.PORTUGUESE_LITERATURE]: 'bg-[#2c2330]',
-  [Category.UNIVERSAL_LITERATURE]: 'bg-[#281717]',
-  [Category.HISTORY]: 'bg-[#20252d]',
-  [Category.HUMANITIES]: 'bg-[#2c2922]',
-  [Category.LITERATURE]: 'bg-[#281717]',
+  [Category.SPECIAL]:               'bg-[#1a0533]',   // roxo profundo
+  [Category.PHILOSOPHY]:            'bg-[#0a1628]',   // azul-marinho profundo
+  [Category.THEOLOGY]:              'bg-[#1a0a00]',   // marrom-âmbar escuro
+  [Category.CHRISTIAN_SPIRITUALITY]:'bg-[#001a0d]',   // verde-esmeralda escuro
+  [Category.PSYCHOANALYSIS]:        'bg-[#0d0020]',   // violeta profundo
+  [Category.BRAZILIAN_LITERATURE]:  'bg-[#001a0a]',   // verde-amazônia escuro
+  [Category.PORTUGUESE_LITERATURE]: 'bg-[#1a000d]',   // bordô escuro
+  [Category.UNIVERSAL_LITERATURE]:  'bg-[#1a0800]',   // laranja-escuro
+  [Category.HISTORY]:               'bg-[#00101a]',   // azul-aço escuro
+  [Category.HUMANITIES]:            'bg-[#15100a]',   // bronze escuro
+  [Category.LITERATURE]:            'bg-[#1a0800]',   // âmbar escuro
 };
 
 const coverAccents: Record<Category, string> = {
-  [Category.SPECIAL]: '#f2c86b',
-  [Category.PHILOSOPHY]: '#b9a46a',
-  [Category.THEOLOGY]: '#c8a35b',
-  [Category.CHRISTIAN_SPIRITUALITY]: '#b9c87a',
-  [Category.PSYCHOANALYSIS]: '#a9a1b8',
-  [Category.BRAZILIAN_LITERATURE]: '#90b77d',
-  [Category.PORTUGUESE_LITERATURE]: '#c7a0d6',
-  [Category.UNIVERSAL_LITERATURE]: '#d3a073',
-  [Category.HISTORY]: '#9fb2c9',
-  [Category.HUMANITIES]: '#d0bd8a',
-  [Category.LITERATURE]: '#d3a073',
+  [Category.SPECIAL]:               '#e040fb',   // roxo vibrante
+  [Category.PHILOSOPHY]:            '#40c4ff',   // azul elétrico
+  [Category.THEOLOGY]:              '#ffab40',   // âmbar vivo
+  [Category.CHRISTIAN_SPIRITUALITY]:'#69f0ae',   // verde esmeralda
+  [Category.PSYCHOANALYSIS]:        '#ea80fc',   // lilás vibrante
+  [Category.BRAZILIAN_LITERATURE]:  '#b9f6ca',   // verde-lima
+  [Category.PORTUGUESE_LITERATURE]: '#ff80ab',   // rosa forte
+  [Category.UNIVERSAL_LITERATURE]:  '#ff6e40',   // laranja vivo
+  [Category.HISTORY]:               '#80d8ff',   // azul-céu
+  [Category.HUMANITIES]:            '#ffe57f',   // dourado vivo
+  [Category.LITERATURE]:            '#ff6e40',   // laranja
 };
 
 const coverMarks: Record<Category, string> = {

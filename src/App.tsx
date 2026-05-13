@@ -20,6 +20,7 @@ import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { NewsTickerBar } from "./components/NewsTickerBar";
 import { MobileBottomNav } from "./components/MobileBottomNav";
+import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { PAYMENT_LINKS } from "./types";
 import { useLocation } from "react-router-dom";
 
@@ -46,7 +47,7 @@ const ROUTE_SECTION_MAP: Record<string, string> = {
 function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
   return (
     <section className="px-4 sm:px-6 lg:px-10">
-      <div className={`max-w-7xl mx-auto border border-[#C5A059]/35 bg-[#111318] text-white shadow-xl ${compact ? "p-4 md:p-5" : "p-5 md:p-7"}`}>
+      <div className={`max-w-7xl mx-auto text-white shadow-2xl ${compact ? "p-4 md:p-5" : "p-5 md:p-7"}`} style={{background:"linear-gradient(135deg,#0d1a3a,#1a0a2e)",border:"1px solid rgba(249,115,22,0.2)"}}>
         <div className="grid lg:grid-cols-[1fr_auto] gap-4 md:gap-6 items-center">
           <div>
             <p className="text-[9px] md:text-[10px] uppercase tracking-[0.26em] md:tracking-[0.34em] font-black text-[#C5A059]">
@@ -69,7 +70,7 @@ function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
           <div className="flex flex-col sm:flex-row lg:flex-col gap-2 min-w-[220px]">
             <a
               href={PAYMENT_LINKS.studioLogosMonthly}
-              className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#C5A059] px-5 text-center text-[10px] uppercase tracking-[0.2em] font-black text-black transition-colors hover:bg-[#D8B76C]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 px-5 text-center text-[10px] uppercase tracking-[0.2em] font-black text-white transition-all hover:shadow-xl hover:-translate-y-0.5 btn-vibrant-primary"
             >
               <CreditCard className="w-4 h-4" />
               Assinar agora
@@ -338,6 +339,7 @@ export default function App() {
         <main className="pt-[140px]">
           <AdminPanel />
         </main>
+        <WhatsAppFloat />
         <MobileBottomNav />
       </div>
     );
@@ -502,14 +504,14 @@ export default function App() {
         )}
 
         {/* Axis of knowledge — quick-access category grid */}
-        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-10 bg-[#EEE4D2]/70 border-y border-black/10">
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-10 section-dark-vibe border-y border-white/5">
           <div className="max-w-7xl mx-auto space-y-5 md:space-y-12">
             <div className="flex items-end justify-between gap-4">
               <div className="space-y-1 md:space-y-2">
-                <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Acervo por Área</span>
-                <h2 className="text-2xl md:text-4xl font-serif text-black leading-tight">Explorar por <span className="accent-gold">Dimensão</span></h2>
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black" style={{color:"#f97316"}}>Acervo por Área</span>
+                <h2 className="text-2xl md:text-4xl font-serif text-white leading-tight">Explorar por <span style={{color:"#f97316"}}>Dimensão</span></h2>
               </div>
-              <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-black/35 hidden md:block">Toque para navegar</span>
+              <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-white/30 hidden md:block">Toque para navegar</span>
             </div>
 
             {/* 4-col grid — horizontal scroll on mobile */}
@@ -526,13 +528,13 @@ export default function App() {
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.97 }}
                     onClick={() => goToCategory(item.category)}
-                    className="w-[160px] md:w-auto text-left p-4 md:p-7 premium-card rounded-sm cursor-pointer transition-all group flex-shrink-0"
+                    className="w-[160px] md:w-auto text-left p-4 md:p-7 rounded-sm cursor-pointer transition-all group flex-shrink-0" style={{background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.08)"}}
                     style={{ borderTopWidth: 2, borderTopColor: item.accent }}
                   >
                     <div className="font-serif text-2xl md:text-3xl mb-3" style={{ color: item.accent }}>{item.icon}</div>
-                    <h4 className="font-serif text-base md:text-lg mb-1 leading-tight">{item.area}</h4>
-                    <p className="text-[9px] font-mono tracking-widest uppercase text-black/40 mb-2">{item.count} obras</p>
-                    <p className="text-[10px] md:text-xs text-black/55 leading-relaxed hidden md:block">{item.desc}</p>
+                    <h4 className="font-serif text-base md:text-lg mb-1 leading-tight text-white">{item.area}</h4>
+                    <p className="text-[9px] font-mono tracking-widest uppercase text-white/35 mb-2">{item.count} obras</p>
+                    <p className="text-[10px] md:text-xs text-white/45 leading-relaxed hidden md:block">{item.desc}</p>
                   </motion.button>
                 ))}
               </div>
@@ -783,6 +785,7 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+      <WhatsAppFloat />
       <MobileBottomNav />
     </div>
   );
