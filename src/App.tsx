@@ -528,8 +528,8 @@ export default function App() {
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.97 }}
                     onClick={() => goToCategory(item.category)}
-                    className="w-[160px] md:w-auto text-left p-4 md:p-7 rounded-sm cursor-pointer transition-all group flex-shrink-0" style={{background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.08)"}}
-                    style={{ borderTopWidth: 2, borderTopColor: item.accent }}
+                    className="w-[160px] md:w-auto text-left p-4 md:p-7 rounded-sm cursor-pointer transition-all group flex-shrink-0"
+                    style={{background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.08)", borderTopWidth: 2, borderTopColor: item.accent}}
                   >
                     <div className="font-serif text-2xl md:text-3xl mb-3" style={{ color: item.accent }}>{item.icon}</div>
                     <h4 className="font-serif text-base md:text-lg mb-1 leading-tight text-white">{item.area}</h4>

@@ -611,21 +611,8 @@
 }
 .animate-whatsapp-in > *:nth-child(2) { animation-delay: 0.06s; }
 
-/* ── Nav vibrante com gradiente ──────────────────────────── */
-.premium-nav {
-  background: rgba(8, 12, 30, 0.96) !important;
-  box-shadow: 0 1px 0 rgba(79,70,229,0.25), 0 14px 40px rgba(0,0,0,0.3) !important;
-  border-bottom: 1px solid rgba(79,70,229,0.2) !important;
-}
-.premium-nav-link {
-  color: rgba(255,255,255,0.65) !important;
-}
-.premium-nav-link:hover {
-  color: #fff !important;
-}
-.premium-nav-link::after {
-  background: linear-gradient(90deg, #f97316, #fbbf24) !important;
-}
+/* ── Nav: scroll-aware via JS (dark over hero, light over body) ── */
+/* Styles are applied inline in Navigation.tsx based on scroll position */
 
 /* ── Body update — fundo mais escuro e vibrante ─────────── */
 body {
