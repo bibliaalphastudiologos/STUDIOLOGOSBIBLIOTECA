@@ -33,3 +33,7 @@ Thumbs.db
 
 # Vite cache
 .vite/
+public_html/rss-proxy.php
+
+# news.json é gerado pelo workflow - fonte de verdade em public/
+public_html/news.json

@@ -19,8 +19,13 @@ import { BookOpen, Check, ChevronRight, CreditCard, Lock, Search, Sparkles, X } 
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { NewsTickerBar } from "./components/NewsTickerBar";
+import { MobileBottomNav } from "./components/MobileBottomNav";
 import { PAYMENT_LINKS } from "./types";
 import { useLocation } from "react-router-dom";
+
+function requestScroll(detail: { targetId?: string; top?: boolean }) {
+  window.dispatchEvent(new CustomEvent("studiologos:scroll-to", { detail }));
+}
 
 function normalizeSearch(value: string): string {
   return value
@@ -333,6 +338,7 @@ export default function App() {
         <main className="pt-[140px]">
           <AdminPanel />
         </main>
+        <MobileBottomNav />
       </div>
     );
   }
@@ -495,40 +501,41 @@ export default function App() {
           </div>
         )}
 
-        {/* Axis of knowledge */}
-        <section className="py-14 md:py-24 px-4 sm:px-6 lg:px-10 bg-[#EEE4D2]/70 border-y border-black/10">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-16">
-            <div className="space-y-3 md:space-y-4">
-              <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Navegação Curatorial</span>
-              <h2 className="text-3xl md:text-4xl font-serif text-black leading-tight">Explorar por <br/> <span className="accent-gold">Dimensão de Conhecimento</span></h2>
+        {/* Axis of knowledge — quick-access category grid */}
+        <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-10 bg-[#EEE4D2]/70 border-y border-black/10">
+          <div className="max-w-7xl mx-auto space-y-5 md:space-y-12">
+            <div className="flex items-end justify-between gap-4">
+              <div className="space-y-1 md:space-y-2">
+                <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black">Acervo por Área</span>
+                <h2 className="text-2xl md:text-4xl font-serif text-black leading-tight">Explorar por <span className="accent-gold">Dimensão</span></h2>
+              </div>
+              <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-black/35 hidden md:block">Toque para navegar</span>
             </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
-              {[
-                { area: "Filosofia", category: Category.PHILOSOPHY, count: String(groupedEbooks[Category.PHILOSOPHY]?.length || 0), icon: "ALPHA", desc: "Clássicos essenciais do pensamento." },
-                { area: "Teologia", category: Category.THEOLOGY, count: String(groupedEbooks[Category.THEOLOGY]?.length || 0), icon: "LOGOS", desc: "Patrística, Reforma e sermões." },
-                { area: "Psicanálise", category: Category.PSYCHOANALYSIS, count: String(groupedEbooks[Category.PSYCHOANALYSIS]?.length || 0), icon: "PSIQUE", desc: "Freud, psicologia clássica e cultura." },
-                { area: "Literatura", category: Category.LITERATURE, count: String(groupedEbooks[Category.LITERATURE]?.length || 0), icon: "LITTERA", desc: "Clássicos universais e roteiros literários." }
-              ].map((item, idx) => (
-                <motion.div 
-                  key={idx}
-                  whileHover={{ y: -4, borderColor: "#B48A3D" }}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => goToCategory(item.category)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") goToCategory(item.category);
-                  }}
-                  className="p-4 md:p-8 premium-card backdrop-blur-sm rounded-sm space-y-4 md:space-y-6 group cursor-pointer transition-all"
-                >
-                  <div className="text-[9px] md:text-[10px] font-black accent-gold tracking-[0.2em] md:tracking-[0.3em]">{item.icon}</div>
-                  <div>
-                    <h4 className="font-serif text-lg md:text-xl mb-2 leading-tight">{item.area}</h4>
-                    <p className="text-[9px] md:text-[10px] text-black/40 font-mono tracking-widest uppercase mb-3 md:mb-4">{item.count} Obras</p>
-                    <p className="text-xs text-black/60 leading-relaxed">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+
+            {/* 4-col grid — horizontal scroll on mobile */}
+            <div className="-mx-4 px-4 md:mx-0 md:px-0 overflow-x-auto scrollbar-hide">
+              <div className="flex md:grid md:grid-cols-4 gap-3 md:gap-6" style={{ minWidth: "max-content" }}>
+                {[
+                  { area: "Filosofia",  category: Category.PHILOSOPHY,    count: groupedEbooks[Category.PHILOSOPHY]?.length || 0,    icon: "α", desc: "Clássicos do pensamento.", accent: "#b9a46a" },
+                  { area: "Teologia",   category: Category.THEOLOGY,      count: groupedEbooks[Category.THEOLOGY]?.length || 0,      icon: "✝", desc: "Patrística, Reforma, sermões.", accent: "#c8a35b" },
+                  { area: "Psicanálise",category: Category.PSYCHOANALYSIS,count: groupedEbooks[Category.PSYCHOANALYSIS]?.length || 0, icon: "ψ", desc: "Freud e psicologia clássica.", accent: "#a9a1b8" },
+                  { area: "Literatura", category: Category.LITERATURE,    count: groupedEbooks[Category.LITERATURE]?.length || 0,    icon: "ℓ", desc: "Clássicos universais.",       accent: "#d3a073" },
+                ].map((item) => (
+                  <motion.button
+                    key={item.area}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => goToCategory(item.category)}
+                    className="w-[160px] md:w-auto text-left p-4 md:p-7 premium-card rounded-sm cursor-pointer transition-all group flex-shrink-0"
+                    style={{ borderTopWidth: 2, borderTopColor: item.accent }}
+                  >
+                    <div className="font-serif text-2xl md:text-3xl mb-3" style={{ color: item.accent }}>{item.icon}</div>
+                    <h4 className="font-serif text-base md:text-lg mb-1 leading-tight">{item.area}</h4>
+                    <p className="text-[9px] font-mono tracking-widest uppercase text-black/40 mb-2">{item.count} obras</p>
+                    <p className="text-[10px] md:text-xs text-black/55 leading-relaxed hidden md:block">{item.desc}</p>
+                  </motion.button>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -568,7 +575,7 @@ export default function App() {
           </div>
         </section>
 
-        <div className="space-y-16 md:space-y-32 pb-20 md:pb-40">
+        <div className="space-y-16 md:space-y-32 pb-32 md:pb-40">
           {categories.map(cat => {
             const ebooks = groupedEbooks[cat];
             if (!ebooks || ebooks.length === 0) return null;
@@ -607,14 +614,14 @@ export default function App() {
                   onRead={handlePreview}
                 />
                 
-                {/* Tactical Recommendation per category */}
+                {/* Divisor visual entre categorias — linha fina com acento */}
                 <div className="px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
-                    <div className="bg-[#151411] p-4 md:p-6 flex items-center justify-between gap-4 shadow-xl">
-                    <div>
-                      <p className="text-[10px] accent-gold font-bold uppercase tracking-widest text-[#C5A059]">Leitura Recomendada</p>
-                      <p className="text-sm font-serif opacity-80 text-white">Baseado no eixo de {cat}</p>
-                    </div>
-                    <button className="text-[10px] font-bold uppercase tracking-widest hover:underline text-[#C5A059] shrink-0">Explorar Guia →</button>
+                  <div className="flex items-center gap-4 py-2">
+                    <div className="flex-1 h-px bg-black/6" />
+                    <span className="text-[8px] uppercase tracking-[0.28em] font-black text-black/20">
+                      {cat} · {ebooks.length} obras
+                    </span>
+                    <div className="flex-1 h-px bg-black/6" />
                   </div>
                 </div>
               </div>
@@ -650,14 +657,50 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="px-4 sm:px-6 lg:px-10 py-8 md:py-12 bg-[#EEE4D2] border-t border-black/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.18em] md:tracking-[0.3em] opacity-60 uppercase font-extrabold gap-5 md:gap-6">
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          <span className="accent-gold opacity-100">Curadoria Literária Superior</span>
-          <span className="text-black">Cloud Sync: Ativo</span>
+      <footer className="bg-[#111318] border-t border-white/5 pb-16 md:pb-0">
+        {/* Footer principal */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 md:py-14 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1 space-y-4">
+            <img src="/logo.png" alt="Studio Logos" className="h-10 w-auto opacity-90 object-contain" />
+            <p className="text-[10px] text-white/45 leading-relaxed font-serif">
+              Biblioteca digital de alta curadoria em Filosofia, Teologia, Psicanálise e Literatura.
+            </p>
+          </div>
+          {/* Acervo */}
+          <div className="space-y-3">
+            <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Acervo</p>
+            {["Filosofia","Teologia","Psicanálise","Literatura"].map((item) => (
+              <button key={item} onClick={() => requestScroll({ targetId: `shelf-${item}` })}
+                className="block text-[11px] text-white/50 hover:text-white/90 transition-colors font-serif">
+                {item}
+              </button>
+            ))}
+          </div>
+          {/* Plataforma */}
+          <div className="space-y-3">
+            <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Plataforma</p>
+            {["Trilhas de estudo","Sínteses editoriais","Busca avançada","Leitura online"].map((item) => (
+              <span key={item} className="block text-[11px] text-white/50 font-serif">{item}</span>
+            ))}
+          </div>
+          {/* Acesso */}
+          <div className="space-y-3">
+            <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Acesso</p>
+            <p className="text-[11px] text-white/50 font-serif leading-relaxed">Assinatura mensal<br/>R$ 19,00/mês</p>
+            <a href="https://studiologos.com.br" className="block text-[10px] text-[#C5A059] hover:text-[#D8B76C] font-bold uppercase tracking-[0.18em] transition-colors">
+              studiologos.com.br →
+            </a>
+          </div>
         </div>
-        <div className="flex items-center gap-8">
-          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Biblioteca Privada</a>
-          <a href="#" className="hover:text-[#C5A059] transition-colors text-black">Studiologos.com.br</a>
+        {/* Bottom bar */}
+        <div className="border-t border-white/5 px-4 sm:px-6 lg:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-3 max-w-7xl mx-auto">
+          <span className="text-[9px] uppercase tracking-[0.22em] font-black text-white/25">
+            Studio Logos · Curadoria Literária Superior
+          </span>
+          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/20">
+            © {new Date().getFullYear()} · Todos os direitos reservados
+          </span>
         </div>
       </footer>
 
@@ -740,6 +783,7 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+      <MobileBottomNav />
     </div>
   );
 }

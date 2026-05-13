@@ -22,21 +22,8 @@ Options -MultiViews
   </FilesMatch>
 </IfModule>
 
-# PHP files são tratados diretamente — não passam pelo SPA
-<FilesMatch "\.php$">
-  SetHandler application/x-httpd-php
-</FilesMatch>
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  # Não redireciona arquivos ou diretórios que existem
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  # Não redireciona .php
-  RewriteCond %{REQUEST_URI} !\.php$
-  # Tudo o mais vai para index.html (SPA)
-  RewriteRule ^ /index.html [L]
-</IfModule>
+# Fallback para SPA - todas as rotas vão para index.html
+ErrorDocument 404 /index.html
 
 # Garantir que arquivos .js sejam tratados como módulos
 <IfModule mod_mime.c>

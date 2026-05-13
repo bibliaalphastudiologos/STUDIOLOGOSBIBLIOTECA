@@ -393,3 +393,206 @@
 .ticker-track.paused {
   animation-play-state: paused;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MELHORIAS DE LAYOUT — FASE 2
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Scrollbar oculta (rail horizontal) ──────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Rail horizontal Netflix-style ───────────────────────────── */
+.shelf-rail {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.shelf-rail::-webkit-scrollbar { height: 3px; }
+.shelf-rail::-webkit-scrollbar-thumb {
+  background: rgba(197,160,89,0.4);
+  border-radius: 2px;
+}
+.shelf-rail-card {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.shelf-rail-card:hover { transform: translateY(-4px) scale(1.02); }
+
+/* ── Badges de acesso ────────────────────────────────────────── */
+.badge-premium {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #C5A059, #8A682B);
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+.badge-free {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: #1B5E20;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+.badge-new {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: #0D47A1;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+
+/* ── Category accent por seção ───────────────────────────────── */
+.shelf-header-accent {
+  width: 28px;
+  height: 3px;
+  border-radius: 1px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+/* ── Play button overlay em covers ───────────────────────────── */
+.cover-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0);
+  transition: background 0.25s ease;
+  z-index: 20;
+}
+.cover-play-overlay::after {
+  content: "▶";
+  font-size: 18px;
+  color: white;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  filter: drop-shadow(0 0 6px rgba(197,160,89,0.7));
+}
+.group:hover .cover-play-overlay {
+  background: rgba(0,0,0,0.32);
+}
+.group:hover .cover-play-overlay::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Hover glow nos cards da grade ───────────────────────────── */
+.shelf-grid-card {
+  position: relative;
+  border-radius: 2px;
+  padding: 6px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.shelf-grid-card:hover {
+  background: rgba(255,255,255,0.65);
+  transform: translateY(-3px);
+}
+.shelf-grid-card:hover .shelf-grid-cover {
+  box-shadow: 0 16px 32px rgba(17,16,14,0.22), 0 4px 8px rgba(197,160,89,0.15);
+}
+
+/* ── Stat pill para hero ─────────────────────────────────────── */
+.hero-stat-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid rgba(197,160,89,0.2);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 2px;
+  gap: 2px;
+}
+.hero-stat-number {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #B48A3D;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(15,15,15,0.5);
+}
+
+/* ── Mobile bottom nav ───────────────────────────────────────── */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  height: 56px;
+  background: rgba(12,12,10,0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: stretch;
+}
+.mobile-bottom-nav-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.mobile-bottom-nav-btn:active { transform: scale(0.92); }
+.mobile-bottom-nav-btn.active,
+.mobile-bottom-nav-btn:hover { color: #C5A059; }
+.mobile-bottom-nav-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Section header com acento lateral ──────────────────────── */
+.section-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.section-header-bar h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1.1;
+  color: #151411;
+}
+
+/* ── Shelf section divider ───────────────────────────────────── */
+.shelf-section {
+  scroll-margin-top: 100px;
+}
