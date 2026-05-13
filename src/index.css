@@ -376,3 +376,20 @@
   color: #151411;
   border-color: rgba(21,20,17,0.2);
 }
+
+/* ── News Ticker Bar ──────────────────────────────────────────── */
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: tickerScroll 70s linear infinite;
+}
+.ticker-track:hover,
+.ticker-track.paused {
+  animation-play-state: paused;
+}
