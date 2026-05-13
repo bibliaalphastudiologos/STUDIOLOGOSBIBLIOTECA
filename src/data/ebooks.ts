@@ -7,6 +7,7 @@ import { psychoanalysisWorks } from './psychoanalysisWorks';
 import { publicDomainWorks } from './publicDomainWorks';
 import { gutenbergMegaCatalogWorks } from './gutenbergMegaCatalog';
 import { theologyPublicDomainWorks } from './theologyPublicDomain';
+import { spiritualityClassicsWorks } from './spiritualityClassics';
 
 // Dados demo como fallback e complemento
 const FEATURED_EBOOKS: Ebook[] = [
@@ -108,6 +109,7 @@ export const DEMO_EBOOKS: Ebook[] = dedupeEbooks([
   ...brazilianLiteratureWorks,
   ...theologyPublicDomainWorks,
   ...gutenbergMegaCatalogWorks,
+  ...spiritualityClassicsWorks,
 ]);
 
 export async function getAllEbooks(
