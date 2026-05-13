@@ -120,21 +120,21 @@ export const EbookCard: React.FC<EbookCardProps> = ({
               <div className={`w-12 h-px ${getCategoryColor(ebook.category).replace('text-', 'bg-')} group-hover:bg-gold group-hover:w-24 transition-all duration-700`} />
             </div>
 
-            <h3 className="font-serif text-3xl sm:text-4xl text-navy leading-[1.1] font-medium tracking-tight group-hover:text-white transition-colors duration-700">
+            <h3 className="font-serif text-3xl sm:text-4xl text-[#0F0F0F] leading-[1.1] font-bold tracking-tight group-hover:text-white transition-colors duration-700">
               {ebook.title}
             </h3>
 
             {ebook.subtitle && (
-              <p className="text-sm text-gray-600 group-hover:text-white/80 transition-colors italic">
+              <p className="text-sm text-[#1A1A1A] group-hover:text-white/90 transition-colors italic font-medium">
                 {ebook.subtitle}
               </p>
             )}
 
-            <div className="pt-6 border-t border-navy/10 group-hover:border-white/20 flex flex-col space-y-2">
-              <div className="text-[8px] font-black text-navy/20 group-hover:text-white/40 uppercase tracking-widest">
+            <div className="pt-6 border-t border-[#0F0F0F]/10 group-hover:border-white/20 flex flex-col space-y-2">
+              <div className="text-[8px] font-black text-[#0F0F0F]/30 group-hover:text-white/40 uppercase tracking-widest">
                 AUTORIDADE
               </div>
-              <div className="text-sm font-serif group-hover:text-gold text-navy transition-colors duration-700">
+              <div className="text-sm font-serif group-hover:text-gold text-[#0F0F0F] transition-colors duration-700 font-medium">
                 {ebook.authorReference}
               </div>
             </div>
@@ -149,12 +149,12 @@ export const EbookCard: React.FC<EbookCardProps> = ({
       </div>
 
       <div className="p-8 flex flex-col flex-grow bg-white relative z-10 group-hover:translate-y-[-2px] transition-transform duration-700">
-        <div className="flex items-center space-x-3 text-[9px] text-gray-400 font-black uppercase tracking-[0.4em] mb-6">
-          <div className={`w-1 h-1 rounded-full ${getCategoryColor(ebook.category).replace('text-', 'bg-')} bg-gray-200 group-hover:bg-gold transition-colors`} />
+        <div className="flex items-center space-x-3 text-[9px] text-[#1A1A1A]/60 font-black uppercase tracking-[0.4em] mb-6">
+          <div className={`w-1 h-1 rounded-full ${getCategoryColor(ebook.category).replace('text-', 'bg-')} bg-gray-300 group-hover:bg-gold transition-colors`} />
           <span>{ebook.subcategory || ebook.collection}</span>
         </div>
 
-        <p className="text-sm text-muted/80 leading-relaxed line-clamp-2 mb-8 flex-grow font-medium group-hover:text-navy transition-colors duration-700">
+        <p className="text-sm text-[#1A1A1A]/75 leading-relaxed line-clamp-2 mb-8 flex-grow font-medium group-hover:text-[#0F0F0F] transition-colors duration-700">
           {ebook.description}
         </p>
 
@@ -170,9 +170,9 @@ export const EbookCard: React.FC<EbookCardProps> = ({
           ))}
         </div>
 
-        <div className="flex items-center justify-between pt-6 border-t border-gray-100 group-hover:border-navy/10 transition-colors">
+        <div className="flex items-center justify-between pt-6 border-t border-gray-200 group-hover:border-[#0F0F0F]/10 transition-colors">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center text-[9px] uppercase tracking-[0.3em] text-muted font-black group-hover:text-gold transition-colors duration-700">
+            <div className="flex items-center text-[9px] uppercase tracking-[0.3em] text-[#1A1A1A]/70 font-black group-hover:text-gold transition-colors duration-700">
               <Clock className="w-4 h-4 mr-2" />
               <span>{ebook.readingTime}</span>
             </div>

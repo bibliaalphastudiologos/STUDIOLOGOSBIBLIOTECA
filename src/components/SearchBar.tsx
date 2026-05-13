@@ -62,7 +62,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           }
         `}
       >
-        <Search className="w-5 h-5 text-gray-400 ml-4" />
+        <Search className="w-5 h-5 text-[#0F0F0F]/50 ml-4" />
 
         <input
           ref={inputRef}
@@ -73,7 +73,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           onBlur={() => setIsFocused(false)}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className="flex-1 px-4 py-3.5 text-navy placeholder-gray-400 bg-transparent outline-none"
+          className="flex-1 px-4 py-3.5 text-[#0F0F0F] placeholder-[#1A1A1A]/50 bg-transparent outline-none font-medium"
         />
 
         <AnimatePresence>
@@ -113,10 +113,10 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                   onChange(s);
                   onSelectSuggestion?.(s);
                 }}
-                className="w-full px-4 py-2 text-left hover:bg-navy/5 transition-colors flex items-center space-x-2"
+                className="w-full px-4 py-2 text-left hover:bg-[#0F0F0F]/5 transition-colors flex items-center space-x-2"
               >
-                <Search className="w-3 h-3 text-gray-400" />
-                <span className="text-sm text-navy">{s}</span>
+                <Search className="w-3 h-3 text-[#0F0F0F]/40" />
+                <span className="text-sm text-[#0F0F0F] font-medium">{s}</span>
               </button>
             ))}
           </motion.div>

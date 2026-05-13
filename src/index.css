@@ -5,17 +5,17 @@
 
 @layer base {
   :root {
-    --sl-ink: #151411;
-    --sl-ink-soft: #2c2923;
+    --sl-ink: #0F0F0F;
+    --sl-ink-soft: #1A1A1A;
     --sl-paper: #f7f2e8;
     --sl-paper-deep: #eee4d2;
     --sl-gold: #b88a3b;
     --sl-gold-soft: #d7bc75;
-    --sl-line: rgba(31, 28, 23, 0.1);
+    --sl-line: rgba(31, 28, 23, 0.15);
   }
 
   body {
-    @apply text-[#1A1A1A] antialiased selection:bg-[#C5A059] selection:text-white;
+    @apply text-[#0F0F0F] antialiased selection:bg-[#C5A059] selection:text-white;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent 340px),
       radial-gradient(circle at 50% -10%, rgba(184, 138, 59, 0.12), transparent 28rem),
@@ -24,6 +24,11 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-[#0F0F0F];
+    font-weight: 600;
+  }
+
+  p, span, a, li {
+    @apply text-[#1A1A1A];
   }
 }
 
@@ -77,9 +82,15 @@
 }
 
 .premium-button-light {
-  background: rgba(255, 255, 255, 0.64);
-  border: 1px solid rgba(35, 30, 22, 0.12);
-  box-shadow: 0 12px 28px rgba(31, 28, 23, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(35, 30, 22, 0.18);
+  box-shadow: 0 12px 28px rgba(31, 28, 23, 0.1);
+  color: #0F0F0F;
+}
+
+.premium-button-light:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(35, 30, 22, 0.25);
 }
 
 .premium-logo-mark {
@@ -87,12 +98,15 @@
 }
 
 .premium-nav {
-  background: rgba(250, 247, 240, 0.88);
-  box-shadow: 0 14px 40px rgba(31, 28, 23, 0.08);
+  background: rgba(250, 247, 240, 0.95);
+  box-shadow: 0 14px 40px rgba(31, 28, 23, 0.12);
+  border-bottom: 1px solid rgba(31, 28, 23, 0.08);
 }
 
 .premium-nav-link {
   position: relative;
+  color: #0F0F0F;
+  font-weight: 600;
 }
 
 .premium-nav-link::after {
@@ -101,7 +115,7 @@
   left: 0;
   right: 0;
   bottom: -0.45rem;
-  height: 1px;
+  height: 2px;
   background: #B48A3D;
   transform: scaleX(0);
   transform-origin: center;
@@ -110,6 +124,10 @@
 
 .premium-nav-link:hover::after {
   transform: scaleX(1);
+}
+
+.premium-nav-link:hover {
+  color: #0F0F0F;
 }
 
 .paper-texture {
@@ -139,7 +157,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -147,7 +165,25 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  @apply bg-[#B48A3D]/40 rounded-full hover:bg-[#B48A3D]/70 transition-colors;
+}
+
+/* Melhorar visibilidade da scrollbar em todo o documento */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 138, 59, 0.35);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 138, 59, 0.6);
 }
 
 .reader-icon-button {
@@ -276,11 +312,7 @@
   margin: 0;
 }
 
-/* ── Improved scrollbar ───────────────────────────────────────── */
-.custom-scrollbar::-webkit-scrollbar { width: 4px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(184,138,59,0.35); border-radius: 2px; }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(184,138,59,0.6); }
+/* ── Improved scrollbar (deprecated - use main scrollbar styles above) ───────────────────────────────────────── */
 
 /* ── Loading skeleton ─────────────────────────────────────────── */
 .skeleton {
