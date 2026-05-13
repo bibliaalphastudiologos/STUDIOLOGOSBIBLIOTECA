@@ -7,7 +7,7 @@ function requestScroll(targetId: string) {
 
 export function Hero() {
   return (
-    <section className="relative min-h-[62svh] md:min-h-[74vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-[130px] md:pt-[162px] pb-12 md:pb-20 overflow-hidden bg-[#F7F2E8]">
+    <section className="relative min-h-[62svh] md:min-h-[74vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-[140px] md:pt-[172px] pb-12 md:pb-20 overflow-hidden bg-[#F7F2E8]">
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=2000" 

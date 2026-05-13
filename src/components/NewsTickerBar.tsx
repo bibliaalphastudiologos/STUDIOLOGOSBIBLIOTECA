@@ -1,64 +1,76 @@
 import React, { useEffect, useState } from "react";
 import { Radio, ExternalLink } from "lucide-react";
 
+// ── Fontes RSS confirmadas ────────────────────────────────────────────────────
 const RSS_SOURCES = [
-  { key: "g1",      label: "G1",       bg: "#D0021B", url: "https://g1.globo.com/rss/g1/",                                              maxItems: 6 },
-  { key: "cnn-br",  label: "CNN BR",   bg: "#B00020", url: "https://admin.cnnbrasil.com.br/feed/",                                     maxItems: 5 },
-  { key: "cnn-int", label: "CNN INT",  bg: "#8B0000", url: "https://rss.cnn.com/rss/edition.rss",                                      maxItems: 4 },
-  { key: "senado",  label: "Senado",   bg: "#0D2B6B", url: "https://www12.senado.leg.br/noticias/rss.xml",                             maxItems: 5 },
-  { key: "ebc",     label: "Ag. BR",   bg: "#145214", url: "https://agenciabrasil.ebc.com.br/feed/ultimasnoticias/feed.xml",           maxItems: 4 },
+  { key: "g1",       label: "G1",        bg: "#D0021B", url: "https://g1.globo.com/rss/g1/",                                             max: 5 },
+  { key: "folha",    label: "Folha",      bg: "#003399", url: "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml",                   max: 4 },
+  { key: "cnn-br",   label: "CNN BR",     bg: "#AA0000", url: "https://admin.cnnbrasil.com.br/feed/",                                    max: 4 },
+  { key: "uol",      label: "UOL",        bg: "#F16522", url: "https://rss.uol.com.br/feed/noticias.xml",                                max: 4 },
+  { key: "jp",       label: "Jovem Pan",  bg: "#006633", url: "https://jovempan.com.br/feed",                                            max: 4 },
+  { key: "veja",     label: "Veja",       bg: "#CC0000", url: "https://veja.abril.com.br/feed/",                                         max: 3 },
+  { key: "poder",    label: "Poder360",   bg: "#1A237E", url: "https://www.poder360.com.br/feed/",                                       max: 3 },
+  { key: "bbc",      label: "BBC",        bg: "#BB1919", url: "https://feeds.bbci.co.uk/news/world/rss.xml",                             max: 3 },
+  { key: "senado",   label: "Senado",     bg: "#0D2B6B", url: "https://www12.senado.leg.br/noticias/rss.xml",                           max: 4 },
+  { key: "ebc",      label: "Ag. Brasil", bg: "#1B5E20", url: "https://agenciabrasil.ebc.com.br/feed/ultimasnoticias/feed.xml",         max: 3 },
 ] as const;
 
+// ── Canais ao vivo ────────────────────────────────────────────────────────────
 const LIVE_CHANNELS = [
-  { key: "tvj",    label: "TV Justiça", url: "https://www.youtube.com/watch?v=4NuQS6vAYAU" },
-  { key: "tvs",    label: "TV Senado",  url: "https://www.youtube.com/tvsenado/live" },
+  { key: "tvj",  label: "TV Justiça", url: "https://www.youtube.com/watch?v=4NuQS6vAYAU" },
+  { key: "tvs",  label: "TV Senado",  url: "https://www.youtube.com/tvsenado/live" },
+  { key: "tvc",  label: "TV Câmara",  url: "https://www.youtube.com/tvcamara/live" },
+  { key: "tvbr", label: "TV Brasil",  url: "https://www.youtube.com/@tvbrasil/live" },
 ];
 
 type Src = (typeof RSS_SOURCES)[number];
 interface NewsItem { source: Src; title: string; link: string; }
 
+// ── Proxy CORS ────────────────────────────────────────────────────────────────
+const PROXY = "https://api.allorigins.win/raw?url=";
+
 async function fetchFeed(src: Src): Promise<NewsItem[]> {
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 7000);
-    const res = await fetch(
-      "https://api.allorigins.win/raw?url=" + encodeURIComponent(src.url),
-      { signal: controller.signal }
-    );
-    clearTimeout(timer);
+    const ctrl = new AbortController();
+    const tid = setTimeout(() => ctrl.abort(), 8000);
+    const res = await fetch(PROXY + encodeURIComponent(src.url), { signal: ctrl.signal });
+    clearTimeout(tid);
     if (!res.ok) return [];
-    const text = await res.text();
-    const doc = new DOMParser().parseFromString(text, "text/xml");
+    const xml = await res.text();
+    const doc = new DOMParser().parseFromString(xml, "text/xml");
     return Array.from(doc.querySelectorAll("item"))
-      .slice(0, src.maxItems)
-      .map(item => ({
+      .slice(0, src.max)
+      .map(el => ({
         source: src,
-        title: (item.querySelector("title")?.textContent ?? "")
+        title: (el.querySelector("title")?.textContent ?? "")
           .replace(/<!\[CDATA\[|\]\]>/g, "").trim(),
         link: (
-          item.querySelector("link")?.textContent ??
-          item.querySelector("guid")?.textContent ?? ""
+          el.querySelector("link")?.textContent ??
+          el.querySelector("guid")?.textContent ?? ""
         ).trim(),
       }))
-      .filter(n => n.title.length > 4);
+      .filter(n => n.title.length > 5);
   } catch {
     return [];
   }
 }
 
-function interleave(results: PromiseSettledResult<NewsItem[]>[]): NewsItem[] {
+function interleave(settled: PromiseSettledResult<NewsItem[]>[]): NewsItem[] {
   const cols = RSS_SOURCES.map((_, i) =>
-    results[i].status === "fulfilled" ? (results[i] as PromiseFulfilledResult<NewsItem[]>).value : []
+    settled[i].status === "fulfilled"
+      ? (settled[i] as PromiseFulfilledResult<NewsItem[]>).value
+      : []
   );
   const out: NewsItem[] = [];
-  const len = Math.max(...cols.map(c => c.length));
-  for (let i = 0; i < len; i++) cols.forEach(c => { if (c[i]) out.push(c[i]); });
+  const max = Math.max(...cols.map(c => c.length));
+  for (let i = 0; i < max; i++) cols.forEach(c => { if (c[i]) out.push(c[i]); });
   return out;
 }
 
+// ── Componente ────────────────────────────────────────────────────────────────
 export function NewsTickerBar() {
-  const [news, setNews]   = useState<NewsItem[]>([]);
-  const [ready, setReady] = useState(false);
+  const [news,   setNews]   = useState<NewsItem[]>([]);
+  const [ready,  setReady]  = useState(false);
   const [paused, setPaused] = useState(false);
 
   const today = new Date().toLocaleDateString("pt-BR", {
@@ -66,8 +78,8 @@ export function NewsTickerBar() {
   });
 
   async function load() {
-    const r = await Promise.allSettled(RSS_SOURCES.map(fetchFeed));
-    setNews(interleave(r));
+    const results = await Promise.allSettled(RSS_SOURCES.map(fetchFeed));
+    setNews(interleave(results));
     setReady(true);
   }
 
@@ -77,102 +89,141 @@ export function NewsTickerBar() {
     return () => clearInterval(id);
   }, []);
 
-  // Duplica para loop contínuo
-  const items = [...news, ...news];
+  const items = [...news, ...news]; // duplica para loop infinito
+  const duration = Math.max(news.length * 6, 80);
 
   return (
-    /* ── barra fixa 34px no topo ── */
     <div
       style={{
         position: "fixed", top: 0, left: 0, right: 0,
-        height: "34px", zIndex: 9999,
-        background: "#0d0d0d",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        height: "44px", zIndex: 9999,
+        background: "#111214",
+        borderBottom: "1px solid rgba(255,255,255,0.1)",
         display: "flex", alignItems: "center",
-        overflow: "hidden", fontFamily: "sans-serif",
+        overflow: "hidden", fontFamily: "system-ui, sans-serif",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.4)",
       }}
     >
-      {/* Ao Vivo + canais */}
+      {/* ── Ao Vivo + canais ── */}
       <div style={{
-        display: "flex", alignItems: "center", gap: "5px",
-        padding: "0 10px", flexShrink: 0,
-        borderRight: "1px solid rgba(255,255,255,0.08)",
-        height: "100%", background: "#111",
+        display: "flex", alignItems: "center", gap: "6px",
+        padding: "0 12px 0 14px", flexShrink: 0,
+        borderRight: "1px solid rgba(255,255,255,0.1)",
+        height: "100%", background: "#0d0e10",
       }}>
-        <Radio size={10} color="#ff3b30" />
-        <span style={{
-          fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em",
-          color: "#ff3b30", textTransform: "uppercase", userSelect: "none",
-        }}>
-          Ao Vivo
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px", marginRight: 2 }}>
+          <Radio size={11} color="#ff3b30" />
+          <span style={{
+            fontSize: "9px", fontWeight: 900, letterSpacing: "0.16em",
+            color: "#ff3b30", textTransform: "uppercase",
+          }}>
+            Ao Vivo
+          </span>
+        </div>
+
         {LIVE_CHANNELS.map(ch => (
           <a key={ch.key} href={ch.url} target="_blank" rel="noopener noreferrer"
             style={{
-              fontSize: "9px", fontWeight: 700, letterSpacing: "0.06em",
-              color: "rgba(255,255,255,0.45)", textDecoration: "none",
-              padding: "2px 6px",
-              border: "1px solid rgba(255,255,255,0.12)", borderRadius: "2px",
+              fontSize: "9px", fontWeight: 700, letterSpacing: "0.05em",
+              color: "rgba(255,255,255,0.5)", textDecoration: "none",
+              padding: "3px 7px",
+              border: "1px solid rgba(255,255,255,0.14)",
+              borderRadius: "3px",
               display: "inline-flex", alignItems: "center", gap: "3px",
-              transition: "color .15s, border-color .15s",
+              transition: "all .15s",
+              whiteSpace: "nowrap",
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.color = "#fff";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,.35)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = "#fff";
+              el.style.borderColor = "rgba(255,255,255,.35)";
+              el.style.background = "rgba(255,255,255,.06)";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,.45)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,.12)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = "rgba(255,255,255,.5)";
+              el.style.borderColor = "rgba(255,255,255,.14)";
+              el.style.background = "transparent";
             }}
           >
-            {ch.label}<ExternalLink size={7} />
+            {ch.label}<ExternalLink size={8} />
           </a>
         ))}
       </div>
 
-      {/* Faixa de manchetes */}
+      {/* ── Ticker manchetes ── */}
       <div
-        style={{ flex: 1, overflow: "hidden", height: "100%", display: "flex", alignItems: "center" }}
+        style={{
+          flex: 1, overflow: "hidden",
+          height: "100%", display: "flex", alignItems: "center",
+        }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
         {!ready ? (
-          <span style={{ paddingLeft: 18, fontSize: "11px", color: "rgba(255,255,255,.2)", fontStyle: "italic" }}>
+          <span style={{
+            paddingLeft: 20, fontSize: "12px",
+            color: "rgba(255,255,255,.22)", fontStyle: "italic",
+          }}>
             Carregando notícias…
           </span>
         ) : items.length === 0 ? (
-          <span style={{ paddingLeft: 18, fontSize: "11px", color: "rgba(255,255,255,.2)" }}>
-            Notícias indisponíveis.
+          <span style={{
+            paddingLeft: 20, fontSize: "12px",
+            color: "rgba(255,255,255,.22)",
+          }}>
+            Nenhuma notícia disponível no momento.
           </span>
         ) : (
           <div
             className={`ticker-track${paused ? " paused" : ""}`}
-            style={{ animationDuration: `${Math.max(news.length * 7, 55)}s` }}
+            style={{ animationDuration: `${duration}s` }}
           >
             {items.map((item, idx) => (
               <React.Fragment key={`${item.source.key}-${idx}`}>
                 {idx > 0 && (
-                  <span style={{ color: "rgba(255,255,255,.12)", padding: "0 14px", fontSize: "10px" }}>◆</span>
+                  <span style={{
+                    color: "rgba(255,255,255,.15)",
+                    padding: "0 16px",
+                    fontSize: "11px",
+                    flexShrink: 0,
+                  }}>
+                    ◆
+                  </span>
                 )}
+                {/* Badge fonte */}
                 <span style={{
-                  fontSize: "8px", fontWeight: 800, letterSpacing: "0.1em",
-                  textTransform: "uppercase", background: item.source.bg,
-                  color: "#fff", padding: "2px 5px", borderRadius: "2px",
-                  marginRight: "7px", lineHeight: 1, flexShrink: 0,
+                  fontSize: "8.5px", fontWeight: 900, letterSpacing: "0.09em",
+                  textTransform: "uppercase",
+                  background: item.source.bg,
+                  color: "#fff",
+                  padding: "2px 6px",
+                  borderRadius: "3px",
+                  marginRight: "8px",
+                  lineHeight: 1,
+                  flexShrink: 0,
+                  userSelect: "none",
                 }}>
                   {item.source.label}
                 </span>
+                {/* Manchete */}
                 <a
-                  href={item.link || "#"} target="_blank" rel="noopener noreferrer"
+                  href={item.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
-                    fontSize: "11.5px", color: "rgba(255,255,255,.68)",
-                    textDecoration: "none", fontWeight: 400, lineHeight: 1,
+                    fontSize: "12.5px",
+                    color: "rgba(255,255,255,.75)",
+                    textDecoration: "none",
+                    fontWeight: 400,
+                    lineHeight: 1,
                     transition: "color .15s",
+                    letterSpacing: "0.01em",
                   }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#fff")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,.68)")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,.75)")}
                 >
-                  {item.title.length > 90 ? item.title.slice(0, 88) + "…" : item.title}
+                  {item.title.length > 95 ? item.title.slice(0, 93) + "…" : item.title}
                 </a>
               </React.Fragment>
             ))}
@@ -180,13 +231,21 @@ export function NewsTickerBar() {
         )}
       </div>
 
-      {/* Data */}
+      {/* ── Data ── */}
       <div style={{
-        padding: "0 12px", flexShrink: 0,
-        borderLeft: "1px solid rgba(255,255,255,.07)",
-        fontSize: "9px", color: "rgba(255,255,255,.22)",
-        fontWeight: 600, letterSpacing: "0.07em", textTransform: "uppercase",
-        height: "100%", display: "flex", alignItems: "center", background: "#111",
+        padding: "0 14px",
+        flexShrink: 0,
+        borderLeft: "1px solid rgba(255,255,255,.08)",
+        fontSize: "9.5px",
+        color: "rgba(255,255,255,.28)",
+        fontWeight: 700,
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        background: "#0d0e10",
+        whiteSpace: "nowrap",
       }}>
         {today}
       </div>

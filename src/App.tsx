@@ -330,7 +330,7 @@ export default function App() {
       <div className="min-h-screen relative font-sans">
         <NewsTickerBar />
         <Navigation />
-        <main className="pt-[130px]">
+        <main className="pt-[140px]">
           <AdminPanel />
         </main>
       </div>
