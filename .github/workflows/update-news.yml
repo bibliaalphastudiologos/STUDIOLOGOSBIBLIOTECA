@@ -1,0 +1,119 @@
+name: Atualizar Notícias (a cada 30min)
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # a cada 30 minutos
+  workflow_dispatch:           # acionamento manual
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar lxml
+        run: pip install lxml --quiet
+
+      - name: Buscar feeds RSS e gerar news.json
+        run: |
+          python3 << 'PYEOF'
+          import urllib.request, json, datetime, re
+          try:
+              from lxml import etree as LET
+              HAS_LXML = True
+          except ImportError:
+              import xml.etree.ElementTree as ET
+              HAS_LXML = False
+
+          FEEDS = [
+            ("G1",        "#D0021B", "https://g1.globo.com/rss/g1/",                                         6),
+            ("Folha",     "#003399", "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml",              5),
+            ("CNN BR",    "#AA0000", "https://admin.cnnbrasil.com.br/feed/",                                 5),
+            ("UOL",       "#E85D04", "https://rss.uol.com.br/feed/noticias.xml",                            4),
+            ("Jovem Pan", "#006633", "https://jovempan.com.br/feed",                                         4),
+            ("Veja",      "#B30000", "https://veja.abril.com.br/feed/",                                      4),
+            ("Poder360",  "#1A237E", "https://www.poder360.com.br/feed/",                                    4),
+            ("BBC",       "#BB1919", "https://feeds.bbci.co.uk/news/world/rss.xml",                         4),
+            ("Senado",    "#0D2B6B", "https://www12.senado.leg.br/noticias/rss.xml",                       4),
+            ("Ag. Brasil","#1B5E20", "https://agenciabrasil.ebc.com.br/feed/ultimasnoticias/feed.xml",     4),
+          ]
+
+          def strip_cdata(text):
+              return re.sub(r'<!\[CDATA\[(.*?)\]\]>', lambda m: m.group(1), text, flags=re.DOTALL)
+
+          def parse_items_lxml(body, max_items):
+              parser = LET.XMLParser(recover=True)
+              root = LET.fromstring(body.encode("utf-8", errors="replace"), parser)
+              items = root.findall(".//item")[:max_items]
+              result = []
+              for it in items:
+                  title = (it.findtext("title") or "").strip()
+                  link  = (it.findtext("link")  or it.findtext("guid") or "").strip()
+                  if title and len(title) > 4:
+                      result.append({"title": title, "link": link})
+              return result
+
+          def parse_items_stdlib(body, max_items):
+              import xml.etree.ElementTree as ET
+              root = ET.fromstring(body)
+              items = root.findall(".//item")[:max_items]
+              result = []
+              for it in items:
+                  title = (it.findtext("title") or "").strip()
+                  link  = (it.findtext("link")  or it.findtext("guid") or "").strip()
+                  if title and len(title) > 4:
+                      result.append({"title": title, "link": link})
+              return result
+
+          def fetch(label, url, max_items):
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                  with urllib.request.urlopen(req, timeout=10) as r:
+                      raw = r.read().decode("utf-8", errors="replace")
+                  body = strip_cdata(raw)
+                  if HAS_LXML:
+                      return parse_items_lxml(body, max_items)
+                  else:
+                      return parse_items_stdlib(body, max_items)
+              except Exception as e:
+                  print(f"  ERRO {label}: {e}")
+                  return []
+
+          cols = []
+          for label, color, url, max_items in FEEDS:
+              print(f"Buscando {label}…")
+              items = fetch(label, url, max_items)
+              print(f"  → {len(items)} manchetes")
+              cols.append({"label": label, "color": color, "items": items})
+
+          # Intercala: G1[0], Folha[0], CNN[0], … G1[1], Folha[1], …
+          max_len = max((len(c["items"]) for c in cols), default=0)
+          all_items = []
+          for i in range(max_len):
+              for col in cols:
+                  if i < len(col["items"]):
+                      all_items.append({
+                          "source": col["label"],
+                          "color":  col["color"],
+                          "title":  col["items"][i]["title"],
+                          "link":   col["items"][i]["link"],
+                      })
+
+          output = {
+              "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "items":   all_items,
+          }
+          with open("news.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+          print(f"\n✅ news.json gerado com {len(all_items)} manchetes")
+          PYEOF
+
+      - name: Upload news.json para Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./
+          server-dir: /public_html/
+          include: |
+            news.json
+          dangerous-clean-slate: false
