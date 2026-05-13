@@ -18,6 +18,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, Check, ChevronRight, CreditCard, Lock, Search, Sparkles, X } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
+import { NewsTickerBar } from "./components/NewsTickerBar";
 import { PAYMENT_LINKS } from "./types";
 import { useLocation } from "react-router-dom";
 
@@ -327,8 +328,9 @@ export default function App() {
   if (location.pathname === "/admin") {
     return (
       <div className="min-h-screen relative font-sans">
+        <NewsTickerBar />
         <Navigation />
-        <main className="pt-24">
+        <main className="pt-[130px]">
           <AdminPanel />
         </main>
       </div>
@@ -337,6 +339,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen relative font-sans">
+      <NewsTickerBar />
       <Navigation />
       <GoogleTranslatePrompt />
       
