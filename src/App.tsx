@@ -399,9 +399,8 @@ export default function App() {
   if (location.pathname === "/admin") {
     return (
       <div className="min-h-screen relative font-sans">
-        {!readerEbook && <NewsTickerBar />}
         <Navigation />
-        <main className="pt-[140px]">
+        <main className="pt-[96px]">
           <AdminPanel />
         </main>
         <WhatsAppFloat />
@@ -412,12 +411,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen relative font-sans">
-      {!readerEbook && <NewsTickerBar />}
       <Navigation />
       <GoogleTranslatePrompt />
       
       <main>
         <Hero />
+        {!readerEbook && <NewsTickerBar />}
 
         <section className="px-4 sm:px-6 lg:px-10 -mt-4 md:-mt-10 relative z-20">
           <div className="max-w-5xl mx-auto premium-shell p-4 md:p-6 backdrop-blur-xl">

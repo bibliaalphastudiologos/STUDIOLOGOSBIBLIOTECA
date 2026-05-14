@@ -13,7 +13,7 @@ export function Hero() {
   const totalRoutes     = STUDY_ROUTES.length;
 
   return (
-    <section className="relative min-h-[68svh] md:min-h-[78vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-[140px] md:pt-[172px] pb-14 md:pb-24 overflow-hidden bg-[#F7F2E8]">
+    <section className="relative min-h-[66svh] md:min-h-[74vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-[112px] md:pt-[136px] pb-14 md:pb-24 overflow-hidden bg-[#F7F2E8]">
 
       {/* Background */}
       <div className="absolute inset-0 z-0">
@@ -30,7 +30,7 @@ export function Hero() {
         initial={{ opacity: 0, scaleX: 0 }}
         animate={{ opacity: 1, scaleX: 1 }}
         transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-        className="absolute top-[130px] md:top-[160px] left-1/2 -translate-x-1/2 flex items-center gap-3 z-10"
+        className="absolute top-[104px] md:top-[124px] left-1/2 -translate-x-1/2 flex items-center gap-3 z-10"
       >
         <div className="h-px w-12 md:w-20" style={{ background: 'linear-gradient(to right, transparent, #B48A3D)' }} />
         <div className="w-1 h-1 rounded-full bg-[#B48A3D] opacity-70" />

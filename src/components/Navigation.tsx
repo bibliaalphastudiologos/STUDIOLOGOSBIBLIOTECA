@@ -35,7 +35,7 @@ export function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-[44px] left-0 w-full z-50 premium-nav backdrop-blur-xl border-b border-black/5 px-4 sm:px-6 lg:px-10 py-3 md:py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 w-full z-50 premium-nav backdrop-blur-xl border-b border-black/5 px-4 sm:px-6 lg:px-10 py-3 md:py-4 flex items-center justify-between">
         {/* Logo + desktop links */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -159,7 +159,7 @@ export function Navigation() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="fixed left-0 w-full z-50 lg:hidden bg-[#faf7f0]/98 backdrop-blur-xl border-b border-black/8 shadow-2xl"
-              style={{ top: "calc(44px + 56px)" }}
+              style={{ top: "56px" }}
             >
               <div className="px-4 py-4 space-y-1">
                 {/* Category links */}
