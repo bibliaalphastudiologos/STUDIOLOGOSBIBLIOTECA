@@ -1,32 +1,43 @@
-# HTAccess para StudioLogos Biblioteca
-# Garante MIME types corretos para JS e CSS
+# HTAccess para StudioLogos Biblioteca — SPA Routing + MIME Types
 
-Options -MultiViews
+# SPA fallback — todas as rotas vão para index.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
 
+  # Não reescrever arquivos e diretórios existentes
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Redirecionar tudo para index.html
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
+
+# Fallback para servidores sem mod_rewrite
+ErrorDocument 404 /index.html
+
+# MIME types corretos
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/svg+xml .svg
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+# Headers de segurança e cache
 <IfModule mod_headers.c>
-  # JavaScript modules - tipo correto para import/export
   <FilesMatch "\.js$">
     Header set Content-Type "application/javascript; charset=utf-8"
     Header set X-Content-Type-Options "nosniff"
   </FilesMatch>
-  
-  # CSS
   <FilesMatch "\.css$">
     Header set Content-Type "text/css; charset=utf-8"
     Header set X-Content-Type-Options "nosniff"
   </FilesMatch>
-  
-  # HTML
-  <FilesMatch "\.html$">
-    Header set Content-Type "text/html; charset=utf-8"
+  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff2?)$">
+    Header set Cache-Control "max-age=31536000, immutable"
   </FilesMatch>
-</IfModule>
-
-# Fallback para SPA - todas as rotas vão para index.html
-ErrorDocument 404 /index.html
-
-# Garantir que arquivos .js sejam tratados como módulos
-<IfModule mod_mime.c>
-  AddType application/javascript .js
-  AddType text/css .css
+  <FilesMatch "^index\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
 </IfModule>

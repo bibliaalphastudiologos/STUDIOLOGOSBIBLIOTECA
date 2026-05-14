@@ -16,6 +16,7 @@ export default defineConfig({
           theology: ['./src/data/theologyPublicDomain'],
           gutenberg: ['./src/data/gutenbergMegaCatalog'],
           brazilian: ['./src/data/brazilianLiterature'],
+          spirituality: ['./src/data/spiritualityClassics'],
         },
       },
     },
