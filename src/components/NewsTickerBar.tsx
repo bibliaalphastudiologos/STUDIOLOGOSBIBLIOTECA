@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Radio, ExternalLink } from "lucide-react";
+import { Radio, ExternalLink, X } from "lucide-react";
 
 const LIVE_CHANNELS = [
   { key: "tvj",  label: "TV Justiça", url: "https://www.youtube.com/watch?v=4NuQS6vAYAU" },
@@ -20,6 +20,13 @@ export function NewsTickerBar() {
   const [ready,  setReady]  = useState(false);
   const [paused, setPaused] = useState(false);
   const [updated, setUpdated] = useState("");
+  const [hidden, setHidden] = useState(() => {
+    try {
+      return window.sessionStorage.getItem("studiologos-news-hidden") === "true";
+    } catch {
+      return false;
+    }
+  });
 
   async function load() {
     try {
@@ -49,11 +56,13 @@ export function NewsTickerBar() {
     weekday: "short", day: "2-digit", month: "2-digit",
   });
 
+  if (hidden) return null;
+
   return (
     <div
       style={{
         position: "fixed", top: 0, left: 0, right: 0,
-        height: "44px", zIndex: 9999,
+        height: "44px", zIndex: 45,
         background: "#111214",
         borderBottom: "1px solid rgba(255,255,255,0.1)",
         display: "flex", alignItems: "center",
@@ -173,6 +182,33 @@ export function NewsTickerBar() {
           </span>
         )}
       </div>
+
+      <button
+        type="button"
+        onClick={() => {
+          try {
+            window.sessionStorage.setItem("studiologos-news-hidden", "true");
+          } catch {}
+          setHidden(true);
+        }}
+        aria-label="Fechar faixa de notícias"
+        title="Fechar faixa de notícias"
+        style={{
+          width: 36,
+          height: "100%",
+          flexShrink: 0,
+          border: 0,
+          borderLeft: "1px solid rgba(255,255,255,.08)",
+          background: "#0d0e10",
+          color: "rgba(255,255,255,.55)",
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+        }}
+      >
+        <X size={14} />
+      </button>
     </div>
   );
 }

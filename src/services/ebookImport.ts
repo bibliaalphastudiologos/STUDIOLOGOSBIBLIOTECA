@@ -239,14 +239,17 @@ export async function loadImportedChapters(ebook: Ebook): Promise<StudioChapter[
 
   let raw = '';
   let lastStatus = 0;
+  const attempted = new Set<string>();
 
   for (const url of urls) {
     const attempts: string[] = [];
-    if (isGutenberg) attempts.push(localProxyUrl(providerId, url));
-    attempts.push(url);
+    if (isGutenberg && !attempted.has(localProxyUrl(providerId))) attempts.push(localProxyUrl(providerId));
     attempts.push(readableProxyUrl(url));
+    attempts.push(url);
 
     for (const attempt of attempts) {
+      if (attempted.has(attempt)) continue;
+      attempted.add(attempt);
       try {
         const response = await fetchText(attempt);
         lastStatus = response.status;

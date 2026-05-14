@@ -69,6 +69,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
   const [importedChapters, setImportedChapters] = useState<Ebook["chapters"] | null>(null);
   const [importingText, setImportingText] = useState(false);
   const [importError, setImportError] = useState(false);
+  const [importAttempt, setImportAttempt] = useState(0);
 
   const chapters = importedChapters || (ebook.chapters.length ? ebook.chapters : [{
     id: `${ebook.id}-chapter-1`,
@@ -104,6 +105,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
   );
 
   useEffect(() => {
+    let cancelled = false;
     setCloudLoaded(false);
     setChapterIndex(0);
     setTocOpen(shouldShowDesktopToc());
@@ -115,15 +117,20 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
 
     if (ebook.importSource) {
       setImportingText(true);
+      setImportError(false);
       loadImportedChapters(ebook)
         .then((chaptersFromSource) => {
-          if (chaptersFromSource?.length) setImportedChapters(chaptersFromSource);
+          if (!cancelled && chaptersFromSource?.length) setImportedChapters(chaptersFromSource);
         })
         .catch((error) => {
           console.warn("[StudioLogos Reader] Falha ao importar texto técnico:", error);
-          setImportError(true);
+          if (!cancelled) setImportError(true);
         })
-        .finally(() => setImportingText(false));
+        .finally(() => {
+          if (!cancelled) setImportingText(false);
+        });
+    } else {
+      setImportingText(false);
     }
 
     const saved = safeStorage.getItem(`reading-${ebook.id}`);
@@ -138,18 +145,26 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
 
     if (!user) {
       setCloudLoaded(true);
-      return;
+      return () => {
+        cancelled = true;
+      };
     }
 
     loadEbookProgress(user, ebook.id)
       .then((cloudProgress) => {
-        if (!cloudProgress) return;
+        if (!cloudProgress || cancelled) return;
         const nextIndex = cloudProgress.chapterIndex ?? ((cloudProgress.page || 1) - 1);
         setChapterIndex(Math.min(Math.max(nextIndex || 0, 0), chapters.length - 1));
       })
       .catch((error) => console.warn("[StudioLogos Reader] Falha ao carregar progresso:", error))
-      .finally(() => setCloudLoaded(true));
-  }, [ebook, user]);
+      .finally(() => {
+        if (!cancelled) setCloudLoaded(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [ebook, importAttempt, user]);
 
   useEffect(() => {
     safeStorage.setItem(`reading-${ebook.id}`, JSON.stringify({
@@ -181,7 +196,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
   }, [onClose]);
 
   useEffect(() => {
-    if (!hasTranslation || !autoTranslate) return;
+    if (!hasTranslation || !autoTranslate || isShowingImportPlaceholder || importingText) return;
     if (translatedContent[translationKey]) {
       setLanguageMode("pt");
       return;
@@ -218,6 +233,8 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
     currentChapter.id,
     ebook.id,
     hasTranslation,
+    importingText,
+    isShowingImportPlaceholder,
     translatedContent,
     translationKey,
   ]);
@@ -484,6 +501,13 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
                   <p className="text-sm leading-relaxed text-amber-900/70">
                     Não foi possível carregar o texto completo desta obra agora. Você pode ler a apresentação e os capítulos introdutórios disponíveis. Tente novamente em alguns minutos — o leitor buscará o conteúdo automaticamente.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => setImportAttempt((value) => value + 1)}
+                    className="mt-4 inline-flex min-h-10 items-center justify-center bg-[#1A1A1A] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white"
+                  >
+                    Tentar carregar novamente
+                  </button>
                 </div>
               )}
 
@@ -504,6 +528,13 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl 
                   <p className="text-sm text-amber-950/70 leading-relaxed">
                     Esta obra possui fonte técnica, mas o texto integral não carregou nesta tentativa. Ela ficará marcada para nova verificação em vez de exibir conteúdo incompleto como leitura final.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => setImportAttempt((value) => value + 1)}
+                    className="mt-5 inline-flex min-h-10 items-center justify-center bg-[#1A1A1A] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white"
+                  >
+                    Recarregar texto integral
+                  </button>
                 </div>
               ) : (
                 <div

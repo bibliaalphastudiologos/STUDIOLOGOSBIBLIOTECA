@@ -399,7 +399,7 @@ export default function App() {
   if (location.pathname === "/admin") {
     return (
       <div className="min-h-screen relative font-sans">
-        <NewsTickerBar />
+        {!readerEbook && <NewsTickerBar />}
         <Navigation />
         <main className="pt-[140px]">
           <AdminPanel />
@@ -412,7 +412,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen relative font-sans">
-      <NewsTickerBar />
+      {!readerEbook && <NewsTickerBar />}
       <Navigation />
       <GoogleTranslatePrompt />
       
