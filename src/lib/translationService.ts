@@ -13,6 +13,10 @@ function getCacheKey(ebookId: string, chapterId: string, targetLang: string): st
   return `${CACHE_PREFIX}${CACHE_VERSION}_${ebookId}_${chapterId}_${targetLang}`;
 }
 
+function getTextCacheKey(scopeId: string, fieldId: string, targetLang: string): string {
+  return `${CACHE_PREFIX}${CACHE_VERSION}_text_${scopeId}_${fieldId}_${targetLang}`;
+}
+
 function getFromCache(key: string): string | null {
   try {
     const raw = safeStorage.getItem(key);
@@ -82,9 +86,10 @@ async function translateChunk(text: string, targetLang = 'pt'): Promise<string> 
 
 async function translateViaConfiguredEndpoint(
   ebookId: string,
-  chapterId: string,
-  htmlContent: string,
-  targetLang: string
+  itemId: string,
+  content: string,
+  targetLang: string,
+  format: 'html' | 'text' = 'html',
 ): Promise<string | null> {
   const endpoint = import.meta.env.VITE_TRANSLATION_ENDPOINT;
   if (!endpoint) return null;
@@ -94,17 +99,18 @@ async function translateViaConfiguredEndpoint(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       ebookId,
-      chapterId,
+      chapterId: itemId,
+      fieldId: itemId,
       sourceLanguage: 'auto',
       targetLanguage: targetLang,
-      format: 'html',
-      content: htmlContent,
+      format,
+      content,
     }),
   });
 
   if (!response.ok) throw new Error(`Translation endpoint error: ${response.status}`);
-  const data = await response.json() as { translatedHtml?: string; text?: string };
-  return data.translatedHtml || data.text || null;
+  const data = await response.json() as { translatedHtml?: string; translatedText?: string; text?: string };
+  return data.translatedHtml || data.translatedText || data.text || null;
 }
 
 // Traduz conteúdo HTML de um capítulo completo
@@ -124,7 +130,7 @@ export async function translateChapter(
     return cached;
   }
 
-  const endpointResult = await translateViaConfiguredEndpoint(ebookId, chapterId, htmlContent, targetLang);
+  const endpointResult = await translateViaConfiguredEndpoint(ebookId, chapterId, htmlContent, targetLang, 'html');
   if (endpointResult) {
     saveToCache(cacheKey, endpointResult);
     onProgress?.(100);
@@ -152,6 +158,41 @@ export async function translateChapter(
   const result = translated.join('');
   saveToCache(cacheKey, result);
   return result;
+}
+
+// Traduz textos curtos de interface editorial: título, descrição e sumário.
+// Usa cache separado para evitar retraduzir metadados sempre que o leitor abre.
+export async function translateText(
+  scopeId: string,
+  fieldId: string,
+  text: string,
+  targetLang = 'pt',
+): Promise<string> {
+  const normalized = text.trim();
+  if (!normalized) return text;
+
+  const cacheKey = getTextCacheKey(scopeId, fieldId, targetLang);
+  const cached = getFromCache(cacheKey);
+  if (cached) return cached;
+
+  try {
+    const endpointResult = await translateViaConfiguredEndpoint(scopeId, fieldId, normalized, targetLang, 'text');
+    if (endpointResult) {
+      saveToCache(cacheKey, endpointResult);
+      return endpointResult;
+    }
+  } catch {
+    // O fallback abaixo mantém a experiência funcionando mesmo sem endpoint próprio.
+  }
+
+  try {
+    const translated = await translateChunk(normalized, targetLang);
+    const result = translated.trim() || text;
+    saveToCache(cacheKey, result);
+    return result;
+  } catch {
+    return text;
+  }
 }
 
 // Verificar se uma tradução já está em cache

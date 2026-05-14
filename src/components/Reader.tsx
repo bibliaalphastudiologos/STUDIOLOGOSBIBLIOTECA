@@ -21,6 +21,7 @@ import { isTranslationCached, translateChapter } from "../lib/translationService
 import { PAYMENT_LINKS } from "../types";
 import { loadImportedChapters } from "../services/ebookImport";
 import { StudioEbookCover } from "./StudioEbookCover";
+import { useTranslatedEbookMetadata } from "../hooks/useTranslatedEbookMetadata";
 
 interface ReaderProps {
   ebook: Ebook;
@@ -54,6 +55,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   const [tocOpen, setTocOpen] = useState(true);
   const [translatedContent, setTranslatedContent] = useState<Record<string, string>>({});
   const [languageMode, setLanguageMode] = useState<"original" | "pt">("original");
+  const [autoTranslate, setAutoTranslate] = useState(true);
   const [isTranslating, setIsTranslating] = useState(false);
   const [translationProgress, setTranslationProgress] = useState(0);
   const [cloudLoaded, setCloudLoaded] = useState(false);
@@ -69,12 +71,17 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   }]);
   const currentChapter = chapters[Math.min(chapterIndex, chapters.length - 1)];
   const translationKey = currentChapter.id;
-  const currentHtml = languageMode === "pt" && translatedContent[translationKey]
-    ? translatedContent[translationKey]
-    : currentChapter.content;
   const progress = Math.round(((chapterIndex + 1) / chapters.length) * 100);
   const hasTranslation = ebook.translationAvailable || ebook.originalLanguage !== "Português";
   const cached = isTranslationCached(ebook.id, currentChapter.id);
+  const translatedMeta = useTranslatedEbookMetadata(ebook, chapters, hasTranslation);
+  const displayEbook = useMemo(
+    () => ({ ...ebook, title: translatedMeta.displayTitle, description: translatedMeta.displayDescription }),
+    [ebook, translatedMeta.displayDescription, translatedMeta.displayTitle],
+  );
+  const currentHtml = languageMode === "pt" && translatedContent[translationKey]
+    ? translatedContent[translationKey]
+    : currentChapter.content;
 
   const themeClasses = {
     sepia: "bg-[#F4EBDD] text-[#2f281f]",
@@ -91,6 +98,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
     setCloudLoaded(false);
     setChapterIndex(0);
     setLanguageMode("original");
+    setAutoTranslate(true);
     setTranslatedContent({});
     setImportedChapters(null);
     setImportError(false);
@@ -162,8 +170,51 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
+  useEffect(() => {
+    if (!hasTranslation || !autoTranslate) return;
+    if (translatedContent[translationKey]) {
+      setLanguageMode("pt");
+      return;
+    }
+
+    let cancelled = false;
+    setIsTranslating(true);
+    setTranslationProgress(0);
+
+    translateChapter(
+      ebook.id,
+      currentChapter.id,
+      currentChapter.content,
+      "pt",
+      (pct) => {
+        if (!cancelled) setTranslationProgress(pct);
+      },
+    )
+      .then((translated) => {
+        if (cancelled) return;
+        setTranslatedContent((current) => ({ ...current, [currentChapter.id]: translated }));
+        setLanguageMode("pt");
+      })
+      .finally(() => {
+        if (!cancelled) setIsTranslating(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    autoTranslate,
+    currentChapter.content,
+    currentChapter.id,
+    ebook.id,
+    hasTranslation,
+    translatedContent,
+    translationKey,
+  ]);
+
   const handleTranslate = async () => {
     if (!hasTranslation) return;
+    setAutoTranslate(true);
     setIsTranslating(true);
     setTranslationProgress(0);
     try {
@@ -225,7 +276,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           </button>
           <div className="min-w-0">
             <p className="text-[9px] uppercase tracking-[0.24em] font-black accent-gold">Leitor Studio Logos</p>
-            <h1 className="font-serif text-lg leading-tight truncate">{ebook.title}</h1>
+            <h1 className="font-serif text-lg leading-tight truncate">{translatedMeta.displayTitle}</h1>
             <p className="text-[10px] opacity-50 uppercase tracking-[0.16em] truncate">{ebook.author}</p>
           </div>
         </div>
@@ -256,7 +307,10 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           ))}
           {hasTranslation && (
             <button
-              onClick={languageMode === "pt" ? () => setLanguageMode("original") : handleTranslate}
+              onClick={languageMode === "pt" ? () => {
+                setAutoTranslate(false);
+                setLanguageMode("original");
+              } : handleTranslate}
               disabled={isTranslating}
               className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] text-white rounded-sm text-[10px] uppercase tracking-[0.16em] font-bold disabled:opacity-50"
             >
@@ -299,7 +353,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
                   className={`w-full text-left px-4 py-3 rounded-sm mb-1 transition-colors ${index === chapterIndex ? "bg-[#C5A059] text-black" : "hover:bg-black/5"}`}
                 >
                   <span className="block text-[9px] uppercase tracking-[0.18em] opacity-50">Capítulo {index + 1}</span>
-                  <span className="block text-sm font-serif leading-snug">{chapter.title}</span>
+                  <span className="block text-sm font-serif leading-snug">{translatedMeta.getChapterTitle(chapter)}</span>
                   <span className="block text-[10px] opacity-50 mt-1">{chapter.estimatedMinutes} min</span>
                 </button>
               ))}
@@ -311,16 +365,21 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           <div className={`${focusMode ? "max-w-[46rem]" : "max-w-4xl"} mx-auto px-5 md:px-12 py-10 md:py-16`}>
             {!focusMode && (
               <section className="mb-10 grid md:grid-cols-[120px_1fr] gap-8 items-start">
-                <StudioEbookCover ebook={ebook} compact showTitle={false} className="hidden md:block" />
+                <StudioEbookCover ebook={displayEbook} compact showTitle={false} className="hidden md:block" />
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.32em] font-black accent-gold mb-3">{ebook.category} · {ebook.collection}</p>
-                  <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{ebook.title}</h2>
-                  <p className="text-sm opacity-60 leading-relaxed max-w-2xl">{ebook.description}</p>
+                  <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{translatedMeta.displayTitle}</h2>
+                  <p className="text-sm opacity-60 leading-relaxed max-w-2xl">{translatedMeta.displayDescription}</p>
                   <div className="flex flex-wrap gap-2 mt-5">
                     {[ebook.originalLanguage, ebook.approximateYear, `${chapters.length} capítulos`, ebook.estimatedReadTime].map((item) => (
                       <span key={item} className="text-[10px] uppercase tracking-[0.16em] border border-current/15 px-3 py-1 opacity-70">{item}</span>
                     ))}
                   </div>
+                  {translatedMeta.needsTranslation && (
+                    <p className="mt-3 text-[10px] uppercase tracking-[0.2em] opacity-50">
+                      {translatedMeta.loading || isTranslating ? "Tradução automática em andamento" : "Tradução automática ativada"}
+                    </p>
+                  )}
                 </div>
               </section>
             )}
@@ -329,7 +388,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
               <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.28em] font-black accent-gold mb-2">Capítulo {chapterIndex + 1}</p>
-                  <h3 className="text-2xl md:text-3xl font-serif">{currentChapter.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-serif">{translatedMeta.getChapterTitle(currentChapter)}</h3>
                 </div>
                 <button className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-bold opacity-60 hover:opacity-100">
                   <BookmarkPlus className="w-4 h-4" />

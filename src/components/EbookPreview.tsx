@@ -4,6 +4,7 @@ import { BookOpen, Check, Languages, Library, Lock, Plus, X } from "lucide-react
 import { type Ebook } from "../studioTypes";
 import { PAYMENT_LINKS } from "../types";
 import { StudioEbookCover } from "./StudioEbookCover";
+import { useTranslatedEbookMetadata } from "../hooks/useTranslatedEbookMetadata";
 
 interface EbookPreviewProps {
   ebook: Ebook;
@@ -14,6 +15,14 @@ interface EbookPreviewProps {
 }
 
 export function EbookPreview({ ebook, related, canRead, onClose, onRead }: EbookPreviewProps) {
+  const translatedMeta = useTranslatedEbookMetadata(ebook, ebook.chapters);
+  const displayEbook = {
+    ...ebook,
+    title: translatedMeta.displayTitle,
+    description: translatedMeta.displayDescription,
+    longDescription: translatedMeta.displayLongDescription,
+  };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -40,7 +49,7 @@ export function EbookPreview({ ebook, related, canRead, onClose, onRead }: Ebook
           <div className="p-5 md:p-8 border-b border-black/10 flex items-center justify-between">
             <div>
               <p className="text-[10px] uppercase tracking-[0.34em] font-black accent-gold">Página da obra</p>
-              <h2 className="text-2xl md:text-3xl font-serif">{ebook.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-serif">{translatedMeta.displayTitle}</h2>
             </div>
             <button
               onClick={onClose}
@@ -54,7 +63,7 @@ export function EbookPreview({ ebook, related, canRead, onClose, onRead }: Ebook
 
           <div className="grid lg:grid-cols-[260px_1fr] gap-8 p-5 md:p-10">
             <div>
-              <StudioEbookCover ebook={ebook} />
+              <StudioEbookCover ebook={displayEbook} />
               <button
                 onClick={() => onRead(ebook)}
                 className="mt-6 w-full py-4 bg-[#1A1A1A] text-white text-[10px] uppercase tracking-[0.24em] font-bold flex items-center justify-center gap-2"
@@ -77,8 +86,13 @@ export function EbookPreview({ ebook, related, canRead, onClose, onRead }: Ebook
                 <p className="text-[10px] uppercase tracking-[0.3em] font-black accent-gold mb-3">
                   {ebook.category} · {ebook.subcategory}
                 </p>
-                <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-5">{ebook.title}</h1>
-                <p className="text-black/65 leading-relaxed max-w-3xl">{ebook.longDescription}</p>
+                <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-5">{translatedMeta.displayTitle}</h1>
+                <p className="text-black/65 leading-relaxed max-w-3xl">{translatedMeta.displayLongDescription}</p>
+                {translatedMeta.needsTranslation && (
+                  <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-black/40 font-bold">
+                    {translatedMeta.loading ? "Traduzindo títulos e textos" : "Tradução automática para português"}
+                  </p>
+                )}
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -98,11 +112,11 @@ export function EbookPreview({ ebook, related, canRead, onClose, onRead }: Ebook
               <div className="grid md:grid-cols-2 gap-8">
                 <section>
                   <h3 className="font-serif text-2xl mb-3">Apresentação</h3>
-                  <p className="text-sm leading-relaxed text-black/65">{ebook.description}</p>
+                  <p className="text-sm leading-relaxed text-black/65">{translatedMeta.displayDescription}</p>
                 </section>
                 <section>
                   <h3 className="font-serif text-2xl mb-3">Contexto do autor</h3>
-                  <p className="text-sm leading-relaxed text-black/65">{ebook.authorContext}</p>
+                  <p className="text-sm leading-relaxed text-black/65">{translatedMeta.displayAuthorContext}</p>
                 </section>
               </div>
 
@@ -119,7 +133,7 @@ export function EbookPreview({ ebook, related, canRead, onClose, onRead }: Ebook
                       className="text-left px-4 py-3 border border-black/10 bg-white/45 hover:border-[#C5A059] transition-colors"
                     >
                       <span className="text-[9px] uppercase tracking-[0.18em] opacity-40">Capítulo {index + 1}</span>
-                      <span className="block text-sm font-serif">{chapter.title}</span>
+                      <span className="block text-sm font-serif">{translatedMeta.getChapterTitle(chapter)}</span>
                     </button>
                   ))}
                 </div>
