@@ -5,7 +5,6 @@ import { EbookShelf } from "./components/EbookShelf";
 import { ThematicRow } from "./components/ThematicRow";
 import { Reader } from "./components/Reader";
 import { EbookPreview } from "./components/EbookPreview";
-import { BestsellerSyntheses } from "./components/BestsellerSyntheses";
 import { GoogleTranslatePrompt } from "./components/GoogleTranslatePrompt";
 import { AdminPanel } from "./components/AdminPanel";
 import { GrowthMarketing } from "./components/GrowthMarketing";
@@ -419,9 +418,9 @@ export default function App() {
             <div className="bg-[#151411] text-white p-5 md:p-7 rounded-sm border border-black/10 shadow-2xl flex flex-col justify-between">
               <div>
                 <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.28em] md:tracking-[0.45em] font-black">Plataforma completa</span>
-                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight text-white">Obras integrais, trilhas e sínteses no mesmo lugar.</h2>
+                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight text-white">Obras integrais e trilhas de formação no mesmo lugar.</h2>
                 <p className="mt-4 text-sm md:text-base text-white/82 font-serif leading-relaxed">
-                  O Studio Logos é uma biblioteca de leitura online com acervo completo, roteiros de formação e sínteses editoriais para descoberta.
+                  O Studio Logos é uma biblioteca de leitura online com acervo completo e roteiros de formação para descoberta.
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-2 mt-6">
@@ -465,7 +464,6 @@ export default function App() {
           </div>
         </section>
 
-        <BestsellerSyntheses />
 
         {showGuestBanners && <GuestSubscriptionBanner compact />}
         
@@ -644,7 +642,7 @@ export default function App() {
               Sua busca pelo <span className="accent-gold italic">Ser</span> começa aqui.
             </h2>
             <p className="text-white/55 text-base md:text-xl font-serif font-light leading-relaxed">
-              Junte-se a uma comunidade de leitores que não se contentam com a superfície. Receba sínteses exclusivas e ensaios inéditos semanalmente.
+              Junte-se a uma comunidade de leitores que não se contentam com a superfície. Receba ensaios inéditos e curadoria exclusiva semanalmente.
             </p>
             
             <div className="pt-5 md:pt-10 max-w-4xl mx-auto text-left">
@@ -682,7 +680,7 @@ export default function App() {
           {/* Plataforma */}
           <div className="space-y-3">
             <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Plataforma</p>
-            {["Trilhas de estudo","Sínteses editoriais","Busca avançada","Leitura online"].map((item) => (
+            {["Trilhas de estudo","Busca avançada","Leitura online"].map((item) => (
               <span key={item} className="block text-[11px] text-white/50 font-serif">{item}</span>
             ))}
           </div>

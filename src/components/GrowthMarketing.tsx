@@ -98,7 +98,7 @@ export const GrowthMarketing: React.FC<{ showLeadTools: boolean }> = ({ showLead
               Uma experiência bíblica exclusiva dentro do Studio Logos.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-black/66 md:text-base">
-              O Studio Logos não é apenas uma estante. É um ecossistema de formação com Bíblia Alpha, eBooks, trilhas e sínteses editoriais para quem deseja crescer com profundidade.
+              O Studio Logos não é apenas uma estante. É um ecossistema de formação com Bíblia Alpha, eBooks e trilhas de formação para quem deseja crescer com profundidade.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#captacao-meio" className="inline-flex min-h-11 items-center justify-center bg-black px-5 text-[10px] font-black uppercase tracking-[0.2em] text-white">Receba conteúdos gratuitos</a>
