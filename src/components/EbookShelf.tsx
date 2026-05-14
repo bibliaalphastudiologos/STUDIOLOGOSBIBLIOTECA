@@ -26,7 +26,6 @@ const CATEGORY_ACCENT: Partial<Record<Category, string>> = {
 
 function EbookBadge({ ebook }: { ebook: Ebook }) {
   if (ebook.isSpecial) return <span className="badge-premium">Premium</span>;
-  if (ebook.licenseStatus === "verified") return <span className="badge-free">Grátis</span>;
   return null;
 }
 

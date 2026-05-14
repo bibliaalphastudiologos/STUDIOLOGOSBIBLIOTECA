@@ -177,11 +177,6 @@ export const EbookCard: React.FC<EbookCardProps> = ({
               <span>{ebook.readingTime}</span>
             </div>
 
-            {ebook.brand === 'Project Gutenberg' && (
-              <div className="flex items-center text-[9px] uppercase tracking-[0.3em] text-green-600 font-black">
-                <span>GRÁTIS</span>
-              </div>
-            )}
           </div>
 
           {onToggleFavorite ? (
