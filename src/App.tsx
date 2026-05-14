@@ -21,7 +21,7 @@ import { NewsTickerBar } from "./components/NewsTickerBar";
 import { MobileBottomNav } from "./components/MobileBottomNav";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { PAYMENT_LINKS } from "./types";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function requestScroll(detail: { targetId?: string; top?: boolean }) {
   window.dispatchEvent(new CustomEvent("studiologos:scroll-to", { detail }));
@@ -33,6 +33,15 @@ function normalizeSearch(value: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim();
+}
+
+function getReaderPath(ebook: Ebook): string {
+  return `/ler/${ebook.slug || ebook.id}`;
+}
+
+function getReaderSlug(pathname: string): string | null {
+  const match = pathname.match(/^\/ler\/([^/]+)\/?$/i);
+  return match ? decodeURIComponent(match[1]) : null;
 }
 
 const ROUTE_SECTION_MAP: Record<string, string> = {
@@ -102,6 +111,7 @@ function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
 export default function App() {
   const { user, hasAccess, login, loading } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const historyGuardReady = useRef(false);
   const lastHistoryLayer = useRef<string | null>(null);
   const [selectedEbook, setSelectedEbook] = useState<Ebook | null>(null);
@@ -122,6 +132,15 @@ export default function App() {
     }
     return null;
   });
+  const readerSlug = getReaderSlug(location.pathname);
+  const routedReaderEbook = useMemo(
+    () => readerSlug
+      ? EBOOKS.find((ebook) => ebook.slug === readerSlug || ebook.id === readerSlug) || null
+      : null,
+    [readerSlug],
+  );
+  const readerEbook = routedReaderEbook || selectedEbook;
+  const isReaderRoute = Boolean(readerSlug);
 
   const handleRead = (ebook: Ebook) => {
     if (!user && !ebook.isSpecial) {
@@ -140,6 +159,7 @@ export default function App() {
     setResumeHidden(false);
     safeStorage.removeItem("resume-card-hidden");
     safeStorage.setItem("last-read", JSON.stringify(ebook.id));
+    navigate(getReaderPath(ebook));
   };
 
   const handlePreview = (ebook: Ebook) => {
@@ -178,14 +198,33 @@ export default function App() {
   useEffect(() => {
     if (!lockedEbook || !user || !hasAccess) return;
 
-    setSelectedEbook(lockedEbook);
+    const nextEbook = lockedEbook;
+    setSelectedEbook(nextEbook);
     setPreviewEbook(null);
-    setLastRead(lockedEbook);
+    setLastRead(nextEbook);
     setResumeHidden(false);
     safeStorage.removeItem("resume-card-hidden");
-    safeStorage.setItem("last-read", JSON.stringify(lockedEbook.id));
+    safeStorage.setItem("last-read", JSON.stringify(nextEbook.id));
     setLockedEbook(null);
+    navigate(getReaderPath(nextEbook));
   }, [hasAccess, lockedEbook, user]);
+
+  useEffect(() => {
+    if (!routedReaderEbook) return;
+    if ((!user || !hasAccess) && !routedReaderEbook.isSpecial) {
+      setSelectedEbook(null);
+      setPreviewEbook(null);
+      setLockedEbook(routedReaderEbook);
+      return;
+    }
+
+    setSelectedEbook(routedReaderEbook);
+    setPreviewEbook(null);
+    setLastRead(routedReaderEbook);
+    setResumeHidden(false);
+    safeStorage.removeItem("resume-card-hidden");
+    safeStorage.setItem("last-read", JSON.stringify(routedReaderEbook.id));
+  }, [hasAccess, routedReaderEbook, user]);
 
   useEffect(() => {
     const section = new URLSearchParams(location.search).get("section");
@@ -204,6 +243,8 @@ export default function App() {
       }
     }
 
+    if (isReaderRoute) return;
+
     if (location.pathname === "/") {
       setActiveAxis(null);
       window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
@@ -214,7 +255,7 @@ export default function App() {
     if (!targetId) return;
     setActiveAxis(null);
     scrollToSection(targetId);
-  }, [location.pathname, location.search]);
+  }, [isReaderRoute, location.pathname, location.search]);
 
   useEffect(() => {
     const handleScrollRequest = (event: Event) => {
@@ -240,14 +281,19 @@ export default function App() {
     safeStorage.setItem("resume-card-hidden", "true");
   };
 
+  const closeLockedAccess = () => {
+    setLockedEbook(null);
+    if (isReaderRoute) navigate("/");
+  };
+
   useEffect(() => {
     if (!lockedEbook) return;
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setLockedEbook(null);
+      if (event.key === "Escape") closeLockedAccess();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lockedEbook]);
+  }, [lockedEbook, isReaderRoute]);
 
   useEffect(() => {
     if (historyGuardReady.current) return;
@@ -277,6 +323,12 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => {
+      if (isReaderRoute) {
+        setSelectedEbook(null);
+        lastHistoryLayer.current = null;
+        return;
+      }
+
       if (selectedEbook) {
         setSelectedEbook(null);
         lastHistoryLayer.current = null;
@@ -298,7 +350,7 @@ export default function App() {
 
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [activeAxis, lockedEbook, previewEbook, selectedEbook]);
+  }, [activeAxis, isReaderRoute, lockedEbook, previewEbook, selectedEbook]);
 
   const categories = [
     Category.SPECIAL,
@@ -482,7 +534,7 @@ export default function App() {
         {showGuestBanners && <GuestSubscriptionBanner compact />}
         
         {/* Continue Reading Shortcut - Editorial Sidebar Pattern */}
-        {lastRead && !selectedEbook && !resumeHidden && (
+        {lastRead && !readerEbook && !resumeHidden && (
           <div className="fixed left-10 bottom-24 z-40 hidden xl:block w-[280px]">
             <div className="relative bg-white p-8 rounded-sm border border-black/5 shadow-2xl">
               <button
@@ -725,14 +777,14 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[120] bg-black/50 backdrop-blur-sm flex items-center justify-center px-6"
-            onClick={() => setLockedEbook(null)}
+            onClick={closeLockedAccess}
           >
             <div
               className="relative bg-[#F9F7F2] max-w-md w-full p-10 rounded-sm shadow-2xl border border-black/10 text-center"
               onClick={(event) => event.stopPropagation()}
             >
               <button
-                onClick={() => setLockedEbook(null)}
+                onClick={closeLockedAccess}
                 className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-sm border border-black/15 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
                 aria-label="Fechar janela de acesso"
                 title="Fechar"
@@ -770,7 +822,7 @@ export default function App() {
                   </a>
                 )}
                 <button
-                  onClick={() => setLockedEbook(null)}
+                  onClick={closeLockedAccess}
                   className="w-full py-3 text-[10px] uppercase tracking-[0.24em] font-bold text-black/50 hover:text-black"
                 >
                   Continuar vendo o catálogo
@@ -779,15 +831,19 @@ export default function App() {
             </div>
           </motion.div>
         )}
-        {selectedEbook && (
+        {readerEbook && user && hasAccess && (
           <Reader 
-            ebook={selectedEbook} 
-            onClose={() => setSelectedEbook(null)} 
+            ebook={readerEbook} 
+            onClose={() => {
+              setSelectedEbook(null);
+              navigate("/");
+            }}
             onRelatedRead={handleRead}
-            related={EBOOKS.filter((item) => item.category === selectedEbook.category)}
+            related={EBOOKS.filter((item) => item.category === readerEbook.category)}
+            readerUrl={getReaderPath(readerEbook)}
           />
         )}
-        {previewEbook && !selectedEbook && (
+        {previewEbook && !readerEbook && (
           <EbookPreview
             ebook={previewEbook}
             related={EBOOKS.filter((item) => item.category === previewEbook.category && item.id !== previewEbook.id)}

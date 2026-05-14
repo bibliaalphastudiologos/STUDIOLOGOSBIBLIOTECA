@@ -5,6 +5,7 @@ import {
   BookmarkPlus,
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
   Languages,
   List,
   Maximize2,
@@ -28,6 +29,7 @@ interface ReaderProps {
   onClose: () => void;
   onRelatedRead?: (ebook: Ebook) => void;
   related?: Ebook[];
+  readerUrl?: string;
 }
 
 function sanitizeHtml(html: string): string {
@@ -51,7 +53,7 @@ function shouldShowDesktopToc(): boolean {
   return window.innerWidth >= 1024;
 }
 
-export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderProps) {
+export function Reader({ ebook, onClose, onRelatedRead, related = [], readerUrl }: ReaderProps) {
   const { user } = useAuth();
   const [chapterIndex, setChapterIndex] = useState(0);
   const [zoom, setZoom] = useState(1.08);
@@ -330,6 +332,18 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
           <button onClick={saveProgress} className="reader-icon-button text-[#B48A3D]" title="Salvar progresso">
             <Save className="w-4 h-4" />
           </button>
+          {readerUrl && (
+            <a
+              href={readerUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="reader-icon-button text-[#B48A3D]"
+              title="Abrir leitura em nova aba"
+              aria-label="Abrir leitura em nova aba"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
           <button
             onClick={onClose}
             className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-sm border border-black/20 bg-white text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
