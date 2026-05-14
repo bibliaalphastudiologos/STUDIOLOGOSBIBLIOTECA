@@ -46,13 +46,18 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+function shouldShowDesktopToc(): boolean {
+  if (typeof window === "undefined") return true;
+  return window.innerWidth >= 1024;
+}
+
 export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderProps) {
   const { user } = useAuth();
   const [chapterIndex, setChapterIndex] = useState(0);
   const [zoom, setZoom] = useState(1.08);
   const [theme, setTheme] = useState<"sepia" | "light" | "dark">("sepia");
   const [focusMode, setFocusMode] = useState(false);
-  const [tocOpen, setTocOpen] = useState(true);
+  const [tocOpen, setTocOpen] = useState(shouldShowDesktopToc);
   const [translatedContent, setTranslatedContent] = useState<Record<string, string>>({});
   const [languageMode, setLanguageMode] = useState<"original" | "pt">("original");
   const [autoTranslate, setAutoTranslate] = useState(true);
@@ -99,6 +104,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   useEffect(() => {
     setCloudLoaded(false);
     setChapterIndex(0);
+    setTocOpen(shouldShowDesktopToc());
     setLanguageMode("original");
     setAutoTranslate(true);
     setTranslatedContent({});
@@ -259,6 +265,7 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   const goToChapter = (index: number) => {
     setChapterIndex(Math.min(Math.max(index, 0), chapters.length - 1));
     setLanguageMode("original");
+    if (!shouldShowDesktopToc()) setTocOpen(false);
     window.setTimeout(() => {
       document.querySelector(".reader-scroll")?.scrollTo({ top: 0, behavior: "smooth" });
     }, 50);
@@ -361,6 +368,53 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
               ))}
             </nav>
           </aside>
+        )}
+
+        {tocOpen && !focusMode && (
+          <div className="fixed inset-0 z-[115] lg:hidden">
+            <button
+              type="button"
+              className="absolute inset-0 bg-black/45 backdrop-blur-sm"
+              aria-label="Fechar sumário"
+              onClick={() => setTocOpen(false)}
+            />
+            <aside className={`absolute left-0 top-0 h-full w-[88vw] max-w-sm border-r shadow-2xl flex flex-col ${theme === "dark" ? "border-white/10 bg-[#11100e] text-[#e8dece]" : "border-black/10 bg-[#F4EBDD] text-[#2f281f]"}`}>
+              <div className="p-5 border-b border-inherit flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.3em] font-black accent-gold mb-2">Sumário</p>
+                  <p className="text-sm opacity-60">{chapters.length} {chapters.length === 1 ? 'capítulo' : 'capítulos'} · {ebook.estimatedReadTime}</p>
+                  {importingText && (
+                    <div className="mt-3">
+                      <div className="toc-loading-bar rounded-full" />
+                      <p className="text-[9px] opacity-50 mt-2 uppercase tracking-widest">Carregando capítulos...</p>
+                    </div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setTocOpen(false)}
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-current/15 bg-white/70 text-black shadow-md transition-colors hover:bg-[#1A1A1A] hover:text-white"
+                  aria-label="Fechar sumário"
+                  title="Fechar sumário"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <nav className="overflow-auto custom-scrollbar p-3 pb-24">
+                {chapters.map((chapter, index) => (
+                  <button
+                    key={chapter.id}
+                    onClick={() => goToChapter(index)}
+                    className={`w-full text-left px-4 py-3 rounded-sm mb-1 transition-colors ${index === chapterIndex ? "bg-[#C5A059] text-black" : theme === "dark" ? "hover:bg-white/10" : "hover:bg-black/5"}`}
+                  >
+                    <span className="block text-[9px] uppercase tracking-[0.18em] opacity-50">Capítulo {index + 1}</span>
+                    <span className="block text-sm font-serif leading-snug">{translatedMeta.getChapterTitle(chapter)}</span>
+                    <span className="block text-[10px] opacity-50 mt-1">{chapter.estimatedMinutes} min</span>
+                  </button>
+                ))}
+              </nav>
+            </aside>
+          </div>
         )}
 
         <main className="reader-scroll flex-1 overflow-auto custom-scrollbar">
