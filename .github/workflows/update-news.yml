@@ -106,14 +106,9 @@ jobs:
           print(f"\n✅ news.json gerado com {len(all_items)} manchetes")
           PYEOF
 
-      - name: Upload news.json para Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./
-          server-dir: /public_html/
-          include: |
-            news.json
-          dangerous-clean-slate: false
+      - name: Upload apenas news.json para Hostinger via FTP
+        run: |
+          curl --fail --show-error --ftp-create-dirs \
+            --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASS }}" \
+            -T news.json \
+            "ftp://${{ secrets.FTP_HOST }}/public_html/news.json"
