@@ -1,4 +1,4 @@
-import { Ebook } from '../types';
+import { Ebook, type TechnicalImportSource } from '../types';
 
 function bl(
   id: string, title: string, fullTitle: string, subtitle: string,
@@ -6,7 +6,7 @@ function bl(
   category: Ebook['category'], level: Ebook['level'], readTime: string, description: string,
   cover: string, chapters: { title: string; estimatedMinutes: number; content: string }[],
   tags: string[],
-  importSource?: { provider: string; providerId: string; textUrl?: string; htmlUrl?: string; validatedAt: string }
+  importSource?: TechnicalImportSource
 ): Ebook {
   return {
     id, title, fullTitle, subtitle, authorReference: author,
