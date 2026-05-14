@@ -82,6 +82,8 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
   const currentHtml = languageMode === "pt" && translatedContent[translationKey]
     ? translatedContent[translationKey]
     : currentChapter.content;
+  const isImportBackedBook = Boolean(ebook.importSource);
+  const isShowingImportPlaceholder = isImportBackedBook && !importedChapters;
 
   const themeClasses = {
     sepia: "bg-[#F4EBDD] text-[#2f281f]",
@@ -417,11 +419,31 @@ export function Reader({ ebook, onClose, onRelatedRead, related = [] }: ReaderPr
                 </div>
               )}
 
-              <div
-                className="studio-prose"
-                style={{ fontSize: `${zoom}rem` }}
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(currentHtml) }}
-              />
+              {isShowingImportPlaceholder && importingText ? (
+                <div className="border border-current/10 bg-white/35 px-5 py-8 text-center">
+                  <p className="text-[10px] uppercase tracking-[0.24em] font-black accent-gold mb-3">
+                    Preparando texto integral
+                  </p>
+                  <p className="text-sm opacity-60 leading-relaxed">
+                    O Studio Logos está carregando a obra completa e montando o índice real de capítulos. O texto aparece aqui assim que a importação terminar.
+                  </p>
+                </div>
+              ) : isShowingImportPlaceholder && importError ? (
+                <div className="border border-amber-700/20 bg-amber-50/70 px-5 py-8 text-center">
+                  <p className="text-[10px] uppercase tracking-[0.24em] font-black text-amber-900 mb-3">
+                    Obra em revisão técnica
+                  </p>
+                  <p className="text-sm text-amber-950/70 leading-relaxed">
+                    Esta obra possui fonte técnica, mas o texto integral não carregou nesta tentativa. Ela ficará marcada para nova verificação em vez de exibir conteúdo incompleto como leitura final.
+                  </p>
+                </div>
+              ) : (
+                <div
+                  className="studio-prose"
+                  style={{ fontSize: `${zoom}rem` }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(currentHtml) }}
+                />
+              )}
             </article>
 
             {chapterIndex === chapters.length - 1 && (

@@ -43,6 +43,20 @@ const ROUTE_SECTION_MAP: Record<string, string> = {
   "/literatura": "shelf-literatura-geral",
 };
 
+const LITERATURE_CATEGORIES = [
+  Category.BRAZILIAN_LITERATURE,
+  Category.PORTUGUESE_LITERATURE,
+  Category.UNIVERSAL_LITERATURE,
+  Category.LITERATURE,
+];
+
+const FOOTER_SECTION_TARGETS: Record<string, string> = {
+  Filosofia: `shelf-${Category.PHILOSOPHY}`,
+  Teologia: `shelf-${Category.THEOLOGY}`,
+  Psicanálise: `shelf-${Category.PSYCHOANALYSIS}`,
+  Literatura: "shelf-literatura-geral",
+};
+
 function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
   return (
     <section className="px-4 sm:px-6 lg:px-10">
@@ -140,7 +154,7 @@ export default function App() {
   const handleAxisOpen = (axis: { category: Category; term: string; label: string }) => {
     setActiveAxis(axis);
     window.setTimeout(() => {
-      document.getElementById(`shelf-${axis.category}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToSection(axis.category === Category.LITERATURE ? 'shelf-literatura-geral' : `shelf-${axis.category}`);
     }, 50);
   };
 
@@ -158,7 +172,7 @@ export default function App() {
 
   const goToCategory = (category: Category) => {
     setActiveAxis(null);
-    scrollToSection(`shelf-${category}`);
+    scrollToSection(category === Category.LITERATURE ? "shelf-literatura-geral" : `shelf-${category}`);
   };
 
   useEffect(() => {
@@ -519,7 +533,7 @@ export default function App() {
                   { area: "Filosofia",  category: Category.PHILOSOPHY,    count: groupedEbooks[Category.PHILOSOPHY]?.length || 0,    icon: "α", desc: "Clássicos do pensamento.", accent: "#b9a46a" },
                   { area: "Teologia",   category: Category.THEOLOGY,      count: groupedEbooks[Category.THEOLOGY]?.length || 0,      icon: "✝", desc: "Patrística, Reforma, sermões.", accent: "#c8a35b" },
                   { area: "Psicanálise",category: Category.PSYCHOANALYSIS,count: groupedEbooks[Category.PSYCHOANALYSIS]?.length || 0, icon: "ψ", desc: "Freud e psicologia clássica.", accent: "#a9a1b8" },
-                  { area: "Literatura", category: Category.LITERATURE,    count: groupedEbooks[Category.LITERATURE]?.length || 0,    icon: "ℓ", desc: "Clássicos universais.",       accent: "#d3a073" },
+                  { area: "Literatura", category: Category.LITERATURE,    count: LITERATURE_CATEGORIES.reduce((sum, cat) => sum + (groupedEbooks[cat]?.length || 0), 0), icon: "ℓ", desc: "Brasileira, portuguesa e universal.", accent: "#d3a073" },
                 ].map((item) => (
                   <motion.button
                     key={item.area}
@@ -671,7 +685,7 @@ export default function App() {
           <div className="space-y-3">
             <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Acervo</p>
             {["Filosofia","Teologia","Psicanálise","Literatura"].map((item) => (
-              <button key={item} onClick={() => requestScroll({ targetId: `shelf-${item}` })}
+              <button key={item} onClick={() => requestScroll({ targetId: FOOTER_SECTION_TARGETS[item] })}
                 className="block text-[11px] text-white/50 hover:text-white/90 transition-colors font-serif">
                 {item}
               </button>

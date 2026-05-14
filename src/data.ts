@@ -82,6 +82,41 @@ function wordCount(value: string): number {
   return stripHtml(value).match(/[\p{L}\p{N}]+/gu)?.length || 0;
 }
 
+function hasIncompleteEditorialLanguage(value: string): boolean {
+  const text = stripHtml(value).toLowerCase();
+  return [
+    'conteúdo em preparação',
+    'capítulo em preparação',
+    'síntese editorial',
+    'excertos selecionados',
+    'fragmentos literários',
+    'texto integral, de domínio público, pode ser encontrado',
+    'abra a leitura para carregar',
+    'porta de entrada',
+  ].some((phrase) => text.includes(phrase));
+}
+
+function importSourceLooksReadable(ebook: Ebook): boolean {
+  const source = ebook.importSource;
+  if (!source) return false;
+  const textUrl = source.textUrl || '';
+
+  if (source.provider === 'project_gutenberg' && /^\d+$/.test(source.providerId)) return true;
+  if (/gutenberg\.org\/(cache\/epub|ebooks|files)\//i.test(textUrl)) return true;
+  if (/wikisource\.org\/wiki\//i.test(textUrl)) return true;
+
+  return false;
+}
+
+function hasSubstantialLocalText(ebook: Ebook): boolean {
+  const localWords = ebook.chapters.reduce((sum, chapter) => sum + wordCount(chapter.content), 0);
+  const chapterCount = ebook.chapters.filter((chapter) => wordCount(chapter.content) >= 120).length;
+  const combinedContent = `${ebook.content} ${ebook.description} ${ebook.longDescription} ${ebook.chapters.map((chapter) => chapter.content).join(' ')}`;
+
+  if (hasIncompleteEditorialLanguage(combinedContent)) return false;
+  return localWords >= 2500 && chapterCount >= 3;
+}
+
 function buildContent(source: (typeof DEMO_EBOOKS)[number]): string {
   const firstChapter = source.chapters?.[0]?.content;
   const chapterText = firstChapter ? stripHtml(firstChapter) : '';
@@ -306,9 +341,8 @@ const RAW_EBOOKS: Ebook[] = dedupe([
 function isReadyForPublicShelf(ebook: Ebook): boolean {
   if (ebook.isSpecial) return true;
   if (ebook.publicationStatus !== 'published') return false;
-  if (ebook.importSource?.providerId) return true;
-  const localWords = ebook.chapters.reduce((sum, chapter) => sum + wordCount(chapter.content), 0);
-  return localWords >= 600;
+  if (importSourceLooksReadable(ebook)) return true;
+  return hasSubstantialLocalText(ebook);
 }
 
 export const EBOOKS: Ebook[] = RAW_EBOOKS.filter(isReadyForPublicShelf);
