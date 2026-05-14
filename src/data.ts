@@ -1,4 +1,5 @@
 import { DEMO_EBOOKS } from './data/ebooks';
+import { IMPORT_SOURCE_OVERRIDES } from './data/importSourceOverrides';
 import { Category, type Ebook } from './studioTypes';
 import { getEditorialCoverImage } from './lib/coverArt';
 
@@ -75,6 +76,10 @@ function stripHtml(value: string): string {
     .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function wordCount(value: string): number {
+  return stripHtml(value).match(/[\p{L}\p{N}]+/gu)?.length || 0;
 }
 
 function buildContent(source: (typeof DEMO_EBOOKS)[number]): string {
@@ -159,6 +164,8 @@ function toStudioEbook(source: (typeof DEMO_EBOOKS)[number]): Ebook {
   const sourceName = source.sourceApi || source.sourceEdition || 'Arquivo técnico Studio Logos';
   const sourceUrl = source.sourceUrl || '';
   const fullTextAllowed = source.fullTextAllowed !== false && source.copyrightStatus !== 'summary_only';
+  const importOverride = IMPORT_SOURCE_OVERRIDES[source.id];
+  const importSource = source.importSource || importOverride;
 
   return {
     id: source.id,
@@ -177,10 +184,10 @@ function toStudioEbook(source: (typeof DEMO_EBOOKS)[number]): Ebook {
     authorContext: buildAuthorContext(source, author),
     chapters: fullTextAllowed ? chapters : splitIntoEditorialChapters(source.description || '', title),
     tags: source.tags || [String(category), source.subcategory || '', author].filter(Boolean),
-    sourceName,
-    sourceUrl,
+    sourceName: importOverride ? 'project_gutenberg' : sourceName,
+    sourceUrl: importOverride?.htmlUrl || sourceUrl,
     sourceEdition: source.sourceEdition || 'Edição técnica em revisão',
-    importSource: source.importSource,
+    importSource,
     licenseStatus: fullTextAllowed ? 'verified' : 'summary_only',
     licenseNote: source.publicDomainEvidence || source.editorialNotice || 'Registro técnico interno para validação editorial.',
     reviewStatus: fullTextAllowed ? 'validated' : 'editorial-only',
@@ -237,7 +244,7 @@ function canonicalAuthor(value: string): string {
 }
 
 function ebookScore(ebook: Ebook): number {
-  return ebook.content.length + (ebook.isSpecial ? 10000 : 0);
+  return ebook.content.length + (ebook.importSource ? 5000 : 0) + (ebook.isSpecial ? 10000 : 0);
 }
 
 function dedupe(ebooks: Ebook[]): Ebook[] {
@@ -254,7 +261,7 @@ function dedupe(ebooks: Ebook[]): Ebook[] {
   return Array.from(map.values());
 }
 
-export const EBOOKS: Ebook[] = dedupe([
+const RAW_EBOOKS: Ebook[] = dedupe([
   {
     id: 'biblia-alpha',
     slug: 'biblia-alpha',
@@ -295,3 +302,14 @@ export const EBOOKS: Ebook[] = dedupe([
   },
   ...DEMO_EBOOKS.map(toStudioEbook),
 ]);
+
+function isReadyForPublicShelf(ebook: Ebook): boolean {
+  if (ebook.isSpecial) return true;
+  if (ebook.publicationStatus !== 'published') return false;
+  if (ebook.importSource?.providerId) return true;
+  const localWords = ebook.chapters.reduce((sum, chapter) => sum + wordCount(chapter.content), 0);
+  return localWords >= 600;
+}
+
+export const EBOOKS: Ebook[] = RAW_EBOOKS.filter(isReadyForPublicShelf);
+export const QUARANTINED_EBOOKS: Ebook[] = RAW_EBOOKS.filter((ebook) => !isReadyForPublicShelf(ebook));

@@ -4,7 +4,7 @@ import type { Ebook, StudioChapter } from '../studioTypes';
 const CACHE_PREFIX = 'sl_imported_ebook_v2_';
 const START_MARKER = '*** START OF';
 const END_MARKER = '*** END OF';
-const REQUEST_TIMEOUT_MS = 20000;
+const REQUEST_TIMEOUT_MS = 45000;
 const MIN_IMPORTED_TEXT_LENGTH = 2500;
 
 function cacheKey(ebook: Ebook): string {
@@ -213,6 +213,8 @@ function buildUrlList(provider: string, providerId: string, textUrl?: string): s
   if (provider === 'project_gutenberg' && /^\d+$/.test(providerId)) {
     const id = providerId;
     urls.push(
+      `https://www.gutenberg.org/ebooks/${id}.txt.utf-8`,
+      `https://www.gutenberg.org/ebooks/${id}.txt`,
       `https://www.gutenberg.org/cache/epub/${id}/pg${id}.txt`,
       `https://www.gutenberg.org/cache/epub/${id}/pg${id}-0.txt`,
       `https://www.gutenberg.org/cache/epub/${id}/${id}-0.txt`,

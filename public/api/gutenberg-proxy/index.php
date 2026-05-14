@@ -24,6 +24,7 @@ function allowed_gutenberg_url(string $url, string $id): bool {
 
     $path = $parts['path'] ?? '';
     $patterns = [
+        "#^/ebooks/{$id}\\.txt(\\.utf-8)?$#",
         "#^/cache/epub/{$id}/pg{$id}(-0)?\\.txt$#",
         "#^/cache/epub/{$id}/{$id}(-0)?\\.txt$#",
         "#^/files/{$id}/{$id}(-0)?\\.txt$#",
@@ -43,6 +44,8 @@ function candidate_urls(string $id, ?string $preferred): array {
     }
 
     $urls = array_merge($urls, [
+        "https://www.gutenberg.org/ebooks/{$id}.txt.utf-8",
+        "https://www.gutenberg.org/ebooks/{$id}.txt",
         "https://www.gutenberg.org/cache/epub/{$id}/pg{$id}.txt",
         "https://www.gutenberg.org/cache/epub/{$id}/pg{$id}-0.txt",
         "https://www.gutenberg.org/cache/epub/{$id}/{$id}-0.txt",
