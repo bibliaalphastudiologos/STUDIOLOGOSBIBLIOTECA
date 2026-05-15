@@ -1,0 +1,565 @@
+{
+  "startedAt": "2026-05-06T04:15:37.692Z",
+  "siteUrl": "https://studiologos.com.br/",
+  "cycles": [
+    {
+      "at": "2026-05-06T04:15:37.692Z",
+      "type": "start",
+      "message": "Operacao real local iniciada em modo seguro."
+    },
+    {
+      "at": "2026-05-06T04:16:12.532Z",
+      "type": "start",
+      "message": "Operacao real local iniciada em modo seguro."
+    },
+    {
+      "at": "2026-05-06T04:27:06.623Z",
+      "type": "start",
+      "message": "Operacao real local iniciada em modo seguro."
+    },
+    {
+      "at": "2026-05-08T02:44:15.923Z",
+      "type": "start",
+      "message": "Operacao real local iniciada em modo seguro."
+    },
+    {
+      "at": "2026-05-08T02:45:20.669Z",
+      "type": "start",
+      "message": "Operacao real local iniciada em modo seguro."
+    }
+  ],
+  "repairLog": [
+    {
+      "at": "2026-05-08T04:50:16.576Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 578,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 578ms."
+    },
+    {
+      "at": "2026-05-08T04:50:28.154Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 160,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 160ms."
+    },
+    {
+      "at": "2026-05-08T04:50:40.081Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 102,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 102ms."
+    },
+    {
+      "at": "2026-05-08T04:50:52.120Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 132,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 132ms."
+    },
+    {
+      "at": "2026-05-08T04:51:04.061Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 83,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 83ms."
+    },
+    {
+      "at": "2026-05-08T04:51:16.092Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 108,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 108ms."
+    },
+    {
+      "at": "2026-05-08T04:51:28.177Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 190,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 190ms."
+    },
+    {
+      "at": "2026-05-08T04:51:40.078Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 101,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 101ms."
+    },
+    {
+      "at": "2026-05-08T04:51:52.410Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 434,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 434ms."
+    },
+    {
+      "at": "2026-05-08T04:52:04.063Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 88,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 88ms."
+    },
+    {
+      "at": "2026-05-08T04:52:16.408Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 426,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 426ms."
+    },
+    {
+      "at": "2026-05-08T04:52:28.148Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 162,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 162ms."
+    },
+    {
+      "at": "2026-05-08T04:52:40.119Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 122,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 122ms."
+    },
+    {
+      "at": "2026-05-08T04:52:52.258Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 260,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 260ms."
+    },
+    {
+      "at": "2026-05-08T04:53:04.120Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 80,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 80ms."
+    },
+    {
+      "at": "2026-05-08T04:53:16.087Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 94,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 94ms."
+    },
+    {
+      "at": "2026-05-08T04:53:28.123Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 125,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 125ms."
+    },
+    {
+      "at": "2026-05-08T04:53:40.889Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 891,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 891ms."
+    },
+    {
+      "at": "2026-05-08T04:53:52.726Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 732,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 732ms."
+    },
+    {
+      "at": "2026-05-08T04:54:04.137Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 146,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 146ms."
+    },
+    {
+      "at": "2026-05-08T04:54:16.089Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 92,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 92ms."
+    },
+    {
+      "at": "2026-05-08T04:54:28.098Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 109,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 109ms."
+    },
+    {
+      "at": "2026-05-08T04:54:40.430Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 438,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 438ms."
+    },
+    {
+      "at": "2026-05-08T04:54:52.230Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 242,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 242ms."
+    },
+    {
+      "at": "2026-05-08T04:55:04.470Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 480,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 480ms."
+    },
+    {
+      "at": "2026-05-08T04:55:16.401Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 414,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 414ms."
+    },
+    {
+      "at": "2026-05-08T04:55:28.384Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 398,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 398ms."
+    },
+    {
+      "at": "2026-05-08T04:55:40.229Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 240,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 240ms."
+    },
+    {
+      "at": "2026-05-08T04:55:52.064Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 78,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 78ms."
+    },
+    {
+      "at": "2026-05-08T04:56:04.146Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 151,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 151ms."
+    },
+    {
+      "at": "2026-05-08T04:56:16.071Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 84,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 84ms."
+    },
+    {
+      "at": "2026-05-08T04:56:28.081Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 83,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 83ms."
+    },
+    {
+      "at": "2026-05-08T04:56:40.161Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 169,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 169ms."
+    },
+    {
+      "at": "2026-05-08T04:56:52.437Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 438,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 438ms."
+    },
+    {
+      "at": "2026-05-08T04:57:04.186Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 196,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 196ms."
+    },
+    {
+      "at": "2026-05-08T04:57:16.140Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 153,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 153ms."
+    },
+    {
+      "at": "2026-05-08T04:57:28.107Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 107,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 107ms."
+    },
+    {
+      "at": "2026-05-08T04:57:40.184Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 168,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 168ms."
+    },
+    {
+      "at": "2026-05-08T04:57:52.071Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 82,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 82ms."
+    },
+    {
+      "at": "2026-05-08T04:58:04.295Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 301,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 301ms."
+    },
+    {
+      "at": "2026-05-08T04:58:16.421Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 424,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 424ms."
+    },
+    {
+      "at": "2026-05-08T04:58:28.135Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 140,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 140ms."
+    },
+    {
+      "at": "2026-05-08T04:58:40.471Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 481,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 481ms."
+    },
+    {
+      "at": "2026-05-08T04:58:52.081Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 90,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 90ms."
+    },
+    {
+      "at": "2026-05-08T04:59:04.447Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 453,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 453ms."
+    },
+    {
+      "at": "2026-05-08T04:59:16.410Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 410,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 410ms."
+    },
+    {
+      "at": "2026-05-08T04:59:28.182Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 192,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 192ms."
+    },
+    {
+      "at": "2026-05-08T04:59:40.111Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 112,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 112ms."
+    },
+    {
+      "at": "2026-05-08T04:59:52.356Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 312,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 312ms."
+    },
+    {
+      "at": "2026-05-08T05:00:04.443Z",
+      "type": "health",
+      "ok": true,
+      "url": "https://studiologos.com.br/",
+      "status": 200,
+      "responseTimeMs": 455,
+      "health": 99,
+      "message": "Site respondeu com status 200 em 455ms."
+    }
+  ],
+  "growthTasks": [
+    {
+      "channel": "Google",
+      "action": "Auditar indexacao, Search Console e palavras-chave com intencao de compra em USD.",
+      "mode": "manual"
+    },
+    {
+      "channel": "SEO",
+      "action": "Criar pauta de paginas internacionais com titulo, descricao e oferta clara.",
+      "mode": "draft"
+    },
+    {
+      "channel": "Comunidades publicas",
+      "action": "Encontrar discussoes relevantes e preparar respostas uteis, sem spam e sem postagem automatica.",
+      "mode": "approval"
+    },
+    {
+      "channel": "Anunciantes",
+      "action": "Montar lista de parceiros e modelo de proposta comercial para propaganda em dolar.",
+      "mode": "approval"
+    },
+    {
+      "channel": "Afiliados",
+      "action": "Definir oferta, comissao e pagina de conversao para parceiros aprovados.",
+      "mode": "draft"
+    },
+    {
+      "channel": "Site",
+      "action": "Monitorar disponibilidade de https://studiologos.com.br/ e registrar incidentes.",
+      "mode": "automatic"
+    }
+  ]
+}

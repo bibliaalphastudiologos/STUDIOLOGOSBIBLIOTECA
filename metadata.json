@@ -1,6 +1,8 @@
 {
-  "name": "Studio Logos",
-  "description": "Plataforma premium de leitura online por assinatura especializada em Teologia, Filosofia e Psicanálise.",
+  "name": "Português em Ação 2026",
+  "description": "eBook pedagógico premium alinhado ao Currículo Paulista para o Fundamental II e Ensino Médio.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

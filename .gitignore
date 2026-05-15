@@ -1,39 +1,8 @@
-# Dependencies
 node_modules/
-.pnp
-.pnp.js
-
-# Build outputs - NEVER commit these
-dist/
 build/
-assets/index-*.js
-assets/index-*.css
-
-# Environment
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
+dist/
+coverage/
 .DS_Store
-Thumbs.db
-
-# Vite cache
-.vite/
-public_html/rss-proxy.php
-
-# news.json é gerado pelo workflow - fonte de verdade em public/
-public_html/news.json
+*.log
+.env*
+!.env.example

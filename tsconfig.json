@@ -1,22 +1,43 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ES2022",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
     "isolatedModules": true,
+    "moduleDetection": "force",
+    "allowJs": true,
     "jsx": "react-jsx",
-    "noEmit": true,
-    "types": ["vite/client"]
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/main.tsx",
+    "src/App.tsx",
+    "src/data.ts",
+    "src/types.ts",
+    "src/components/LanguageLab.tsx",
+    "src/components/PageAssessments.tsx",
+    "src/components/PageCalendar.tsx",
+    "src/components/PageCover.tsx",
+    "src/components/PageDivider.tsx",
+    "src/components/PageIntro.tsx",
+    "src/components/PagePowerBI.tsx",
+    "src/components/PageTeacherPlanner.tsx",
+    "src/components/PageUnit.tsx",
+    "src/components/PageWritingHighSchool.tsx",
+    "vite.config.ts"
+  ]
 }

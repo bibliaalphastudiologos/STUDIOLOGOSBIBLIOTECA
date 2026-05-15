@@ -1,0 +1,4 @@
+data,turma,ano_serie,unit_id,habilidade,avaliacao,estudante,nota,presenca,observacao
+2026-02-02,6º ano B,6º Ano Fundamental,ef6-b1-generos-multimodais,EF69LP05,Diagnóstico,Aluno exemplo,7.5,Presente,Boa inferência; revisar pontuação
+2026-02-03,7º ano D,7º Ano Fundamental,ef7-b1-fake-news,EF67LP02,Diagnóstico,Aluno exemplo,6.0,Presente,Precisa justificar fonte
+2026-02-04,3ª série E,3ª Série Médio,em3-b1-enem-competencias,EM13LP06,Redação,Aluno exemplo,780,Presente,Melhorar repertório e intervenção
