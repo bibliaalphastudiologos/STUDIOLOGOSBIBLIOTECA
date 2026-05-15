@@ -2,6 +2,7 @@ import { DEMO_EBOOKS } from './data/ebooks';
 import { IMPORT_SOURCE_OVERRIDES } from './data/importSourceOverrides';
 import { Category, type Ebook } from './studioTypes';
 import { getEditorialCoverImage } from './lib/coverArt';
+import portugueseLiteratureGrammarBooks from './data/portugueseLiteratureGrammar';
 
 const categoryMap: Record<string, Category> = {
   Filosofia: Category.PHILOSOPHY,
@@ -347,3 +348,5 @@ function isReadyForPublicShelf(ebook: Ebook): boolean {
 
 export const EBOOKS: Ebook[] = RAW_EBOOKS.filter(isReadyForPublicShelf);
 export const QUARANTINED_EBOOKS: Ebook[] = RAW_EBOOKS.filter((ebook) => !isReadyForPublicShelf(ebook));
+  ...portugueseLiteratureGrammarBooks,
+
