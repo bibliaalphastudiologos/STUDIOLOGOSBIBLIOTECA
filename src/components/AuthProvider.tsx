@@ -122,7 +122,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             planPeriod: paymentRecord?.planPeriod || existingProfile.planPeriod,
             paymentId: paymentRecord?.paymentId || existingProfile.paymentId,
           };
-          const isApproved = nextProfile.isAdmin === true || hasEffectiveAccess(nextProfile);
+          // Acesso liberado para qualquer usuário autenticado com Google
+            const isApproved = true;
           const missingApprovalRecord = isApproved && !existingProfile.approvedAt;
 
           await setDoc(
@@ -185,7 +186,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               planPeriod: MONTHLY_PLAN_PERIOD,
             }
           : newProfile);
-        setHasAccess(newProfile.isAdmin === true || hasEffectiveAccess(newProfile));
+        setHasAccess(true); // Qualquer usuário Google tem acesso
       } catch (error) {
         console.warn('[StudioLogos Auth] Não foi possível sincronizar o perfil:', error);
         setProfile(null);
