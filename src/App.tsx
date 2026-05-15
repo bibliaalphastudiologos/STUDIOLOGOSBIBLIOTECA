@@ -14,13 +14,12 @@ import { EBOOKS } from "./data";
 import { STUDY_ROUTES } from "./data/studyRoutes";
 import { Category, type Ebook } from "./studioTypes";
 import { AnimatePresence, motion } from "framer-motion";
-import { BookOpen, Check, ChevronRight, CreditCard, Lock, Search, Sparkles, X } from "lucide-react";
+import { BookOpen, Check, ChevronRight, Lock, Search, Sparkles, X } from "lucide-react";
 import { safeStorage } from "./lib/safeStorage";
 import { useAuth } from "./components/AuthProvider";
 import { NewsTickerBar } from "./components/NewsTickerBar";
 import { MobileBottomNav } from "./components/MobileBottomNav";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
-import { PAYMENT_LINKS } from "./types";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function requestScroll(detail: { targetId?: string; top?: boolean }) {
@@ -48,7 +47,7 @@ const ROUTE_SECTION_MAP: Record<string, string> = {
   "/filosofia": `shelf-${Category.PHILOSOPHY}`,
   "/teologia": `shelf-${Category.THEOLOGY}`,
   "/psicanalise": `shelf-${Category.PSYCHOANALYSIS}`,
-  "/psicanálise": `shelf-${Category.PSYCHOANALYSIS}`,
+  "/psicanÃ¡lise": `shelf-${Category.PSYCHOANALYSIS}`,
   "/literatura": "shelf-literatura-geral",
 };
 
@@ -62,25 +61,26 @@ const LITERATURE_CATEGORIES = [
 const FOOTER_SECTION_TARGETS: Record<string, string> = {
   Filosofia: `shelf-${Category.PHILOSOPHY}`,
   Teologia: `shelf-${Category.THEOLOGY}`,
-  Psicanálise: `shelf-${Category.PSYCHOANALYSIS}`,
+  PsicanÃ¡lise: `shelf-${Category.PSYCHOANALYSIS}`,
   Literatura: "shelf-literatura-geral",
 };
 
 function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
+  const { login, loading } = useAuth();
   return (
     <section className="px-4 sm:px-6 lg:px-10">
       <div className={`max-w-7xl mx-auto text-white shadow-2xl ${compact ? "p-4 md:p-5" : "p-5 md:p-7"}`} style={{background:"linear-gradient(135deg,#0d1a3a,#1a0a2e)",border:"1px solid rgba(249,115,22,0.2)"}}>
         <div className="grid lg:grid-cols-[1fr_auto] gap-4 md:gap-6 items-center">
           <div>
             <p className="text-[9px] md:text-[10px] uppercase tracking-[0.26em] md:tracking-[0.34em] font-black text-[#C5A059]">
-              Acesso premium Studio Logos
+              Acesso Studio Logos
             </p>
             <h2 className={`font-serif leading-tight mt-2 text-white ${compact ? "text-xl md:text-2xl" : "text-2xl md:text-4xl"}`}>
-              Entre e libere a biblioteca completa por R$ 19,00/mês.
+              Entre e libere a biblioteca completa por R$ 19,00/mÃªs.
             </h2>
             {!compact && (
               <p className="mt-3 max-w-3xl text-sm md:text-base text-white/72 leading-relaxed">
-                Leia obras integrais, salve seu progresso, continue de onde parou e use uma experiência organizada para estudo sério.
+                Leia obras integrais, salve seu progresso, continue de onde parou e use uma experiÃªncia organizada para estudo sÃ©rio.
               </p>
             )}
             <div className="mt-4 flex flex-wrap gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.14em] md:tracking-[0.18em] font-bold text-white/70">
@@ -90,16 +90,17 @@ function GuestSubscriptionBanner({ compact = false }: { compact?: boolean }) {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row lg:flex-col gap-2 min-w-[220px]">
-            <a
-              href={PAYMENT_LINKS.studioLogosMonthly}
-              className="inline-flex min-h-12 items-center justify-center gap-2 px-5 text-center text-[10px] uppercase tracking-[0.2em] font-black text-white transition-all hover:shadow-xl hover:-translate-y-0.5 btn-vibrant-primary"
+            <button
+              onClick={login}
+              disabled={loading}
+              className="inline-flex min-h-12 items-center justify-center gap-2 px-5 text-center text-[10px] uppercase tracking-[0.2em] font-black text-white transition-all hover:shadow-xl hover:-translate-y-0.5 btn-vibrant-primary disabled:opacity-50"
             >
-              <CreditCard className="w-4 h-4" />
-              Assinar agora
-            </a>
+              <Sparkles className="w-4 h-4" />
+              Entrar com Google
+            </button>
             <span className="inline-flex min-h-10 items-center justify-center gap-2 border border-white/10 px-4 text-center text-[9px] uppercase tracking-[0.18em] font-bold text-white/65">
-              <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
-              Cancele quando quiser
+              <Check className="w-3.5 h-3.5 text-[#C5A059]" />
+              Acesso gratuito
             </span>
           </div>
         </div>
@@ -433,7 +434,7 @@ export default function App() {
               <div className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] md:tracking-[0.24em] font-black text-black/45">
                 {globalSearch.trim()
                   ? `${globalSearchResults.length} resultado${globalSearchResults.length === 1 ? "" : "s"}`
-                  : "Título, autor ou tema"}
+                  : "TÃ­tulo, autor ou tema"}
               </div>
             </div>
 
@@ -451,21 +452,21 @@ export default function App() {
                         className="group text-left border border-black/10 bg-white p-3 md:p-4 transition-colors hover:border-[#C5A059]"
                       >
                         <p className="text-[8px] md:text-[9px] uppercase tracking-[0.18em] font-black text-[#8A682B] line-clamp-1">
-                          {ebook.category} · {ebook.collection}
+                          {ebook.category} Â· {ebook.collection}
                         </p>
                         <h3 className="mt-2 font-serif text-base md:text-lg leading-tight text-[#111] line-clamp-2 group-hover:text-[#8A682B]">
                           {ebook.title}
                         </h3>
                         <p className="mt-1 text-xs text-black/55 line-clamp-1">{ebook.author}</p>
                         <p className="mt-2 text-[10px] text-black/40 line-clamp-2">
-                          {ebook.tags.slice(0, 4).join(" · ")}
+                          {ebook.tags.slice(0, 4).join(" Â· ")}
                         </p>
                       </button>
                     ))}
                   </div>
                 ) : (
                   <div className="bg-white border border-black/10 p-4 text-sm text-black/55">
-                    Nenhuma obra encontrada. Tente outro título, autor ou tema.
+                    Nenhuma obra encontrada. Tente outro tÃ­tulo, autor ou tema.
                   </div>
                 )}
               </div>
@@ -483,15 +484,15 @@ export default function App() {
             <div className="bg-[#151411] text-white p-5 md:p-7 rounded-sm border border-black/10 shadow-2xl flex flex-col justify-between">
               <div>
                 <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.28em] md:tracking-[0.45em] font-black">Plataforma completa</span>
-                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight text-white">Obras integrais e trilhas de formação no mesmo lugar.</h2>
+                <h2 className="text-3xl md:text-4xl font-serif mt-3 leading-tight text-white">Obras integrais e trilhas de formaÃ§Ã£o no mesmo lugar.</h2>
                 <p className="mt-4 text-sm md:text-base text-white/82 font-serif leading-relaxed">
-                  O Studio Logos é uma biblioteca de leitura online com acervo completo e roteiros de formação para descoberta.
+                  O Studio Logos Ã© uma biblioteca de leitura online com acervo completo e roteiros de formaÃ§Ã£o para descoberta.
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-2 mt-6">
                 {[
                   { value: `${EBOOKS.length}+`, label: "obras" },
-                  { value: String(categories.length), label: "áreas" },
+                  { value: String(categories.length), label: "Ã¡reas" },
                   { value: String(STUDY_ROUTES.length), label: "trilhas" },
                 ].map((item) => (
                   <div key={item.label} className="border border-white/10 bg-white/[0.04] p-3">
@@ -521,7 +522,7 @@ export default function App() {
                     <p className={`mt-3 text-xs leading-relaxed line-clamp-3 ${index === 1 ? 'text-white/78' : 'text-black/68'}`}>{route.description}</p>
                   </div>
                   <div className={`mt-4 flex items-center gap-2 text-[9px] uppercase tracking-widest font-bold transition-opacity ${index === 1 ? 'text-white/75 group-hover:text-white' : 'text-black/60 group-hover:text-black'}`}>
-                    Começar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
+                    ComeÃ§ar roteiro {index === 1 ? <ChevronRight className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
                   </div>
                 </motion.div>
               ))}
@@ -553,7 +554,7 @@ export default function App() {
                   <div className="w-full bg-black/5 h-[1px] mt-4">
                     <div className="bg-[#B48A3D] h-full w-2/3" />
                   </div>
-                  <p className="text-[9px] mt-2 opacity-30 tracking-widest font-bold">SÍNTESE ATIVA</p>
+                  <p className="text-[9px] mt-2 opacity-30 tracking-widest font-bold">SÃNTESE ATIVA</p>
                 </div>
               </div>
               <button 
@@ -566,25 +567,25 @@ export default function App() {
           </div>
         )}
 
-        {/* Axis of knowledge — quick-access category grid */}
+        {/* Axis of knowledge â quick-access category grid */}
         <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-10 section-dark-vibe border-y border-white/5">
           <div className="max-w-7xl mx-auto space-y-5 md:space-y-12">
             <div className="flex items-end justify-between gap-4">
               <div className="space-y-1 md:space-y-2">
-                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black" style={{color:"#f97316"}}>Acervo por Área</span>
-                <h2 className="text-2xl md:text-4xl font-serif text-white leading-tight">Explorar por <span style={{color:"#f97316"}}>Dimensão</span></h2>
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] font-black" style={{color:"#f97316"}}>Acervo por Ãrea</span>
+                <h2 className="text-2xl md:text-4xl font-serif text-white leading-tight">Explorar por <span style={{color:"#f97316"}}>DimensÃ£o</span></h2>
               </div>
               <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-white/30 hidden md:block">Toque para navegar</span>
             </div>
 
-            {/* 4-col grid — horizontal scroll on mobile */}
+            {/* 4-col grid â horizontal scroll on mobile */}
             <div className="-mx-4 px-4 md:mx-0 md:px-0 overflow-x-auto scrollbar-hide">
               <div className="flex md:grid md:grid-cols-4 gap-3 md:gap-6" style={{ minWidth: "max-content" }}>
                 {[
-                  { area: "Filosofia",  category: Category.PHILOSOPHY,    count: groupedEbooks[Category.PHILOSOPHY]?.length || 0,    icon: "α", desc: "Clássicos do pensamento.", accent: "#b9a46a" },
-                  { area: "Teologia",   category: Category.THEOLOGY,      count: groupedEbooks[Category.THEOLOGY]?.length || 0,      icon: "✝", desc: "Patrística, Reforma, sermões.", accent: "#c8a35b" },
-                  { area: "Psicanálise",category: Category.PSYCHOANALYSIS,count: groupedEbooks[Category.PSYCHOANALYSIS]?.length || 0, icon: "ψ", desc: "Freud e psicologia clássica.", accent: "#a9a1b8" },
-                  { area: "Literatura", category: Category.LITERATURE,    count: LITERATURE_CATEGORIES.reduce((sum, cat) => sum + (groupedEbooks[cat]?.length || 0), 0), icon: "ℓ", desc: "Brasileira, portuguesa e universal.", accent: "#d3a073" },
+                  { area: "Filosofia",  category: Category.PHILOSOPHY,    count: groupedEbooks[Category.PHILOSOPHY]?.length || 0,    icon: "Î±", desc: "ClÃ¡ssicos do pensamento.", accent: "#b9a46a" },
+                  { area: "Teologia",   category: Category.THEOLOGY,      count: groupedEbooks[Category.THEOLOGY]?.length || 0,      icon: "â", desc: "PatrÃ­stica, Reforma, sermÃµes.", accent: "#c8a35b" },
+                  { area: "PsicanÃ¡lise",category: Category.PSYCHOANALYSIS,count: groupedEbooks[Category.PSYCHOANALYSIS]?.length || 0, icon: "Ï", desc: "Freud e psicologia clÃ¡ssica.", accent: "#a9a1b8" },
+                  { area: "Literatura", category: Category.LITERATURE,    count: LITERATURE_CATEGORIES.reduce((sum, cat) => sum + (groupedEbooks[cat]?.length || 0), 0), icon: "â", desc: "Brasileira, portuguesa e universal.", accent: "#d3a073" },
                 ].map((item) => (
                   <motion.button
                     key={item.area}
@@ -616,7 +617,7 @@ export default function App() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] mt-3 md:mt-4">Leitura por tema</h2>
             </div>
             <p className="max-w-xl text-sm text-black/68 font-serif leading-relaxed">
-              Percursos para entrar no acervo por problema, tradição e área de formação, sem transformar a biblioteca em uma lista solta de arquivos.
+              Percursos para entrar no acervo por problema, tradiÃ§Ã£o e Ã¡rea de formaÃ§Ã£o, sem transformar a biblioteca em uma lista solta de arquivos.
             </p>
           </div>
 
@@ -679,12 +680,12 @@ export default function App() {
                   onRead={handlePreview}
                 />
                 
-                {/* Divisor visual entre categorias — linha fina com acento */}
+                {/* Divisor visual entre categorias â linha fina com acento */}
                 <div className="px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto">
                   <div className="flex items-center gap-4 py-2">
                     <div className="flex-1 h-px bg-black/6" />
                     <span className="text-[8px] uppercase tracking-[0.28em] font-black text-black/20">
-                      {cat} · {ebooks.length} obras
+                      {cat} Â· {ebooks.length} obras
                     </span>
                     <div className="flex-1 h-px bg-black/6" />
                   </div>
@@ -702,19 +703,19 @@ export default function App() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto space-y-5 md:space-y-6"
           >
-            <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.6em] font-black">Convite à Profundidade</span>
+            <span className="accent-gold text-[9px] md:text-[10px] uppercase tracking-[0.34em] md:tracking-[0.6em] font-black">Convite Ã  Profundidade</span>
             <h2 className="text-4xl md:text-6xl font-serif leading-tight text-white">
-              Sua busca pelo <span className="accent-gold italic">Ser</span> começa aqui.
+              Sua busca pelo <span className="accent-gold italic">Ser</span> comeÃ§a aqui.
             </h2>
             <p className="text-white/55 text-base md:text-xl font-serif font-light leading-relaxed">
-              Junte-se a uma comunidade de leitores que não se contentam com a superfície. Receba ensaios inéditos e curadoria exclusiva semanalmente.
+              Junte-se a uma comunidade de leitores que nÃ£o se contentam com a superfÃ­cie. Receba ensaios inÃ©ditos e curadoria exclusiva semanalmente.
             </p>
             
             <div className="pt-5 md:pt-10 max-w-4xl mx-auto text-left">
               <LeadCapture
                 source="home-final"
                 dark
-                title="Receba conteúdos gratuitos e uma rota de entrada no Studio Logos."
+                title="Receba conteÃºdos gratuitos e uma rota de entrada no Studio Logos."
                 subtitle="Cadastre seu interesse para receber uma curadoria inicial por e-mail e WhatsApp."
               />
             </div>
@@ -729,13 +730,13 @@ export default function App() {
           <div className="col-span-2 md:col-span-1 space-y-4">
             <img src="/logo.png" alt="Studio Logos" className="h-10 w-auto opacity-90 object-contain" />
             <p className="text-[10px] text-white/45 leading-relaxed font-serif">
-              Biblioteca digital de alta curadoria em Filosofia, Teologia, Psicanálise e Literatura.
+              Biblioteca digital de alta curadoria em Filosofia, Teologia, PsicanÃ¡lise e Literatura.
             </p>
           </div>
           {/* Acervo */}
           <div className="space-y-3">
             <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Acervo</p>
-            {["Filosofia","Teologia","Psicanálise","Literatura"].map((item) => (
+            {["Filosofia","Teologia","PsicanÃ¡lise","Literatura"].map((item) => (
               <button key={item} onClick={() => requestScroll({ targetId: FOOTER_SECTION_TARGETS[item] })}
                 className="block text-[11px] text-white/50 hover:text-white/90 transition-colors font-serif">
                 {item}
@@ -745,26 +746,26 @@ export default function App() {
           {/* Plataforma */}
           <div className="space-y-3">
             <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Plataforma</p>
-            {["Trilhas de estudo","Busca avançada","Leitura online"].map((item) => (
+            {["Trilhas de estudo","Busca avanÃ§ada","Leitura online"].map((item) => (
               <span key={item} className="block text-[11px] text-white/50 font-serif">{item}</span>
             ))}
           </div>
           {/* Acesso */}
           <div className="space-y-3">
             <p className="text-[9px] uppercase tracking-[0.3em] font-black text-[#C5A059]">Acesso</p>
-            <p className="text-[11px] text-white/50 font-serif leading-relaxed">Assinatura mensal<br/>R$ 19,00/mês</p>
+            <p className="text-[11px] text-white/50 font-serif leading-relaxed">Assinatura mensal<br/>R$ 19,00/mÃªs</p>
             <a href="https://studiologos.com.br" className="block text-[10px] text-[#C5A059] hover:text-[#D8B76C] font-bold uppercase tracking-[0.18em] transition-colors">
-              studiologos.com.br →
+              studiologos.com.br â
             </a>
           </div>
         </div>
         {/* Bottom bar */}
         <div className="border-t border-white/5 px-4 sm:px-6 lg:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-3 max-w-7xl mx-auto">
           <span className="text-[9px] uppercase tracking-[0.22em] font-black text-white/25">
-            Studio Logos · Curadoria Literária Superior
+            Studio Logos Â· Curadoria LiterÃ¡ria Superior
           </span>
           <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/20">
-            © {new Date().getFullYear()} · Todos os direitos reservados
+            Â© {new Date().getFullYear()} Â· Todos os direitos reservados
           </span>
         </div>
       </footer>
@@ -794,11 +795,7 @@ export default function App() {
                 <Lock className="w-6 h-6" />
               </div>
               <p className="text-[10px] uppercase tracking-[0.4em] font-black accent-gold mb-4">Acesso Studio Logos</p>
-              <h2 className="text-3xl font-serif mb-4">{user ? 'Assinatura necessária' : 'Entre para continuar a leitura'}</h2>
-              <p className="text-sm text-black/60 leading-relaxed mb-8">
-                {user
-                  ? `Seu login Google (${user.email || 'e-mail atual'}) ainda não possui pagamento aprovado no Mercado Pago para abrir ${lockedEbook.title}.`
-                  : `Você pode explorar o acervo livremente. Para abrir o conteúdo de ${lockedEbook.title}, entre com o mesmo Gmail usado no pagamento.`}
+              <h2 className="text-3xl font-serif mb-4">{user ? `Seu acesso está sendo processado. Tente recarregar a página.` : `Para acessar ${lockedEbook.title}, entre com sua conta Google.`}
               </p>
               <div className="space-y-3">
                 {!user && (
@@ -812,19 +809,12 @@ export default function App() {
                     Entrar com Google
                   </button>
                 )}
-                {user && !hasAccess && (
-                  <a
-                    href={PAYMENT_LINKS.studioLogosMonthly}
-                    className="block w-full py-4 bg-[#C5A059] text-black text-[10px] uppercase tracking-[0.24em] font-bold hover:bg-[#B48A3D]"
-                  >
-                    Assinar para liberar acesso
-                  </a>
-                )}
+                
                 <button
                   onClick={closeLockedAccess}
                   className="w-full py-3 text-[10px] uppercase tracking-[0.24em] font-bold text-black/50 hover:text-black"
                 >
-                  Continuar vendo o catálogo
+                  Continuar vendo o catÃ¡logo
                 </button>
               </div>
             </div>
