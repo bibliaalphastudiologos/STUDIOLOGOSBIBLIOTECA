@@ -1,33 +1,22 @@
-# Português em Ação 2026
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Plataforma local para aulas de Língua Portuguesa, criada a partir do material anexado `português-em-ação-2026.zip`.
+# Run and deploy your AI Studio app
 
-## Recursos
+This contains everything you need to run your app locally.
 
-- Livro digital navegável com 24 unidades didáticas para 6º, 7º, 2ª série EM e 3ª série EM.
-- Conteúdos de gramática, leitura, literatura, produção textual, redação ENEM e revisão.
-- Exercícios com gabarito comentado.
-- Laboratório conectado com:
-  - consulta à Wikipédia em português;
-  - corretor gramatical LanguageTool em `pt-BR`;
-  - atalhos de pesquisa para ABL/VOLP, Dicio, Portal da Língua Portuguesa e Norma Culta.
+View your app in AI Studio: https://ai.studio/apps/88ab2f91-9322-4185-9192-33f5dfde5f15
 
-## Como rodar
+## Run Locally
 
-```powershell
-npm install
-npm run dev
-```
+**Prerequisites:**  Node.js
 
-Acesse `http://127.0.0.1:3000`.
 
-## Verificações
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
+# Deploy test 20260503-113247
 
-```powershell
-npm run lint
-npm run build
-```
-
-## Observações
-
-As APIs gratuitas usadas no laboratório dependem da disponibilidade pública dos serviços externos e são indicadas para uso leve, pedagógico e em sala de aula.
