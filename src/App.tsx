@@ -21,6 +21,7 @@ import { NewsTickerBar } from "./components/NewsTickerBar";
 import { MobileBottomNav } from "./components/MobileBottomNav";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { useLocation, useNavigate } from "react-router-dom";
+import { PublicDomainSection } from './components/PublicDomainSection';
 
 function requestScroll(detail: { targetId?: string; top?: boolean }) {
   window.dispatchEvent(new CustomEvent("studiologos:scroll-to", { detail }));
@@ -720,7 +721,11 @@ export default function App() {
               />
             </div>
           </motion.div>
-        </section>
+        
+
+      {/* Seção de Domínio Público — Literatura e Gramática Portuguesa */}
+      <PublicDomainSection onReadEbook={handlePreview} />
+</section>
       </main>
 
       <footer className="bg-[#111318] border-t border-white/5 pb-16 md:pb-0">
