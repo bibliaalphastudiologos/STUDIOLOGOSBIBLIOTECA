@@ -1,0 +1,326 @@
+
+
+--- PAGE 1 ---
+Horário organizado - Professor Erick P. Silva
+Página 1
+ HORÁRIO DE AULAS
+ Professor Erick P. Silva - 2026
+Organização por dia da semana. Nomes dos professores removidos. Campos em branco ou com '---' foram
+tratados como FOLGA. Dados de ATPC dos Anos Iniciais foram excluídos.
+ATPC - 2026
+ Dia
+ Segmento
+ Horário
+Terça-feira
+Anos Finais
+10h50 - 12h30
+Terça-feira
+Ensino Médio
+16h50 - 18h30
+Quarta-feira
+Anos Finais
+10h50 - 12h30
+Quarta-feira
+Ensino Médio
+16h50 - 18h30
+Quinta-feira
+Anos Finais
+11h40 - 12h30
+Quinta-feira
+Ensino Médio
+17h40 - 18h30
+Observação: os horários foram organizados a partir das imagens enviadas. Em caso de coincidência entre aula e ATPC,
+confirme a orientação final da coordenação.
+Resumo por dia da semana
+ Dia
+ Aulas / ATPC / Folgas principais
+Segunda-feira
+13h00: Português - 6º ano B
+13h50: Português - 7º ano C
+15h00: Português - 7º ano D
+15h50: Português - 7º ano A
+16h40: Português - 6º ano C
+17h30: Português - 7º ano B
+19h00: Folga
+19h45: RL - 2ª série D
+20h30: RL - 2ª série D
+21h30: RL - 2ª série B
+22h15: RL - 2ª série B
+Terça-feira
+10h50 - 12h30: ATPC - Anos Finais
+13h00: Português - 7º ano D
+13h50: Português - 7º ano D
+15h00: Folga
+15h50: Português - 7º ano C
+16h40: Português - 7º ano B
+16h50 - 18h30: ATPC - Ensino Médio
+17h30: Português - 7º ano A
+19h00 - 22h15: Folga
+Quarta-feira
+10h50 - 12h30: ATPC - Anos Finais
+13h00: Português - 6º ano D
+13h50: Português - 7º ano B
+15h00: Português - 7º ano A
+15h50: Português - 6º ano B
+16h40: Português - 6º ano B
+16h50 - 18h30: ATPC - Ensino Médio
+17h30: Português - 6º ano C
+19h00: Folga
+19h45: Orientação de Estudos de Português - 3ª série E
+20h30: Orientação de Estudos de Português - 3ª série E
+21h30: Orientação de Estudos de Português - 3ª série D
+22h15: Orientação de Estudos de Português - 3ª série D
+
+
+
+--- PAGE 2 ---
+Horário organizado - Professor Erick P. Silva
+Página 2
+ Dia
+ Aulas / ATPC / Folgas principais
+Quinta-feira
+11h40 - 12h30: ATPC - Anos Finais
+13h00: Português - 7º ano C
+13h50: Português - 7º ano C
+15h00: Português - 6º ano B
+15h50: Português - 7º ano B
+16h40: Português - 6º ano C
+17h30: Português - 6º ano D
+17h40 - 18h30: ATPC - Ensino Médio
+19h00 - 22h15: Folga
+Sexta-feira
+13h00: Português - 7º ano A
+13h50: Português - 7º ano D
+15h00: Português - 6º ano C
+15h50: Português - 6º ano D
+16h40: Português - 6º ano D
+17h30: Folga
+19h00 - 22h15: Folga
+Cronograma detalhado por dia
+Segunda-feira
+ Período
+ Horário
+ Tipo
+ Atividade / Turma
+Tarde
+13h00
+Aula
+Português - 6º ano B
+Tarde
+13h50
+Aula
+Português - 7º ano C
+Tarde
+15h00
+Aula
+Português - 7º ano D
+Tarde
+15h50
+Aula
+Português - 7º ano A
+Tarde
+16h40
+Aula
+Português - 6º ano C
+Tarde
+17h30
+Aula
+Português - 7º ano B
+Noite
+19h00
+Folga
+Folga
+Noite
+19h45
+Aula
+RL - 2ª série D
+Noite
+20h30
+Aula
+RL - 2ª série D
+Noite
+21h30
+Aula
+RL - 2ª série B
+Noite
+22h15
+Aula
+RL - 2ª série B
+Terça-feira
+ Período
+ Horário
+ Tipo
+ Atividade / Turma
+ATPC
+10h50 - 12h30
+ATPC
+ATPC - Anos Finais
+Tarde
+13h00
+Aula
+Português - 7º ano D
+Tarde
+13h50
+Aula
+Português - 7º ano D
+Tarde
+15h00
+Folga
+Folga
+Tarde
+15h50
+Aula
+Português - 7º ano C
+Tarde
+16h40
+Aula
+Português - 7º ano B
+ATPC
+16h50 - 18h30
+ATPC
+ATPC - Ensino Médio
+Tarde
+17h30
+Aula
+Português - 7º ano A
+Noite
+19h00 - 22h15
+Folga
+Folga
+
+
+
+--- PAGE 3 ---
+Horário organizado - Professor Erick P. Silva
+Página 3
+Quarta-feira
+ Período
+ Horário
+ Tipo
+ Atividade / Turma
+ATPC
+10h50 - 12h30
+ATPC
+ATPC - Anos Finais
+Tarde
+13h00
+Aula
+Português - 6º ano D
+Tarde
+13h50
+Aula
+Português - 7º ano B
+Tarde
+15h00
+Aula
+Português - 7º ano A
+Tarde
+15h50
+Aula
+Português - 6º ano B
+Tarde
+16h40
+Aula
+Português - 6º ano B
+ATPC
+16h50 - 18h30
+ATPC
+ATPC - Ensino Médio
+Tarde
+17h30
+Aula
+Português - 6º ano C
+Noite
+19h00
+Folga
+Folga
+Noite
+19h45
+Aula
+Orientação de Estudos de Português - 3ª série E
+Noite
+20h30
+Aula
+Orientação de Estudos de Português - 3ª série E
+Noite
+21h30
+Aula
+Orientação de Estudos de Português - 3ª série D
+Noite
+22h15
+Aula
+Orientação de Estudos de Português - 3ª série D
+Quinta-feira
+ Período
+ Horário
+ Tipo
+ Atividade / Turma
+ATPC
+11h40 - 12h30
+ATPC
+ATPC - Anos Finais
+Tarde
+13h00
+Aula
+Português - 7º ano C
+Tarde
+13h50
+Aula
+Português - 7º ano C
+Tarde
+15h00
+Aula
+Português - 6º ano B
+Tarde
+15h50
+Aula
+Português - 7º ano B
+Tarde
+16h40
+Aula
+Português - 6º ano C
+Tarde
+17h30
+Aula
+Português - 6º ano D
+ATPC
+17h40 - 18h30
+ATPC
+ATPC - Ensino Médio
+Noite
+19h00 - 22h15
+Folga
+Folga
+Sexta-feira
+ Período
+ Horário
+ Tipo
+ Atividade / Turma
+Tarde
+13h00
+Aula
+Português - 7º ano A
+Tarde
+13h50
+Aula
+Português - 7º ano D
+Tarde
+15h00
+Aula
+Português - 6º ano C
+Tarde
+15h50
+Aula
+Português - 6º ano D
+Tarde
+16h40
+Aula
+Português - 6º ano D
+Tarde
+17h30
+Folga
+Folga
+Noite
+19h00 - 22h15
+Folga
+Folga

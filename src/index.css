@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lato", serif;
+  --font-heading: "Montserrat", sans-serif;
+
+  /* Fundamental Anos Finais Palette */
+  --color-ef-blue: #0066cc;
+  --color-ef-green: #4caf50;
+  --color-ef-orange: #ff9800;
+  
+  /* Ensino Médio Palette */
+  --color-em-dark: #1a1a2e;
+  --color-em-purple: #4e31aa;
+  --color-em-gold: #c5a059;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+.ebook-page {
+  @apply bg-white shadow-2xl mx-auto my-8 p-12 relative overflow-hidden;
+  aspect-ratio: 1 / 1.414; /* A4 Ratio */
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
+
+.box-premium {
+  @apply border-l-4 p-4 my-6 bg-slate-50 rounded-r-lg;
+}
+
+.eyebrow {
+  @apply text-[10px] font-bold uppercase tracking-[0.24em] text-em-purple;
+}
+
+.page-title {
+  @apply font-heading text-4xl font-black text-em-dark tracking-tight mb-3;
+}
+
+.section-heading {
+  @apply flex items-center gap-2 mb-4 text-em-dark;
+}
+
+.section-heading h3 {
+  @apply font-heading font-bold uppercase tracking-wide text-sm;
+}
+
+.info-panel {
+  @apply bg-white border border-slate-200 rounded-xl p-4 shadow-sm;
+}
+
+.info-panel h3 {
+  @apply font-heading font-bold text-sm text-slate-800 mt-3 mb-1;
+}
+
+.info-panel p {
+  @apply text-xs text-slate-600 leading-relaxed;
+}
+
+.check-row {
+  @apply flex items-start gap-2 bg-slate-50 border border-slate-100 rounded-lg p-3 text-xs text-slate-700;
+}
+
+.check-row svg {
+  @apply text-ef-green shrink-0 mt-0.5;
+}
+
+.grade-card {
+  @apply bg-slate-50 border border-slate-200 rounded-xl p-4;
+}
+
+.grade-card h4 {
+  @apply font-heading font-bold text-sm text-slate-800 mb-2;
+}
+
+.grade-card ul {
+  @apply space-y-1 text-xs text-slate-600 list-disc pl-4;
+}
+
+.reference-row {
+  @apply block bg-white border border-slate-200 rounded-lg p-3 hover:border-em-purple transition-colors;
+}
+
+.reference-row span {
+  @apply block text-xs font-bold text-slate-800;
+}
+
+.reference-row small {
+  @apply block text-[10px] text-slate-500 mt-1;
+}
+
+.icon-badge {
+  @apply w-20 h-20 rounded-2xl bg-em-purple text-white flex items-center justify-center shadow-xl shrink-0;
+}
+
+.metric-card {
+  @apply bg-slate-900 text-white rounded-xl p-4 border border-slate-800;
+}
+
+.metric-card strong {
+  @apply block text-3xl font-black text-em-gold leading-none;
+}
+
+.metric-card span {
+  @apply block text-[10px] uppercase tracking-wide text-slate-300 mt-2;
+}
+
+.schedule-day {
+  @apply bg-white border border-slate-200 rounded-xl p-3;
+}
+
+.schedule-day h3 {
+  @apply font-heading font-bold text-xs uppercase tracking-wide text-em-purple mb-3;
+}
+
+.schedule-grid {
+  @apply grid grid-cols-3 gap-2;
+}
+
+.schedule-slot {
+  @apply rounded-lg p-2 border text-[10px] leading-snug;
+}
+
+.schedule-slot span {
+  @apply block font-mono font-bold text-slate-500 mb-1;
+}
+
+.schedule-slot strong {
+  @apply block font-semibold text-slate-800;
+}
+
+.schedule-slot.aula {
+  @apply bg-blue-50 border-blue-100;
+}
+
+.schedule-slot.atpc {
+  @apply bg-amber-50 border-amber-100;
+}
+
+.assessment-card {
+  @apply bg-white border border-slate-200 rounded-xl p-3 shadow-sm;
+}
+
+.assessment-card svg {
+  @apply text-em-purple mb-2;
+}
+
+.assessment-card h3 {
+  @apply font-heading font-bold text-xs text-slate-800;
+}
+
+.assessment-card strong {
+  @apply block text-[10px] text-em-gold my-1;
+}
+
+.assessment-card p {
+  @apply text-[10px] text-slate-500 leading-snug;
+}
+
+.pill {
+  @apply px-2 py-1 bg-white border border-slate-200 rounded-full text-[10px] font-bold text-slate-600;
+}
+
+.dashboard-wireframe {
+  @apply grid grid-cols-4 gap-3 bg-slate-100 border border-slate-200 rounded-2xl p-4;
+}
+
+.dash-card {
+  @apply min-h-24 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-center text-center text-xs font-bold text-slate-500 p-3;
+}
+
+.dash-card.wide {
+  @apply col-span-2;
+}
+
+.mini-title {
+  @apply font-heading font-bold text-[10px] uppercase tracking-wider mb-1;
+}
+
+.mind-map {
+  @apply flex flex-wrap gap-2;
+}
+
+.mind-map span {
+  @apply px-2 py-1 rounded-full bg-white/10 border border-white/10 text-[10px] text-slate-200;
+}
+
+.mind-map .root {
+  @apply bg-em-gold text-slate-900 border-em-gold font-bold;
+}
+
+.token-blue { @apply border-ef-blue text-ef-blue; }
+.token-purple { @apply border-em-purple text-em-purple; }
+.token-gold { @apply border-em-gold text-em-gold; }
