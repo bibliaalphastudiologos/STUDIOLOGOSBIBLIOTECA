@@ -1,11 +1,11 @@
 {
-  "name": "StudioLogos Biblioteca Premium",
-  "short_name": "StudioLogos",
-  "description": "Alta curadoria em Filosofia, Teologia, Psicanálise e Literatura.",
+  "name": "Studio Logos Educação",
+  "short_name": "Studio Logos",
+  "description": "Plataforma gratuita de português, literatura, gramática, redação e preparação ENEM.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f9f7f2",
-  "theme_color": "#b48a3d",
+  "background_color": "#fffaf0",
+  "theme_color": "#0f766e",
   "icons": [
     {
       "src": "/icon-192x192.png",

@@ -19,7 +19,7 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <AuthProvider>
         <App />
       </AuthProvider>
@@ -28,4 +28,3 @@ ReactDOM.createRoot(rootElement).render(
 );
 
 window.__STUDIOLOGOS_MOUNTED__ = true;
-document.documentElement.classList.add('react-ready');

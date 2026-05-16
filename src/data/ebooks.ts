@@ -2,91 +2,7 @@ import { Ebook } from '../types';
 import { GutendexService } from '../lib/gutendex';
 import { additionalWorks } from './additionalWorks';
 import { brazilianLiteratureWorks } from './brazilianLiterature';
-import { philosophyPublicDomainWorks } from './philosophyPublicDomain';
-import { psychoanalysisWorks } from './psychoanalysisWorks';
 import { publicDomainWorks } from './publicDomainWorks';
-import { gutenbergMegaCatalogWorks } from './gutenbergMegaCatalog';
-import { theologyPublicDomainWorks } from './theologyPublicDomain';
-import { spiritualityClassicsWorks } from './spiritualityClassics';
-
-// Dados demo como fallback e complemento
-const FEATURED_EBOOKS: Ebook[] = [
-  {
-    id: 'demo-1',
-    title: 'A Ética a Nicômaco',
-    subtitle: '',
-    category: 'Filosofia',
-    subcategory: 'Ética',
-    collection: 'Clássicos da Filosofia',
-    brand: 'Studio Logos',
-    authorReference: 'Aristóteles',
-    workReference: 'Ética',
-    contentType: 'Síntese',
-    level: 'Avançado',
-    readingTime: '45 min de leitura',
-    coverTheme: 'navy',
-    cover: 'https://www.gutenberg.org/covers/6763.jpg',
-    description: 'Síntese da obra-prima de Aristóteles sobre ética e virtude. Análise detalhada dos conceitos de felicidade, justiça e vida boa.',
-    learn: [
-      'Compreender a virtude como meio-termo',
-      'Analisar a relação entre ética e política',
-      'Dominar a noção de eudaimonia',
-    ],
-    recommendedFor: ['Estudantes de filosofia', 'Pesquisadores', 'Professores'],
-    chapters: [],
-    editorialNotice: 'Obra de domínio público disponibilizada gratuitamente através do Project Gutenberg.',
-  },
-  {
-    id: 'demo-2',
-    title: 'Assim Falou Zaratustra',
-    subtitle: 'Um Livro para Todos e para Ninguém',
-    category: 'Filosofia',
-    subcategory: 'Existencialismo',
-    collection: 'Nietzsche Integral',
-    brand: 'Studio Logos',
-    authorReference: 'Friedrich Nietzsche',
-    workReference: 'Filosofia do eterno retorno',
-    contentType: 'Análise',
-    level: 'Intermediário',
-    readingTime: '60 min de leitura',
-    coverTheme: 'burgundy',
-    cover: 'https://www.gutenberg.org/covers/1998.jpg',
-    description: 'Estudo aprofundado da obra mais famosa de Nietzsche. Explicação do super-homem, da morte de Deus e da vontade de poder.',
-    learn: [
-      'Compreender a crítica nietzschiana à moral',
-      'Diferenciar último homem e super-homem',
-      'Aplicar o eterno retorno como ética',
-    ],
-    recommendedFor: ['Filósofos', 'Psicólogos', 'Sociólogos'],
-    chapters: [],
-    editorialNotice: 'Baseado em texto de domínio público, disponibilizado gratuitamente.',
-  },
-  {
-    id: 'demo-3',
-    title: 'O Processo',
-    subtitle: '',
-    category: 'Psicanálise',
-    subcategory: 'Literatura Psicológica',
-    collection: 'Kafka Essencial',
-    brand: 'Studio Logos',
-    authorReference: 'Franz Kafka',
-    workReference: 'Alienação moderna e burocracia',
-    contentType: 'Interpretação',
-    level: 'Introdutório',
-    readingTime: '40 min de leitura',
-    coverTheme: 'burgundy',
-    cover: 'https://www.gutenberg.org/covers/784.jpg',
-    description: 'Análise do processo burocrático e da alienação moderna na obra de Kafka. Conexões com a teoria psicanalítica.',
-    learn: [
-      'Interpretar símbolos oníricos kafkianos',
-      'Entender a burocracia como sintoma social',
-      'Relacionar Kafka com a psicanálise',
-    ],
-    recommendedFor: ['Psicanalistas', 'Literatos', 'Sociólogos'],
-    chapters: [],
-    editorialNotice: 'Texto base domínio público, disponível gratuitamente.'
-  },
-];
 
 function dedupeEbooks(ebooks: Ebook[]): Ebook[] {
   const seen = new Set<string>();
@@ -101,15 +17,9 @@ function dedupeEbooks(ebooks: Ebook[]): Ebook[] {
 }
 
 export const DEMO_EBOOKS: Ebook[] = dedupeEbooks([
-  ...FEATURED_EBOOKS,
   ...publicDomainWorks,
   ...additionalWorks,
-  ...philosophyPublicDomainWorks,
-  ...psychoanalysisWorks,
   ...brazilianLiteratureWorks,
-  ...theologyPublicDomainWorks,
-  ...gutenbergMegaCatalogWorks,
-  ...spiritualityClassicsWorks,
 ]);
 
 export async function getAllEbooks(

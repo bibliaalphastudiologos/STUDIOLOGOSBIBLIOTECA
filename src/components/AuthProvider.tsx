@@ -31,8 +31,8 @@ export interface StudioLogosProfile {
   paymentId?: string;
 }
 
-const MONTHLY_PLAN_PRICE = 'R$ 19,00';
-const MONTHLY_PLAN_PERIOD = 'mensal';
+const MONTHLY_PLAN_PRICE = 'Gratuito';
+const MONTHLY_PLAN_PERIOD = 'educacional';
 const USERS_COLLECTION = 'studio_users';
 const PAYMENT_ACCESS_COLLECTION = 'studio_payment_access';
 
@@ -133,8 +133,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               foto: nextProfile.foto,
               email: nextProfile.email,
               status: nextProfile.status,
-              payment_status: nextProfile.payment_status,
-              access_status: nextProfile.access_status,
+              payment_status: 'approved',
+              access_status: 'active',
               manual_access: nextProfile.manual_access,
               isAdmin: nextProfile.isAdmin,
               paymentId: nextProfile.paymentId,
@@ -149,8 +149,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 approvalDateBrasilia: getBrasiliaDateString(),
                 planPrice: MONTHLY_PLAN_PRICE,
                 planPeriod: MONTHLY_PLAN_PERIOD,
+                status: 'approved' as const,
+                payment_status: 'approved' as const,
+                access_status: 'active' as const,
               }
-            : nextProfile;
+            : {
+                ...nextProfile,
+                status: 'approved' as const,
+                payment_status: 'approved' as const,
+                access_status: 'active' as const,
+                planPrice: MONTHLY_PLAN_PRICE,
+                planPeriod: MONTHLY_PLAN_PERIOD,
+              };
           setProfile(profileWithApproval);
           setHasAccess(isApproved);
           return;
@@ -160,9 +170,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           email: firebaseUser.email || '',
           nome: firebaseUser.displayName || 'Leitor StudioLogos',
           foto: firebaseUser.photoURL || '',
-          status: hasPaidAccess(paymentRecord) ? 'approved' : 'pending',
-          payment_status: paymentRecord?.payment_status || 'pending',
-          access_status: hasPaidAccess(paymentRecord) ? 'active' : 'blocked',
+          status: 'approved',
+          payment_status: 'approved',
+          access_status: 'active',
           isAdmin: false,
           approvedAt: paymentRecord?.approvedAt,
           approvalDateBrasilia: paymentRecord?.approvalDateBrasilia,
@@ -174,18 +184,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           {
             ...newProfile,
             createdAt: serverTimestamp(),
-            ...(newProfile.status === 'approved' ? approvalFields() : {}),
+            ...approvalFields(),
             updatedAt: serverTimestamp(),
           },
         );
-        setProfile(newProfile.status === 'approved'
-          ? {
-              ...newProfile,
-              approvalDateBrasilia: newProfile.approvalDateBrasilia || getBrasiliaDateString(),
-              planPrice: MONTHLY_PLAN_PRICE,
-              planPeriod: MONTHLY_PLAN_PERIOD,
-            }
-          : newProfile);
+        setProfile({
+          ...newProfile,
+          approvalDateBrasilia: newProfile.approvalDateBrasilia || getBrasiliaDateString(),
+          planPrice: MONTHLY_PLAN_PRICE,
+          planPeriod: MONTHLY_PLAN_PERIOD,
+        });
         setHasAccess(true); // Qualquer usuário Google tem acesso
       } catch (error) {
         console.warn('[StudioLogos Auth] Não foi possível sincronizar o perfil:', error);
