@@ -22,8 +22,6 @@ import {
   PenLine,
   Play,
   Search,
-  Sparkles,
-  Star,
   Sun,
   Target,
   Trophy,
@@ -60,7 +58,7 @@ const navItems: NavItem[] = [
   { id: "quizzes", label: "Quizzes", icon: Trophy },
   { id: "biblioteca", label: "Biblioteca", icon: Library },
   { id: "enem", label: "ENEM", icon: GraduationCap },
-  { id: "autores", label: "Autores", icon: Star },
+  { id: "autores", label: "Autores", icon: PenLine },
   { id: "progresso", label: "Meu Progresso", icon: BarChart3 },
 ];
 
@@ -228,13 +226,13 @@ function LoginGate() {
       <section className="min-h-screen grid lg:grid-cols-[1.02fr_0.98fr]">
         <div className="flex items-center bg-[radial-gradient(circle_at_20%_10%,rgba(251,146,60,0.18),transparent_34%),linear-gradient(180deg,#fffaf0,#ffffff)] px-5 py-10 sm:px-10 lg:px-16">
           <div className="max-w-2xl space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-extrabold text-teal-700 shadow-sm">
-              <Sparkles className="h-4 w-4" />
+            <div className="inline-flex items-center gap-3 rounded-full border border-amber-200 bg-white px-4 py-2 text-sm font-extrabold text-slate-800 shadow-sm">
+              <img src="/logo.png" alt="Studio Logos" className="h-7 w-7 rounded-full object-cover" />
               Studio Logos Educação
             </div>
             <div className="space-y-5">
               <h1 className="text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">
-                Aprenda português, literatura e escrita de forma moderna, gratuita e inteligente.
+                Aprenda português, literatura e escrita de forma moderna, gratuita e acolhedora.
               </h1>
               <p className="max-w-xl text-lg leading-8 text-slate-600">
                 Uma plataforma brasileira de leitura, gramática, redação e quizzes para estudantes do 6o ano ao 3o ano do Ensino Médio.
@@ -370,7 +368,7 @@ export default function App() {
       <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <button onClick={() => scrollTo("home")} className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-600 text-lg font-black text-white shadow-md shadow-teal-100">SL</div>
+            <img src="/logo.png" alt="Studio Logos" className="h-12 w-12 rounded-lg object-cover shadow-md shadow-amber-100" />
             <div className="text-left">
               <p className="text-base font-black leading-4 text-slate-950">Studio Logos</p>
               <p className="text-xs font-bold text-teal-700">Português e Literatura</p>
@@ -550,7 +548,7 @@ export default function App() {
 
         <section id="literatura" className="px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <SectionTitle eyebrow="Literatura escolar" title="Clássicos organizados por autor, período e dificuldade." text="O acervo muda de uma vitrine adulta para uma biblioteca escolar inteligente, com foco em obras integrais de domínio público." />
+            <SectionTitle eyebrow="Literatura escolar" title="Clássicos organizados por autor, período e dificuldade." text="O acervo muda de uma vitrine adulta para uma biblioteca escolar viva, com foco em obras integrais de domínio público." />
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {authorHighlights.map((author) => (
                 <article key={author.name} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
@@ -586,7 +584,7 @@ export default function App() {
         <section id="exercicios" className="bg-white px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.9fr]">
             <div>
-              <SectionTitle eyebrow="Exercícios inteligentes" title="Rotas semanais para gramática, interpretação e ENEM." text="A plataforma propõe missões curtas, revisões espaçadas e desafios por série escolar." />
+              <SectionTitle eyebrow="Exercícios guiados" title="Rotas semanais para gramática, interpretação e ENEM." text="A plataforma propõe missões curtas, revisões espaçadas e desafios por série escolar." />
               <div className="mt-8 grid gap-3">
                 {["Ortografia em 10 minutos", "Interpretação com texto curto", "Figuras de linguagem no poema", "Crase em frases do cotidiano", "Tese e proposta de intervenção"].map((item, index) => (
                   <div key={item} className="flex items-center gap-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
@@ -672,7 +670,7 @@ export default function App() {
                       <p className="mt-1 text-sm font-bold text-slate-500">{ebook.author}</p>
                     </div>
                     <button onClick={() => toggleFavorite(ebook)} className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${favorites.includes(ebook.id) ? "border-amber-300 bg-amber-100 text-amber-700" : "border-slate-200 bg-white text-slate-400"}`} aria-label="Favoritar obra" title="Favoritar">
-                      <Star className="h-5 w-5" />
+                      <BookMarked className="h-5 w-5" />
                     </button>
                   </div>
                   <p className="mt-4 line-clamp-3 min-h-20 leading-7 text-slate-600">{ebook.description}</p>
@@ -741,7 +739,7 @@ export default function App() {
           <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-300">Studio Logos</p>
-              <h2 className="mt-2 text-3xl font-black text-white">Uma biblioteca escolar inteligente para voltar todos os dias.</h2>
+              <h2 className="mt-2 text-3xl font-black text-white">Uma biblioteca escolar viva para voltar todos os dias.</h2>
             </div>
             <div className="flex items-center gap-3">
               <button onClick={() => setDarkReaderPreview(false)} className={`inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/10 ${!darkReaderPreview ? "bg-white text-slate-950" : "text-white"}`} aria-label="Tema claro" title="Tema claro">
